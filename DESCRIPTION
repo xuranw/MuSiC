@@ -3,7 +3,6 @@ Type: Package
 Title: Bulk tissue deconvolution with multi-sample single cell reference
 Version: 0.1.0
 Author: Xuran Wang
-Author@R: c(person("Xuran", "Wang", role = c('aut', 'cre'), email = 'xuranw@sas.upenn.edu'))
 Maintainer: Xuran Wang <xuranw@sas.upenn.edu>
 Description: Companion package to: A bulk tissue deconvolution with multi-sample single cell
 reference. The estimation is based as on the weight, calculated by cross-sample variations.

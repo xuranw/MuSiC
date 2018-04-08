@@ -5,7 +5,7 @@ Version: 0.1.0
 Author: Xuran Wang
 Maintainer: Xuran Wang <xuranw@sas.upenn.edu>
 Description: Companion package to: A bulk tissue deconvolution with multi-sample single cell reference. The estimation is based as on the weight, calculated by cross-sample variations.
-License: GPL (>= 2)
+License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 3.3.2), nnls (>= 1.4), ggplot2 (>= 2.2.1)

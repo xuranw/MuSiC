@@ -1,6 +1,6 @@
-Package: wdec
+Package: MuSiC
 Type: Package
-Title: Bulk tissue deconvolution with multi-sample single cell reference
+Title: Multi-sample single cell deconvolution
 Version: 0.1.0
 Author: Xuran Wang
 Maintainer: Xuran Wang <xuranw@sas.upenn.edu>

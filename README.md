@@ -1,9 +1,9 @@
-# Deconvolution of Bulk Sequencing Experiments using Single Cell Data with Weight
+# MUlti-sample SIgle Cell deconvolution (MuSiC)
 
-`wdec` is a bioinformatics analysis pipeline that leverages single-cell sequencing data to estimate cell type proportions of RNA-seq data from bulk tissue samples.
+`MuSiC` is a bioinformatics analysis pipeline that leverages single-cell sequencing data to estimate cell type proportions of RNA-seq data from bulk tissue samples.
 
 
-## How to cite `wdec`
+## How to cite `MuSiC`
 When using this work in any way, please cite the following publication:
 
 
@@ -13,8 +13,9 @@ When using this work in any way, please cite the following publication:
 install.packages('devtools')
 
 # install the wdec package
-devtools::install_github('xuranw/wdec')
+devtools::install_github('xuranw/MuSiC')
 
 # load
-library(wdec)
+library(MuSiC)
 ```
+## Examples

@@ -4,7 +4,8 @@
 \alias{Abs_diff_multi}
 \title{Plot heatmap of Absolute difference between estimated and real cell type proportions}
 \usage{
-Abs_diff_multi(prop.real, prop.est, method.name = NULL, title = NULL, ...)
+Abs_diff_multi(prop.real, prop.est, method.name = NULL, title = NULL,
+  eval = TRUE, ...)
 }
 \arguments{
 \item{prop.real}{a matrix of real cell type proportions}
@@ -15,13 +16,14 @@ Abs_diff_multi(prop.real, prop.est, method.name = NULL, title = NULL, ...)
 generated automatically as 'Est1', 'Est2', ...}
 
 \item{title}{a string of the tile of the plot}
+
+\item{eval}{logical, default as TRUE. If TRUE, RMSD and mAD will be printed with figures}
 }
 \value{
-a `ggplot` object with [ggplot2::geom_tile]
+a 'ggplot' object with [ggplot2::geom_tile]
 }
 \description{
-Generate a series of heatmap with RMSE and mAD between real and estimated cell type
-proportions
+Generate a series of heatmap of absolute difference between estimated and real cell type proportion with option of printing RMSD and mAD between real and estimated cell type proportions
 }
 \seealso{
 \code{\link{Prop_comp_multi}}, \code{\link{Eval_multi}},

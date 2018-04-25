@@ -2,20 +2,20 @@
 % Please edit documentation in R/plot.R
 \name{Prop_convert}
 \alias{Prop_convert}
-\title{Compare real cell type proportion with estimated cell type proportion; Evaluation}
+\title{Convert list of real and estimated cell type proportions to data frame}
 \usage{
 Prop_convert(prop.real, prop.est, method.name = NULL, ...)
 }
 \arguments{
 \item{prop.real, }{real cell type proportions}
 
-\item{prop.est, }{estimated cell type proportion}
+\item{prop.est, }{estimated cell type proportions}
 
-\item{method.name}{vector of estimation methods, default as NULL, name will be provided as numbered.}
+\item{method.name}{vector of estimation methods, default as NULL, name will be provided as 'Est.Method1', 'Est.Method2', ...}
 }
 \value{
-data.frame of cell type proportion, cell type, subject
+data.frame of real and estimated cell type proportion, cell type, subject name.
 }
 \description{
-Compare real cell type proportion with estimated cell type proportion; Evaluation
+This is a function for converting real and estimated cell type proportions to data frame
 }

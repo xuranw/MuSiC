@@ -17,7 +17,7 @@ generated automatically as 'Est1', 'Est2', ...}
 
 \item{title}{a string of the tile of the plot}
 
-\item{oneline}{logical, default as FALSE. If TRUE, all plots are in one row.}
+\item{oneline}{logical, default as FALSE. If TRUE, set \code{nrow = 1} in \code{facet_wrap()}, all plots are in one row.}
 }
 \value{
 a 'ggplot' object with [ggplot2::geom_point]

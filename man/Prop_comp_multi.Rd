@@ -4,7 +4,8 @@
 \alias{Prop_comp_multi}
 \title{Plot heatmap of real and estimated cell type proportions}
 \usage{
-Prop_comp_multi(prop.real, prop.est, method.name = NULL, title = NULL, ...)
+Prop_comp_multi(prop.real, prop.est, method.name = NULL, title = NULL,
+  eval = TRUE, ...)
 }
 \arguments{
 \item{prop.real}{a matrix of real cell type proportions}
@@ -15,13 +16,14 @@ Prop_comp_multi(prop.real, prop.est, method.name = NULL, title = NULL, ...)
 generated automatically as 'Est1', 'Est2', ...}
 
 \item{title}{a string of the title of the plot}
+
+\item{eval}{logical, default as TRUE. If TRUE, pearson correlation evaluation will be printed on the figure.}
 }
 \value{
-a `ggplot` object with [ggplot2::geom_tile]
+a 'ggplot' object with [ggplot2::geom_tile]
 }
 \description{
-Generate a series of heatmaps with Pearson correlation between real and
-estimated cell type proportions
+Generate heatmaps of real and estimated cell type proportions side by side. Pearson correlation can be calculated and printed.
 }
 \examples{
 # generate random data

@@ -13,8 +13,8 @@ bulk_construct(eset, clusters, samples, select.ct = NULL)
 
 \item{samples}{character, the phenoData used as samples}
 
-\item{select.ct}{vector of cell types, default at NULL.
-Only cells with those cell types will be used for construction.}
+\item{select.ct}{vector of cell types included, default as \code{NULL}. If \code{NULL}, include all cell types in \code{x}.
+Otherwise, only cells of selected cell types will be used for construction.}
 }
 \value{
 ExpressionSet of constructed bulk tissue, matrix of cell number in each cluster*sample

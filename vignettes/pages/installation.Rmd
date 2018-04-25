@@ -1,0 +1,21 @@
+---
+title: Installation
+output:
+  pkgdown:
+    toc: FALSE
+---
+
+`MuSiC` is implemented as an
+R package, `r BiocStyle::Githubpkg('xuranw', 'MuSiC')`, which can be
+installed from GitHub by:
+  
+```{r, eval = FALSE}
+# install devtools if necessary
+install.packages('devtools')
+
+# install bseqsc
+devtools::install_github('xuranw/MuSiC')
+
+# load
+library(MuSiC)
+```

@@ -3,13 +3,16 @@
 # Author: Xuran Wang
 ############################################################################################################
 
-#' Compare real cell type proportion with estimated cell type proportion; Evaluation
+#' Convert list of real and estimated cell type proportions to data frame
 #'
+#' This is a function for converting real and estimated cell type proportions to data frame
 #'
 #' @param prop.real, real cell type proportions
-#' @param prop.est, estimated cell type proportion
-#' @param method.name vector of estimation methods, default as NULL, name will be provided as numbered.
-#' @return data.frame of cell type proportion, cell type, subject
+#' @param prop.est, estimated cell type proportions
+#' @param method.name vector of estimation methods, default as NULL, name will be provided as 'Est.Method1', 'Est.Method2', ...
+#' @return data.frame of real and estimated cell type proportion, cell type, subject name.
+#'
+#' @export
 Prop_convert = function(prop.real, prop.est, method.name = NULL, ...){
   ct.real = colnames(prop.real); sub.real = rownames(prop.real);
   if(!is.list(prop.est)){
@@ -54,14 +57,14 @@ Prop_convert = function(prop.real, prop.est, method.name = NULL, ...){
 
 #' Plot heatmap of real and estimated cell type proportions
 #'
-#' Generate a series of heatmaps with Pearson correlation between real and
-#' estimated cell type proportions
+#' Generate heatmaps of real and estimated cell type proportions side by side. Pearson correlation can be calculated and printed.
 #'
 #' @param prop.real a matrix of real cell type proportions
 #' @param prop.est a matrix or a list of matrices of estimated cell type proportions
 #' @param method.name vector of the names of estimation methods. Default is NULL and the names will be
 #' generated automatically as 'Est1', 'Est2', ...
 #' @param title a string of the title of the plot
+#' @param eval logical, default as TRUE. If TRUE, pearson correlation evaluation will be printed on the figure.
 #'
 #' @return a 'ggplot' object with [ggplot2::geom_tile]
 #'
@@ -69,12 +72,13 @@ Prop_convert = function(prop.real, prop.est, method.name = NULL, ...){
 #' \code{\link{Abs_diff_multi}}, \code{\link{Eval_multi}},
 #' \code{\link{Scatter_multi}}
 #'
+#' @import ggplot2
 #' @export
 #'
 #' @examples
 #' # generate random data
 #'
-Prop_comp_multi = function(prop.real, prop.est, method.name = NULL, title = NULL, ... ){
+Prop_comp_multi = function(prop.real, prop.est, method.name = NULL, title = NULL, eval = TRUE, ... ){
   ct.real = colnames(prop.real); sub.real = rownames(prop.real);
   if(!is.list(prop.est)){
     prop.est = list(prop.est)
@@ -116,22 +120,28 @@ Prop_comp_multi = function(prop.real, prop.est, method.name = NULL, title = NULL
   if(is.null(title)){
     title = 'Heatmap of Estimated and Real Proportion'
   }
-  ggplot(m.prop, aes(CellType, Sub)) + geom_tile(aes(fill = Prop), colour = 'white') + scale_fill_gradient2(
-    low = 'steelblue', high = "red", mid = 'white', midpoint = 0.5, limit = c(0, 1), name = 'Est Prop')  + facet_wrap(~Method, nrow = 1) + theme(
-      axis.text.x = element_text(angle = 50, size = 10, vjust = 0.5) ) + ggtitle(title) + annotate("text", label = ann, x = round(4*K/5), y = N, size = 2.5, colour = "black")
+  if(eval){
+    ggplot(m.prop, aes(CellType, Sub)) + geom_tile(aes(fill = Prop), colour = 'white') + scale_fill_gradient2(
+      low = 'steelblue', high = "red", mid = 'white', midpoint = 0.5, limit = c(0, 1), name = 'Est Prop\n')  + facet_wrap(~Method, nrow = 1) + theme(
+        axis.text.x = element_text(angle = -90, size = 10, vjust = 0) ) + ggtitle(title) + annotate("text", label = ann, x = round(4*K/5), y = N, size = 2.5, colour = "black")
+  }else{
+    ggplot(m.prop, aes(CellType, Sub)) + geom_tile(aes(fill = Prop), colour = 'white') + scale_fill_gradient2(
+      low = 'steelblue', high = "red", mid = 'white', midpoint = 0.5, limit = c(0, 1), name = 'Est Prop\n')  + facet_wrap(~Method, nrow = 1) + theme(
+        axis.text.x = element_text(angle = -90, size = 10, vjust = 0) ) + ggtitle(title)
+  }
 }
 
 
 #' Plot heatmap of Absolute difference between estimated and real cell type proportions
 #'
-#' Generate a series of heatmap with RMSE and mAD between real and estimated cell type
-#' proportions
+#' Generate a series of heatmap of absolute difference between estimated and real cell type proportion with option of printing RMSD and mAD between real and estimated cell type proportions
 #'
 #' @param prop.real a matrix of real cell type proportions
 #' @param prop.est a matrix or a list of matrices of estimated cell type proportions
 #' @param method.name vector of the names of estmation methods. Default is NULL and the names will be
 #' generated automatically as 'Est1', 'Est2', ...
 #' @param title a string of the tile of the plot
+#' @param eval logical, default as TRUE. If TRUE, RMSD and mAD will be printed with figures
 #'
 #' @return a 'ggplot' object with [ggplot2::geom_tile]
 #'
@@ -142,7 +152,7 @@ Prop_comp_multi = function(prop.real, prop.est, method.name = NULL, title = NULL
 #' @import ggplot2
 #' @export
 #'
-Abs_diff_multi = function(prop.real, prop.est, method.name = NULL, title = NULL, ... ){
+Abs_diff_multi = function(prop.real, prop.est, method.name = NULL, title = NULL, eval = TRUE, ... ){
   ct.real = colnames(prop.real); sub.real = rownames(prop.real);
   if(is.list(prop.est)){
     L = length(prop.est)
@@ -202,12 +212,18 @@ Abs_diff_multi = function(prop.real, prop.est, method.name = NULL, title = NULL,
   if(is.null(title)){
     title = 'Heatmap of Absolute Difference |p - Est.p|'
   }
-  ggplot(abs.diff, aes(CellType, Sub)) + geom_tile(aes(fill = Abs.Diff), colour = 'white')+ scale_fill_gradient(
-    low = 'white', high = 'steelblue', name = 'Abs.Diff') + facet_wrap( ~ Method, nrow = 1) + theme(
-      axis.text.x = element_text(angle = 50, size = 10, vjust = 0.5) ) + #geom_text(aes(label = round(Abs.Diff, 2))) +
-    ggtitle(title) + annotate("text", label = ann, x = round(4*K/5), y = N-0.5, size = 2.5, colour = "black")
+  if(eval){
+    ggplot(abs.diff, aes(CellType, Sub)) + geom_tile(aes(fill = Abs.Diff), colour = 'white')+ scale_fill_gradient(
+      low = 'white', high = 'steelblue', name = 'Abs.Diff\n') + facet_wrap( ~ Method, nrow = 1) + theme(
+        axis.text.x = element_text(angle = -90, size = 10, vjust = 0) ) + #geom_text(aes(label = round(Abs.Diff, 2))) +
+      ggtitle(title) + annotate("text", label = ann, x = round(4*K/5), y = N-0.5, size = 2.5, colour = "black")
+  }else{
+    ggplot(abs.diff, aes(CellType, Sub)) + geom_tile(aes(fill = Abs.Diff), colour = 'white')+ scale_fill_gradient(
+      low = 'white', high = 'steelblue', name = 'Abs.Diff\n') + facet_wrap( ~ Method, nrow = 1) + theme(
+        axis.text.x = element_text(angle = -90, size = 10, vjust = 0) ) + #geom_text(aes(label = round(Abs.Diff, 2))) +
+      ggtitle(title)
+  }
 }
-
 
 #' Evaluate estimation methods
 #'
@@ -293,7 +309,7 @@ Eval_multi = function(prop.real, prop.est, method.name = NULL, by.subject = FALS
 #' @param method.name vector of the names of estmation methods. Default is NULL and the names will be
 #' generated automatically as 'Est1', 'Est2', ...
 #' @param title a string of the tile of the plot
-#' @param oneline logical, default as FALSE. If TRUE, all plots are in one row.
+#' @param oneline logical, default as FALSE. If TRUE, set \code{nrow = 1} in \code{facet_wrap()}, all plots are in one row.
 #'
 #' @return a 'ggplot' object with [ggplot2::geom_point]
 #'
@@ -301,6 +317,7 @@ Eval_multi = function(prop.real, prop.est, method.name = NULL, by.subject = FALS
 #' \code{\link{Prop_comp_multi}}, \code{\link{Abs_diff_multi}},
 #' \code{\link{Eval_multi}}
 #'
+#' @import ggplot2
 #' @export
 #'
 Scatter_multi = function(prop.real, prop.est, method.name = NULL, title = NULL, oneline = FALSE, ... ){
@@ -365,6 +382,7 @@ Scatter_multi = function(prop.real, prop.est, method.name = NULL, title = NULL, 
 #' @seealso
 #' \code{\link{Jitter_Est}}, \code{\link{Prop_heat_Est}}
 #'
+#' @import ggplot2
 #' @export
 Boxplot_Est = function(prop.est, method.name = NULL, title = NULL, ... ){
   if(!is.list(prop.est)){
@@ -419,6 +437,7 @@ Boxplot_Est = function(prop.est, method.name = NULL, title = NULL, ... ){
 #' @seealso
 #' \code{\link{Boxplot_Est}}, \code{\link{Prop_heat_Est}}
 #'
+#' @import ggplot2
 #' @export
 Jitter_Est = function(prop.est, method.name = NULL, title = NULL, ... ){
   if(!is.list(prop.est)){
@@ -473,6 +492,7 @@ Jitter_Est = function(prop.est, method.name = NULL, title = NULL, ... ){
 #' @seealso
 #' \code{\link{Boxplot_Est}}, \code{\link{Jitter_Est}}
 #'
+#' @import ggplot2
 #' @export
 Prop_heat_Est = function(prop.est, method.name = NULL, title = NULL, ... ){
   if(!is.list(prop.est)){
@@ -515,7 +535,9 @@ Prop_heat_Est = function(prop.est, method.name = NULL, title = NULL, ... ){
       axis.text.x = element_text(angle = 50, size = 10, vjust = 0.5) ) + ggtitle(title)
 }
 ############## Compare two datasets #######################
-## Compare cell type specific total expression (library size) between 2 dataset
+#' Compare cell type specific total expression (library size) between 2 dataset
+#'
+#'
 CellTotal.df = function(eset, cellType, sampleID){
   df <- pData(eset)
   df$Total = colSums(exprs(eset))
@@ -531,6 +553,12 @@ CellTotal.df = function(eset, cellType, sampleID){
   return(mdf)
 }
 
+#' Plot the cell type specific library size of 2 single cell datasets
+#'
+#' This function is to plot the cell type specific library size of the common cell types of 2 single cell datasets
+#'
+#' @param eset1 ExpressionSet of first single cell dataset
+#' @param eset2 ExpressionSet of second single cell dataset
 plotCellTotal.two = function(eset1, eset2, cellType, sampleID, name1, name2){
   mdf1 = CellTotal.df(eset1, cellType, sampleID)
   mdf2 = CellTotal.df(eset2, cellType, sampleID)
@@ -546,19 +574,6 @@ plotCellTotal.two = function(eset1, eset2, cellType, sampleID, name1, name2){
     geom_bar(stat = "identity") + guides(fill = guide_legend("")) +
     geom_errorbar(aes_string(ymin = "lb", ymax = "ub"), color = "#555555",
                   width = 0.25) + facet_wrap( ~Name, scales = 'free') + theme(axis.text.x = element_text(angle = 320, hjust = 0)) + ylab("Average total count") + xlab("")
-}
-Relative_Bulk_SC_Comp = function(bulk.eset, sc.eset, sample, ... ){
-  cm.gene = intersect(featureNames(bulk.eset), featureNames(sc.eset));
-  bulk.eset = bulk.eset[cm.gene, , drop = FALSE];
-  sc.eset = sc.eset[cm.gene, , drop = FALSE];
-  bulk.ra = rowMeans(relative.ab(exprs(bulk.eset)));
-  sc.ra = rowMeans(relative.ab(exprs(sc.eset)));
-  smoothScatter(log(bulk.ra*1000 + 10^{-8}), log(sc.ra*1000 + 10^{-8}), xlim = c(-20, 7), ylim = c(-20, 7),
-                xlab = 'log(Bulk RA*1000 + 10^-8)', ylab = 'log(Single cell Mean RA*1000+10^-8)',
-                main = 'Relative Abundance in Bulk and Single cell')
-  lines(c(-20, 10), c(-20, 10), col = 'gray', lwd = 2)
-  s.gene = cm.gene[(log(bulk.ra*1000 + 10^{-8})> log(10^{-8})+ 1)&(log(sc.ra*1000 + 10^{-8}) > log(10^{-8})+ 1)]
-  return(list(select.gene = s.gene, bulk.eset = bulk.eset[s.gene, , drop = FALSE], sc.eset = sc.eset[s.gene, , drop = FALSE]))
 }
 
 #' Boxplot of relative abundance
@@ -576,6 +591,7 @@ Relative_Bulk_SC_Comp = function(bulk.eset, sc.eset, sample, ... ){
 #'
 #' @return a 'ggplot' object with [ggplot2::geom_boxplot]
 #'
+#' @import ggplot2
 #' @export
 #'
 Relative_gene_boxplot = function(sc.eset, gene.name, nu = 10^{-10}, marker.id = NULL, log.trans = TRUE, select.ct = NULL, ... ){

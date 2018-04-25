@@ -93,8 +93,10 @@ get_upper_tri = function(cormat){
 
 
 
-
-# This function is to calculate the deconvolution proportion
+#' MuSiC Deconvolution
+#'
+#' This function is to calculate the MuSiC deconvolution proportions
+#'
 #' @param bulk.eset ExpressionSet for bulk data
 #' @param sc.eset ExpressionSet for single cell data
 #' @param markers vector or list of gene names, default as NULL. If NULL, use all genes that provided by both bulk and single cell dataset.
@@ -108,9 +110,16 @@ get_upper_tri = function(cormat){
 #' @param eps Thredshold of convergence
 #' @param inter.as.bseq logic, substract avg of Y and D as BSEQ-sc did
 #' @param normalize logic, divide Y and D by their standard deviation
-#' @return Estimation from W-NNLS, Estimation from NNLS, Weight of W-NNLS, r.squared, Var of W-NNLS
-w_nnls_prop = function(bulk.eset, sc.eset, markers = NULL, clusters, samples, select.ct = NULL, ct.cov = FALSE, verbose = TRUE,
-                       iter.max = 1000, nu = 0.0001, eps = 0.01, inter.as.bseq = F, normalize = F, ... ){
+#' @return a list of
+#'         * Estimates of MuSiC
+#'         * Estimates of NNLS
+#'         * Weight of MuSiC
+#'         * r.squared of MuSiC
+#'         * Variance of MuSiC estimates
+#' @seealso
+#' \code{\link{music_basis}}
+music_prop = function(bulk.eset, sc.eset, markers = NULL, clusters, samples, select.ct = NULL, ct.cov = FALSE, verbose = TRUE,
+                      iter.max = 1000, nu = 0.0001, eps = 0.01, inter.as.bseq = F, normalize = F, ... ){
   bulk.gene = rownames(bulk.eset)[rowMeans(exprs(bulk.eset)) != 0]
   bulk.eset = bulk.eset[bulk.gene, , drop = FALSE]
   if(is.null(markers)){
@@ -118,7 +127,7 @@ w_nnls_prop = function(bulk.eset, sc.eset, markers = NULL, clusters, samples, se
   }else{
     sc.markers = intersect(bulk.gene, unlist(markers))
   }
-  sc.basis = w_nnls_basis(sc.eset, non.zero = TRUE, markers = sc.markers, clusters = clusters, samples = samples, select.ct = select.ct, ct.cov = ct.cov, verbose = verbose)
+  sc.basis = music_basis(sc.eset, non.zero = TRUE, markers = sc.markers, clusters = clusters, samples = samples, select.ct = select.ct, ct.cov = ct.cov, verbose = verbose)
   cm.gene = intersect( rownames(sc.basis$Disgn.mtx), bulk.gene )
   if(is.null(markers)){
     if(length(cm.gene)< 0.2*min(length(bulk.gene), nrow(sc.eset)) )
@@ -147,8 +156,8 @@ w_nnls_prop = function(bulk.eset, sc.eset, markers = NULL, clusters, samples, se
       if(verbose) message(paste(colnames(Yjg)[i], 'has common genes', sum(Yjg[, i] != 0), '...'))
     }
 
-    lm.D1.weighted = nnls.weight.new.iter.ct(Yjg.temp, D1.temp, M.S, Sigma.ct.temp, iter.max = iter.max,
-                                             nu = nu, eps = eps, inter.as.bseq = inter.as.bseq, normalize = normalize)
+    lm.D1.weighted = music.iter.ct(Yjg.temp, D1.temp, M.S, Sigma.ct.temp, iter.max = iter.max,
+                                   nu = nu, eps = eps, inter.as.bseq = inter.as.bseq, normalize = normalize)
     Est.prop.allgene = rbind(Est.prop.allgene, lm.D1.weighted$p.nnls)
     Est.prop.weighted = rbind(Est.prop.weighted, lm.D1.weighted$p.weight)
     weight.gene.temp = rep(NA, nrow(Yjg)); weight.gene.temp[Yjg[,i]!=0] = lm.D1.weighted$weight.gene;
@@ -186,8 +195,8 @@ w_nnls_prop = function(bulk.eset, sc.eset, markers = NULL, clusters, samples, se
         if(verbose) message(paste(colnames(Yjg)[i], 'has common genes', sum(Yjg[, i] != 0), '...'))
       }
 
-      lm.D1.weighted = nnls.weight.new.iter(Yjg.temp, D1.temp, M.S, Sigma.temp, iter.max = iter.max,
-                                            nu = nu, eps = eps, inter.as.bseq = inter.as.bseq, normalize = normalize)
+      lm.D1.weighted = music.iter(Yjg.temp, D1.temp, M.S, Sigma.temp, iter.max = iter.max,
+                                  nu = nu, eps = eps, inter.as.bseq = inter.as.bseq, normalize = normalize)
       Est.prop.allgene = rbind(Est.prop.allgene, lm.D1.weighted$p.nnls)
       Est.prop.weighted = rbind(Est.prop.weighted, lm.D1.weighted$p.weight)
       weight.gene.temp = rep(NA, nrow(Yjg)); weight.gene.temp[Yjg[,i]!=0] = lm.D1.weighted$weight.gene;
@@ -211,26 +220,27 @@ w_nnls_prop = function(bulk.eset, sc.eset, markers = NULL, clusters, samples, se
 }
 
 
-
-
-
-######## Transform ExpressionSet to Seurat Class ##############
-EsettoSeurat = function(eset){
-  nbt=new("seurat",raw.data=exprs(eset))
-  nbt@cell.names = rownames(pData(eset))
-  nbt@ident = factor(eset$cellType, levels = intersect(levels(eset$cellType), unique(as.character(eset$cellType))) );
-  names(nbt@ident) = colnames(eset)
-  nbt@meta.data = data.frame(nGene = colSums(exprs(eset) != 0 ), sampleID = eset$sampleID, SubjectName = eset$SubjectName)
-  if('Disease'%in%colnames(pData(eset))){
-    nbt@meta.data$Disease = eset$Disease
-  }
-  return(nbt)
-}
-
-
-
 ################### ANOVA select Marker Genes ######################
-Anova_info = function(eset, non.zero = T, markers = NULL, clusters, samples, select.ct = NULL, num.info = 25, ... ){
+#' ANOVA Test for each gene
+#'
+#' This function is to test the two-way significance of cell type specific expression cross samples
+#'
+#' @param eset single cell ExpressionSet
+#' @param non.zero logical, default as TRUE. If TRUE, we only use gene that have non-zero expression
+#' @param markers vector of characters, default as NULL. If NULL, use all genes in \code{eset}
+#' @param clusters character, the name of phenoData used as clusters
+#' @param samples character, the name of phenoData used as samples
+#' @param select.ct vector of cell types included, default as \code{NULL}. If \code{NULL}, include all cell types in \code{x}
+#' @param num.info numeric, number of selected gene for each cell type. Default at 25
+#'
+#' @return a list of
+#'        * F statistics of \code{samples}
+#'        * F statistics of \code{clusters},
+#'        * F statistics of two-way anova
+#'        * selected informative genes: high F statictis for \code{clusters} compare to \code{samples}
+#'
+#' @importFrom stats aov
+Anova_info = function(eset, non.zero = TRUE, markers = NULL, clusters, samples, select.ct = NULL, num.info = 25, ... ){
   if(!is.null(select.ct)){
     s.ct = sampleNames(eset)[as.character(pVar(eset, clusters)) %in% select.ct]
     eset <- eset[, s.ct, drop = FALSE]

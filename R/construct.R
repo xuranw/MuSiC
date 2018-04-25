@@ -10,13 +10,13 @@
 #' @param eset ExpressionSet, single cell dataset
 #' @param clusters character, the phenoData used as clusters
 #' @param samples character, the phenoData used as samples
-#' @param select.ct vector of cell types, default at NULL.
-#' Only cells with those cell types will be used for construction.
+#' @param select.ct vector of cell types included, default as \code{NULL}. If \code{NULL}, include all cell types in \code{x}.
+#' Otherwise, only cells of selected cell types will be used for construction.
 #'
 #' @return ExpressionSet of constructed bulk tissue, matrix of cell number in each cluster*sample
 #'
 #' @import plyr
-#' @expot
+#' @export
 bulk_construct = function(eset, clusters, samples, select.ct = NULL){
   if(!is.null(select.ct)){
     s.ct = sampleNames(eset)[as.character(pVar(eset, clusters)) %in% select.ct]
@@ -47,16 +47,23 @@ bulk_construct = function(eset, clusters, samples, select.ct = NULL){
   return(list(Bulk.counts = Bulk.counts, num.real = num.real))
 }
 
-############ Construct Design Matrix, Library Size, and Subject-level Variation of Relative abundance for W-NNLS ############
-## This function is for all parameters used for deconvolution
+############ Construct Design Matrix, Library Size, and Subject-level Variation of Relative abundance for MuSiC ############
+## These functions are for cell type specific mean expression, cross-sample variance and mean library size for MuSiC deconvolution
+
+#' Cross-sample Mean of Relative Abudance
+#'
+#' This function is for calculating the cross-sample mean of relative abundance for selected cell types.
+#'
 #' @param x ExpressionSet, single cell dataset
 #' @param non.zero logical, if true, remove all gene with zero expression
 #' @param markers vector or list of gene names
 #' @param clusters character, the phenoData used as clusters
 #' @param samples character,the phenoData used as samples
-#' @param select.ct vector of cell types
+#' @param select.ct vector of cell types included, default as \code{NULL}. If \code{NULL}, include all cell types in \code{x}
 #' @return gene by cell type matrix of average relative abundance
-w_nnls_M.theta = function(x, non.zero, markers, clusters, samples, select.ct){
+#'
+#' @export
+music_M.theta = function(x, non.zero, markers, clusters, samples, select.ct){
   if(!is.null(select.ct)){
     s.ct = sampleNames(x)[as.character(pVar(x, clusters)) %in% select.ct]
     x <- x[, s.ct, drop = FALSE]
@@ -88,8 +95,20 @@ w_nnls_M.theta = function(x, non.zero, markers, clusters, samples, select.ct){
   return(M.theta)
 }
 
-#' non.zero defalt as FALSE, other things are the same as w_nnls_M.theta
-w_nnls_Theta <- function(x, non.zero = F, clusters, samples, select.ct = NULL){
+#' Sample and cell type specific relative abudance
+#'
+#' This function is for calculating the sample and cell type specific relative abundance for selected cell types.
+#'
+#' @param x ExpressionSet, single cell dataset
+#' @param non.zero logical, defualt as F. If true, remove all gene with zero expression
+#' @param markers vector or list of gene names
+#' @param clusters character, the phenoData used as clusters
+#' @param samples character,the phenoData used as samples
+#' @param select.ct vector of cell types included, default as \code{NULL}. If \code{NULL}, include all cell types in \code{x}
+#' @return gene*subject by cell type matrix of relative abundance
+#'
+#' @export
+music_Theta <- function(x, non.zero = FALSE, clusters, samples, select.ct = NULL){
   if(!is.null(select.ct)){
     s.ct = sampleNames(x)[as.character(pVar(x, clusters)) %in% select.ct]
     x <- x[, s.ct, drop = FALSE]
@@ -118,8 +137,20 @@ w_nnls_Theta <- function(x, non.zero = F, clusters, samples, select.ct = NULL){
   return(Theta = Theta)
 }
 
-#' The same as w_nnls_M.theta
-w_nnls_Sigma.ct = function(x, non.zero, markers, clusters, samples, select.ct){
+#' Cross-sample Corvriance of Relative Abudance
+#'
+#' This function is for calculating the cross-sample covariance of relative abundance for selected cell types.
+#'
+#' @param x ExpressionSet, single cell dataset
+#' @param non.zero logical, if true, remove all gene with zero expression
+#' @param markers vector or list of gene names
+#' @param clusters character, the phenoData used as clusters
+#' @param samples character,the phenoData used as samples
+#' @param select.ct vector of cell types included, default as \code{NULL}. If \code{NULL}, include all cell types in \code{x}
+#' @return celltype^2 by gene matrix of covariance
+#'
+#' @export
+music_Sigma.ct = function(x, non.zero, markers, clusters, samples, select.ct){
   if(!is.null(select.ct)){
     s.ct = sampleNames(x)[as.character(pVar(x, clusters)) %in% select.ct]
     x <- x[, s.ct, drop = FALSE]
@@ -153,8 +184,20 @@ w_nnls_Sigma.ct = function(x, non.zero, markers, clusters, samples, select.ct){
   return(Sigma.ct = Sigma.ct)
 }
 
-#' The same as w_nnls_M.theta
-w_nnls_Sigma = function(x, non.zero, markers, clusters, samples, select.ct){
+#' Cross-sample Varirance of Relative Abudance
+#'
+#' This function is for calculating the cross-sample variance of relative abundance for selected cell types.
+#'
+#' @param x ExpressionSet, single cell dataset
+#' @param non.zero logical, if true, remove all gene with zero expression
+#' @param markers vector or list of gene names
+#' @param clusters character, the phenoData used as clusters
+#' @param samples character,the phenoData used as samples
+#' @param select.ct vector of cell types included, default as \code{NULL}. If \code{NULL}, include all cell types in \code{x}
+#' @return gene by cell type matrix of variance
+#'
+#' @export
+music_Sigma = function(x, non.zero, markers, clusters, samples, select.ct){
   if(!is.null(select.ct)){
     s.ct = sampleNames(x)[as.character(pVar(x, clusters)) %in% select.ct]
     x <- x[, s.ct, drop = FALSE]
@@ -186,8 +229,19 @@ w_nnls_Sigma = function(x, non.zero, markers, clusters, samples, select.ct){
   return(Sigma = Sigma)
 }
 
-#' The same as w_nnls_M.theta, except do not use markers and clusters.
-w_nnls_S = function(x, non.zero, clusters, samples, select.ct){
+#' Cell type specific library size
+#'
+#' This function is for calculating the cell type specific library size for selected cell types.
+#'
+#' @param x ExpressionSet, single cell dataset
+#' @param non.zero logical, if true, remove all gene with zero expression
+#' @param clusters character, the phenoData used as clusters
+#' @param samples character,the phenoData used as samples
+#' @param select.ct vector of cell types included, default as \code{NULL}. If \code{NULL}, include all cell types in \code{x}
+#' @return sample by cell type matrix of library
+#'
+#' @export
+music_S = function(x, non.zero, clusters, samples, select.ct){
   if(!is.null(select.ct)){
     s.ct = sampleNames(x)[as.character(pVar(x, clusters)) %in% select.ct]
     x <- x[, s.ct, drop = FALSE]
@@ -216,17 +270,36 @@ w_nnls_S = function(x, non.zero, clusters, samples, select.ct){
   return(S = S)
 }
 
-#' The same as w_nnls_M.theta
-w_nnls_Design.matrix = function(x, non.zero, markers, clusters, samples, select.ct){
-  S = w_nnls_S(x = x, non.zero = non.zero, clusters = clusters, samples = samples, select.ct = select.ct)
-  M.theta = w_nnls_M.theta(x = x, non.zero = non.zero, markers = markers, clusters = clusters, samples = samples,
+#' Cell type specific library size
+#'
+#' This function is for calculating the cell type specific library size for selected cell types.
+#'
+#' @inheritParams music_S
+#' @inheritParams music_M.theta
+#' @param x ExpressionSet, single cell dataset
+#' @param non.zero logical, if true, remove all gene with zero expression
+#' @param clusters character, the phenoData used as clusters
+#' @param samples character,the phenoData used as samples
+#' @param select.ct vector of cell types included, default as \code{NULL}. If \code{NULL}, include all cell types in \code{x}
+#' @return sample by cell type matrix of library
+#'
+#' @export
+#' @seealso
+#' \code{\link{music_S}}, \code{\link{music_M.theta}},
+music_Design.matrix = function(x, non.zero, markers, clusters, samples, select.ct){
+  S = music_S(x = x, non.zero = non.zero, clusters = clusters, samples = samples, select.ct = select.ct)
+  M.theta = music_M.theta(x = x, non.zero = non.zero, markers = markers, clusters = clusters, samples = samples,
                            select.ct = select.ct)
   S[S == 0] = NA
-  M.S = colMeans(S, na.rm = T)
+  M.S = colMeans(S, na.rm = TRUE)
   D <- t(t(M.theta)*M.S)
   return(D)
 }
 
+#' Prepare Design matrix and Cross-sample Variance for MuSiC Deconvolution
+#'
+#' This function is used for generating cell type specific cross-sample mean and variance for each gene. Cell type specific library size is also calcualted.
+#'
 #' @param x ExpressionSet, single cell dataset
 #' @param non.zero logical, default as TRUE. If true, remove all gene with zero expression.
 #' @param markers vector or list of gene names. Default as NULL. If NULL, then use all genes provided.
@@ -235,8 +308,16 @@ w_nnls_Design.matrix = function(x, non.zero, markers, clusters, samples, select.
 #' @param select.ct vector of cell types. Default as NULL. If NULL, then use all cell types provided.
 #' @param ct.cov logical. If TRUE, use the covariance across cell types.
 #' @param verbose logical, default as TRUE.
-#' @return gene by cell type matrix of Design matrix, Library size subject*celltype, Average library size, Average relative abudance gene*celltype, Subject-level variation gene*celltype
-w_nnls_basis = function(x, non.zero = T, markers = NULL, clusters, samples, select.ct = NULL, ct.cov = FALSE, verbose = TRUE){
+#' @return a list of
+#'     * gene by cell type matrix of Design matrix
+#'     * subject by celltype matrix of Library size
+#'     * vector of average library size for each cell type
+#'     * gene by celltype matrix of average relative abudance
+#'     * gene by celltype matrix of cross-sample variation
+#'
+#' @export
+#' @examples
+music_basis = function(x, non.zero = TRUE, markers = NULL, clusters, samples, select.ct = NULL, ct.cov = FALSE, verbose = TRUE){
   if(!is.null(select.ct)){
     s.ct = sampleNames(x)[as.character(pVar(x, clusters)) %in% select.ct]
     x <- x[, s.ct, drop = FALSE]
@@ -317,8 +398,8 @@ w_nnls_basis = function(x, non.zero = T, markers = NULL, clusters, samples, sele
   if(verbose){message("Creating Library Size Matrix...")}
 
   S[S == 0] = NA
-  M.S = colMeans(S, na.rm = T)
-  #S.ra = relative.ab(S, by.col = F)
+  M.S = colMeans(S, na.rm = TRUE)
+  #S.ra = relative.ab(S, by.col = FALSE)
   #S.ra[S.ra == 0] = NA
   #S[S == 0] = NA
   #M.S = mean(S, na.rm = TRUE)*ncol(S)*colMeans(S.ra, na.rm = TRUE)

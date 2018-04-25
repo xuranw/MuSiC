@@ -3,7 +3,7 @@
 # Author: Xuran Wang
 #####################################################################################################
 
-#' Estimate cell type proportion with W-NNLS and NNLS
+#' Estimate cell type proportion with MuSiC and NNLS
 #'
 #' @param Y vector of bulk tissue expression
 #' @param X matrix, Signature matrix
@@ -30,7 +30,7 @@
 #'
 #' @export
 #' @importFrom nnls nnls
-nnls.weight.basic = function(Y, X, S, Sigma, iter.max, nu, eps){
+music.basic = function(Y, X, S, Sigma, iter.max, nu, eps){
   k = ncol(X)
 
   lm.D = nnls(X, Y)
@@ -76,7 +76,7 @@ nnls.weight.basic = function(Y, X, S, Sigma, iter.max, nu, eps){
 
 #' Scaling bulk data and signature matrix and estimate cell type proportion
 #'
-#' @inheritParams nnls.weight.basic
+#' @inheritParams music.basic
 #' @param Y vector of bulk tissue expression
 #' @param D matrix, Signature matrix
 #' @param S vector of Avg. Library size
@@ -91,7 +91,7 @@ nnls.weight.basic = function(Y, X, S, Sigma, iter.max, nu, eps){
 #' @return a list same as nnls.weight.basic
 #' @import bseqsc
 #' @export
-nnls.weight.new.iter = function(Y, D, S, Sigma, iter.max = 1000, nu = 0.0001, eps = 0.01, inter.as.bseq = F, normalize = F){
+music.iter = function(Y, D, S, Sigma, iter.max = 1000, nu = 0.0001, eps = 0.01, inter.as.bseq = F, normalize = F){
   if(length(S)!=ncol(D)){
     common.cell.type = intersect(colnames(D), names(S))
     if(length(common.cell.type)<=1){
@@ -135,7 +135,7 @@ nnls.weight.new.iter = function(Y, D, S, Sigma, iter.max = 1000, nu = 0.0001, ep
   }else{
     Y = Y*100
   }
-  lm.D = nnls.weight.basic(Y, X, S, Sigma, iter.max = iter.max, nu = nu, eps = eps)
+  lm.D = music.basic(Y, X, S, Sigma, iter.max = iter.max, nu = nu, eps = eps)
   return(lm.D)
 }
 
@@ -168,7 +168,7 @@ Weight_cal <- function(p, M.S, Sigma){
   Sigma%*%(M.S * t(p))^2
 }
 
-#' Estimate cell type proportion with W-NNLS and NNLS
+#' Estimate cell type proportion with MuSiC and NNLS
 #'
 #' weight is estimated with cell type covariance
 #'
@@ -198,7 +198,7 @@ Weight_cal <- function(p, M.S, Sigma){
 #'
 #' @export
 #' @importFrom nnls nnls
-nnls.weight.basic.ct = function(Y, X, S, Sigma.ct, iter.max, nu, eps){
+music.basic.ct = function(Y, X, S, Sigma.ct, iter.max, nu, eps){
   k = ncol(X)
 
   lm.D = nnls(X, Y)
@@ -245,7 +245,7 @@ nnls.weight.basic.ct = function(Y, X, S, Sigma.ct, iter.max, nu, eps){
 
 #' Scaling bulk data and signature matrix and estimate cell type proportion
 #'
-#' @inheritParams nnls.weight.basic.ct
+#' @inheritParams music.basic.ct
 #'
 #' @param Y vector of bulk tissue expression
 #' @param X matrix, Signature matrix
@@ -263,7 +263,7 @@ nnls.weight.basic.ct = function(Y, X, S, Sigma.ct, iter.max, nu, eps){
 #' @return a list same as nnls.weight.basic
 #' @import bseqsc
 #' @export
-nnls.weight.new.iter.ct = function(Y, D, S, Sigma.ct, iter.max = 1000, nu = 0.0001, eps = 0.01, iter.as.bseq = F, normalize = F){
+music.iter.ct = function(Y, D, S, Sigma.ct, iter.max = 1000, nu = 0.0001, eps = 0.01, iter.as.bseq = F, normalize = F){
   if(length(S)!=ncol(D)){
     common.cell.type = intersect(colnames(D), names(S))
     if(length(common.cell.type)<=1){
@@ -299,6 +299,6 @@ nnls.weight.new.iter.ct = function(Y, D, S, Sigma.ct, iter.max = 1000, nu = 0.00
   }else{
     Y = Y*100
   }
-  lm.D = nnls.weight.basic.ct(Y, X, S, Sigma.ct, iter.max = iter.max, nu = nu, eps = eps)
+  lm.D = music.basic.ct(Y, X, S, Sigma.ct, iter.max = iter.max, nu = nu, eps = eps)
   return(lm.D)
 }

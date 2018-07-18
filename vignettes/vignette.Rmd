@@ -198,3 +198,11 @@ ggplot(m.prop.ana.h, aes(HbA1c, ct.prop)) + geom_smooth(method = 'lm',  se = FAL
   scale_shape_manual(values = c(21, 24))
 ```
 ![](GSE50244beta.jpeg)
+
+Reference
+------------
+* Segerstolpe, Å. et al. Single-cell transcriptome profiling of human pancreatic islets in health and type 2 diabetes. Cell metabolism 24, 593-607 (2016).
+* Xin, Y. et al. RNA sequencing of single human islet cells reveals type 2 diabetes genes. Cell metabolism 24, 608-615 (2016).
+* Fadista, J. et al. Global genomic and transcriptomic analysis of human pancreatic islets reveals novel genes influencing glucose metabolism. Proceedings of the National Academy of Sciences 111, 13924-13929 (2014).
+* Newman, A.M. et al. Robust enumeration of cell subsets from tissue expression profiles. Nature methods 12, 453 (2015).
+* Baron, M. et al. A Single-Cell Transcriptomic Map of the Human and Mouse Pancreas Reveals Inter- and Intra-cell Population Structure. Cell Syst 3, 346-360 e344 (2016).

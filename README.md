@@ -24,4 +24,4 @@ library(MuSiC)
 
 More Information
 -----------------
-Please see vignette.
+Please see [vignette](https://github.com/xuranw/MuSiC/blob/master/vignettes/vignette.Rmd).

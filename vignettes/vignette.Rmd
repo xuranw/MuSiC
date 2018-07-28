@@ -28,7 +28,7 @@ We reproduce here the analysis detailed in MuSiC manuscript:
 - Another single cell RNA-seq data were from Xin et al., which contains read counts data on single cell mRNA-seq of human pancreatic islet endocrine cells from 18 donors, 12 healthy donors and 6 Type II diabetes donors.
 ### Data Preparation
 
-Bioconduct base package provides `ExpressionSet` class, which is a convenient data structure to hold expression data along with sample/feature annotation. Here we use two `ExpressionSet` objects to handle the bulk and single cell data respectively.
+Bioconduct base package provides `ExpressionSet` class, which is a convenient data structure to hold expression data along with sample/feature annotation. Here we use two `ExpressionSet` objects to handle the bulk and single cell data respectively. The details of constructing `ExpressionSet` can be found on [this page]( https://www.rdocumentation.org/packages/Biobase/versions/2.32.0/topics/ExpressionSet).
 
 #### Bulk data
 

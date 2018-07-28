@@ -150,7 +150,7 @@ Est.prop.GSE50244 = music_prop(bulk.eset = GSE50244.bulk.eset, sc.eset = EMTAB.e
                                samples = 'sampleID', select.ct = c('alpha', 'beta', 'delta', 'gamma', 'acinar', 'ductal'))
                                
 # Estimate via BSEQ-sc
-B.EMTAB = bseqsc_basis(EMTAB.est, pancreasMarkers, clusters = 'cellType', samples = 'sampleID', ct.scale = TRUE)
+B.EMTAB = bseqsc_basis(EMTAB.eset, pancreasMarkers, clusters = 'cellType', samples = 'sampleID', ct.scale = TRUE)
 fit.EMTAB <- bseqsc_proportions(exprs(GSE50244.bulk.eset), B.EMTAB, verbose = TRUE)
 Est.prop.bseq = t(coef(fit.EMTAB))
 ```

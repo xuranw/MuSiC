@@ -6,7 +6,7 @@ MUlti-sample SIgle Cell deconvolution (MuSiC)
 
 How to cite `MuSiC`
 -------------------
-This work is not published yet, please see bioRxiv.
+This work is not published yet, please see [bioRxiv](https://www.biorxiv.org/content/early/2018/06/26/354944).
 
 Installation
 ------------

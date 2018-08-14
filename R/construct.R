@@ -36,11 +36,11 @@ bulk_construct = function(eset, clusters, samples, select.ct = NULL){
   num.real = ctdf[, -1]
   rownames(num.real) = ctdf[, 1]
 
-  if(ncol(pData(eset))>= 4){
-    bulk.pData = ddply(mdf, samples, function(x){
-      x[1, setdiff(colnames(x), c(clusters, samples, 'cellTypeID','index')) ]
-    })
-  }
+  
+  bulk.pData = ddply(mdf, samples, function(x){
+    x[1, setdiff(colnames(x), c(clusters, samples,'index')) ]
+  })
+  
   rownames(bulk.pData) = bulk.pData[, 1]
   metadata <- data.frame(labelDescription= colnames(bulk.pData), row.names= colnames(bulk.pData) )
   Bulk.counts = ExpressionSet(assayData = bulk.counts, phenoData = new("AnnotatedDataFrame", data = bulk.pData, varMetadata = metadata))

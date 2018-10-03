@@ -106,6 +106,8 @@ XinT2D.construct.full$prop.real = relative.ab(XinT2D.construct.full$num.real, by
 
 The cell type proportions is estimated by function `music_prop`. We can specify the way of grouping scRNA-seq data by `cluster`. `samples` refers to different subjects and `select.ct` refers to cell type included (use all cell types in the single cell dataset if not specified). The estimated proportions are normalized based on included cell type.
 ```r
+library(xbioc)
+
 # Estimate cell type proportions of artificial bulk data
 Est.prop.Xin = music_prop(bulk.eset = XinT2D.construct.full$Bulk.counts, sc.eset = EMTAB.eset,
                           clusters = 'cellType', samples = 'sampleID', 

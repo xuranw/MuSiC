@@ -1,0 +1,69 @@
+title: MuSiC
+url: http://xuramw.github.io/MuSiC
+template:
+  params:
+    bootswatch: flatly
+reference:
+  - title: Deconvolution
+    desc: Deconvolution functions
+    contents: 
+      - music_prop
+      - music_prop.cluster
+      - music.basic
+      - music.iter
+      - music.basic.ct
+      - music.iter.ct
+      - weight.cal.ct
+      - Weight_cal
+  - title: Construction
+    desc: Construct artificial bulk expression. Construct matrices for MuSiC deconvolution, such as design matrix, cross-subject mean matrix, cross-subject variance matrix and library size vector.
+    contents:
+      - bulk_construct
+      - music_basis
+      - music_M.theta
+      - music_Theta
+      - music_Sigma.ct
+      - music_Sigma
+      - music_S
+      - music_Design.matrix
+  - title: Graphics
+    desc: Create graphics for visualization and evaluation. The numerical evaluation function is also included.
+    contents:
+      - Relative_gene_boxplot
+      - Prop_comp_multi
+      - Abs_diff_multi
+      - Scatter_multi
+      - Boxplot_Est
+      - Jitter_Est
+      - Prop_heat_Est
+      - Eval_multi
+      - Prop_convert
+      - CellTotal.df
+      - plotCellTotal.two
+  - title: Simulations
+    desc: Generate simulations
+    contents:
+      - Twocelltype.Generator
+      - Est_sim
+      - Eval_sim_boxplot
+  - title: Utilities
+    desc: ~
+    contents:
+      - relative.ab
+      - fpkmToTpm
+      - my.log
+      - my.rowMeans
+      - get_upper_tri
+      - Anova_info
+navbar:
+  type: inverse
+  left:
+    - text: "Tutorial"
+      href: articles/MuSiC.html
+    - text: "Documentation"
+      href: reference/index.html
+    - text: "Data"
+      href: articles/pages/data.html
+  right:
+    - icon: fa-github
+      href: https://github.com/xuranw/MuSiC

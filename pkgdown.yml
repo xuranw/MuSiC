@@ -1,0 +1,10 @@
+pandoc: 1.17.2
+pkgdown: 1.1.0.9000
+pkgdown_sha: 36bedb20e8d68ee91d33834c76f0e3dd03d5086a
+articles:
+  MuSiC: MuSiC.html
+  data: pages/data.html
+urls:
+  reference: http://xuramw.github.io/MuSiC/reference
+  article: http://xuramw.github.io/MuSiC/articles
+

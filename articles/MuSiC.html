@@ -111,7 +111,7 @@ devtools::<span class="kw">install_github</span>(<span class="st">'xuranw/MuSiC'
 <p>MuSiC utilizes cell-type specific gene expression from single-cell RNA sequencing (RNA-seq) data to characterize cell type compositions from bulk RNA-seq data in complex tissues. By appropriate weighting of genes showing cross-subject and cross-cell consistency, MuSiC enables the transfer of cell type-specific gene expression information from one dataset to another.</p>
 <p>Solid tissues often contain closely related cell types which leads to collinearity. To deal with collinearity, MuSiC employs a tree-guided procedure that recursively zooms in on closely related cell types. Briefly, we first group similar cell types into the same cluster and estimate cluster proportions, then recursively repeat this procedure within each cluster.</p>
 <div class="figure">
-<img src="../../../../Single%20cell/Rpackage/MuSiC-master/vignettes/images/FigureMethod.jpg">
+<img src="images/FigureMethod.jpg">
 </div>
 </div>
 <div id="sample-analysis" class="section level1">
@@ -371,7 +371,7 @@ abs.diff.fig =<span class="st"> </span><span class="kw"><a href="../reference/Ab
 
 <span class="kw">plot_grid</span>(prop.comp.fig, abs.diff.fig, <span class="dt">labels =</span> <span class="st">"auto"</span>, <span class="dt">rel_widths =</span> <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>))</code></pre></div>
 <div class="figure">
-<img src="../../../../Single%20cell/Rpackage/MuSiC-master/vignettes/images/benchmark.jpg">
+<img src="images/benchmark.jpg">
 </div>
 <p>In our <a href="https://www.biorxiv.org/content/early/2018/06/26/354944">manuscript</a>, we also compared our method with existing methods: <a href="https://cibersort.stanford.edu/">CIBERSORT</a> <span class="citation">(see Newman et al. 2015)</span> and <a href="https://github.com/shenorrLab/bseqsc">bseq-sc</a> <span class="citation">(see Baron et al. 2016)</span>.</p>
 </div>
@@ -410,7 +410,7 @@ jitter.new =<span class="st"> </span><span class="kw">ggplot</span>(m.prop.GSE50
 
 <span class="kw">plot_grid</span>(jitter.fig, jitter.new, <span class="dt">labels =</span> <span class="st">'auto'</span>)</code></pre></div>
 <div class="figure">
-<img src="../../../../Single%20cell/Rpackage/MuSiC-master/vignettes/images/GSE50244jitter.jpg">
+<img src="images/GSE50244jitter.jpg">
 </div>
 <p>Let’s look at the beta cell proportions with HbA1c level.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create dataframe for beta cell proportions and HbA1c levels</span>
@@ -431,7 +431,7 @@ m.prop.ana$D =<span class="st"> </span>(m.prop.ana$Disease ==<span class="st"> '
 <span class="st">  </span><span class="kw">scale_colour_manual</span>( <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">'white'</span>, <span class="st">"gray20"</span>)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">scale_shape_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">24</span>))</code></pre></div>
 <div class="figure">
-<img src="../../../../Single%20cell/Rpackage/MuSiC-master/vignettes/images/GSE50244beta.jpg">
+<img src="images/GSE50244beta.jpg">
 </div>
 </div>
 </div>
@@ -513,7 +513,7 @@ hc2 &lt;-<span class="st"> </span><span class="kw">hclust</span>(d, <span class=
 <span class="co"># Plot the obtained dendrogram</span>
 <span class="kw">plot</span>(hc2, <span class="dt">cex =</span> <span class="fl">0.6</span>, <span class="dt">hang =</span> -<span class="dv">1</span>, <span class="dt">main =</span> <span class="st">'Cluster log(Mean of RA)'</span>)</code></pre></div>
 <div class="figure">
-<img src="../../../../Single%20cell/Rpackage/MuSiC-master/vignettes/images/Cluster.jpg">
+<img src="images/Cluster.jpg">
 </div>
 <p>The immune cells are clustered together and so are the epithelial cells. Notice that DCT and PT are close to each other. The cut-off is user determined. Here we cut 13 cell types into 4 groups:</p>
 <ul>

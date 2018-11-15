@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MuSiC: Multi-subject Single-cell Deconvolution • MuSiC</title>
+<title>Tutorial - MuSiC</title>
 <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
@@ -205,20 +205,20 @@ devtools::<span class="kw">install_github</span>(<span class="st">'xuranw/MuSiC'
 </tr>
 </tbody>
 </table>
-<p>Bioconduct base package provides <code>ExpressionSet</code> class, which is a convenient data structure to hold expression data along with sample/feature annotation. Here we use two <code>ExpressionSet</code> objects to handle the bulk and single cell data respectively. The details of constructing <code>ExpressionSet</code> can be found on <a href="https://www.rdocumentation.org/packages/Biobase/versions/2.32.0/topics/ExpressionSet">this page</a>.</p>
+<p>Bioconductor base package provides <code>ExpressionSet</code> class, which is a convenient data structure to hold expression data along with sample/feature annotation. Here we use two <code>ExpressionSet</code> objects to handle the bulk and single cell data respectively. The details of constructing <code>ExpressionSet</code> can be found on <a href="https://www.rdocumentation.org/packages/Biobase/versions/2.32.0/topics/ExpressionSet">this page</a>.</p>
 <p>Datasets described in the table above are all in the form of <code>ExpressionSet</code> and available at the <a href="pages/data.html">data download page</a>.</p>
 </div>
 <div id="estimation-of-cell-type-proportions" class="section level2">
 <h2 class="hasAnchor">
 <a href="#estimation-of-cell-type-proportions" class="anchor"></a>Estimation of cell type proportions</h2>
-<p>In stead of selecting marker genes, MuSiC gives weights to each gene. The weight scheme is based on cross-subject variation: up-weight gene with low variation and down-weight gene with high variation. The composition of bulk tisue samples from there total gene expression is inferred by both cross-subject mean and variance by all genes. Here we domenstrate step by step with human pancreas datasets.</p>
+<p>Instead of selecting marker genes, MuSiC gives weights to each gene. The weighting scheme is based on cross-subject variation: up-weigh genes with low variation and down-weigh genes with high variation. Here we demonstrate step by step with the human pancreas datasets.</p>
 <div id="data-preparations" class="section level3">
 <h3 class="hasAnchor">
 <a href="#data-preparations" class="anchor"></a>Data Preparations</h3>
 <div id="bulk-data-of-human-pancreas" class="section level4">
 <h4 class="hasAnchor">
 <a href="#bulk-data-of-human-pancreas" class="anchor"></a>Bulk data of human pancreas</h4>
-<p>The dataset from <span class="citation">Fadista et al. (2014)</span> contains raw read counts data on global transcriptomic analysis of bulk human pancreatic islets to study glucose metabolism in healthy and hyper-glycemic conditions. For the purpose of this vignette, the dataset is pre-propocessed and made available on the <a href="pages/data.html">data download page</a>. In addition to read counts, this dataset also contains HbA1c levels, BMI, gender and age information for subjects.</p>
+<p>The dataset from <span class="citation">Fadista et al. (2014)</span> contains raw read counts data from bulk RNA-seq of human pancreatic islets to study glucose metabolism in healthy and hyper-hypoglycemic conditions. For the purpose of this vignette, the dataset is pre-processed and made available on the <a href="pages/data.html">data download page</a>. In addition to read counts, this dataset also contains HbA1c levels, BMI, gender and age information for each subject.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">GSE50244.bulk.eset =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">'https://xuranw.github.io/MuSiC/data/GSE50244bulkeset.rds'</span>)
 GSE50244.bulk.eset
 <span class="co">#ExpressionSet (storageMode: lockedEnvironment)</span>
@@ -236,7 +236,7 @@ GSE50244.bulk.eset
 <div id="single-cell-data-of-human-pancreas" class="section level4">
 <h4 class="hasAnchor">
 <a href="#single-cell-data-of-human-pancreas" class="anchor"></a>Single cell data of human pancreas</h4>
-<p>The single cell data are from <span class="citation">Segerstolpe et al. (2016)</span>, which contrains read counts for 25453 genes of 2209 cells. Here we only include the 1097 cell from 6 healthy subjects. The read counts are available on the <a href="pages/data.html">data download page</a>, in the form of an <code>ExpressionSet</code>.</p>
+<p>The single cell data are from <span class="citation">Segerstolpe et al. (2016)</span>, which constrains read counts for 25453 genes across 2209 cells. Here we only include the 1097 cells from 6 healthy subjects. The read counts are available on the <a href="pages/data.html">data download page</a>, in the form of an <code>ExpressionSet</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Download EMTAB single cell dataset from Github</span>
 EMTAB.eset =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">'https://xuranw.github.io/MuSiC/data/EMTABesethealthy.rds'</span>)
 EMTAB.eset
@@ -251,7 +251,7 @@ EMTAB.eset
 <span class="co">#featureData: none</span>
 <span class="co">#experimentData: use 'experimentData(object)'</span>
 <span class="co">#Annotation:  </span></code></pre></div>
-<p>Another single cell data are from <span class="citation">Xin et al. (2016)</span>, which have 39849 genes and 1492 cells. The read counts are available on the <a href="pages/data.html">data download page</a>, in the form of an <code>ExpressionSet</code>.</p>
+<p>Another single cell data is from <span class="citation">Xin et al. (2016)</span>, which have 39849 genes and 1492 cells. The read counts are available on the <a href="pages/data.html">data download page</a>, in the form of an <code>ExpressionSet</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Download Xin et al. single cell dataset from Github</span>
 XinT2D.eset =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">'https://xuranw.github.io/MuSiC/data/XinT2Deset.rds'</span>)
 XinT2D.eset
@@ -268,9 +268,311 @@ XinT2D.eset
 <span class="co">#Annotation:  </span></code></pre></div>
 </div>
 </div>
-<div id="benchmark-evaluation" class="section level3">
+<div id="bulk-tissue-cell-type-estimation" class="section level3">
 <h3 class="hasAnchor">
-<a href="#benchmark-evaluation" class="anchor"></a>Benchmark Evaluation</h3>
+<a href="#bulk-tissue-cell-type-estimation" class="anchor"></a>Bulk Tissue Cell Type Estimation</h3>
+<p>The deconvolution of 89 subjects from <span class="citation">Fadista et al. (2014)</span> are preformed with bulk data <code>GSE50244.bulk.eset</code> and single cell reference <code>EMTAB.eset</code>. We constrained our estimation on 6 major cell types: alpha, beta, delta, gamma, acinar and ductal, which make up over 90% of the whole islet.</p>
+<p>The cell type proportions are estimated by the function <a href="../reference/music_prop.html"><code>music_prop</code></a>. The essential inputs are</p>
+<ul>
+<li>
+<code>bulk.eset</code>: ExpressionSet of bulk data;</li>
+<li>
+<code>sc.eset</code>: ExpressionSet of annotated single cell data;</li>
+<li>
+<code>markers</code>: vector or list of gene names, default as <code>NULL</code>. If <code>NULL</code>, then use all genes that overlapping in bulk and single-cell dataset;</li>
+<li>
+<code>clusters</code>: character, must be one of the column names of the phenoData from single cell data, used as clusters;</li>
+<li>
+<code>samples</code>: character, must be one of the column names of the phenoData from single cell data, used as samples;</li>
+<li>
+<code>select.ct</code> vector of cell types included for deconvolution, default as <code>NULL</code>. If <code>NULL</code>, then use all cell types that provided by single-cell dataset.</li>
+<li>
+<code>verbose</code> logical that toggles log messages.</li>
+</ul>
+<p>The function <a href="../reference/music_prop.html"><code>music_prop</code></a> provides output as a list with elements:</p>
+<ul>
+<li>
+<code>Est.prop.weighted</code>: data.frame of MuSiC estimated proportions, subjects by cell types;</li>
+<li>
+<code>Est.prop.allgene</code>: data.frame of NNLS estimated proportions, subjects by cell types;</li>
+<li>
+<code>Weight.gene</code>: matrix, MuSiC estimated weight for each gene, genes by subjects;</li>
+<li>
+<code>r.squared.full</code>: vector of R squared from MuSiC estimated proportions for each subject;</li>
+<li>
+<code>Var.prop</code>: matrix of variance of MuSiC estimates.</li>
+</ul>
+<p>The estimated proportions are normalized to sum to 1 across included cell types. Here we use <code>GSE50244.bulk.eset</code> as the <code>bulk.eset</code> input and <code>EMTAB.eset</code> as <code>sc.eset</code> input. The <code>clusters</code> is specified as <code>cellType</code> while <code>samples</code> is <code>sampleID</code>. As stated before, we only included 6 major cell types as <code>select.ct</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(xbioc)
+
+<span class="co"># Estimate cell type proportions</span>
+Est.prop.GSE50244 =<span class="st"> </span><span class="kw"><a href="../reference/music_prop.html">music_prop</a></span>(<span class="dt">bulk.eset =</span> GSE50244.bulk.eset, <span class="dt">sc.eset =</span> EMTAB.eset, <span class="dt">clusters =</span> <span class="st">'cellType'</span>,
+                               <span class="dt">samples =</span> <span class="st">'sampleID'</span>, <span class="dt">select.ct =</span> <span class="kw">c</span>(<span class="st">'alpha'</span>, <span class="st">'beta'</span>, <span class="st">'delta'</span>, <span class="st">'gamma'</span>,
+                                                                   <span class="st">'acinar'</span>, <span class="st">'ductal'</span>), <span class="dt">verbose =</span> F)
+<span class="kw">names</span>(Est.prop.GSE50244)
+<span class="co">#[1] "Est.prop.weighted" "Est.prop.allgene"  "Weight.gene"       "r.squared.full"    "Var.prop"  </span></code></pre></div>
+<p>Here we use <a href="../reference/Prop_comp_multi.html"><code>Jitter_Est</code></a> to show the difference between different estimation methods.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Jitter plot of estimated cell type proportions</span>
+jitter.fig =<span class="st"> </span><span class="kw"><a href="../reference/Jitter_Est.html">Jitter_Est</a></span>(<span class="kw">list</span>(<span class="kw">data.matrix</span>(Est.prop.GSE50244$Est.prop.weighted),
+                             <span class="kw">data.matrix</span>(Est.prop.GSE50244$Est.prop.allgene)),
+                        <span class="dt">method.name =</span> <span class="kw">c</span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>), <span class="dt">title =</span> <span class="st">'Jitter plot of Est Proportions'</span>)
+
+<span class="co"># A more sophisticated jitter plot is provided as below. We seperated the T2D subjects and normal </span>
+<span class="co">#subjects by their HbA1c levels.</span>
+
+m.prop.GSE50244 =<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">melt</span>(GSE50244.EMTAB.prop$Est.prop.weighted), 
+                        <span class="kw">melt</span>(GSE50244.EMTAB.prop$Est.prop.allgene))
+
+<span class="kw">colnames</span>(m.prop.GSE50244) =<span class="st"> </span><span class="kw">c</span>(<span class="st">'Sub'</span>, <span class="st">'CellType'</span>, <span class="st">'Prop'</span>)
+m.prop.GSE50244$CellType =<span class="st"> </span><span class="kw">factor</span>(m.prop.GSE50244$CellType, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">'alpha'</span>, <span class="st">'beta'</span>, <span class="st">'delta'</span>, <span class="st">'gamma'</span>, <span class="st">'acinar'</span>, <span class="st">'ductal'</span>))
+m.prop.GSE50244$Method =<span class="st"> </span><span class="kw">factor</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>), <span class="dt">each =</span> <span class="dv">89</span>*<span class="dv">6</span>), <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>))
+m.prop.GSE50244$HbA1c =<span class="st"> </span><span class="kw">rep</span>(GSE50244.bulk.eset$hba1c, <span class="dv">2</span>*<span class="dv">6</span>)
+m.prop.GSE50244 =<span class="st"> </span>m.prop.GSE50244[!<span class="kw">is.na</span>(m.prop.GSE50244$HbA1c), ]
+m.prop.GSE50244$Disease =<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">'Normal'</span>, <span class="st">'T2D'</span>)[(m.prop.GSE50244$HbA1c &gt;<span class="st"> </span><span class="fl">6.5</span>)+<span class="dv">1</span>], <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">'Normal'</span>, <span class="st">'T2D'</span>))
+m.prop.GSE50244$D =<span class="st"> </span>(m.prop.GSE50244$Disease ==<span class="st"> 'T2D'</span>)/<span class="dv">5</span>
+m.prop.GSE50244 =<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">subset</span>(m.prop.GSE50244, Disease ==<span class="st"> 'Normal'</span>), <span class="kw">subset</span>(m.prop.GSE50244, Disease !=<span class="st"> 'Normal'</span>))
+
+jitter.new =<span class="st"> </span><span class="kw">ggplot</span>(m.prop.GSE50244, <span class="kw">aes</span>(Method, Prop)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Method, <span class="dt">color =</span> Disease, <span class="dt">stroke =</span> D, <span class="dt">shape =</span> Disease), 
+             <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">position =</span> <span class="kw">position_jitter</span>(<span class="dt">width=</span><span class="fl">0.25</span>, <span class="dt">height=</span><span class="dv">0</span>)) +
+<span class="st">  </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>CellType, <span class="dt">scales =</span> <span class="st">'free'</span>) +<span class="st"> </span><span class="kw">scale_colour_manual</span>( <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">'white'</span>, <span class="st">"gray20"</span>)) +
+<span class="st">  </span><span class="kw">scale_shape_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">24</span>))+<span class="st"> </span><span class="kw">theme_minimal</span>()
+
+<span class="kw">plot_grid</span>(jitter.fig, jitter.new, <span class="dt">labels =</span> <span class="st">'auto'</span>)</code></pre></div>
+<div class="figure">
+<img src="images/GSE50244jitter.jpg">
+</div>
+<p>It is well known that the beta cell proportions is related to T2D disease status. In the progress of T2D, the number of beta cells decreases. One of the most important test for T2D is HbA1c (hemoglobin A1c) test. When HbA1c level is greater than 6.5%, the patient is diagnosed as T2D. Let’s look at the beta cell proportions with HbA1c level.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create dataframe for beta cell proportions and HbA1c levels</span>
+m.prop.ana =<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">pData</span>(GSE50244.bulk.eset)[<span class="kw">rep</span>(<span class="dv">1</span>:<span class="dv">89</span>, <span class="dv">2</span>), <span class="kw">c</span>(<span class="st">'age'</span>, <span class="st">'bmi'</span>, <span class="st">'hba1c'</span>, <span class="st">'gender'</span>)],
+                        <span class="dt">ct.prop =</span> <span class="kw">c</span>(Est.prop.GSE50244$Est.prop.weighted[, <span class="dv">2</span>], 
+                                    Est.prop.GSE50244$Est.prop.allgene[, <span class="dv">2</span>]), 
+                        <span class="dt">Method =</span> <span class="kw">factor</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>), <span class="dt">each =</span> <span class="dv">89</span>), 
+                        <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>)))
+<span class="kw">colnames</span>(m.prop.ana)[<span class="dv">1</span>:<span class="dv">4</span>] =<span class="st"> </span><span class="kw">c</span>(<span class="st">'Age'</span>, <span class="st">'BMI'</span>, <span class="st">'HbA1c'</span>, <span class="st">'Gender'</span>)
+m.prop.ana =<span class="st"> </span><span class="kw">subset</span>(m.prop.ana, !<span class="kw">is.na</span>(HbA1c))
+m.prop.ana$Disease =<span class="st"> </span><span class="kw">factor</span>( <span class="kw">c</span>(<span class="st">'Normal'</span>, <span class="st">'T2D'</span>)[(m.prop.ana$HbA1c &gt;<span class="st"> </span><span class="fl">6.5</span>) +<span class="st"> </span><span class="dv">1</span>], <span class="kw">c</span>(<span class="st">'Normal'</span>, <span class="st">'T2D'</span>) )
+m.prop.ana$D =<span class="st"> </span>(m.prop.ana$Disease ==<span class="st"> 'T2D'</span>)/<span class="dv">5</span>
+
+<span class="kw">ggplot</span>(m.prop.ana, <span class="kw">aes</span>(HbA1c, ct.prop)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">'lm'</span>,  <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="st">'black'</span>, <span class="dt">lwd =</span> <span class="fl">0.25</span>) +
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Method, <span class="dt">color =</span> Disease, <span class="dt">stroke =</span> D, <span class="dt">shape =</span> Disease), <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>) +<span class="st">  </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>Method) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">'HbA1c vs Beta Cell Type Proportion'</span>) +<span class="st"> </span><span class="kw">theme_minimal</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_colour_manual</span>( <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">'white'</span>, <span class="st">"gray20"</span>)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_shape_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">24</span>))</code></pre></div>
+<div class="figure">
+<img src="images/GSE50244beta.jpg">
+</div>
+<p>The numerical evaluation can be obtained by linear regression. There is a significant negative correlation between HbA1c levels and beta cell proportions, after adjusted Age, BMI and Gender.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lm.beta.MuSiC =<span class="st"> </span><span class="kw">lm</span>(ct.prop ~<span class="st"> </span>HbA1c +<span class="st"> </span>Age +<span class="st"> </span>BMI +<span class="st"> </span>Gender, <span class="dt">data =</span> <span class="kw">subset</span>(m.prop.ana, Method ==<span class="st"> 'MuSiC'</span>))
+lm.beta.NNLS =<span class="st"> </span><span class="kw">lm</span>(ct.prop ~<span class="st"> </span>HbA1c +<span class="st"> </span>Age +<span class="st"> </span>BMI +<span class="st"> </span>Gender, <span class="dt">data =</span> <span class="kw">subset</span>(m.prop.ana, Method ==<span class="st"> 'NNLS'</span>))
+<span class="kw">summary</span>(lm.beta.MuSiC)
+<span class="co">#</span>
+<span class="co">#Call:</span>
+<span class="co">#lm(formula = ct.prop ~ HbA1c + Age + BMI + Gender, data = subset(m.prop.ana, </span>
+<span class="co">#    Method == "MuSiC"))</span>
+<span class="co">#</span>
+<span class="co">#Residuals:</span>
+<span class="co">#     Min       1Q   Median       3Q      Max </span>
+<span class="co">#-0.27768 -0.13186 -0.01096  0.10661  0.35790 </span>
+<span class="co">#</span>
+<span class="co">#Coefficients:</span>
+<span class="co">#              Estimate Std. Error t value Pr(&gt;|t|)    </span>
+<span class="co">#(Intercept)   0.877022   0.190276   4.609 1.71e-05 ***</span>
+<span class="co">#HbA1c        -0.061396   0.025403  -2.417   0.0182 *  </span>
+<span class="co">#Age           0.002639   0.001772   1.489   0.1409    </span>
+<span class="co">#BMI          -0.013620   0.007276  -1.872   0.0653 .  </span>
+<span class="co">#GenderFemale -0.079874   0.039274  -2.034   0.0457 *  </span>
+<span class="co">#---</span>
+<span class="co">#Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
+<span class="co">#</span>
+<span class="co">#Residual standard error: 0.167 on 72 degrees of freedom</span>
+<span class="co">#Multiple R-squared:  0.2439,   Adjusted R-squared:  0.2019 </span>
+<span class="co">#F-statistic: 5.806 on 4 and 72 DF,  p-value: 0.0004166</span>
+
+<span class="kw">summary</span>(lm.beta.NNLS)
+<span class="co">#</span>
+<span class="co">#Call:</span>
+<span class="co">#lm(formula = ct.prop ~ HbA1c + Age + BMI + Gender, data = subset(m.prop.ana, </span>
+<span class="co">#    Method == "NNLS"))</span>
+<span class="co">#</span>
+<span class="co">#Residuals:</span>
+<span class="co">#     Min       1Q   Median       3Q      Max </span>
+<span class="co">#-0.04671 -0.02918 -0.01795  0.01394  0.19362 </span>
+<span class="co">#</span>
+<span class="co">#Coefficients:</span>
+<span class="co">#               Estimate Std. Error t value Pr(&gt;|t|)  </span>
+<span class="co">#(Intercept)   0.0950960  0.0546717   1.739   0.0862 .</span>
+<span class="co">#HbA1c        -0.0093214  0.0072991  -1.277   0.2057  </span>
+<span class="co">#Age           0.0005268  0.0005093   1.035   0.3044  </span>
+<span class="co">#BMI          -0.0015116  0.0020906  -0.723   0.4720  </span>
+<span class="co">#GenderFemale -0.0037650  0.0112844  -0.334   0.7396  </span>
+<span class="co">#---</span>
+<span class="co">#Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
+<span class="co">#</span>
+<span class="co">#Residual standard error: 0.04799 on 72 degrees of freedom</span>
+<span class="co">#Multiple R-squared:  0.0574,   Adjusted R-squared:  0.005028 </span>
+<span class="co">#F-statistic: 1.096 on 4 and 72 DF,  p-value: 0.3651</span></code></pre></div>
+</div>
+</div>
+<div id="estimation-of-cell-type-proportions-with-pre-grouping-of-cell-types" class="section level2">
+<h2 class="hasAnchor">
+<a href="#estimation-of-cell-type-proportions-with-pre-grouping-of-cell-types" class="anchor"></a>Estimation of cell type proportions with pre-grouping of cell types</h2>
+<p>Solid tissues often contain closely related cell types, and correlation of gene expression between these cell types leads to collinearity, making it difficult to resolve their relative proportions in bulk data. To deal with collinearity, MuSiC employs a tree-guided procedure that recursively zooms in on closely related cell types. Briefly, we first group similar cell types into the same cluster and estimate cluster proportions, then recursively repeat this procedure within each cluster. At each recursion stage, we only use genes that have low within-cluster variance, a.k.a. the cross-cell consistent genes. This is critical as the mean expression estimates of genes with high variance are affected by the pervasive bias in cell capture of scRNA-seq experiments, and thus cannot serve as reliable reference.</p>
+<p>We demonstrate this procedure by reproducing the analysis of mouse kidney in MuSiC manuscript.</p>
+<div id="data-preparation" class="section level3">
+<h3 class="hasAnchor">
+<a href="#data-preparation" class="anchor"></a>Data Preparation</h3>
+<div id="bulk-data" class="section level4">
+<h4 class="hasAnchor">
+<a href="#bulk-data" class="anchor"></a>Bulk data</h4>
+<p>The dataset <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81492">GEO entry (GSE81492)</a> <span class="citation">(see Beckerman et al. 2017)</span> contains raw RNA-seq and sample annotation data. For the purpose of this vignette, we will use the read counts data <code>Mousebulkeset.rds</code> from the <a href="pages/data.html">data download page</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Download Mouse bulk dataset from Github</span>
+Mouse.bulk.eset =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">'https://xuranw.github.io/MuSiC/data/Mousebulkeset.rds'</span>)
+Mouse.bulk.eset
+
+<span class="co">#ExpressionSet (storageMode: lockedEnvironment)</span>
+<span class="co">#assayData: 19033 features, 10 samples </span>
+<span class="co">#  element names: exprs </span>
+<span class="co">#protocolData: none</span>
+<span class="co">#phenoData</span>
+<span class="co">#  sampleNames: control.NA.27 control.NA.30 ... APOL1.GNA78M (10 total)</span>
+<span class="co">#  varLabels: sampleID SubjectName Control</span>
+<span class="co">#  varMetadata: labelDescription</span>
+<span class="co">#featureData: none</span>
+<span class="co">#experimentData: use 'experimentData(object)'</span>
+<span class="co">#Annotation:  </span></code></pre></div>
+</div>
+<div id="single-cell-data" class="section level4">
+<h4 class="hasAnchor">
+<a href="#single-cell-data" class="anchor"></a>Single cell data</h4>
+<p>The single cell data are from <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE107585">GEO entry (GSE107585)</a> <span class="citation">(see J. Park et al. 2018)</span>, which constrains read counts for 16273 genes across 43745 cells. Due to the space limitation of Github, only a subset of the read counts <code>Mousesubeset.rds</code> are available on the <a href="page/data.html">data download page</a>, in the form of an <code>ExpressionSet</code>. This subset contains 16273 genes across 10000 cells.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Download EMTAB single cell dataset from Github</span>
+Mousesub.eset =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">'https://xuranw.github.io/MuSiC/data/Mousesubeset.rds'</span>)
+Mousesub.eset
+
+<span class="co">#ExpressionSet (storageMode: lockedEnvironment)</span>
+<span class="co">#assayData: 16273 features, 10000 samples </span>
+<span class="co">#  element names: exprs </span>
+<span class="co">#protocolData: none</span>
+<span class="co">#phenoData</span>
+<span class="co">#  sampleNames: TGGTTCCGTCGGCTCA-2 CGAGCCAAGCGTCAAG-4 ... GAGCAGAGTCAACATC-1 (10000 total)</span>
+<span class="co">#  varLabels: sampleID SubjectName cellTypeID cellType</span>
+<span class="co">#  varMetadata: labelDescription</span>
+<span class="co">#featureData: none</span>
+<span class="co">#experimentData: use 'experimentData(object)'</span>
+<span class="co">#Annotation:  </span>
+
+<span class="kw">levels</span>(Mousesub.eset$cellType)
+<span class="co"># [1] "Endo"     "Podo"     "PT"       "LOH"      "DCT"      "CD-PC"    "CD-IC"    "CD-Trans" "Novel1"  </span>
+<span class="co">#[10] "Fib"      "Macro"    "Neutro"   "B lymph"  "T lymph"  "NK"       "Novel2"  </span></code></pre></div>
+<p>Notice that the single cell dataset has 16 cell types, including 2 novel cell types and a transition cell type (CD-Trans). We exclude those 3 cell types in our analysis.</p>
+</div>
+</div>
+<div id="estimation-of-cell-type-proportions-1" class="section level3">
+<h3 class="hasAnchor">
+<a href="#estimation-of-cell-type-proportions-1" class="anchor"></a>Estimation of cell type proportions</h3>
+<div id="clustering-single-cell-data" class="section level4">
+<h4 class="hasAnchor">
+<a href="#clustering-single-cell-data" class="anchor"></a>Clustering single cell data</h4>
+<p>In <a href="MuSiC.html#estimation-of-cell-type-proportions">previous</a> MuSiC estimation procedure, the first step is to produce design matrix, cross-subject mean of relative abundance, cross-subject variance of relative abundance and average library size from single cell reference. These are taken care of by the function <a href="../reference/music_basis.html"><code>music_basis</code></a>. The essential inputs of <a href="../reference/music_basis.html"><code>music_basis</code></a> are:</p>
+<ul>
+<li>
+<code>x</code>: ExpressionSet of single cell dataset;</li>
+<li>
+<code>non.zero</code>: logical, default as <code>TRUE</code>. If true, remove all genes with zero expression;</li>
+<li>
+<code>markers</code>: vector or list of gene names. Default as <code>NULL</code>. If <code>NULL</code>, then use all genes provided by <code>x</code>;</li>
+<li>
+<code>clusters</code>: character, must be one of the column names of the phenoData from single cell data, used as clusters;</li>
+<li>
+<code>samples</code>: character, must be one of the column names of the phenoData from single cell data, used as samples;</li>
+<li>
+<code>select.ct</code> vector of cell types included for deconvolution, default as <code>NULL</code>. If <code>NULL</code>, then use all cell types that provided by single-cell dataset.</li>
+<li>
+<code>verbose</code> logical that toggles log messages.</li>
+</ul>
+<p>The outputs of <a href="../reference/music_basis.html"><code>music_basis</code></a> is a list of elements:</p>
+<ul>
+<li>
+<code>Disgn.mtx</code>: gene by cell type matrix of design matrix;</li>
+<li>
+<code>S</code>: subject by cell type matrix of library size;</li>
+<li>
+<code>M.S</code>: vector of average library size for each cell type;</li>
+<li>
+<code>M.theta</code>: gene by cell type matrix of average relative abundance;</li>
+<li>
+<code>Sigma</code>: gene by cell type matrix of cross-subject variation.</li>
+</ul>
+<p>We next use the <code>hclust</code> function to get a tree0based clustering of the cell types using the cross-subject mean matrix and the design matrix.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Produce the first step information</span>
+Mousesub.basis =<span class="st"> </span><span class="kw"><a href="../reference/music_basis.html">music_basis</a></span>(Mousesub.eset, <span class="dt">clusters =</span> <span class="st">'cellType'</span>, <span class="dt">samples =</span> <span class="st">'sampleID'</span>, 
+                             <span class="dt">select.ct =</span> <span class="kw">c</span>(<span class="st">'Endo'</span>, <span class="st">'Podo'</span>, <span class="st">'PT'</span>, <span class="st">'LOH'</span>, <span class="st">'DCT'</span>, <span class="st">'CD-PC'</span>, <span class="st">'CD-IC'</span>, <span class="st">'Fib'</span>,
+                                           <span class="st">'Macro'</span>, <span class="st">'Neutro'</span>,<span class="st">'B lymph'</span>, <span class="st">'T lymph'</span>, <span class="st">'NK'</span>))
+
+<span class="co"># Plot the dendrogram of design matrix and cross-subject mean of realtive abundance</span>
+<span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
+d &lt;-<span class="st"> </span><span class="kw">dist</span>(<span class="kw">t</span>(<span class="kw">log</span>(Mousesub.basis$Disgn.mtx +<span class="st"> </span><span class="fl">1e-6</span>)), <span class="dt">method =</span> <span class="st">"euclidean"</span>)
+<span class="co"># Hierarchical clustering using Complete Linkage</span>
+hc1 &lt;-<span class="st"> </span><span class="kw">hclust</span>(d, <span class="dt">method =</span> <span class="st">"complete"</span> )
+<span class="co"># Plot the obtained dendrogram</span>
+<span class="kw">plot</span>(hc1, <span class="dt">cex =</span> <span class="fl">0.6</span>, <span class="dt">hang =</span> -<span class="dv">1</span>, <span class="dt">main =</span> <span class="st">'Cluster log(Design Matrix)'</span>)
+d &lt;-<span class="st"> </span><span class="kw">dist</span>(<span class="kw">t</span>(<span class="kw">log</span>(Mousesub.basis$M.theta +<span class="st"> </span><span class="fl">1e-8</span>)), <span class="dt">method =</span> <span class="st">"euclidean"</span>)
+<span class="co"># Hierarchical clustering using Complete Linkage</span>
+<span class="co"># hc2 &lt;- hclust(d, method = "complete" )</span>
+hc2 &lt;-<span class="st"> </span><span class="kw">hclust</span>(d, <span class="dt">method =</span> <span class="st">"complete"</span>)
+<span class="co"># Plot the obtained dendrogram</span>
+<span class="kw">plot</span>(hc2, <span class="dt">cex =</span> <span class="fl">0.6</span>, <span class="dt">hang =</span> -<span class="dv">1</span>, <span class="dt">main =</span> <span class="st">'Cluster log(Mean of RA)'</span>)</code></pre></div>
+<div class="figure">
+<img src="images/Cluster.jpg">
+</div>
+<p>The immune cells are clustered together and the kidney specific cells are clustered together. Notice that DCT and PT are within the same high-level grouping. The cut-off is user determined. Here we cut 13 cell types into 4 groups:</p>
+<ul>
+<li>Group 1: Neutro</li>
+<li>Group 2: Podo</li>
+<li>Group 3: Endo, CD-PC, CD-IC, LOH, DCT, PT</li>
+<li>Group 4: Fib, Macro, NK, B lymph, T lymph</li>
+</ul>
+<p>The tree-guided recursive estimation for mouse kidney analysis includes 2 steps:</p>
+<ul>
+<li>Step 1. Estimate proportions of each high level cluster; <span class="math inline">\((p_1,p_2,p_3,p_4)\)</span>
+</li>
+<li>Step 2. Estimate cell type proportions within each cluster; <span class="math inline">\((p_{31},p_{32},.,p_{36},p_{41},.,p_{45})\)</span>
+</li>
+</ul>
+</div>
+<div id="bulk-tissue-cell-type-estimation-with-pre-grouping-of-cell-types" class="section level4">
+<h4 class="hasAnchor">
+<a href="#bulk-tissue-cell-type-estimation-with-pre-grouping-of-cell-types" class="anchor"></a>Bulk Tissue Cell Type Estimation with Pre-grouping of Cell Types</h4>
+<p>We manually specify the cluster and annotated single cell data with cluster information.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">clusters.type =<span class="st"> </span><span class="kw">list</span>(<span class="dt">C1 =</span> <span class="st">'Neutro'</span>, <span class="dt">C2 =</span> <span class="st">'Podo'</span>, <span class="dt">C3 =</span> <span class="kw">c</span>(<span class="st">'Endo'</span>, <span class="st">'CD-PC'</span>, <span class="st">'LOH'</span>, <span class="st">'CD-IC'</span>, <span class="st">'DCT'</span>, <span class="st">'PT'</span>), <span class="dt">C4 =</span> <span class="kw">c</span>(<span class="st">'Macro'</span>, <span class="st">'Fib'</span>, <span class="st">'B lymph'</span>, <span class="st">'NK'</span>, <span class="st">'T lymph'</span>))
+
+cl.type =<span class="st"> </span><span class="kw">as.character</span>(Mousesub.eset$cellType)
+
+for(cl in <span class="dv">1</span>:<span class="kw">length</span>(clusters.type)){
+  cl.type[cl.type %in%<span class="st"> </span>clusters.type[[cl]]] =<span class="st"> </span><span class="kw">names</span>(clusters.type)[cl]
+}
+<span class="kw">pData</span>(Mousesub.eset)$clusterType =<span class="st"> </span><span class="kw">factor</span>(cl.type, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="kw">names</span>(clusters.type), <span class="st">'CD-Trans'</span>, <span class="st">'Novel1'</span>, <span class="st">'Novel2'</span>))
+
+<span class="co"># 13 selected cell types</span>
+s.mouse =<span class="st"> </span><span class="kw">unlist</span>(clusters.type)
+s.mouse
+<span class="co">#       C1        C2       C31       C32       C33       C34       C35       C36       C41       C42 </span>
+<span class="co"># "Neutro"    "Podo"    "Endo"   "CD-PC"     "LOH"   "CD-IC"     "DCT"      "PT"   "Macro"     "Fib" </span>
+<span class="co">#      C43       C44       C45 </span>
+<span class="co">#"B lymph"      "NK" "T lymph" </span></code></pre></div>
+<p>We then select genes that are differentially expressed within cluster <code>C3</code> (Epithelial cells) and <code>C4</code> (Immune cells), available on <a href="pages/data.html">data download page</a>. Function <a href="../reference/music_prop.cluster.html"><code>music_prop.cluster</code></a> is used for estimation with pre-clustering of cell types. The essential inputs are the same as <code>music_prop</code> except two unique inputs: <code>group</code> and <code>group.markers</code>. <code>group</code> passes the column name of higher-cluster in phenoData. The intra-cluster differentially expressed genes are passed by <code>group.marker</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="st">'https://xuranw.github.io/MuSiC/data/IEmarkers.RData'</span>)
+
+Est.mouse.bulk =<span class="st"> </span><span class="kw"><a href="../reference/music_prop.cluster.html">music_prop.cluster</a></span>(<span class="dt">bulk.eset =</span> Mouse.bulk.eset, <span class="dt">sc.eset =</span> Mousesub.eset, <span class="dt">group.markers =</span> IEmarkers, <span class="dt">clusters =</span> <span class="st">'cellType'</span>, <span class="dt">group =</span> <span class="st">'clusterType'</span>, <span class="dt">samples =</span> <span class="st">'sampleID'</span>, <span class="dt">clusters.type =</span> clusters.type)</code></pre></div>
+<p>Due to the limited space of Github, we can only demo <code>music_prop.cluster</code> with a subset of mouse kidney single cell dataset. Therefore, the results might be different from the one presented in the manuscript due to incomplete reference single cell dataset.</p>
+</div>
+</div>
+</div>
+<div id="benchmark-evaluation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#benchmark-evaluation" class="anchor"></a>Benchmark Evaluation</h2>
 <p>Benchmark dataset is constructed by summing up single cell data from <code>XinT2D.eset</code>. The artificial bulk data is constructed through function <a href="../reference/bulk_construct.html"><code>bulk_construct</code></a>. The inputs are single cell dataset, cluster name (<code>clusters</code>), sample name (<code>samples</code>) and selected cell type (<code>select.ct</code>). <a href="../reference/bulk_construct.html"><code>bulk_construct</code></a> returns a ExpressionSet of artificial bulk dataset <code>Bulk.counts</code> and a matrix of real cell type counts <code>num.real</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Construct artificial bulk dataset. Use all 4 cell types: alpha, beta, gamma, delta</span>
 XinT2D.construct.full =<span class="st"> </span><span class="kw"><a href="../reference/bulk_construct.html">bulk_construct</a></span>(XinT2D.eset, <span class="dt">clusters =</span> <span class="st">'cellType'</span>, <span class="dt">samples =</span> <span class="st">'SubjectName'</span>)
@@ -310,10 +612,8 @@ XinT2D.construct.full$prop.real =<span class="st"> </span><span class="kw"><a hr
 <span class="co">#Non T2D 4 0.5185185 0.3703704 0.00000000 0.11111111</span>
 <span class="co">#Non T2D 5 0.4423077 0.4230769 0.09615385 0.03846154</span>
 <span class="co">#Non T2D 6 0.7500000 0.1458333 0.08333333 0.02083333</span></code></pre></div>
-<p>The cell type proportions is estimated by function <a href="../reference/music_prop.html"><code>music_prop</code></a>. We can specify the way of grouping scRNA-seq data by <code>cluster</code>. <code>samples</code> refers to different subjects and <code>select.ct</code> refers to cell type included (use all cell types in the single cell dataset if not specified). The estimated proportions are normalized based on included cell type.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(xbioc)
-
-<span class="co"># Estimate cell type proportions of artificial bulk data</span>
+<p>The estimation of cell type proportions:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Estimate cell type proportions of artificial bulk data</span>
 Est.prop.Xin =<span class="st"> </span><span class="kw"><a href="../reference/music_prop.html">music_prop</a></span>(<span class="dt">bulk.eset =</span> XinT2D.construct.full$Bulk.counts, <span class="dt">sc.eset =</span> EMTAB.eset,
                           <span class="dt">clusters =</span> <span class="st">'cellType'</span>, <span class="dt">samples =</span> <span class="st">'sampleID'</span>, 
                           <span class="dt">select.ct =</span> <span class="kw">c</span>(<span class="st">'alpha'</span>, <span class="st">'beta'</span>, <span class="st">'delta'</span>, <span class="st">'gamma'</span>))
@@ -339,12 +639,14 @@ Est.prop.Xin =<span class="st"> </span><span class="kw"><a href="../reference/mu
 <span class="co">#T2D 3 has common genes 14175 ...</span>
 <span class="co">#T2D 4 has common genes 16163 ...</span>
 <span class="co">#T2D 5 has common genes 15866 ...</span>
-<span class="co">#T2D 6 has common genes 15673 ...</span>
-
-<span class="kw">names</span>(Est.prop.Xin)
-<span class="co">#[1] "Est.prop.weighted" "Est.prop.allgene"  "Weight.gene"       "r.squared.full"    "Var.prop"  </span></code></pre></div>
-<p><a href="../reference/music_prop.html"><code>music_prop</code></a> not only provides MuSiC estimated cell type proportions (<code>Est.prop.weighted</code>), but also non-negative least square(NNLS) estimated proportions (<code>Est.prop.allgene</code>). It also returns the weights for each gene(<code>Weight.gene</code>), R square (<code>r.squared.full</code>) and variance of estimated cell type proportions (<code>Var.prop</code>).</p>
-<p>The numeric evaluation is conducted by <a href="../reference/Eval_multi.html"><code>Eval_multi</code></a>, which compares the real and estimated cell type proportions by 1. root-mean-squared deviation (RMSD); 2. mean absolute difference (mAD); 3. Pearson’s correlation (R). The visualization of cell type proportions are provided by <a href="../reference/Prop_comp_multi.html"><code>Prop_comp_multi</code></a>, <a href="../reference/Abs_diff_multi.html"><code>Abs_diff_multi</code></a> and <a href="../reference/Scatter_multi.html"><code>Scatter_multi</code></a>.</p>
+<span class="co">#T2D 6 has common genes 15673 ...</span></code></pre></div>
+<p>The numeric evaluation is conducted by <a href="../reference/Eval_multi.html"><code>Eval_multi</code></a>, which compares the real and estimated cell type proportions by</p>
+<ol style="list-style-type: decimal">
+<li>root-mean-squared deviation (RMSD);</li>
+<li>mean absolute difference (mAD);</li>
+<li>Pearson’s correlation (R).</li>
+</ol>
+<p>The visualization of cell type proportions are provided by <a href="../reference/Prop_comp_multi.html"><code>Prop_comp_multi</code></a>, <a href="../reference/Abs_diff_multi.html"><code>Abs_diff_multi</code></a> and <a href="../reference/Scatter_multi.html"><code>Scatter_multi</code></a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Estimation evaluation</span>
 
 <span class="kw"><a href="../reference/Eval_multi.html">Eval_multi</a></span>(<span class="dt">prop.real =</span> <span class="kw">data.matrix</span>(XinT2D.construct.full$prop.real), 
@@ -374,184 +676,6 @@ abs.diff.fig =<span class="st"> </span><span class="kw"><a href="../reference/Ab
 <img src="images/benchmark.jpg">
 </div>
 <p>In our <a href="https://www.biorxiv.org/content/early/2018/06/26/354944">manuscript</a>, we also compared our method with existing methods: <a href="https://cibersort.stanford.edu/">CIBERSORT</a> <span class="citation">(see Newman et al. 2015)</span> and <a href="https://github.com/shenorrLab/bseqsc">bseq-sc</a> <span class="citation">(see Baron et al. 2016)</span>.</p>
-</div>
-<div id="bulk-tissue-cell-type-estimation" class="section level3">
-<h3 class="hasAnchor">
-<a href="#bulk-tissue-cell-type-estimation" class="anchor"></a>Bulk Tissue Cell Type Estimation</h3>
-<p>The deconvolution of 89 subjects from <span class="citation">Fadista et al. (2014)</span> are proformed by bulk data <code>GSE50244.bulk.eset</code> and single cell reference <code>EMTAB.eset</code>. We constrained our estimation on 6 major cell type: alpha, beta, delta, gamma, acinar and ductal, which take up over 90% of the whole islet.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Estimate cell type proportions</span>
-Est.prop.GSE50244 =<span class="st"> </span><span class="kw"><a href="../reference/music_prop.html">music_prop</a></span>(<span class="dt">bulk.eset =</span> GSE50244.bulk.eset, <span class="dt">sc.eset =</span> EMTAB.eset, <span class="dt">clusters =</span> <span class="st">'cellType'</span>, <span class="dt">samples =</span> <span class="st">'sampleID'</span>, <span class="dt">select.ct =</span> <span class="kw">c</span>(<span class="st">'alpha'</span>, <span class="st">'beta'</span>, <span class="st">'delta'</span>, <span class="st">'gamma'</span>, <span class="st">'acinar'</span>, <span class="st">'ductal'</span>), <span class="dt">verbose =</span> F)</code></pre></div>
-<p>Here we use <a href="../reference/Prop_comp_multi.html"><code>Jitter_Est</code></a> to show the difference between different estimation methods.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Jitter plot of estimated cell type proportions</span>
-jitter.fig =<span class="st"> </span><span class="kw"><a href="../reference/Jitter_Est.html">Jitter_Est</a></span>(<span class="kw">list</span>(<span class="kw">data.matrix</span>(Est.prop.GSE50244$Est.prop.weighted),
-                             <span class="kw">data.matrix</span>(Est.prop.GSE50244$Est.prop.allgene)),
-                        <span class="dt">method.name =</span> <span class="kw">c</span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>), <span class="dt">title =</span> <span class="st">'Jitter plot of Est Proportions'</span>)
-
-<span class="co"># A more sophisticated jitter plot is provided as below. We seperated the T2D subjects and normal </span>
-<span class="co">#subjects by their HbA1c levels.</span>
-
-m.prop.GSE50244 =<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">melt</span>(GSE50244.EMTAB.prop$Est.prop.weighted), 
-                        <span class="kw">melt</span>(GSE50244.EMTAB.prop$Est.prop.allgene))
-
-<span class="kw">colnames</span>(m.prop.GSE50244) =<span class="st"> </span><span class="kw">c</span>(<span class="st">'Sub'</span>, <span class="st">'CellType'</span>, <span class="st">'Prop'</span>)
-m.prop.GSE50244$CellType =<span class="st"> </span><span class="kw">factor</span>(m.prop.GSE50244$CellType, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">'alpha'</span>, <span class="st">'beta'</span>, <span class="st">'delta'</span>, <span class="st">'gamma'</span>, <span class="st">'acinar'</span>, <span class="st">'ductal'</span>))
-m.prop.GSE50244$Method =<span class="st"> </span><span class="kw">factor</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>), <span class="dt">each =</span> <span class="dv">89</span>*<span class="dv">6</span>), <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>))
-m.prop.GSE50244$HbA1c =<span class="st"> </span><span class="kw">rep</span>(GSE50244.bulk.eset$hba1c, <span class="dv">2</span>*<span class="dv">6</span>)
-m.prop.GSE50244 =<span class="st"> </span>m.prop.GSE50244[!<span class="kw">is.na</span>(m.prop.GSE50244$HbA1c), ]
-m.prop.GSE50244$Disease =<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">'Normal'</span>, <span class="st">'T2D'</span>)[(m.prop.GSE50244$HbA1c &gt;<span class="st"> </span><span class="fl">6.5</span>)+<span class="dv">1</span>], <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">'Normal'</span>, <span class="st">'T2D'</span>))
-m.prop.GSE50244$D =<span class="st"> </span>(m.prop.GSE50244$Disease ==<span class="st"> 'T2D'</span>)/<span class="dv">5</span>
-m.prop.GSE50244 =<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">subset</span>(m.prop.GSE50244, Disease ==<span class="st"> 'Normal'</span>), <span class="kw">subset</span>(m.prop.GSE50244, Disease !=<span class="st"> 'Normal'</span>))
-
-jitter.new =<span class="st"> </span><span class="kw">ggplot</span>(m.prop.GSE50244, <span class="kw">aes</span>(Method, Prop)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Method, <span class="dt">color =</span> Disease, <span class="dt">stroke =</span> D, <span class="dt">shape =</span> Disease), 
-             <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">position =</span> <span class="kw">position_jitter</span>(<span class="dt">width=</span><span class="fl">0.25</span>, <span class="dt">height=</span><span class="dv">0</span>)) +
-<span class="st">  </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>CellType, <span class="dt">scales =</span> <span class="st">'free'</span>) +<span class="st"> </span><span class="kw">scale_colour_manual</span>( <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">'white'</span>, <span class="st">"gray20"</span>)) +
-<span class="st">  </span><span class="kw">scale_shape_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">24</span>))+<span class="st"> </span><span class="kw">theme_minimal</span>()
-
-<span class="kw">plot_grid</span>(jitter.fig, jitter.new, <span class="dt">labels =</span> <span class="st">'auto'</span>)</code></pre></div>
-<div class="figure">
-<img src="images/GSE50244jitter.jpg">
-</div>
-<p>Let’s look at the beta cell proportions with HbA1c level.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create dataframe for beta cell proportions and HbA1c levels</span>
-m.prop.ana =<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">pData</span>(GSE50244.bulk.eset)[<span class="kw">rep</span>(<span class="dv">1</span>:<span class="dv">89</span>, <span class="dv">2</span>), <span class="kw">c</span>(<span class="st">'age'</span>, <span class="st">'bmi'</span>, <span class="st">'hba1c'</span>, <span class="st">'gender'</span>)],
-                        <span class="dt">ct.prop =</span> <span class="kw">c</span>(Est.prop.GSE50244$Est.prop.weighted[, <span class="dv">2</span>], 
-                                    Est.prop.GSE50244$Est.prop.allgene[, <span class="dv">2</span>]), 
-                        <span class="dt">Method =</span> <span class="kw">factor</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>), <span class="dt">each =</span> <span class="dv">89</span>), 
-                        <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>)))
-<span class="kw">colnames</span>(m.prop.ana)[<span class="dv">1</span>:<span class="dv">4</span>] =<span class="st"> </span><span class="kw">c</span>(<span class="st">'Age'</span>, <span class="st">'BMI'</span>, <span class="st">'HbA1c'</span>, <span class="st">'Gender'</span>)
-m.prop.ana =<span class="st"> </span><span class="kw">subset</span>(m.prop.ana, !<span class="kw">is.na</span>(HbA1c))
-m.prop.ana$Disease =<span class="st"> </span><span class="kw">factor</span>( <span class="kw">c</span>(<span class="st">'Normal'</span>, <span class="st">'T2D'</span>)[(m.prop.ana$HbA1c &gt;<span class="st"> </span><span class="fl">6.5</span>) +<span class="st"> </span><span class="dv">1</span>], <span class="kw">c</span>(<span class="st">'Normal'</span>, <span class="st">'T2D'</span>) )
-m.prop.ana$D =<span class="st"> </span>(m.prop.ana$Disease ==<span class="st"> 'T2D'</span>)/<span class="dv">5</span>
-
-<span class="kw">ggplot</span>(m.prop.ana, <span class="kw">aes</span>(HbA1c, ct.prop)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">'lm'</span>,  <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="st">'black'</span>, <span class="dt">lwd =</span> <span class="fl">0.25</span>) +
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Method, <span class="dt">color =</span> Disease, <span class="dt">stroke =</span> D, <span class="dt">shape =</span> Disease), <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>) +<span class="st">  </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>Method) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">'HbA1c vs Beta Cell Type Proportion'</span>) +<span class="st"> </span><span class="kw">theme_minimal</span>() +<span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_colour_manual</span>( <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">'white'</span>, <span class="st">"gray20"</span>)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_shape_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">24</span>))</code></pre></div>
-<div class="figure">
-<img src="images/GSE50244beta.jpg">
-</div>
-</div>
-</div>
-<div id="estimation-of-cell-type-proportions-with-clusters" class="section level2">
-<h2 class="hasAnchor">
-<a href="#estimation-of-cell-type-proportions-with-clusters" class="anchor"></a>Estimation of cell type proportions with clusters</h2>
-<p>Solid tissues often contain closely related cell types, and correlation of gene expression between these cell types leads to collinearity, making it difficult to resolve their relative proportions in bulk data. To deal with collinearity, MuSiC employs a tree-guided procedure that recursively zooms in on closely related cell types. Briefly, we first group similar cell types into the same cluster and estimate cluster proportions, then recursively repeat this procedure within each cluster. At each recursion stage, we only use genes that have low within-cluster variance, a.k.a. the cross-cell consistent genes. This is critical as the mean expression estimates of genes with high variance are affected by the pervasive bias in cell capture of scRNA-seq experiments, and thus cannot serve as reliable reference.</p>
-<p>We demonstate this procedure by reproducing the analysis of mouse kidney in MuSiC manuscript.</p>
-<div id="data-preparation" class="section level3">
-<h3 class="hasAnchor">
-<a href="#data-preparation" class="anchor"></a>Data Preparation</h3>
-<div id="bulk-data" class="section level4">
-<h4 class="hasAnchor">
-<a href="#bulk-data" class="anchor"></a>Bulk data</h4>
-<p>The dataset <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81492">GEO entry (GSE81492)</a> contains raw RNA-seq and sample annotation data. For the purpose of this vignette, we will use the read counts data <code>Mousebulkeset.rds</code> on the <a href="pages/data.html">data download page</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Download Mouse bulk dataset from Github</span>
-Mouse.bulk.eset =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">'https://xuranw.github.io/MuSiC/data/Mousebulkeset.rds'</span>)
-Mouse.bulk.eset
-
-<span class="co">#ExpressionSet (storageMode: lockedEnvironment)</span>
-<span class="co">#assayData: 19033 features, 10 samples </span>
-<span class="co">#  element names: exprs </span>
-<span class="co">#protocolData: none</span>
-<span class="co">#phenoData</span>
-<span class="co">#  sampleNames: control.NA.27 control.NA.30 ... APOL1.GNA78M (10 total)</span>
-<span class="co">#  varLabels: sampleID SubjectName Control</span>
-<span class="co">#  varMetadata: labelDescription</span>
-<span class="co">#featureData: none</span>
-<span class="co">#experimentData: use 'experimentData(object)'</span>
-<span class="co">#Annotation:  </span></code></pre></div>
-</div>
-<div id="single-cell-data" class="section level4">
-<h4 class="hasAnchor">
-<a href="#single-cell-data" class="anchor"></a>Single cell data</h4>
-<p>The single cell data are from <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE107585">GEO entry (GSE107585)</a>, which contrains read counts for 16273 genes of 43745 cells. A subset of the read counts <code>Mousesubeset.rds</code> are available on the <a href="page/data.html">data download page</a>, in the form of an <code>ExpressionSet</code>. This subset contains 16273 genes and 10000 cells.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Download EMTAB single cell dataset from Github</span>
-Mousesub.eset =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">'https://xuranw.github.io/MuSiC/data/Mousesubeset.rds'</span>)
-Mousesub.eset
-
-<span class="co">#ExpressionSet (storageMode: lockedEnvironment)</span>
-<span class="co">#assayData: 16273 features, 10000 samples </span>
-<span class="co">#  element names: exprs </span>
-<span class="co">#protocolData: none</span>
-<span class="co">#phenoData</span>
-<span class="co">#  sampleNames: TGGTTCCGTCGGCTCA-2 CGAGCCAAGCGTCAAG-4 ... GAGCAGAGTCAACATC-1 (10000 total)</span>
-<span class="co">#  varLabels: sampleID SubjectName cellTypeID cellType</span>
-<span class="co">#  varMetadata: labelDescription</span>
-<span class="co">#featureData: none</span>
-<span class="co">#experimentData: use 'experimentData(object)'</span>
-<span class="co">#Annotation:  </span>
-
-<span class="kw">levels</span>(Mousesub.eset$cellType)
-<span class="co"># [1] "Endo"     "Podo"     "PT"       "LOH"      "DCT"      "CD-PC"    "CD-IC"    "CD-Trans" "Novel1"  </span>
-<span class="co">#[10] "Fib"      "Macro"    "Neutro"   "B lymph"  "T lymph"  "NK"       "Novel2"  </span></code></pre></div>
-<p>Notice that the single cell dataset has 16 cell types, including 2 novel cell types and a transition cell type (CD-Trans). We exclude those 3 cell types in our analysis. ## Estimation of cell type proportions</p>
-</div>
-</div>
-<div id="clustering-single-cell-data" class="section level3">
-<h3 class="hasAnchor">
-<a href="#clustering-single-cell-data" class="anchor"></a>Clustering single cell data</h3>
-<p>In <a href="MuSiC.html#estimation-of-cell-type-proportions">previous</a> MuSiC estimation procedure, the first step is producing design matrix, cross-subject mean of relative abundance, cross-subject variance of relative abundance and average library size from single cell reference. <a href="../reference/music_basis.html"><code>music_basis</code></a> is the function that produce the design matrix (<code>Disgn.mtx</code>), cross-subject mean of relative abundance (<code>M.theta</code>), cross-subject variance of relative abundance (<code>Sigma</code>), and average library size (<code>M.S</code>).</p>
-<p>MuSiC utilized all genes in the next estimation steps and this will lead to collineary in the design matrix.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Produce the first step information</span>
-Mousesub.basis =<span class="st"> </span><span class="kw"><a href="../reference/music_basis.html">music_basis</a></span>(Mousesub.eset, <span class="dt">clusters =</span> <span class="st">'cellType'</span>, <span class="dt">samples =</span> <span class="st">'sampleID'</span>, 
-                             <span class="dt">select.ct =</span> <span class="kw">c</span>(<span class="st">'Endo'</span>, <span class="st">'Podo'</span>, <span class="st">'PT'</span>, <span class="st">'LOH'</span>, <span class="st">'DCT'</span>, <span class="st">'CD-PC'</span>, <span class="st">'CD-IC'</span>, <span class="st">'Fib'</span>,
-                                           <span class="st">'Macro'</span>, <span class="st">'Neutro'</span>,<span class="st">'B lymph'</span>, <span class="st">'T lymph'</span>, <span class="st">'NK'</span>))
-
-<span class="co"># Plot the dendrogram of design matrix and cross-subject mean of realtive abundance</span>
-<span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
-d &lt;-<span class="st"> </span><span class="kw">dist</span>(<span class="kw">t</span>(<span class="kw">log</span>(Mousesub.basis$Disgn.mtx +<span class="st"> </span><span class="fl">1e-6</span>)), <span class="dt">method =</span> <span class="st">"euclidean"</span>)
-<span class="co"># Hierarchical clustering using Complete Linkage</span>
-hc1 &lt;-<span class="st"> </span><span class="kw">hclust</span>(d, <span class="dt">method =</span> <span class="st">"complete"</span> )
-<span class="co"># Plot the obtained dendrogram</span>
-<span class="kw">plot</span>(hc1, <span class="dt">cex =</span> <span class="fl">0.6</span>, <span class="dt">hang =</span> -<span class="dv">1</span>, <span class="dt">main =</span> <span class="st">'Cluster log(Design Matrix)'</span>)
-d &lt;-<span class="st"> </span><span class="kw">dist</span>(<span class="kw">t</span>(<span class="kw">log</span>(Mousesub.basis$M.theta +<span class="st"> </span><span class="fl">1e-8</span>)), <span class="dt">method =</span> <span class="st">"euclidean"</span>)
-<span class="co"># Hierarchical clustering using Complete Linkage</span>
-<span class="co"># hc2 &lt;- hclust(d, method = "complete" )</span>
-hc2 &lt;-<span class="st"> </span><span class="kw">hclust</span>(d, <span class="dt">method =</span> <span class="st">"complete"</span>)
-<span class="co"># Plot the obtained dendrogram</span>
-<span class="kw">plot</span>(hc2, <span class="dt">cex =</span> <span class="fl">0.6</span>, <span class="dt">hang =</span> -<span class="dv">1</span>, <span class="dt">main =</span> <span class="st">'Cluster log(Mean of RA)'</span>)</code></pre></div>
-<div class="figure">
-<img src="images/Cluster.jpg">
-</div>
-<p>The immune cells are clustered together and so are the epithelial cells. Notice that DCT and PT are close to each other. The cut-off is user determined. Here we cut 13 cell types into 4 groups:</p>
-<ul>
-<li>Group 1: Neutro</li>
-<li>Group 2: Podo</li>
-<li>Group 3: Endo, CD-PC, CD-IC, LOH, DCT, PT</li>
-<li>Group 4: Fib, Macro, NK, B lymph, T lymph</li>
-</ul>
-<p>The tree-guided recursive estimation for mouse kidney analysis includes 2 steps:</p>
-<ul>
-<li>Step 1. Estimate proportions of each cluster; <span class="math inline">\((p_1,p_2,p_3,p_4)\)</span>
-</li>
-<li>Step 2. Estimate cell type proportions within each clusters; <span class="math inline">\((p_{31},p_{32},.,p_{36},p_{41},.,p_{45})\)</span>
-</li>
-</ul>
-<p>We manually specify the cluster and annotated single cell data with cluster information.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">clusters.type =<span class="st"> </span><span class="kw">list</span>(<span class="dt">C1 =</span> <span class="st">'Neutro'</span>, <span class="dt">C2 =</span> <span class="st">'Podo'</span>, <span class="dt">C3 =</span> <span class="kw">c</span>(<span class="st">'Endo'</span>, <span class="st">'CD-PC'</span>, <span class="st">'LOH'</span>, <span class="st">'CD-IC'</span>, <span class="st">'DCT'</span>, <span class="st">'PT'</span>), <span class="dt">C4 =</span> <span class="kw">c</span>(<span class="st">'Macro'</span>, <span class="st">'Fib'</span>, <span class="st">'B lymph'</span>, <span class="st">'NK'</span>, <span class="st">'T lymph'</span>))
-
-cl.type =<span class="st"> </span><span class="kw">as.character</span>(Mousesub.eset$cellType)
-
-for(cl in <span class="dv">1</span>:<span class="kw">length</span>(clusters.type)){
-  cl.type[cl.type %in%<span class="st"> </span>clusters.type[[cl]]] =<span class="st"> </span><span class="kw">names</span>(clusters.type)[cl]
-}
-<span class="kw">pData</span>(Mousesub.eset)$clusterType =<span class="st"> </span><span class="kw">factor</span>(cl.type, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="kw">names</span>(clusters.type), <span class="st">'CD-Trans'</span>, <span class="st">'Novel1'</span>, <span class="st">'Novel2'</span>))
-
-<span class="co"># 13 selected cell types</span>
-s.mouse =<span class="st"> </span><span class="kw">unlist</span>(clusters.type)
-s.mouse
-<span class="co">#       C1        C2       C31       C32       C33       C34       C35       C36       C41       C42 </span>
-<span class="co"># "Neutro"    "Podo"    "Endo"   "CD-PC"     "LOH"   "CD-IC"     "DCT"      "PT"   "Macro"     "Fib" </span>
-<span class="co">#      C43       C44       C45 </span>
-<span class="co">#"B lymph"      "NK" "T lymph" </span></code></pre></div>
-<p>We then select genes that differential expressed genes within cluster <code>C3</code> (Epithelial cells) and <code>C4</code> (Immune cells), available on <a href="pages/data.html">data download page</a>. Function <code>music_prop.cluster</code> is used for estimation with cluster.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="st">'https://xuranw.github.io/MuSiC/data/IEmarkers.RData'</span>)
-
-Est.mouse.bulk =<span class="st"> </span><span class="kw"><a href="../reference/music_prop.cluster.html">music_prop.cluster</a></span>(<span class="dt">bulk.eset =</span> Mouse.bulk.eset, <span class="dt">sc.eset =</span> Mousesub.eset, <span class="dt">group.markers =</span> IEmarkers, <span class="dt">clusters =</span> <span class="st">'cellType'</span>, <span class="dt">group =</span> <span class="st">'clusterType'</span>, <span class="dt">samples =</span> <span class="st">'sampleID'</span>, <span class="dt">clusters.type =</span> clusters.type)</code></pre></div>
-<p>The results might be different from the one presented in the manuscript due to incomplete reference single cell dataset.</p>
-</div>
 </div>
 </div>
 <div id="reference" class="section level1 unnumbered">
@@ -599,7 +723,8 @@ Est.mouse.bulk =<span class="st"> </span><span class="kw"><a href="../reference/
 <a href="#sample-analysis">Sample Analysis</a><ul class="nav nav-pills nav-stacked">
 <li><a href="#data-summary">Data Summary</a></li>
       <li><a href="#estimation-of-cell-type-proportions">Estimation of cell type proportions</a></li>
-      <li><a href="#estimation-of-cell-type-proportions-with-clusters">Estimation of cell type proportions with clusters</a></li>
+      <li><a href="#estimation-of-cell-type-proportions-with-pre-grouping-of-cell-types">Estimation of cell type proportions with pre-grouping of cell types</a></li>
+      <li><a href="#benchmark-evaluation">Benchmark Evaluation</a></li>
       </ul>
 </li>
       <li><a href="#reference">Reference</a></li>

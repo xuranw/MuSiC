@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Prepare Design matrix and Cross-sample Variance for MuSiC Deconvolution — music_basis • MuSiC</title>
+<title>Prepare Design matrix and Cross-subject Variance for MuSiC Deconvolution — music_basis • MuSiC</title>
 
 <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
 
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="Prepare Design matrix and Cross-sample Variance for MuSiC Deconvolution — music_basis" />
+<meta property="og:title" content="Prepare Design matrix and Cross-subject Variance for MuSiC Deconvolution — music_basis" />
 
-<meta property="og:description" content="This function is used for generating cell type specific cross-sample mean and variance for each gene. Cell type specific library size is also calcualted." />
+<meta property="og:description" content="This function is used for generating cell type specific cross-subject mean and variance for each gene. Cell type specific library size is also calcualted." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -100,14 +100,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Prepare Design matrix and Cross-sample Variance for MuSiC Deconvolution</h1>
+    <h1>Prepare Design matrix and Cross-subject Variance for MuSiC Deconvolution</h1>
     <small class="dont-index">Source: <a href='https://github.com/xuranw/MuSiC/blob/master/R/construct.R'><code>R/construct.R</code></a></small>
     <div class="hidden name"><code>music_basis.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>This function is used for generating cell type specific cross-sample mean and variance for each gene. Cell type specific library size is also calcualted.</p>
+    <p>This function is used for generating cell type specific cross-subject mean and variance for each gene. Cell type specific library size is also calcualted.</p>
     
     </div>
 
@@ -153,12 +153,14 @@
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a list of
-    * gene by cell type matrix of Design matrix
-    * subject by celltype matrix of Library size
-    * vector of average library size for each cell type
-    * gene by celltype matrix of average relative abudance
-    * gene by celltype matrix of cross-sample variation</p>
+    <p>a list of elements:</p><ul>
+<li><p><code>Disgn.mtx</code>: gene by cell type matrix of design matrix;</p></li>
+<li><p><code>S</code>: matrix of subject by cell type matrix of library size;</p></li>
+<li><p><code>M.S</code>: vector of average library size for each cell type;</p></li>
+<li><p><code>M.theta</code>: matrix of average relative abundance (gene by cell type);</p></li>
+<li><p><code>Sigma</code>: matrix of cross-subject variance (gene by cell type)</p></li>
+</ul>
+
     
 
   </div>

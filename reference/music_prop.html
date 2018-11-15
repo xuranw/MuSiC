@@ -113,8 +113,8 @@
 
     <pre class="usage"><span class='fu'>music_prop</span>(<span class='no'>bulk.eset</span>, <span class='no'>sc.eset</span>, <span class='kw'>markers</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>clusters</span>, <span class='no'>samples</span>,
   <span class='kw'>select.ct</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ct.cov</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>iter.max</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>nu</span> <span class='kw'>=</span> <span class='fl'>1e-04</span>, <span class='kw'>eps</span> <span class='kw'>=</span> <span class='fl'>0.01</span>, <span class='kw'>inter.as.bseq</span> <span class='kw'>=</span> <span class='no'>F</span>,
-  <span class='kw'>normalize</span> <span class='kw'>=</span> <span class='no'>F</span>, <span class='no'>...</span>)</pre>
+  <span class='kw'>iter.max</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>nu</span> <span class='kw'>=</span> <span class='fl'>1e-04</span>, <span class='kw'>eps</span> <span class='kw'>=</span> <span class='fl'>0.01</span>, <span class='kw'>inter.as.bseq</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>normalize</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -175,12 +175,14 @@
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a list of
-        * Estimates of MuSiC
-        * Estimates of NNLS
-        * Weight of MuSiC
-        * r.squared of MuSiC
-        * Variance of MuSiC estimates</p>
+    <p>a list with elements:</p><ul>
+<li><p><code>Est.prop.weighted</code>: data.frame of MuSiC estimated proportions, subjects by cell types;</p></li>
+<li><p><code>Est.prop.allgene</code>: data.frame of NNLS estimated proportions, subjects by cell types;</p></li>
+<li><p><code>Weight.gene</code>: matrix, MuSiC estimated weight for each gene, genes by subjects;</p></li>
+<li><p><code>r.squared.full</code>: vector of R squared from MuSiC estimated proportions for each subject;</p></li>
+<li><p><code>Var.prop</code>: matrix of variance of MuSiC estimates.</p></li>
+</ul>
+
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 

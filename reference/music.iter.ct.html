@@ -112,7 +112,7 @@
     </div>
 
     <pre class="usage"><span class='fu'>music.iter.ct</span>(<span class='no'>Y</span>, <span class='no'>D</span>, <span class='no'>S</span>, <span class='no'>Sigma.ct</span>, <span class='kw'>iter.max</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>nu</span> <span class='kw'>=</span> <span class='fl'>1e-04</span>,
-  <span class='kw'>eps</span> <span class='kw'>=</span> <span class='fl'>0.01</span>, <span class='kw'>iter.as.bseq</span> <span class='kw'>=</span> <span class='no'>F</span>, <span class='kw'>normalize</span> <span class='kw'>=</span> <span class='no'>F</span>)</pre>
+  <span class='kw'>eps</span> <span class='kw'>=</span> <span class='fl'>0.01</span>, <span class='kw'>iter.as.bseq</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>normalize</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -160,7 +160,22 @@ Default is FALSE.</p></td>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a list same as nnls.weight.basic</p>
+    <p>a list that is same as <code>music.basis.ct</code>:</p><ul>
+<li><p><code>p.nnls</code>: vector of cell type proportions estimated by nnls (normalized <code>q.nnls</code>, sum to 1);</p></li>
+<li><p><code>q.nnls</code>: vector of original estimation from <code>nnls</code>;</p></li>
+<li><p><code>fit.nnls</code>: fitted value of `Y` from <code>nnls</code>;</p></li>
+<li><p><code>resid.nnls</code>: vector of residual value from <code>nnls</code>;</p></li>
+<li><p><code>p.weight</code>: vector of cell type proportions estimated by weighted-nnls (normalized <code>q.weight</code>, sum to 1);</p></li>
+<li><p><code>q.weight</code>: vector of original estimation from weight-nnls;</p></li>
+<li><p><code>fit.weight</code>: fitted value of `Y` from weighted-nnls;</p></li>
+<li><p><code>resid.weight</code>: vector of residual value from weighted-nnls;</p></li>
+<li><p><code>weight.gene</code>: vector of weight calculated from weighted-nnls;</p></li>
+<li><p><code>converge</code>: character in form of 'Reach Maxiter' or 'Converge at #m';</p></li>
+<li><p><code>rsd</code>: vector of residual value from weighted-nnls transfromed by weight;</p></li>
+<li><p><code>R.squared</code>: vector of R square of weighted-nnls;</p></li>
+<li><p><code>var.p</code>: vector of variance of weighted-nnls estimated cell type proportions.</p></li>
+</ul>
+
     
 
   </div>

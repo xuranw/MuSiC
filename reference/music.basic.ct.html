@@ -34,7 +34,7 @@
 
 <meta property="og:title" content="Estimate cell type proportion with MuSiC and NNLS — music.basic.ct" />
 
-<meta property="og:description" content="weight is estimated with cell type covariance" />
+<meta property="og:description" content="Estimate cell type proportion with MuSiC and NNLS where weight is estimated with cell type covariance." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -107,7 +107,7 @@
 
     <div class="ref-description">
     
-    <p>weight is estimated with cell type covariance</p>
+    <p>Estimate cell type proportion with MuSiC and NNLS where weight is estimated with cell type covariance.</p>
     
     </div>
 
@@ -148,20 +148,22 @@
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a list with elements:
-  * p.nnls: vector of cell type proportions estimated by nnls (add up to 1)
-  * q.nnls: vector of original estimation from nnls
-  * fit.nnls: fitted value of Y from nnls
-  * resid.nnls: residual value from nnls
-  * p.weight: vector of cell type proportions estimated by weighted-nnls (add up to 1)
-  * q.weight: vector of original estimation from weight-nnls
-  * fit.weight: fitted value of Y from weighted-nnls
-  * resid.weight: residual value from weighted-nnls
-  * weight.gene: weight calculated from weighted-nnls
-  * converge: 'Reach Maxiter', 'Converge at m'
-  * rsd: residual value from weighted-nnls transfromed by weight
-  * R.squared: R square of weighted-nnls
-  * var.p: variance of weighted-nnls estimated cell type proportions</p>
+    <p>a list with elements</p><ul>
+<li><p><code>p.nnls</code>: vector of cell type proportions estimated by nnls (normalized <code>q.nnls</code>, sum to 1);</p></li>
+<li><p><code>q.nnls</code>: vector of original estimation from <code>nnls</code>;</p></li>
+<li><p><code>fit.nnls</code>: fitted value of `Y` from <code>nnls</code>;</p></li>
+<li><p><code>resid.nnls</code>: vector of residual value from <code>nnls</code>;</p></li>
+<li><p><code>p.weight</code>: vector of cell type proportions estimated by weighted-nnls (normalized <code>q.weight</code>, sum to 1);</p></li>
+<li><p><code>q.weight</code>: vector of original estimation from weight-nnls;</p></li>
+<li><p><code>fit.weight</code>: fitted value of `Y` from weighted-nnls;</p></li>
+<li><p><code>resid.weight</code>: vector of residual value from weighted-nnls;</p></li>
+<li><p><code>weight.gene</code>: vector of weight calculated from weighted-nnls;</p></li>
+<li><p><code>converge</code>: character in form of 'Reach Maxiter' or 'Converge at #m';</p></li>
+<li><p><code>rsd</code>: vector of residual value from weighted-nnls transfromed by weight;</p></li>
+<li><p><code>R.squared</code>: vector of R square of weighted-nnls;</p></li>
+<li><p><code>var.p</code>: vector of variance of weighted-nnls estimated cell type proportions.</p></li>
+</ul>
+
     
 
   </div>

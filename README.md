@@ -6,7 +6,11 @@ Multi-subject Single Cell deconvolution (MuSiC)
 
 How to cite `MuSiC`
 -------------------
-This work is not published yet, please see [bioRxiv](https://www.biorxiv.org/content/early/2018/06/26/354944).
+Please cite the following publication:
+
+> *Bulk tissue cell type deconvolution with multi-subject single-cell expression reference*<br />
+> <small>X. Wang, J. Park, K. Susztak, N.R. Zhang, M. Li<br /></small>
+> Nature Communications. 2019 Jan 22 [https://doi.org/10.1038/s41467-018-08023-x](https://doi.org/10.1038/s41467-018-08023-x) 
 
 Installation
 ------------

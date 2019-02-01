@@ -1,10 +1,10 @@
 Package: MuSiC
 Type: Package
-Title: Multi-sample single cell deconvolution
-Version: 0.1.0
+Title: Multi-subject single cell deconvolution
+Version: 0.1.1
 Authors@R: c(person("Xuran", "Wang", role = c('aut', 'cre'), email = 'xuranw@sas.upenn.edu'))
 Maintainer: Xuran Wang <xuranw@sas.upenn.edu>
-Description: Companion package to: A bulk tissue deconvolution with multi-sample single cell reference. The estimation is based as on the weight, calculated by cross-sample variations.
+Description: Companion package to: A bulk tissue deconvolution method with multi-subject single cell expression reference. This package provide functions to estimate bulk tissue cell type proportions with multi-subject single cell expression as reference.
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
@@ -12,7 +12,6 @@ Depends: R (>= 3.3.2), nnls (>= 1.4), ggplot2 (>= 2.2.1)
 Imports: 
         plyr,
         xbioc, 
-        bseqsc, 
         Biobase, 
         MCMCpack
 URL: https://github.com/xuranw/MuSiC

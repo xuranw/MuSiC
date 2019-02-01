@@ -4,16 +4,16 @@
 \alias{music_prop.cluster}
 \title{MuSiC Deconvolution with Clusters}
 \usage{
-music_prop.cluster(bulk.eset, sc.eset, group.markers, groups, clusters, samples,
-  clusters.type, verbose = TRUE, iter.max = 1000, nu = 1e-04,
-  eps = 0.01, inter.as.bseq = F, normalize = F, ...)
+music_prop.cluster(bulk.eset, sc.eset, group.markers, groups, clusters,
+  samples, clusters.type, verbose = TRUE, iter.max = 1000,
+  nu = 1e-04, eps = 0.01, centered = FALSE, normalize = FALSE, ...)
 }
 \arguments{
 \item{bulk.eset}{ExpressionSet for bulk data}
 
 \item{sc.eset}{ExpressionSet for single cell data}
 
-\item{group.markers}{list of gene names. The list include differential expressed genes within groups.
+\item{group.markers}{list of gene names. The list include differential expressed genes within groups. 
 List name must be the same as `clusters.type`.}
 
 \item{groups}{character, the phenoData of single cell data used as groups;}
@@ -32,12 +32,12 @@ List name must be the same as `clusters.type`.}
 
 \item{eps}{Thredshold of convergence}
 
-\item{inter.as.bseq}{logic, substract avg of Y and D as BSEQ-sc did}
+\item{centered}{logic, substract avg of Y and D}
 
 \item{normalize}{logic, divide Y and D by their standard deviation}
 }
 \value{
-Estimated proportions from MuSiC with cluster information.
+matrix of estimated proportions by MuSiC with cluster information.
 }
 \description{
 This function is to calculate the MuSiC deconvolution proportions with clusters

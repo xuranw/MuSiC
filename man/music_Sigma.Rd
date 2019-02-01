@@ -2,7 +2,7 @@
 % Please edit documentation in R/construct.R
 \name{music_Sigma}
 \alias{music_Sigma}
-\title{Cross-sample Varirance of Relative Abudance}
+\title{Cross-subject Varirance of Relative Abudance}
 \usage{
 music_Sigma(x, non.zero, markers, clusters, samples, select.ct)
 }
@@ -23,5 +23,5 @@ music_Sigma(x, non.zero, markers, clusters, samples, select.ct)
 gene by cell type matrix of variance
 }
 \description{
-This function is for calculating the cross-sample variance of relative abundance for selected cell types.
+This function is for calculating the cross-subject variance of relative abundance for selected cell types.
 }

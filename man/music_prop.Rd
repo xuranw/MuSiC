@@ -5,8 +5,9 @@
 \title{MuSiC Deconvolution}
 \usage{
 music_prop(bulk.eset, sc.eset, markers = NULL, clusters, samples,
-  select.ct = NULL, ct.cov = FALSE, verbose = TRUE, iter.max = 1000,
-  nu = 1e-04, eps = 0.01, inter.as.bseq = F, normalize = F, ...)
+  select.ct = NULL, ct.cov = FALSE, verbose = TRUE,
+  iter.max = 1000, nu = 1e-04, eps = 0.01, centered = FALSE,
+  normalize = FALSE, ...)
 }
 \arguments{
 \item{bulk.eset}{ExpressionSet for bulk data}
@@ -31,17 +32,17 @@ music_prop(bulk.eset, sc.eset, markers = NULL, clusters, samples,
 
 \item{eps}{Thredshold of convergence}
 
-\item{inter.as.bseq}{logic, substract avg of Y and D as BSEQ-sc did}
+\item{centered}{logic, substract avg of Y and D}
 
 \item{normalize}{logic, divide Y and D by their standard deviation}
 }
 \value{
-a list of
-        * Estimates of MuSiC
-        * Estimates of NNLS
-        * Weight of MuSiC
-        * r.squared of MuSiC
-        * Variance of MuSiC estimates
+a list with elements:
+   * Estimates of MuSiC
+   * Estimates of NNLS
+   * Weight of MuSiC
+   * r.squared of MuSiC
+   * Variance of MuSiC estimates
 }
 \description{
 This function is to calculate the MuSiC deconvolution proportions

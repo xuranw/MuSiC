@@ -2,7 +2,7 @@
 % Please edit documentation in R/construct.R
 \name{music_M.theta}
 \alias{music_M.theta}
-\title{Cross-sample Mean of Relative Abudance}
+\title{Cross-subject Mean of Relative Abudance}
 \usage{
 music_M.theta(x, non.zero, markers, clusters, samples, select.ct)
 }
@@ -23,5 +23,5 @@ music_M.theta(x, non.zero, markers, clusters, samples, select.ct)
 gene by cell type matrix of average relative abundance
 }
 \description{
-This function is for calculating the cross-sample mean of relative abundance for selected cell types.
+This function is for calculating the cross-subject mean of relative abundance for selected cell types.
 }

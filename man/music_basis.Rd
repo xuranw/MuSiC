@@ -2,7 +2,7 @@
 % Please edit documentation in R/construct.R
 \name{music_basis}
 \alias{music_basis}
-\title{Prepare Design matrix and Cross-sample Variance for MuSiC Deconvolution}
+\title{Prepare Design matrix and Cross-subject Variance for MuSiC Deconvolution}
 \usage{
 music_basis(x, non.zero = TRUE, markers = NULL, clusters, samples,
   select.ct = NULL, ct.cov = FALSE, verbose = TRUE)
@@ -30,8 +30,8 @@ a list of
     * subject by celltype matrix of Library size
     * vector of average library size for each cell type
     * gene by celltype matrix of average relative abudance
-    * gene by celltype matrix of cross-sample variation
+    * gene by celltype matrix of cross-subject variation
 }
 \description{
-This function is used for generating cell type specific cross-sample mean and variance for each gene. Cell type specific library size is also calcualted.
+This function is used for generating cell type specific cross-subject mean and variance for each gene. Cell type specific library size is also calcualted.
 }

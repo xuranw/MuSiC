@@ -5,7 +5,7 @@
 \title{Scaling bulk data and signature matrix and estimate cell type proportion}
 \usage{
 music.iter(Y, D, S, Sigma, iter.max = 1000, nu = 1e-04, eps = 0.01,
-  inter.as.bseq = F, normalize = F)
+  centered = FALSE, normalize = FALSE)
 }
 \arguments{
 \item{Y}{vector of bulk tissue expression}
@@ -22,7 +22,7 @@ music.iter(Y, D, S, Sigma, iter.max = 1000, nu = 1e-04, eps = 0.01,
 
 \item{eps}{thredshold of converagence}
 
-\item{inter.as.bseq}{logic, substract avg of Y and D as BSEQ-sc did}
+\item{centered}{logic, substract avg of Y and D}
 
 \item{normalize}{logic, divide Y and D by their standard deviation}
 }

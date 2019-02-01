@@ -18,7 +18,7 @@ music_S(x, non.zero, clusters, samples, select.ct)
 \item{select.ct}{vector of cell types included, default as \code{NULL}. If \code{NULL}, include all cell types in \code{x}}
 }
 \value{
-sample by cell type matrix of library
+subject by cell type matrix of library
 }
 \description{
 This function is for calculating the cell type specific library size for selected cell types.

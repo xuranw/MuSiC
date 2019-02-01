@@ -2,7 +2,7 @@
 % Please edit documentation in R/construct.R
 \name{music_Theta}
 \alias{music_Theta}
-\title{Sample and cell type specific relative abudance}
+\title{Subject and cell type specific relative abudance}
 \usage{
 music_Theta(x, non.zero = FALSE, clusters, samples, select.ct = NULL)
 }
@@ -23,5 +23,5 @@ music_Theta(x, non.zero = FALSE, clusters, samples, select.ct = NULL)
 gene*subject by cell type matrix of relative abundance
 }
 \description{
-This function is for calculating the sample and cell type specific relative abundance for selected cell types.
+This function is for calculating the subject and cell type specific relative abundance for selected cell types.
 }

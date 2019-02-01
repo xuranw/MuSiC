@@ -13,7 +13,7 @@
 #' @param select.ct vector of cell types included, default as \code{NULL}. If \code{NULL}, include all cell types in \code{x}.
 #' Otherwise, only cells of selected cell types will be used for construction.
 #'
-#' @return ExpressionSet of constructed bulk tissue, matrix of cell number in each cluster*sample
+#' @return ExpressionSet of constructed bulk tissue, matrix of cell number in each cluster by subject
 #'
 #' @import plyr
 #' @export
@@ -48,11 +48,11 @@ bulk_construct = function(eset, clusters, samples, select.ct = NULL){
 }
 
 ############ Construct Design Matrix, Library Size, and Subject-level Variation of Relative abundance for MuSiC ############
-## These functions are for cell type specific mean expression, cross-sample variance and mean library size for MuSiC deconvolution
+## These functions are for cell type specific mean expression, cross-subject variance and mean library size for MuSiC deconvolution
 
-#' Cross-sample Mean of Relative Abudance
+#' Cross-subject Mean of Relative Abudance
 #'
-#' This function is for calculating the cross-sample mean of relative abundance for selected cell types.
+#' This function is for calculating the cross-subject mean of relative abundance for selected cell types.
 #'
 #' @param x ExpressionSet, single cell dataset
 #' @param non.zero logical, if true, remove all gene with zero expression
@@ -95,9 +95,9 @@ music_M.theta = function(x, non.zero, markers, clusters, samples, select.ct){
   return(M.theta)
 }
 
-#' Sample and cell type specific relative abudance
+#' Subject and cell type specific relative abudance
 #'
-#' This function is for calculating the sample and cell type specific relative abundance for selected cell types.
+#' This function is for calculating the subject and cell type specific relative abundance for selected cell types.
 #'
 #' @param x ExpressionSet, single cell dataset
 #' @param non.zero logical, defualt as F. If true, remove all gene with zero expression
@@ -137,9 +137,9 @@ music_Theta <- function(x, non.zero = FALSE, clusters, samples, select.ct = NULL
   return(Theta = Theta)
 }
 
-#' Cross-sample Corvriance of Relative Abudance
+#' Cross-subject Corvriance of Relative Abudance
 #'
-#' This function is for calculating the cross-sample covariance of relative abundance for selected cell types.
+#' This function is for calculating the cross-subject covariance of relative abundance for selected cell types.
 #'
 #' @param x ExpressionSet, single cell dataset
 #' @param non.zero logical, if true, remove all gene with zero expression
@@ -184,9 +184,9 @@ music_Sigma.ct = function(x, non.zero, markers, clusters, samples, select.ct){
   return(Sigma.ct = Sigma.ct)
 }
 
-#' Cross-sample Varirance of Relative Abudance
+#' Cross-subject Varirance of Relative Abudance
 #'
-#' This function is for calculating the cross-sample variance of relative abundance for selected cell types.
+#' This function is for calculating the cross-subject variance of relative abundance for selected cell types.
 #'
 #' @param x ExpressionSet, single cell dataset
 #' @param non.zero logical, if true, remove all gene with zero expression
@@ -238,7 +238,7 @@ music_Sigma = function(x, non.zero, markers, clusters, samples, select.ct){
 #' @param clusters character, the phenoData used as clusters
 #' @param samples character,the phenoData used as samples
 #' @param select.ct vector of cell types included, default as \code{NULL}. If \code{NULL}, include all cell types in \code{x}
-#' @return sample by cell type matrix of library
+#' @return subject by cell type matrix of library
 #'
 #' @export
 music_S = function(x, non.zero, clusters, samples, select.ct){
@@ -281,7 +281,7 @@ music_S = function(x, non.zero, clusters, samples, select.ct){
 #' @param clusters character, the phenoData used as clusters
 #' @param samples character,the phenoData used as samples
 #' @param select.ct vector of cell types included, default as \code{NULL}. If \code{NULL}, include all cell types in \code{x}
-#' @return sample by cell type matrix of library
+#' @return subject by cell type matrix of library
 #'
 #' @export
 #' @seealso
@@ -296,9 +296,9 @@ music_Design.matrix = function(x, non.zero, markers, clusters, samples, select.c
   return(D)
 }
 
-#' Prepare Design matrix and Cross-sample Variance for MuSiC Deconvolution
+#' Prepare Design matrix and Cross-subject Variance for MuSiC Deconvolution
 #'
-#' This function is used for generating cell type specific cross-sample mean and variance for each gene. Cell type specific library size is also calcualted.
+#' This function is used for generating cell type specific cross-subject mean and variance for each gene. Cell type specific library size is also calcualted.
 #'
 #' @param x ExpressionSet, single cell dataset
 #' @param non.zero logical, default as TRUE. If true, remove all gene with zero expression.
@@ -313,7 +313,7 @@ music_Design.matrix = function(x, non.zero, markers, clusters, samples, select.c
 #'     * subject by celltype matrix of Library size
 #'     * vector of average library size for each cell type
 #'     * gene by celltype matrix of average relative abudance
-#'     * gene by celltype matrix of cross-sample variation
+#'     * gene by celltype matrix of cross-subject variation
 #'
 #' @export
 #' @examples

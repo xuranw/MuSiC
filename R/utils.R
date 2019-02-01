@@ -91,8 +91,6 @@ get_upper_tri = function(cormat){
   return(cormat)
 }
 
-
-
 #' MuSiC Deconvolution
 #'
 #' This function is to calculate the MuSiC deconvolution proportions
@@ -108,18 +106,18 @@ get_upper_tri = function(cormat){
 #' @param iter.max numeric, maximum iteration number
 #' @param nu regulation parameter, take care of weight when taking recipical
 #' @param eps Thredshold of convergence
-#' @param inter.as.bseq logic, substract avg of Y and D as BSEQ-sc did
+#' @param centered logic, substract avg of Y and D
 #' @param normalize logic, divide Y and D by their standard deviation
-#' @return a list of
-#'         * Estimates of MuSiC
-#'         * Estimates of NNLS
-#'         * Weight of MuSiC
-#'         * r.squared of MuSiC
-#'         * Variance of MuSiC estimates
+#' @return a list with elements:
+#'    * Estimates of MuSiC
+#'    * Estimates of NNLS
+#'    * Weight of MuSiC
+#'    * r.squared of MuSiC
+#'    * Variance of MuSiC estimates
 #' @seealso
 #' \code{\link{music_basis}}
 music_prop = function(bulk.eset, sc.eset, markers = NULL, clusters, samples, select.ct = NULL, ct.cov = FALSE, verbose = TRUE,
-                      iter.max = 1000, nu = 0.0001, eps = 0.01, inter.as.bseq = F, normalize = F, ... ){
+                      iter.max = 1000, nu = 0.0001, eps = 0.01, centered = FALSE, normalize = FALSE, ... ){
   bulk.gene = rownames(bulk.eset)[rowMeans(exprs(bulk.eset)) != 0]
   bulk.eset = bulk.eset[bulk.gene, , drop = FALSE]
   if(is.null(markers)){
@@ -157,7 +155,7 @@ music_prop = function(bulk.eset, sc.eset, markers = NULL, clusters, samples, sel
     }
 
     lm.D1.weighted = music.iter.ct(Yjg.temp, D1.temp, M.S, Sigma.ct.temp, iter.max = iter.max,
-                                   nu = nu, eps = eps, inter.as.bseq = inter.as.bseq, normalize = normalize)
+                                   nu = nu, eps = eps, centered = centered, normalize = normalize)
     Est.prop.allgene = rbind(Est.prop.allgene, lm.D1.weighted$p.nnls)
     Est.prop.weighted = rbind(Est.prop.weighted, lm.D1.weighted$p.weight)
     weight.gene.temp = rep(NA, nrow(Yjg)); weight.gene.temp[Yjg[,i]!=0] = lm.D1.weighted$weight.gene;
@@ -196,7 +194,7 @@ music_prop = function(bulk.eset, sc.eset, markers = NULL, clusters, samples, sel
       }
 
       lm.D1.weighted = music.iter(Yjg.temp, D1.temp, M.S, Sigma.temp, iter.max = iter.max,
-                                  nu = nu, eps = eps, inter.as.bseq = inter.as.bseq, normalize = normalize)
+                                  nu = nu, eps = eps, centered = centered, normalize = normalize)
       Est.prop.allgene = rbind(Est.prop.allgene, lm.D1.weighted$p.nnls)
       Est.prop.weighted = rbind(Est.prop.weighted, lm.D1.weighted$p.weight)
       weight.gene.temp = rep(NA, nrow(Yjg)); weight.gene.temp[Yjg[,i]!=0] = lm.D1.weighted$weight.gene;
@@ -235,13 +233,13 @@ music_prop = function(bulk.eset, sc.eset, markers = NULL, clusters, samples, sel
 #' @param iter.max numeric, maximum iteration number
 #' @param nu regulation parameter, take care of weight when taking recipical
 #' @param eps Thredshold of convergence
-#' @param inter.as.bseq logic, substract avg of Y and D as BSEQ-sc did
+#' @param centered logic, substract avg of Y and D
 #' @param normalize logic, divide Y and D by their standard deviation
-#' @return Estimated proportions from MuSiC with cluster information.
+#' @return matrix of estimated proportions by MuSiC with cluster information.
 #' @seealso
 #' \code{\link{music_basis}}; \code{\link{music_prop}}
 music_prop.cluster = function(bulk.eset, sc.eset, group.markers, groups, clusters, samples, clusters.type,
-                              verbose = TRUE, iter.max = 1000, nu = 0.0001, eps = 0.01, inter.as.bseq = F, normalize = F, ... ){
+                              verbose = TRUE, iter.max = 1000, nu = 0.0001, eps = 0.01, centered = FALSE, normalize = FALSE, ... ){
   bulk.gene = rownames(bulk.eset)[rowMeans(exprs(bulk.eset)) != 0]
   bulk.eset = bulk.eset[bulk.gene, , drop = FALSE]
   select.ct = unlist(clusters.type)
@@ -299,7 +297,7 @@ music_prop.cluster = function(bulk.eset, sc.eset, group.markers, groups, cluster
       if(verbose) message(paste(colnames(Yjg)[i], 'has common genes', sum(Yjg[, i] != 0), '...'))
     }
     lm.D1.cluster = music.iter(Yjg.temp, D1.cluster.temp, M.S.cluster, Sigma.cluster.temp, iter.max = iter.max,
-                               nu = nu, eps = eps, inter.as.bseq = inter.as.bseq, normalize = normalize)
+                               nu = nu, eps = eps, centered = centered, normalize = normalize)
     p.weight = NULL
     p.cluster.weight = lm.D1.cluster$p.weight
     for(j in 1:length(clusters.type)){

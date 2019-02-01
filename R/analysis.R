@@ -84,14 +84,13 @@ music.basic = function(Y, X, S, Sigma, iter.max, nu, eps){
 #' @param iter.max numeric, maximum iteration number
 #' @param nu regulation parameter, when take recipical
 #' @param eps thredshold of converagence
-#' @param inter.as.bseq logic, substract avg of Y and D as BSEQ-sc did
+#' @param centered logic, substract avg of Y and D
 #' @param normalize logic, divide Y and D by their standard deviation
 #'
 #'
 #' @return a list same as nnls.weight.basic
-#' @import bseqsc
 #' @export
-music.iter = function(Y, D, S, Sigma, iter.max = 1000, nu = 0.0001, eps = 0.01, inter.as.bseq = F, normalize = F){
+music.iter = function(Y, D, S, Sigma, iter.max = 1000, nu = 0.0001, eps = 0.01, centered = FALSE, normalize = FALSE){
   if(length(S)!=ncol(D)){
     common.cell.type = intersect(colnames(D), names(S))
     if(length(common.cell.type)<=1){
@@ -124,7 +123,7 @@ music.iter = function(Y, D, S, Sigma, iter.max = 1000, nu = 0.0001, eps = 0.01, 
 
   X = D
   ## First, no intercept and no normalization
-  if(inter.as.bseq){
+  if(centered){
     X = X - mean(X)
     Y = Y - mean(Y)
   }
@@ -255,15 +254,14 @@ music.basic.ct = function(Y, X, S, Sigma.ct, iter.max, nu, eps){
 #' @param nu regulation parameter, take care of weight when taking recipical
 #' by default nu = 0.0001.
 #' @param eps Thredshold of convergence. Default is 0.01.
-#' @param inter.as.bseq logic, substract avg of Y and D as BSEQ-sc did.
+#' @param centered logic, substract avg of Y and D.
 #' Default is FALSE.
 #' @param normalize logic, divide Y and D by their standard deviation.
 #' Default is FALSE
 #'
 #' @return a list same as nnls.weight.basic
-#' @import bseqsc
 #' @export
-music.iter.ct = function(Y, D, S, Sigma.ct, iter.max = 1000, nu = 0.0001, eps = 0.01, iter.as.bseq = F, normalize = F){
+music.iter.ct = function(Y, D, S, Sigma.ct, iter.max = 1000, nu = 0.0001, eps = 0.01, centered = FALSE, normalize = FALSE){
   if(length(S)!=ncol(D)){
     common.cell.type = intersect(colnames(D), names(S))
     if(length(common.cell.type)<=1){
@@ -288,7 +286,7 @@ music.iter.ct = function(Y, D, S, Sigma.ct, iter.max = 1000, nu = 0.0001, eps = 
 
   X = D
   ## First, no intercept and no normalization
-  if(inter.as.bseq){
+  if(centered){
     X = X - mean(X)
     Y = Y - mean(Y)
   }

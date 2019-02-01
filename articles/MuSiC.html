@@ -6,14 +6,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tutorial - MuSiC</title>
-<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js" integrity="sha256-hIvIxeqhGZF+VVeM55k0mJvWpQ6gTkWk3Emc+NmowYA=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="MuSiC: Multi-subject Single-cell Deconvolution">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
-<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
+<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
@@ -31,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MuSiC</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -80,19 +79,19 @@
 <div id="introduction" class="section level1">
 <h1 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h1>
-<p>This vignette provides a walk through tutorial on how to use <code>MuSiC</code> to estimate cell type proportions from bulk sequencing data based on multi-subject single cell data by reproducing the analysis in MuSiC <a href="https://www.biorxiv.org/content/early/2018/06/26/354944">manuscript</a>.</p>
+<p>This vignette provides a walk through tutorial on how to use <code>MuSiC</code> to estimate cell type proportions from bulk sequencing data based on multi-subject single cell data by reproducing the analysis in MuSiC paper, now is published on <a href="https://doi.org/10.1038/s41467-018-08023-x"><em>Nature Communications</em></a>.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>To run the entire deconvolution tutorial, users need to install the <a href="https://www.github.com/xuranw/MuSiC"><code>MuSiC</code></a> package.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install devtools if necessary</span>
-<span class="kw">install.packages</span>(<span class="st">'devtools'</span>)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">'devtools'</span>)
 
 <span class="co"># install the MuSiC package</span>
 devtools::<span class="kw">install_github</span>(<span class="st">'xuranw/MuSiC'</span>)
 
 <span class="co"># load</span>
-<span class="kw">library</span>(MuSiC)</code></pre></div>
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(MuSiC)</code></pre></div>
 </div>
 <div id="data" class="section level2">
 <h2 class="hasAnchor">
@@ -102,7 +101,7 @@ devtools::<span class="kw">install_github</span>(<span class="st">'xuranw/MuSiC'
 <li><p>Bulk expression obtained from RNA sequencing, which is a mixture expression of various cell types. These are the data we want to deconvolve.</p></li>
 <li><p>Multi-subject single cell expression obtained from single-cell RNA sequencing (scRNA-seq). The cell types of scRNA-seq are pre-determined. These serve as reference for estimating cell type proportions of bulk data.</p></li>
 </ul>
-<p><code>MuSiC</code> requires raw read counts for both bulk and single-cell expression. The discussion of the usage of RPKM and TPM can be found in the <strong>Discussion</strong> section of our <a href="https://www.biorxiv.org/content/early/2018/06/26/354944">manuscript</a>.</p>
+<p><code>MuSiC</code> requires raw read counts for both bulk and single-cell expression. The discussion of the usage of RPKM and TPM can be found in the <strong>Discussion</strong> section of our <a href="https://doi.org/10.1038/s41467-018-08023-x">paper</a>.</p>
 </div>
 </div>
 <div id="music-deconvolution" class="section level1">
@@ -205,7 +204,7 @@ devtools::<span class="kw">install_github</span>(<span class="st">'xuranw/MuSiC'
 </tr>
 </tbody>
 </table>
-<p>Bioconductor base package provides <code>ExpressionSet</code> class, which is a convenient data structure to hold expression data along with sample/feature annotation. Here we use two <code>ExpressionSet</code> objects to handle the bulk and single cell data respectively. The details of constructing <code>ExpressionSet</code> can be found on <a href="https://www.rdocumentation.org/packages/Biobase/versions/2.32.0/topics/ExpressionSet">this page</a>.</p>
+<p>Bioconductor base package provides <code>ExpressionSet</code> class, which is a convenient data structure to hold expression data along with sample/feature annotation. Here we use two <code>ExpressionSet</code> objects to handle the bulk and single cell data respectively. The details of constructing <code>ExpressionSet</code> can be found on <a href="https://www.rdocumentation.org/packages/Biobase/versions/2.32.0/topics/ExpressionSet">this page</a>. Please see the answer of this <a href="https://github.com/xuranw/MuSiC/issues/2">Issue</a> for a simple guidance.</p>
 <p>Datasets described in the table above are all in the form of <code>ExpressionSet</code> and available at the <a href="pages/data.html">data download page</a>.</p>
 </div>
 <div id="estimation-of-cell-type-proportions" class="section level2">
@@ -219,7 +218,7 @@ devtools::<span class="kw">install_github</span>(<span class="st">'xuranw/MuSiC'
 <h4 class="hasAnchor">
 <a href="#bulk-data-of-human-pancreas" class="anchor"></a>Bulk data of human pancreas</h4>
 <p>The dataset from <span class="citation">Fadista et al. (2014)</span> contains raw read counts data from bulk RNA-seq of human pancreatic islets to study glucose metabolism in healthy and hyper-hypoglycemic conditions. For the purpose of this vignette, the dataset is pre-processed and made available on the <a href="pages/data.html">data download page</a>. In addition to read counts, this dataset also contains HbA1c levels, BMI, gender and age information for each subject.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">GSE50244.bulk.eset =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">'https://xuranw.github.io/MuSiC/data/GSE50244bulkeset.rds'</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">GSE50244.bulk.eset =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/readRDS">readRDS</a></span>(<span class="st">'https://xuranw.github.io/MuSiC/data/GSE50244bulkeset.rds'</span>)
 GSE50244.bulk.eset
 <span class="co">#ExpressionSet (storageMode: lockedEnvironment)</span>
 <span class="co">#assayData: 32581 features, 89 samples </span>
@@ -238,7 +237,7 @@ GSE50244.bulk.eset
 <a href="#single-cell-data-of-human-pancreas" class="anchor"></a>Single cell data of human pancreas</h4>
 <p>The single cell data are from <span class="citation">Segerstolpe et al. (2016)</span>, which constrains read counts for 25453 genes across 2209 cells. Here we only include the 1097 cells from 6 healthy subjects. The read counts are available on the <a href="pages/data.html">data download page</a>, in the form of an <code>ExpressionSet</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Download EMTAB single cell dataset from Github</span>
-EMTAB.eset =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">'https://xuranw.github.io/MuSiC/data/EMTABesethealthy.rds'</span>)
+EMTAB.eset =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/readRDS">readRDS</a></span>(<span class="st">'https://xuranw.github.io/MuSiC/data/EMTABesethealthy.rds'</span>)
 EMTAB.eset
 <span class="co">#ExpressionSet (storageMode: lockedEnvironment)</span>
 <span class="co">#assayData: 25453 features, 1097 samples </span>
@@ -253,7 +252,7 @@ EMTAB.eset
 <span class="co">#Annotation:  </span></code></pre></div>
 <p>Another single cell data is from <span class="citation">Xin et al. (2016)</span>, which have 39849 genes and 1492 cells. The read counts are available on the <a href="pages/data.html">data download page</a>, in the form of an <code>ExpressionSet</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Download Xin et al. single cell dataset from Github</span>
-XinT2D.eset =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">'https://xuranw.github.io/MuSiC/data/XinT2Deset.rds'</span>)
+XinT2D.eset =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/readRDS">readRDS</a></span>(<span class="st">'https://xuranw.github.io/MuSiC/data/XinT2Deset.rds'</span>)
 XinT2D.eset
 <span class="co">#ExpressionSet (storageMode: lockedEnvironment)</span>
 <span class="co">#assayData: 39849 features, 1492 samples </span>
@@ -303,40 +302,40 @@ XinT2D.eset
 <code>Var.prop</code>: matrix of variance of MuSiC estimates.</li>
 </ul>
 <p>The estimated proportions are normalized to sum to 1 across included cell types. Here we use <code>GSE50244.bulk.eset</code> as the <code>bulk.eset</code> input and <code>EMTAB.eset</code> as <code>sc.eset</code> input. The <code>clusters</code> is specified as <code>cellType</code> while <code>samples</code> is <code>sampleID</code>. As stated before, we only included 6 major cell types as <code>select.ct</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(xbioc)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(xbioc)
 
 <span class="co"># Estimate cell type proportions</span>
 Est.prop.GSE50244 =<span class="st"> </span><span class="kw"><a href="../reference/music_prop.html">music_prop</a></span>(<span class="dt">bulk.eset =</span> GSE50244.bulk.eset, <span class="dt">sc.eset =</span> EMTAB.eset, <span class="dt">clusters =</span> <span class="st">'cellType'</span>,
-                               <span class="dt">samples =</span> <span class="st">'sampleID'</span>, <span class="dt">select.ct =</span> <span class="kw">c</span>(<span class="st">'alpha'</span>, <span class="st">'beta'</span>, <span class="st">'delta'</span>, <span class="st">'gamma'</span>,
+                               <span class="dt">samples =</span> <span class="st">'sampleID'</span>, <span class="dt">select.ct =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'alpha'</span>, <span class="st">'beta'</span>, <span class="st">'delta'</span>, <span class="st">'gamma'</span>,
                                                                    <span class="st">'acinar'</span>, <span class="st">'ductal'</span>), <span class="dt">verbose =</span> F)
-<span class="kw">names</span>(Est.prop.GSE50244)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(Est.prop.GSE50244)
 <span class="co">#[1] "Est.prop.weighted" "Est.prop.allgene"  "Weight.gene"       "r.squared.full"    "Var.prop"  </span></code></pre></div>
 <p>Here we use <a href="../reference/Prop_comp_multi.html"><code>Jitter_Est</code></a> to show the difference between different estimation methods.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Jitter plot of estimated cell type proportions</span>
-jitter.fig =<span class="st"> </span><span class="kw"><a href="../reference/Jitter_Est.html">Jitter_Est</a></span>(<span class="kw">list</span>(<span class="kw">data.matrix</span>(Est.prop.GSE50244$Est.prop.weighted),
-                             <span class="kw">data.matrix</span>(Est.prop.GSE50244$Est.prop.allgene)),
-                        <span class="dt">method.name =</span> <span class="kw">c</span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>), <span class="dt">title =</span> <span class="st">'Jitter plot of Est Proportions'</span>)
+jitter.fig =<span class="st"> </span><span class="kw"><a href="../reference/Jitter_Est.html">Jitter_Est</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.matrix">data.matrix</a></span>(Est.prop.GSE50244$Est.prop.weighted),
+                             <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.matrix">data.matrix</a></span>(Est.prop.GSE50244$Est.prop.allgene)),
+                        <span class="dt">method.name =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>), <span class="dt">title =</span> <span class="st">'Jitter plot of Est Proportions'</span>)
 
 <span class="co"># A more sophisticated jitter plot is provided as below. We seperated the T2D subjects and normal </span>
 <span class="co">#subjects by their HbA1c levels.</span>
 
-m.prop.GSE50244 =<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">melt</span>(GSE50244.EMTAB.prop$Est.prop.weighted), 
+m.prop.GSE50244 =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/cbind">rbind</a></span>(<span class="kw">melt</span>(GSE50244.EMTAB.prop$Est.prop.weighted), 
                         <span class="kw">melt</span>(GSE50244.EMTAB.prop$Est.prop.allgene))
 
-<span class="kw">colnames</span>(m.prop.GSE50244) =<span class="st"> </span><span class="kw">c</span>(<span class="st">'Sub'</span>, <span class="st">'CellType'</span>, <span class="st">'Prop'</span>)
-m.prop.GSE50244$CellType =<span class="st"> </span><span class="kw">factor</span>(m.prop.GSE50244$CellType, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">'alpha'</span>, <span class="st">'beta'</span>, <span class="st">'delta'</span>, <span class="st">'gamma'</span>, <span class="st">'acinar'</span>, <span class="st">'ductal'</span>))
-m.prop.GSE50244$Method =<span class="st"> </span><span class="kw">factor</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>), <span class="dt">each =</span> <span class="dv">89</span>*<span class="dv">6</span>), <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>))
-m.prop.GSE50244$HbA1c =<span class="st"> </span><span class="kw">rep</span>(GSE50244.bulk.eset$hba1c, <span class="dv">2</span>*<span class="dv">6</span>)
-m.prop.GSE50244 =<span class="st"> </span>m.prop.GSE50244[!<span class="kw">is.na</span>(m.prop.GSE50244$HbA1c), ]
-m.prop.GSE50244$Disease =<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">'Normal'</span>, <span class="st">'T2D'</span>)[(m.prop.GSE50244$HbA1c &gt;<span class="st"> </span><span class="fl">6.5</span>)+<span class="dv">1</span>], <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">'Normal'</span>, <span class="st">'T2D'</span>))
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/colnames">colnames</a></span>(m.prop.GSE50244) =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'Sub'</span>, <span class="st">'CellType'</span>, <span class="st">'Prop'</span>)
+m.prop.GSE50244$CellType =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/factor">factor</a></span>(m.prop.GSE50244$CellType, <span class="dt">levels =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'alpha'</span>, <span class="st">'beta'</span>, <span class="st">'delta'</span>, <span class="st">'gamma'</span>, <span class="st">'acinar'</span>, <span class="st">'ductal'</span>))
+m.prop.GSE50244$Method =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/factor">factor</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rep">rep</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>), <span class="dt">each =</span> <span class="dv">89</span>*<span class="dv">6</span>), <span class="dt">levels =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>))
+m.prop.GSE50244$HbA1c =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rep">rep</a></span>(GSE50244.bulk.eset$hba1c, <span class="dv">2</span>*<span class="dv">6</span>)
+m.prop.GSE50244 =<span class="st"> </span>m.prop.GSE50244[!<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/NA">is.na</a></span>(m.prop.GSE50244$HbA1c), ]
+m.prop.GSE50244$Disease =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/factor">factor</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'Normal'</span>, <span class="st">'T2D'</span>)[(m.prop.GSE50244$HbA1c &gt;<span class="st"> </span><span class="fl">6.5</span>)+<span class="dv">1</span>], <span class="dt">levels =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'Normal'</span>, <span class="st">'T2D'</span>))
 m.prop.GSE50244$D =<span class="st"> </span>(m.prop.GSE50244$Disease ==<span class="st"> 'T2D'</span>)/<span class="dv">5</span>
-m.prop.GSE50244 =<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">subset</span>(m.prop.GSE50244, Disease ==<span class="st"> 'Normal'</span>), <span class="kw">subset</span>(m.prop.GSE50244, Disease !=<span class="st"> 'Normal'</span>))
+m.prop.GSE50244 =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/cbind">rbind</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/subset">subset</a></span>(m.prop.GSE50244, Disease ==<span class="st"> 'Normal'</span>), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/subset">subset</a></span>(m.prop.GSE50244, Disease !=<span class="st"> 'Normal'</span>))
 
 jitter.new =<span class="st"> </span><span class="kw">ggplot</span>(m.prop.GSE50244, <span class="kw">aes</span>(Method, Prop)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Method, <span class="dt">color =</span> Disease, <span class="dt">stroke =</span> D, <span class="dt">shape =</span> Disease), 
              <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">position =</span> <span class="kw">position_jitter</span>(<span class="dt">width=</span><span class="fl">0.25</span>, <span class="dt">height=</span><span class="dv">0</span>)) +
-<span class="st">  </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>CellType, <span class="dt">scales =</span> <span class="st">'free'</span>) +<span class="st"> </span><span class="kw">scale_colour_manual</span>( <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">'white'</span>, <span class="st">"gray20"</span>)) +
-<span class="st">  </span><span class="kw">scale_shape_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">24</span>))+<span class="st"> </span><span class="kw">theme_minimal</span>()
+<span class="st">  </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>CellType, <span class="dt">scales =</span> <span class="st">'free'</span>) +<span class="st"> </span><span class="kw">scale_colour_manual</span>( <span class="dt">values =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'white'</span>, <span class="st">"gray20"</span>)) +
+<span class="st">  </span><span class="kw">scale_shape_manual</span>(<span class="dt">values =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">21</span>, <span class="dv">24</span>))+<span class="st"> </span><span class="kw">theme_minimal</span>()
 
 <span class="kw">plot_grid</span>(jitter.fig, jitter.new, <span class="dt">labels =</span> <span class="st">'auto'</span>)</code></pre></div>
 <div class="figure">
@@ -344,29 +343,29 @@ jitter.new =<span class="st"> </span><span class="kw">ggplot</span>(m.prop.GSE50
 </div>
 <p>It is well known that the beta cell proportions is related to T2D disease status. In the progress of T2D, the number of beta cells decreases. One of the most important test for T2D is HbA1c (hemoglobin A1c) test. When HbA1c level is greater than 6.5%, the patient is diagnosed as T2D. Let’s look at the beta cell proportions with HbA1c level.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create dataframe for beta cell proportions and HbA1c levels</span>
-m.prop.ana =<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">pData</span>(GSE50244.bulk.eset)[<span class="kw">rep</span>(<span class="dv">1</span>:<span class="dv">89</span>, <span class="dv">2</span>), <span class="kw">c</span>(<span class="st">'age'</span>, <span class="st">'bmi'</span>, <span class="st">'hba1c'</span>, <span class="st">'gender'</span>)],
-                        <span class="dt">ct.prop =</span> <span class="kw">c</span>(Est.prop.GSE50244$Est.prop.weighted[, <span class="dv">2</span>], 
+m.prop.ana =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.frame">data.frame</a></span>(<span class="kw">pData</span>(GSE50244.bulk.eset)[<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rep">rep</a></span>(<span class="dv">1</span>:<span class="dv">89</span>, <span class="dv">2</span>), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'age'</span>, <span class="st">'bmi'</span>, <span class="st">'hba1c'</span>, <span class="st">'gender'</span>)],
+                        <span class="dt">ct.prop =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(Est.prop.GSE50244$Est.prop.weighted[, <span class="dv">2</span>], 
                                     Est.prop.GSE50244$Est.prop.allgene[, <span class="dv">2</span>]), 
-                        <span class="dt">Method =</span> <span class="kw">factor</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>), <span class="dt">each =</span> <span class="dv">89</span>), 
-                        <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>)))
-<span class="kw">colnames</span>(m.prop.ana)[<span class="dv">1</span>:<span class="dv">4</span>] =<span class="st"> </span><span class="kw">c</span>(<span class="st">'Age'</span>, <span class="st">'BMI'</span>, <span class="st">'HbA1c'</span>, <span class="st">'Gender'</span>)
-m.prop.ana =<span class="st"> </span><span class="kw">subset</span>(m.prop.ana, !<span class="kw">is.na</span>(HbA1c))
-m.prop.ana$Disease =<span class="st"> </span><span class="kw">factor</span>( <span class="kw">c</span>(<span class="st">'Normal'</span>, <span class="st">'T2D'</span>)[(m.prop.ana$HbA1c &gt;<span class="st"> </span><span class="fl">6.5</span>) +<span class="st"> </span><span class="dv">1</span>], <span class="kw">c</span>(<span class="st">'Normal'</span>, <span class="st">'T2D'</span>) )
+                        <span class="dt">Method =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/factor">factor</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rep">rep</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>), <span class="dt">each =</span> <span class="dv">89</span>), 
+                        <span class="dt">levels =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>)))
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/colnames">colnames</a></span>(m.prop.ana)[<span class="dv">1</span>:<span class="dv">4</span>] =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'Age'</span>, <span class="st">'BMI'</span>, <span class="st">'HbA1c'</span>, <span class="st">'Gender'</span>)
+m.prop.ana =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/subset">subset</a></span>(m.prop.ana, !<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/NA">is.na</a></span>(HbA1c))
+m.prop.ana$Disease =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/factor">factor</a></span>( <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'Normal'</span>, <span class="st">'T2D'</span>)[(m.prop.ana$HbA1c &gt;<span class="st"> </span><span class="fl">6.5</span>) +<span class="st"> </span><span class="dv">1</span>], <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'Normal'</span>, <span class="st">'T2D'</span>) )
 m.prop.ana$D =<span class="st"> </span>(m.prop.ana$Disease ==<span class="st"> 'T2D'</span>)/<span class="dv">5</span>
 
 <span class="kw">ggplot</span>(m.prop.ana, <span class="kw">aes</span>(HbA1c, ct.prop)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">'lm'</span>,  <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="st">'black'</span>, <span class="dt">lwd =</span> <span class="fl">0.25</span>) +
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Method, <span class="dt">color =</span> Disease, <span class="dt">stroke =</span> D, <span class="dt">shape =</span> Disease), <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>) +<span class="st">  </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>Method) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">'HbA1c vs Beta Cell Type Proportion'</span>) +<span class="st"> </span><span class="kw">theme_minimal</span>() +<span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_colour_manual</span>( <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">'white'</span>, <span class="st">"gray20"</span>)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_shape_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">24</span>))</code></pre></div>
+<span class="st">  </span><span class="kw">scale_colour_manual</span>( <span class="dt">values =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'white'</span>, <span class="st">"gray20"</span>)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_shape_manual</span>(<span class="dt">values =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">21</span>, <span class="dv">24</span>))</code></pre></div>
 <div class="figure">
 <img src="images/GSE50244beta.jpg">
 </div>
 <p>The numerical evaluation can be obtained by linear regression. There is a significant negative correlation between HbA1c levels and beta cell proportions, after adjusted Age, BMI and Gender.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lm.beta.MuSiC =<span class="st"> </span><span class="kw">lm</span>(ct.prop ~<span class="st"> </span>HbA1c +<span class="st"> </span>Age +<span class="st"> </span>BMI +<span class="st"> </span>Gender, <span class="dt">data =</span> <span class="kw">subset</span>(m.prop.ana, Method ==<span class="st"> 'MuSiC'</span>))
-lm.beta.NNLS =<span class="st"> </span><span class="kw">lm</span>(ct.prop ~<span class="st"> </span>HbA1c +<span class="st"> </span>Age +<span class="st"> </span>BMI +<span class="st"> </span>Gender, <span class="dt">data =</span> <span class="kw">subset</span>(m.prop.ana, Method ==<span class="st"> 'NNLS'</span>))
-<span class="kw">summary</span>(lm.beta.MuSiC)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lm.beta.MuSiC =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/lm">lm</a></span>(ct.prop ~<span class="st"> </span>HbA1c +<span class="st"> </span>Age +<span class="st"> </span>BMI +<span class="st"> </span>Gender, <span class="dt">data =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/subset">subset</a></span>(m.prop.ana, Method ==<span class="st"> 'MuSiC'</span>))
+lm.beta.NNLS =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/lm">lm</a></span>(ct.prop ~<span class="st"> </span>HbA1c +<span class="st"> </span>Age +<span class="st"> </span>BMI +<span class="st"> </span>Gender, <span class="dt">data =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/subset">subset</a></span>(m.prop.ana, Method ==<span class="st"> 'NNLS'</span>))
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(lm.beta.MuSiC)
 <span class="co">#</span>
 <span class="co">#Call:</span>
 <span class="co">#lm(formula = ct.prop ~ HbA1c + Age + BMI + Gender, data = subset(m.prop.ana, </span>
@@ -390,7 +389,7 @@ lm.beta.NNLS =<span class="st"> </span><span class="kw">lm</span>(ct.prop ~<span
 <span class="co">#Multiple R-squared:  0.2439,   Adjusted R-squared:  0.2019 </span>
 <span class="co">#F-statistic: 5.806 on 4 and 72 DF,  p-value: 0.0004166</span>
 
-<span class="kw">summary</span>(lm.beta.NNLS)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(lm.beta.NNLS)
 <span class="co">#</span>
 <span class="co">#Call:</span>
 <span class="co">#lm(formula = ct.prop ~ HbA1c + Age + BMI + Gender, data = subset(m.prop.ana, </span>
@@ -419,7 +418,7 @@ lm.beta.NNLS =<span class="st"> </span><span class="kw">lm</span>(ct.prop ~<span
 <h2 class="hasAnchor">
 <a href="#estimation-of-cell-type-proportions-with-pre-grouping-of-cell-types" class="anchor"></a>Estimation of cell type proportions with pre-grouping of cell types</h2>
 <p>Solid tissues often contain closely related cell types, and correlation of gene expression between these cell types leads to collinearity, making it difficult to resolve their relative proportions in bulk data. To deal with collinearity, MuSiC employs a tree-guided procedure that recursively zooms in on closely related cell types. Briefly, we first group similar cell types into the same cluster and estimate cluster proportions, then recursively repeat this procedure within each cluster. At each recursion stage, we only use genes that have low within-cluster variance, a.k.a. the cross-cell consistent genes. This is critical as the mean expression estimates of genes with high variance are affected by the pervasive bias in cell capture of scRNA-seq experiments, and thus cannot serve as reliable reference.</p>
-<p>We demonstrate this procedure by reproducing the analysis of mouse kidney in MuSiC manuscript.</p>
+<p>We demonstrate this procedure by reproducing the analysis of mouse kidney in MuSiC <a href="https://doi.org/10.1038/s41467-018-08023-x">paper</a>.</p>
 <div id="data-preparation" class="section level3">
 <h3 class="hasAnchor">
 <a href="#data-preparation" class="anchor"></a>Data Preparation</h3>
@@ -428,7 +427,7 @@ lm.beta.NNLS =<span class="st"> </span><span class="kw">lm</span>(ct.prop ~<span
 <a href="#bulk-data" class="anchor"></a>Bulk data</h4>
 <p>The dataset <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81492">GEO entry (GSE81492)</a> <span class="citation">(see Beckerman et al. 2017)</span> contains raw RNA-seq and sample annotation data. For the purpose of this vignette, we will use the read counts data <code>Mousebulkeset.rds</code> from the <a href="pages/data.html">data download page</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Download Mouse bulk dataset from Github</span>
-Mouse.bulk.eset =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">'https://xuranw.github.io/MuSiC/data/Mousebulkeset.rds'</span>)
+Mouse.bulk.eset =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/readRDS">readRDS</a></span>(<span class="st">'https://xuranw.github.io/MuSiC/data/Mousebulkeset.rds'</span>)
 Mouse.bulk.eset
 
 <span class="co">#ExpressionSet (storageMode: lockedEnvironment)</span>
@@ -448,7 +447,7 @@ Mouse.bulk.eset
 <a href="#single-cell-data" class="anchor"></a>Single cell data</h4>
 <p>The single cell data are from <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE107585">GEO entry (GSE107585)</a> <span class="citation">(see J. Park et al. 2018)</span>, which constrains read counts for 16273 genes across 43745 cells. Due to the space limitation of Github, only a subset of the read counts <code>Mousesubeset.rds</code> are available on the <a href="page/data.html">data download page</a>, in the form of an <code>ExpressionSet</code>. This subset contains 16273 genes across 10000 cells.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Download EMTAB single cell dataset from Github</span>
-Mousesub.eset =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">'https://xuranw.github.io/MuSiC/data/Mousesubeset.rds'</span>)
+Mousesub.eset =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/readRDS">readRDS</a></span>(<span class="st">'https://xuranw.github.io/MuSiC/data/Mousesubeset.rds'</span>)
 Mousesub.eset
 
 <span class="co">#ExpressionSet (storageMode: lockedEnvironment)</span>
@@ -463,7 +462,7 @@ Mousesub.eset
 <span class="co">#experimentData: use 'experimentData(object)'</span>
 <span class="co">#Annotation:  </span>
 
-<span class="kw">levels</span>(Mousesub.eset$cellType)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/levels">levels</a></span>(Mousesub.eset$cellType)
 <span class="co"># [1] "Endo"     "Podo"     "PT"       "LOH"      "DCT"      "CD-PC"    "CD-IC"    "CD-Trans" "Novel1"  </span>
 <span class="co">#[10] "Fib"      "Macro"    "Neutro"   "B lymph"  "T lymph"  "NK"       "Novel2"  </span></code></pre></div>
 <p>Notice that the single cell dataset has 16 cell types, including 2 novel cell types and a transition cell type (CD-Trans). We exclude those 3 cell types in our analysis.</p>
@@ -508,22 +507,22 @@ Mousesub.eset
 <p>We next use the <code>hclust</code> function to get a tree0based clustering of the cell types using the cross-subject mean matrix and the design matrix.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Produce the first step information</span>
 Mousesub.basis =<span class="st"> </span><span class="kw"><a href="../reference/music_basis.html">music_basis</a></span>(Mousesub.eset, <span class="dt">clusters =</span> <span class="st">'cellType'</span>, <span class="dt">samples =</span> <span class="st">'sampleID'</span>, 
-                             <span class="dt">select.ct =</span> <span class="kw">c</span>(<span class="st">'Endo'</span>, <span class="st">'Podo'</span>, <span class="st">'PT'</span>, <span class="st">'LOH'</span>, <span class="st">'DCT'</span>, <span class="st">'CD-PC'</span>, <span class="st">'CD-IC'</span>, <span class="st">'Fib'</span>,
+                             <span class="dt">select.ct =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'Endo'</span>, <span class="st">'Podo'</span>, <span class="st">'PT'</span>, <span class="st">'LOH'</span>, <span class="st">'DCT'</span>, <span class="st">'CD-PC'</span>, <span class="st">'CD-IC'</span>, <span class="st">'Fib'</span>,
                                            <span class="st">'Macro'</span>, <span class="st">'Neutro'</span>,<span class="st">'B lymph'</span>, <span class="st">'T lymph'</span>, <span class="st">'NK'</span>))
 
 <span class="co"># Plot the dendrogram of design matrix and cross-subject mean of realtive abundance</span>
-<span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
-d &lt;-<span class="st"> </span><span class="kw">dist</span>(<span class="kw">t</span>(<span class="kw">log</span>(Mousesub.basis$Disgn.mtx +<span class="st"> </span><span class="fl">1e-6</span>)), <span class="dt">method =</span> <span class="st">"euclidean"</span>)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/par">par</a></span>(<span class="dt">mfrow =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>, <span class="dv">2</span>))
+d &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/dist">dist</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/t">t</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">log</a></span>(Mousesub.basis$Disgn.mtx +<span class="st"> </span><span class="fl">1e-6</span>)), <span class="dt">method =</span> <span class="st">"euclidean"</span>)
 <span class="co"># Hierarchical clustering using Complete Linkage</span>
-hc1 &lt;-<span class="st"> </span><span class="kw">hclust</span>(d, <span class="dt">method =</span> <span class="st">"complete"</span> )
+hc1 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/hclust">hclust</a></span>(d, <span class="dt">method =</span> <span class="st">"complete"</span> )
 <span class="co"># Plot the obtained dendrogram</span>
-<span class="kw">plot</span>(hc1, <span class="dt">cex =</span> <span class="fl">0.6</span>, <span class="dt">hang =</span> -<span class="dv">1</span>, <span class="dt">main =</span> <span class="st">'Cluster log(Design Matrix)'</span>)
-d &lt;-<span class="st"> </span><span class="kw">dist</span>(<span class="kw">t</span>(<span class="kw">log</span>(Mousesub.basis$M.theta +<span class="st"> </span><span class="fl">1e-8</span>)), <span class="dt">method =</span> <span class="st">"euclidean"</span>)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(hc1, <span class="dt">cex =</span> <span class="fl">0.6</span>, <span class="dt">hang =</span> -<span class="dv">1</span>, <span class="dt">main =</span> <span class="st">'Cluster log(Design Matrix)'</span>)
+d &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/dist">dist</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/t">t</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">log</a></span>(Mousesub.basis$M.theta +<span class="st"> </span><span class="fl">1e-8</span>)), <span class="dt">method =</span> <span class="st">"euclidean"</span>)
 <span class="co"># Hierarchical clustering using Complete Linkage</span>
 <span class="co"># hc2 &lt;- hclust(d, method = "complete" )</span>
-hc2 &lt;-<span class="st"> </span><span class="kw">hclust</span>(d, <span class="dt">method =</span> <span class="st">"complete"</span>)
+hc2 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/hclust">hclust</a></span>(d, <span class="dt">method =</span> <span class="st">"complete"</span>)
 <span class="co"># Plot the obtained dendrogram</span>
-<span class="kw">plot</span>(hc2, <span class="dt">cex =</span> <span class="fl">0.6</span>, <span class="dt">hang =</span> -<span class="dv">1</span>, <span class="dt">main =</span> <span class="st">'Cluster log(Mean of RA)'</span>)</code></pre></div>
+<span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(hc2, <span class="dt">cex =</span> <span class="fl">0.6</span>, <span class="dt">hang =</span> -<span class="dv">1</span>, <span class="dt">main =</span> <span class="st">'Cluster log(Mean of RA)'</span>)</code></pre></div>
 <div class="figure">
 <img src="images/Cluster.jpg">
 </div>
@@ -546,27 +545,27 @@ hc2 &lt;-<span class="st"> </span><span class="kw">hclust</span>(d, <span class=
 <h4 class="hasAnchor">
 <a href="#bulk-tissue-cell-type-estimation-with-pre-grouping-of-cell-types" class="anchor"></a>Bulk Tissue Cell Type Estimation with Pre-grouping of Cell Types</h4>
 <p>We manually specify the cluster and annotated single cell data with cluster information.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">clusters.type =<span class="st"> </span><span class="kw">list</span>(<span class="dt">C1 =</span> <span class="st">'Neutro'</span>, <span class="dt">C2 =</span> <span class="st">'Podo'</span>, <span class="dt">C3 =</span> <span class="kw">c</span>(<span class="st">'Endo'</span>, <span class="st">'CD-PC'</span>, <span class="st">'LOH'</span>, <span class="st">'CD-IC'</span>, <span class="st">'DCT'</span>, <span class="st">'PT'</span>), <span class="dt">C4 =</span> <span class="kw">c</span>(<span class="st">'Macro'</span>, <span class="st">'Fib'</span>, <span class="st">'B lymph'</span>, <span class="st">'NK'</span>, <span class="st">'T lymph'</span>))
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">clusters.type =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">C1 =</span> <span class="st">'Neutro'</span>, <span class="dt">C2 =</span> <span class="st">'Podo'</span>, <span class="dt">C3 =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'Endo'</span>, <span class="st">'CD-PC'</span>, <span class="st">'LOH'</span>, <span class="st">'CD-IC'</span>, <span class="st">'DCT'</span>, <span class="st">'PT'</span>), <span class="dt">C4 =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'Macro'</span>, <span class="st">'Fib'</span>, <span class="st">'B lymph'</span>, <span class="st">'NK'</span>, <span class="st">'T lymph'</span>))
 
-cl.type =<span class="st"> </span><span class="kw">as.character</span>(Mousesub.eset$cellType)
+cl.type =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/character">as.character</a></span>(Mousesub.eset$cellType)
 
-for(cl in <span class="dv">1</span>:<span class="kw">length</span>(clusters.type)){
-  cl.type[cl.type %in%<span class="st"> </span>clusters.type[[cl]]] =<span class="st"> </span><span class="kw">names</span>(clusters.type)[cl]
+for(cl in <span class="dv">1</span>:<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/length">length</a></span>(clusters.type)){
+  cl.type[cl.type %in%<span class="st"> </span>clusters.type[[cl]]] =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(clusters.type)[cl]
 }
-<span class="kw">pData</span>(Mousesub.eset)$clusterType =<span class="st"> </span><span class="kw">factor</span>(cl.type, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="kw">names</span>(clusters.type), <span class="st">'CD-Trans'</span>, <span class="st">'Novel1'</span>, <span class="st">'Novel2'</span>))
+<span class="kw">pData</span>(Mousesub.eset)$clusterType =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/factor">factor</a></span>(cl.type, <span class="dt">levels =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(clusters.type), <span class="st">'CD-Trans'</span>, <span class="st">'Novel1'</span>, <span class="st">'Novel2'</span>))
 
 <span class="co"># 13 selected cell types</span>
-s.mouse =<span class="st"> </span><span class="kw">unlist</span>(clusters.type)
+s.mouse =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlist">unlist</a></span>(clusters.type)
 s.mouse
 <span class="co">#       C1        C2       C31       C32       C33       C34       C35       C36       C41       C42 </span>
 <span class="co"># "Neutro"    "Podo"    "Endo"   "CD-PC"     "LOH"   "CD-IC"     "DCT"      "PT"   "Macro"     "Fib" </span>
 <span class="co">#      C43       C44       C45 </span>
 <span class="co">#"B lymph"      "NK" "T lymph" </span></code></pre></div>
 <p>We then select genes that are differentially expressed within cluster <code>C3</code> (Epithelial cells) and <code>C4</code> (Immune cells), available on <a href="pages/data.html">data download page</a>. Function <a href="../reference/music_prop.cluster.html"><code>music_prop.cluster</code></a> is used for estimation with pre-clustering of cell types. The essential inputs are the same as <code>music_prop</code> except two unique inputs: <code>group</code> and <code>group.markers</code>. <code>group</code> passes the column name of higher-cluster in phenoData. The intra-cluster differentially expressed genes are passed by <code>group.marker</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="st">'https://xuranw.github.io/MuSiC/data/IEmarkers.RData'</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/load">load</a></span>(<span class="st">'https://xuranw.github.io/MuSiC/data/IEmarkers.RData'</span>)
 
 Est.mouse.bulk =<span class="st"> </span><span class="kw"><a href="../reference/music_prop.cluster.html">music_prop.cluster</a></span>(<span class="dt">bulk.eset =</span> Mouse.bulk.eset, <span class="dt">sc.eset =</span> Mousesub.eset, <span class="dt">group.markers =</span> IEmarkers, <span class="dt">clusters =</span> <span class="st">'cellType'</span>, <span class="dt">group =</span> <span class="st">'clusterType'</span>, <span class="dt">samples =</span> <span class="st">'sampleID'</span>, <span class="dt">clusters.type =</span> clusters.type)</code></pre></div>
-<p>Due to the limited space of Github, we can only demo <code>music_prop.cluster</code> with a subset of mouse kidney single cell dataset. Therefore, the results might be different from the one presented in the manuscript due to incomplete reference single cell dataset.</p>
+<p>Due to the limited space of Github, we can only demo <code>music_prop.cluster</code> with a subset of mouse kidney single cell dataset. Therefore, the results might be different from the one presented in the paper due to incomplete reference single cell dataset.</p>
 </div>
 </div>
 </div>
@@ -577,7 +576,7 @@ Est.mouse.bulk =<span class="st"> </span><span class="kw"><a href="../reference/
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Construct artificial bulk dataset. Use all 4 cell types: alpha, beta, gamma, delta</span>
 XinT2D.construct.full =<span class="st"> </span><span class="kw"><a href="../reference/bulk_construct.html">bulk_construct</a></span>(XinT2D.eset, <span class="dt">clusters =</span> <span class="st">'cellType'</span>, <span class="dt">samples =</span> <span class="st">'SubjectName'</span>)
 
-<span class="kw">names</span>(XinT2D.construct.full)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(XinT2D.construct.full)
 <span class="co"># [1] "Bulk.counts" "num.real" </span>
 
 XinT2D.construct.full$Bulk.counts
@@ -593,7 +592,7 @@ XinT2D.construct.full$Bulk.counts
 <span class="co">#experimentData: use 'experimentData(object)'</span>
 <span class="co">#Annotation:  </span>
 
-<span class="kw">head</span>(XinT2D.construct.full$num.real)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/head">head</a></span>(XinT2D.construct.full$num.real)
 <span class="co">#          alpha beta delta gamma</span>
 <span class="co">#Non T2D 1    53   13     5     3</span>
 <span class="co">#Non T2D 2     4   13     2     5</span>
@@ -604,7 +603,7 @@ XinT2D.construct.full$Bulk.counts
 
 <span class="co"># calculate cell type proportions</span>
 XinT2D.construct.full$prop.real =<span class="st"> </span><span class="kw"><a href="../reference/relative.ab.html">relative.ab</a></span>(XinT2D.construct.full$num.real, <span class="dt">by.col =</span> <span class="ot">FALSE</span>)
-<span class="kw">head</span>(XinT2D.construct.full$prop.real)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/head">head</a></span>(XinT2D.construct.full$prop.real)
 <span class="co">#              alpha      beta      delta      gamma</span>
 <span class="co">#Non T2D 1 0.7162162 0.1756757 0.06756757 0.04054054</span>
 <span class="co">#Non T2D 2 0.1666667 0.5416667 0.08333333 0.20833333</span>
@@ -616,7 +615,7 @@ XinT2D.construct.full$prop.real =<span class="st"> </span><span class="kw"><a hr
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Estimate cell type proportions of artificial bulk data</span>
 Est.prop.Xin =<span class="st"> </span><span class="kw"><a href="../reference/music_prop.html">music_prop</a></span>(<span class="dt">bulk.eset =</span> XinT2D.construct.full$Bulk.counts, <span class="dt">sc.eset =</span> EMTAB.eset,
                           <span class="dt">clusters =</span> <span class="st">'cellType'</span>, <span class="dt">samples =</span> <span class="st">'sampleID'</span>, 
-                          <span class="dt">select.ct =</span> <span class="kw">c</span>(<span class="st">'alpha'</span>, <span class="st">'beta'</span>, <span class="st">'delta'</span>, <span class="st">'gamma'</span>))
+                          <span class="dt">select.ct =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'alpha'</span>, <span class="st">'beta'</span>, <span class="st">'delta'</span>, <span class="st">'gamma'</span>))
 <span class="co">#Creating Relative Abudance Matrix...</span>
 <span class="co">#Creating Variance Matrix...</span>
 <span class="co">#Creating Library Size Matrix...</span>
@@ -649,33 +648,33 @@ Est.prop.Xin =<span class="st"> </span><span class="kw"><a href="../reference/mu
 <p>The visualization of cell type proportions are provided by <a href="../reference/Prop_comp_multi.html"><code>Prop_comp_multi</code></a>, <a href="../reference/Abs_diff_multi.html"><code>Abs_diff_multi</code></a> and <a href="../reference/Scatter_multi.html"><code>Scatter_multi</code></a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Estimation evaluation</span>
 
-<span class="kw"><a href="../reference/Eval_multi.html">Eval_multi</a></span>(<span class="dt">prop.real =</span> <span class="kw">data.matrix</span>(XinT2D.construct.full$prop.real), 
-           <span class="dt">prop.est =</span> <span class="kw">list</span>(<span class="kw">data.matrix</span>(Est.prop.Xin$Est.prop.weighted), 
-                           <span class="kw">data.matrix</span>(Est.prop.Xin$Est.prop.allgene)), 
-           <span class="dt">method.name =</span> <span class="kw">c</span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>))
+<span class="kw"><a href="../reference/Eval_multi.html">Eval_multi</a></span>(<span class="dt">prop.real =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.matrix">data.matrix</a></span>(XinT2D.construct.full$prop.real), 
+           <span class="dt">prop.est =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.matrix">data.matrix</a></span>(Est.prop.Xin$Est.prop.weighted), 
+                           <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.matrix">data.matrix</a></span>(Est.prop.Xin$Est.prop.allgene)), 
+           <span class="dt">method.name =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>))
 
 <span class="co">#           RMSD     mAD      R</span>
 <span class="co">#MuSiC   0.09881 0.06357 0.9378</span>
 <span class="co">#NNLS    0.17161 0.11749 0.8159</span>
 
-<span class="kw">library</span>(cowplot)
-prop.comp.fig =<span class="st"> </span><span class="kw"><a href="../reference/Prop_comp_multi.html">Prop_comp_multi</a></span>(<span class="dt">prop.real =</span> <span class="kw">data.matrix</span>(XinT2D.construct.full$prop.real),
-                                <span class="dt">prop.est =</span> <span class="kw">list</span>(<span class="kw">data.matrix</span>(Est.prop.Xin$Est.prop.weighted),
-                                                <span class="kw">data.matrix</span>(Est.prop.Xin$Est.prop.allgene)),
-                                <span class="dt">method.name =</span> <span class="kw">c</span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>), 
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(cowplot)
+prop.comp.fig =<span class="st"> </span><span class="kw"><a href="../reference/Prop_comp_multi.html">Prop_comp_multi</a></span>(<span class="dt">prop.real =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.matrix">data.matrix</a></span>(XinT2D.construct.full$prop.real),
+                                <span class="dt">prop.est =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.matrix">data.matrix</a></span>(Est.prop.Xin$Est.prop.weighted),
+                                                <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.matrix">data.matrix</a></span>(Est.prop.Xin$Est.prop.allgene)),
+                                <span class="dt">method.name =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>), 
                                 <span class="dt">title =</span> <span class="st">'Heatmap of Real and Est. Prop'</span> )
 
-abs.diff.fig =<span class="st"> </span><span class="kw"><a href="../reference/Abs_diff_multi.html">Abs_diff_multi</a></span>(<span class="dt">prop.real =</span> <span class="kw">data.matrix</span>(XinT2D.construct.full$prop.real),
-                              <span class="dt">prop.est =</span> <span class="kw">list</span>(<span class="kw">data.matrix</span>(Est.prop.Xin$Est.prop.weighted),
-                                              <span class="kw">data.matrix</span>(Est.prop.Xin$Est.prop.allgene)),
-                              <span class="dt">method.name =</span> <span class="kw">c</span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>), 
+abs.diff.fig =<span class="st"> </span><span class="kw"><a href="../reference/Abs_diff_multi.html">Abs_diff_multi</a></span>(<span class="dt">prop.real =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.matrix">data.matrix</a></span>(XinT2D.construct.full$prop.real),
+                              <span class="dt">prop.est =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.matrix">data.matrix</a></span>(Est.prop.Xin$Est.prop.weighted),
+                                              <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.matrix">data.matrix</a></span>(Est.prop.Xin$Est.prop.allgene)),
+                              <span class="dt">method.name =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span>), 
                               <span class="dt">title =</span> <span class="st">'Abs.Diff between Real and Est. Prop'</span> )
 
-<span class="kw">plot_grid</span>(prop.comp.fig, abs.diff.fig, <span class="dt">labels =</span> <span class="st">"auto"</span>, <span class="dt">rel_widths =</span> <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>))</code></pre></div>
+<span class="kw">plot_grid</span>(prop.comp.fig, abs.diff.fig, <span class="dt">labels =</span> <span class="st">"auto"</span>, <span class="dt">rel_widths =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">4</span>,<span class="dv">3</span>))</code></pre></div>
 <div class="figure">
 <img src="images/benchmark.jpg">
 </div>
-<p>In our <a href="https://www.biorxiv.org/content/early/2018/06/26/354944">manuscript</a>, we also compared our method with existing methods: <a href="https://cibersort.stanford.edu/">CIBERSORT</a> <span class="citation">(see Newman et al. 2015)</span> and <a href="https://github.com/shenorrLab/bseqsc">bseq-sc</a> <span class="citation">(see Baron et al. 2016)</span>.</p>
+<p>In our <a href="https://doi.org/10.1038/s41467-018-08023-x">paper</a>, we also compared our method with existing methods: <a href="https://cibersort.stanford.edu/">CIBERSORT</a> <span class="citation">(see Newman et al. 2015)</span> and <a href="https://github.com/shenorrLab/bseqsc">bseq-sc</a> <span class="citation">(see Baron et al. 2016)</span>.</p>
 </div>
 </div>
 <div id="reference" class="section level1 unnumbered">
@@ -740,9 +739,8 @@ abs.diff.fig =<span class="st"> </span><span class="kw"><a href="../reference/Ab
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
 </div>
-
       </footer>
 </div>
 

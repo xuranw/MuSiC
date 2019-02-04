@@ -116,6 +116,7 @@ get_upper_tri = function(cormat){
 #'    * Variance of MuSiC estimates
 #' @seealso
 #' \code{\link{music_basis}}
+#' @export
 music_prop = function(bulk.eset, sc.eset, markers = NULL, clusters, samples, select.ct = NULL, ct.cov = FALSE, verbose = TRUE,
                       iter.max = 1000, nu = 0.0001, eps = 0.01, centered = FALSE, normalize = FALSE, ... ){
   bulk.gene = rownames(bulk.eset)[rowMeans(exprs(bulk.eset)) != 0]
@@ -238,6 +239,7 @@ music_prop = function(bulk.eset, sc.eset, markers = NULL, clusters, samples, sel
 #' @return matrix of estimated proportions by MuSiC with cluster information.
 #' @seealso
 #' \code{\link{music_basis}}; \code{\link{music_prop}}
+#' @export
 music_prop.cluster = function(bulk.eset, sc.eset, group.markers, groups, clusters, samples, clusters.type,
                               verbose = TRUE, iter.max = 1000, nu = 0.0001, eps = 0.01, centered = FALSE, normalize = FALSE, ... ){
   bulk.gene = rownames(bulk.eset)[rowMeans(exprs(bulk.eset)) != 0]
@@ -347,6 +349,7 @@ music_prop.cluster = function(bulk.eset, sc.eset, group.markers, groups, cluster
 #'        * selected informative genes: high F statictis for \code{clusters} compare to \code{samples}
 #'
 #' @importFrom stats aov
+#' @export
 Anova_info = function(eset, non.zero = TRUE, markers = NULL, clusters, samples, select.ct = NULL, num.info = 25, ... ){
   if(!is.null(select.ct)){
     s.ct = sampleNames(eset)[as.character(pVar(eset, clusters)) %in% select.ct]

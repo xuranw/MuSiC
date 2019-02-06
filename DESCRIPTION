@@ -18,3 +18,4 @@ URL: https://github.com/xuranw/MuSiC
 BugReports: https://github.com/xuranw/MuSiC/issues
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
+Remotes: renozao/xbioc

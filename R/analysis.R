@@ -59,7 +59,6 @@ music.basic = function(Y, X, S, Sigma, iter.max, nu, eps){
                   p.weight = p.weight, q.weight = lm.D.weight$x, fit.weight = fitted, resid.weight =  Y - X%*%as.matrix(lm.D.weight$x),
                   weight.gene = weight.gene, converge = paste0('Converge at ', iter),
                   rsd = r, R.squared = R.squared, var.p = var.p));
-      break;
     }
     p.weight = p.weight.new;
     r = r.new;
@@ -94,8 +93,7 @@ music.iter = function(Y, D, S, Sigma, iter.max = 1000, nu = 0.0001, eps = 0.01, 
   if(length(S)!=ncol(D)){
     common.cell.type = intersect(colnames(D), names(S))
     if(length(common.cell.type)<=1){
-      message('Not enough cell types!')
-      break;
+      stop('Not enough cell types!')
     }
     D = D[,match(common.cell.type, colnames(D))]
     S = S[match(common.cell.type, names(S))]
@@ -103,8 +101,7 @@ music.iter = function(Y, D, S, Sigma, iter.max = 1000, nu = 0.0001, eps = 0.01, 
   if(ncol(Sigma) != ncol(D)){
     common.cell.type = intersect(colnames(D), colnames(Sigma))
     if(length(common.cell.type)<=1){
-      message('Not enough cell type!')
-      break;
+      stop('Not enough cell type!')
     }
     D = D[, match(common.cell.type, colnames(D))]
     Sigma = Sigma[, match(common.cell.type, colnames(Sigma))]
@@ -114,8 +111,7 @@ music.iter = function(Y, D, S, Sigma, iter.max = 1000, nu = 0.0001, eps = 0.01, 
 
   common.gene = intersect(names(Y), rownames(D))
   if(length(common.gene)< 0.1*min(length(Y), nrow(D))){
-    message('Not enough common genes!')
-    break;
+    stop('Not enough common genes!')
   }
   Y = Y[match(common.gene, names(Y))];
   D = D[match(common.gene, rownames(D)), ]
@@ -265,8 +261,7 @@ music.iter.ct = function(Y, D, S, Sigma.ct, iter.max = 1000, nu = 0.0001, eps = 
   if(length(S)!=ncol(D)){
     common.cell.type = intersect(colnames(D), names(S))
     if(length(common.cell.type)<=1){
-      message('Not enough cell types!')
-      break;
+      stop('Not enough cell types!')
     }
     D = D[,match(common.cell.type, colnames(D))]
     S = S[match(common.cell.type, names(S))]
@@ -277,8 +272,7 @@ music.iter.ct = function(Y, D, S, Sigma.ct, iter.max = 1000, nu = 0.0001, eps = 
   common.gene = intersect(names(Y), rownames(D))
   common.gene = intersect(common.gene, colnames(Sigma.ct))
   if(length(common.gene)< 0.1*min(length(Y), nrow(D), ncol(Sigma.ct))){
-    message('Not enough common genes!')
-    break;
+    stop('Not enough common genes!')
   }
   Y = Y[match(common.gene, names(Y))];
   D = D[match(common.gene, rownames(D)), ]

@@ -1,3 +1,4 @@
+%\VignetteEngine{knitr::rmarkdown}
 ---
 title: "MuSiC: Sample Analysis"
 output: html_document
@@ -5,15 +6,22 @@ output: html_document
 
 Installation
 ------------
-``` r
+```{r}
 # install devtools if necessary
-install.packages('devtools')
+if (!"devtools" %in% rownames(installed.packages())) {
+  install.packages('devtools')
+}
 
 # install the MuSiC package
-devtools::install_github('xuranw/MuSiC')
+if (!"MuSiC" %in% rownames(installed.packages())) {
+  devtools::install_github('xuranw/MuSiC')
+}
+
 
 # load
 library(MuSiC)
+
+library(bseqsc)
 ```
 
 Examples
@@ -34,9 +42,12 @@ Bioconduct base package provides `ExpressionSet` class, which is a convenient da
 
 The dataset's [GEO entry (GSE50244)](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE50244) contains raw RNA-seq and sample annotation data. For the purpose of this vignette, we will use the read counts data `GSE50244bulkeset.rds` on the [this page](https://github.com/xuranw/MuSiC/tree/master/vignettes/data). Please download this file.
 
-``` r
+```{r}
 # Download GSE50244 dataset from Github
-GSE50244.bulk.eset = readRDS('yourpath/GSE50244bulkeset.rds')
+readRDSFromWeb <- function(ref) {
+  readRDS(gzcon(url(ref)))
+}
+GSE50244.bulk.eset = readRDSFromWeb("https://xuranw.github.io/MuSiC/data/GSE50244bulkeset.rds")
 GSE50244.bulk.eset
 #ExpressionSet (storageMode: lockedEnvironment)
 #assayData: 32581 features, 89 samples 
@@ -55,9 +66,9 @@ GSE50244.bulk.eset
 
 The single cell data are from [ArrayExpression (E-MTAB-5061)](https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-5061/), which contrains read counts for 25453 genes of 2209 cells. The read counts `EMTABesethealthy.rds` are available on the [this page](https://github.com/xuranw/MuSiC/tree/master/vignettes/data), in the form of an `ExpressionSet`. Please download this file.
 
-``` r
+```{r}
 # Download EMTAB single cell dataset from Github
-EMTAB.eset = readRDS('yourpath/EMTABesethealthy.rds')
+EMTAB.eset = readRDSFromWeb('https://xuranw.github.io/MuSiC/data/EMTABesethealthy.rds')
 EMTAB.eset
 #ExpressionSet (storageMode: lockedEnvironment)
 #assayData: 25453 features, 1097 samples 
@@ -73,9 +84,9 @@ EMTAB.eset
 ```
 Another single cell data are from [GEO entry (GSE81608)](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81608). There are 39849 genes and 1492 cells. The read counts `XinT2Deset.rds` are available on [this page](https://github.com/xuranw/MuSiC/tree/master/vignettes/data), in the form of an `ExpressionSet`. Please download this file.
 
-```r
+```{r}
 # Download Xin et al. single cell dataset from Github
-XinT2D.eset = readRDS('yourpath/XinT2Deset.rds')
+XinT2D.eset = readRDSFromWeb('https://xuranw.github.io/MuSiC/data/XinT2Deset.rds')
 XinT2D.eset
 #ExpressionSet (storageMode: lockedEnvironment)
 #assayData: 39849 features, 1492 samples 
@@ -96,7 +107,7 @@ In stead of selecting marker genes, MuSiC gives weights to each gene. The weight
 #### Benchmark Evaluation
 Benchmark dataset is constructed by summing up single cell data from `XinT2D.eset`. The artificial bulk data is constructed through function `bulk_construct`. The inputs are single cell dataset, cluster name (`clusters`), sample name (`samples`) and selected cell type (`select.ct`). `bulk_construct` returns a ExpressionSet of artificial bulk dataset `Bulk.counts` and a matrix of real cell type counts `num.real`.
 
-```r
+```{r}
 # Construct artificial bulk dataset. Use all 4 cell types: alpha, beta, gamma, delta
 XinT2D.construct.full = bulk_construct(XinT2D.eset, clusters = 'cellType', samples = 'SubjectName')
 
@@ -105,7 +116,8 @@ XinT2D.construct.full$prop.real = relative.ab(XinT2D.construct.full$num.real, by
 ```
 
 The cell type proportions is estimated by function `music_prop`. We can specify the way of grouping scRNA-seq data by `cluster`. `samples` refers to different subjects and `select.ct` refers to cell type included (use all cell types in the single cell dataset if not specified). The estimated proportions are normalized based on included cell type.
-```r
+
+```{r}
 library(xbioc)
 
 # Estimate cell type proportions of artificial bulk data
@@ -119,9 +131,10 @@ names(Est.prop.Xin)
 `music_prop` not only provides MuSiC estimated cell type proportions (`Est.prop.weighted`), but also Non-negative least square estimated proportions (`Est.prop.allgene`). It also returns the weights (`Weight.gene`), R square (`r.squared.full`) and variance of estimated cell type proportions (`Var.prop`).
 
 Compare the real and estimated cell type proportions via different methods.
-```r
+
+```{r}
 # Estimate via BSEQ-sc
-B.EMTAB.full = bseqsc_basis(EMTAB.est, pancreasMarkers[c('alpha', 'beta', 'delta', 'gamma')], clusters = 'cellType', samples = 'sampleID', ct.scale = TRUE)
+B.EMTAB.full = bseqsc_basis(EMTAB.eset, pancreasMarkers[c('alpha', 'beta', 'delta', 'gamma')], clusters = 'cellType', samples = 'sampleID', ct.scale = TRUE)
 fit.EMTAB <- bseqsc_proportions(XinT2D.construct.full$Bulk.counts, B.EMTAB.full, verbose = TRUE)
 Est.prop.bseq.Xin = t(coef(fit.EMTAB))
 
@@ -146,7 +159,7 @@ Prop_comp_multi(prop.real = data.matrix(XinT2D.construct.full$prop.real),
 #### Real Bulk Cell Type Estimation
 The deconvolution of 89 subjects from Fadista et al. can be realized by bulk data `GSE50244.bulk.eset` and single cell data `EMTAB.eset`. We constrained our estimation on 6 major cell type: alpha, beta, delta, gamma, acinar and ductal, which take up over 90% of the whole islet.
 
-``` r
+```{r}
 # Estimate cell type proportions
 Est.prop.GSE50244 = music_prop(bulk.eset = GSE50244.bulk.eset, sc.eset = EMTAB.eset, clusters = 'cellType', 
                                samples = 'sampleID', select.ct = c('alpha', 'beta', 'delta', 'gamma', 'acinar', 'ductal'))
@@ -159,8 +172,8 @@ Est.prop.bseq = t(coef(fit.EMTAB))
 CIBERSORT estimation is abtained by using the design matrix provided by function `music_Design.matrix` and can be downloaded [here](https://github.com/xuranw/MuSiC/tree/master/vignettes/data).
 
 
-```r
-load('yourpath/GSE50244CIBERSORT.RData')
+```{r}
+load(gzcon(url('https://xuranw.github.io/MuSiC/data/GSE50244CIBERSORT.RData')))
 
 # Jitter plot of estimated cell type proportions
 m.prop.GSE50244 = rbind(melt(GSE50244.EMTAB.prop$Est.prop.weighted), 
@@ -184,7 +197,8 @@ ggplot(m.prop.GSE50244, aes(Method, Prop)) +
 ![](GSE50244jitter.jpg)
 
 Constrain our analysis on beta cells
-```r
+
+```{r}
 # Create dataframe for beta cell proportions and HbA1c levels
 m.prop.ana = data.frame(Age = rep(pData(GSE50244.bulk.eset)$age, 4), BMI = rep(pData(GSE50244.bulk.eset)$bmi, 4), HbA1c = rep(pData(GSE50244.bulk.eset)$hba1c, 4),
                         Gender = rep(pData(GSE50244.bulk.eset)$gender, 4),
@@ -213,9 +227,9 @@ We reproduce here the analysis detailed in MuSiC manuscript:
 
 The dataset [GEO entry (GSE81492)](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81492) contains raw RNA-seq and sample annotation data. For the purpose of this vignette, we will use the read counts data `Mousebulkeset.rds` on the [this page](https://github.com/xuranw/MuSiC/tree/master/vignettes/data). Please download this file.
 
-``` r
+```{r}
 # Download Mouse bulk dataset from Github
-Mouse.bulk.eset = readRDS('yourpath/Mousebulkeset.rds')
+Mouse.bulk.eset = readRDSFromWeb('https://xuranw.github.io/MuSiC/data/Mousebulkeset.rds')
 Mouse.bulk.eset
 
 #ExpressionSet (storageMode: lockedEnvironment)
@@ -235,9 +249,9 @@ Mouse.bulk.eset
 
 The single cell data are from [GEO entry (GSE107585)](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE107585), which contrains read counts for 16273 genes of 43745 cells. A subset of the read counts `Mousesubeset.rds` are available on the [this page](https://github.com/xuranw/MuSiC/tree/master/vignettes/data), in the form of an `ExpressionSet`. This subset contains 16273 genes and 10000 cells. Please download this file. 
 
-``` r
+```{r}
 # Download EMTAB single cell dataset from Github
-Mousesub.eset = readRDS('yourpath/Mousesubeset.rds')
+Mousesub.eset = readRDSFromWeb('https://xuranw.github.io/MuSiC/data/Mousesubeset.rds')
 Mousesub.eset
 
 #ExpressionSet (storageMode: lockedEnvironment)
@@ -259,7 +273,8 @@ Notice that the single cell dataset has 16 cell types, including 2 novel cell ty
 In the estimation procedure, the first step is to produce design matrix, cross-subject mean of relative abundance,  cross-subject variance of relative abundance and average library size from single cell reference. `music_basis` is the function to produce the design matrix (`Disgn.mtx`), cross-subject mean of relative abundance (`M.theta`), cross-subject variance of relative abundance (`Sigma`), and average library size (`M.S`). 
 
 MuSiC utilized all genes in the next estimation steps and this will lead to collineary of design matrix.
-```r
+
+```{r}
 # Produce the first step information
 Mousesub.basis = music_basis(Mousesub.eset, clusters = 'cellType', samples = 'sampleID', 
                              select.ct = c('Endo', 'Podo', 'PT', 'LOH', 'DCT', 'CD-PC', 'CD-IC', 'Fib', 'Macro', 'Neutro',
@@ -294,7 +309,8 @@ MuSiC.cluster is an application of MuSiC to a hierarchical structure, which incl
 - Step 2. Estimate cell type proportions within each clusters; $(p_{31},p_{32},.,p_{36},p_{41},.,p_{45})$
 
 We manually specify the cluster and annotated single cell data with cluster information. 
-```r
+
+```{r}
 clusters.type = list(C1 = 'Neutro', C2 = 'Podo', C3 = c('Endo', 'CD-PC', 'LOH', 'CD-IC', 'DCT', 'PT'), C4 = c('Macro', 'Fib', 'B lymph', 'NK', 'T lymph'))
 
 cl.type = as.character(Mousesub.eset$cellType)
@@ -309,8 +325,8 @@ s.mouse = unlist(clusters.type)
 ```
 We then select genes that differential expressed genes within cluster `C3` (Epithelial cells) and `C4` (Immune cells). Function `music_prop.cluster` is used for estimation with cluster.
 
-```r
-load('yourpath/IEmarkers.RData')
+```{r}
+load(gzcon(url('https://xuranw.github.io/MuSiC/data//IEmarkers.RData')))
 
 Est.mouse.bulk = music_prop.cluster(bulk.eset = Mouse.bulk.eset, sc.eset = Mousesub.eset, group.markers = IEmarkers, clusters = 'cellType', group = 'clusterType', samples = 'sampleID', clusters.type = clusters.type)
 ```

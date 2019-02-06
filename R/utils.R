@@ -11,8 +11,7 @@
 #' @export
 relative.ab = function(X, by.col = TRUE){
   if(sum(X < 0) > 0){
-    message('Negative entry appears!')
-    break;
+    stop('Negative entry appears!')
   }
   if(by.col == T){
     RX = sweep(X, 2, colSums(X), '/')

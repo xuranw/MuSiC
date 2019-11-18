@@ -4,8 +4,16 @@
 \alias{Anova_info}
 \title{ANOVA Test for each gene}
 \usage{
-Anova_info(eset, non.zero = TRUE, markers = NULL, clusters, samples,
-  select.ct = NULL, num.info = 25, ...)
+Anova_info(
+  eset,
+  non.zero = TRUE,
+  markers = NULL,
+  clusters,
+  samples,
+  select.ct = NULL,
+  num.info = 25,
+  ...
+)
 }
 \arguments{
 \item{eset}{single cell ExpressionSet}

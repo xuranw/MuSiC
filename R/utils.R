@@ -100,6 +100,7 @@ get_upper_tri = function(cormat){
 #' @param clusters character, the phenoData of single cell dataset used as clusters;
 #' @param samples character,the phenoData of single cell dataset used as samples;
 #' @param select.ct vector of cell types, default as NULL. If NULL, then use all cell types provided by single cell dataset;
+#' @param cell_size data.frame of cell sizes. 1st column contains the names of cell types, 2nd column has the cell sizes per cell type. Default as NULL. If NULL, then estimate cell size from data;
 #' @param ct.cov logical. If TRUE, use the covariance across cell types;
 #' @param verbose logical, default as TRUE.
 #' @param iter.max numeric, maximum iteration number
@@ -116,7 +117,7 @@ get_upper_tri = function(cormat){
 #' @seealso
 #' \code{\link{music_basis}}
 #' @export
-music_prop = function(bulk.eset, sc.eset, markers = NULL, clusters, samples, select.ct = NULL, ct.cov = FALSE, verbose = TRUE,
+music_prop = function(bulk.eset, sc.eset, markers = NULL, clusters, samples, select.ct = NULL, cell_size = NULL, ct.cov = FALSE, verbose = TRUE,
                       iter.max = 1000, nu = 0.0001, eps = 0.01, centered = FALSE, normalize = FALSE, ... ){
   bulk.gene = rownames(bulk.eset)[rowMeans(exprs(bulk.eset)) != 0]
   bulk.eset = bulk.eset[bulk.gene, , drop = FALSE]
@@ -125,7 +126,7 @@ music_prop = function(bulk.eset, sc.eset, markers = NULL, clusters, samples, sel
   }else{
     sc.markers = intersect(bulk.gene, unlist(markers))
   }
-  sc.basis = music_basis(sc.eset, non.zero = TRUE, markers = sc.markers, clusters = clusters, samples = samples, select.ct = select.ct, ct.cov = ct.cov, verbose = verbose)
+  sc.basis = music_basis(sc.eset, non.zero = TRUE, markers = sc.markers, clusters = clusters, samples = samples, select.ct = select.ct, cell_size = cell_size, ct.cov = ct.cov, verbose = verbose)
   cm.gene = intersect( rownames(sc.basis$Disgn.mtx), bulk.gene )
   if(is.null(markers)){
     if(length(cm.gene)< 0.2*min(length(bulk.gene), nrow(sc.eset)) )
@@ -137,7 +138,24 @@ music_prop = function(bulk.eset, sc.eset, markers = NULL, clusters, samples, sel
   if(verbose){message(paste('Used', length(cm.gene), 'common genes...'))}
 
   m.sc = match(cm.gene, rownames(sc.basis$Disgn.mtx)); m.bulk = match(cm.gene, bulk.gene)
-  D1 = sc.basis$Disgn.mtx[m.sc, ]; M.S = colMeans(sc.basis$S, na.rm = T);
+  D1 = sc.basis$Disgn.mtx[m.sc, ]; 
+  M.S = colMeans(sc.basis$S, na.rm = T);
+  
+  if(!is.null(cell_size)){
+    if(!is.data.frame(cell_size)){
+      stop("cell_size paramter should be a data.frame with 1st column for cell type names and 2nd column for cell sizes")
+    }else if(sum(names(M.S) %in% cell_size[, 1]) != length(names(M.S))){
+      stop("Cell type names in cell_size must match clusters")
+    }else if (any(is.na(as.numeric(cell_size[, 2])))){
+      stop("Cell sizes should all be numeric")
+    }
+    my_ms_names <- names(M.S)
+    cell_size <- cell_size[my_ms_names %in% cell_size[, 1], ]
+    M.S <- cell_size[match(my_ms_names, cell_size[, 1]),]
+    M.S <- M.S[, 2]
+    names(M.S) <- my_ms_names
+  }
+  
   Yjg = relative.ab(exprs(bulk.eset)[m.bulk, ]); N.bulk = ncol(bulk.eset);
   if(ct.cov){
     Sigma.ct = sc.basis$Sigma.ct[, m.sc];

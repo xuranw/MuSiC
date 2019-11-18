@@ -4,8 +4,16 @@
 \alias{Twocelltype.Generator}
 \title{Simulate Single cell read counts}
 \usage{
-Twocelltype.Generator(n.sc = 10, n.bulk = 100, G = 100, mu, sub.var,
-  sort.bulk = FALSE, sigma = NULL, ...)
+Twocelltype.Generator(
+  n.sc = 10,
+  n.bulk = 100,
+  G = 100,
+  mu,
+  sub.var,
+  sort.bulk = FALSE,
+  sigma = NULL,
+  ...
+)
 }
 \arguments{
 \item{n.bulk}{integer, number of bulk subjects.}

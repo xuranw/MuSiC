@@ -4,10 +4,23 @@
 \alias{music_prop}
 \title{MuSiC Deconvolution}
 \usage{
-music_prop(bulk.eset, sc.eset, markers = NULL, clusters, samples,
-  select.ct = NULL, ct.cov = FALSE, verbose = TRUE,
-  iter.max = 1000, nu = 1e-04, eps = 0.01, centered = FALSE,
-  normalize = FALSE, ...)
+music_prop(
+  bulk.eset,
+  sc.eset,
+  markers = NULL,
+  clusters,
+  samples,
+  select.ct = NULL,
+  cell_size = NULL,
+  ct.cov = FALSE,
+  verbose = TRUE,
+  iter.max = 1000,
+  nu = 1e-04,
+  eps = 0.01,
+  centered = FALSE,
+  normalize = FALSE,
+  ...
+)
 }
 \arguments{
 \item{bulk.eset}{ExpressionSet for bulk data}
@@ -21,6 +34,8 @@ music_prop(bulk.eset, sc.eset, markers = NULL, clusters, samples,
 \item{samples}{character,the phenoData of single cell dataset used as samples;}
 
 \item{select.ct}{vector of cell types, default as NULL. If NULL, then use all cell types provided by single cell dataset;}
+
+\item{cell_size}{data.frame of cell sizes. 1st column contains the names of cell types, 2nd column has the cell sizes per cell type. Default as NULL. If NULL, then estimate cell size from data;}
 
 \item{ct.cov}{logical. If TRUE, use the covariance across cell types;}
 

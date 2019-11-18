@@ -4,8 +4,14 @@
 \alias{Abs_diff_multi}
 \title{Plot heatmap of Absolute difference between estimated and real cell type proportions}
 \usage{
-Abs_diff_multi(prop.real, prop.est, method.name = NULL, title = NULL,
-  eval = TRUE, ...)
+Abs_diff_multi(
+  prop.real,
+  prop.est,
+  method.name = NULL,
+  title = NULL,
+  eval = TRUE,
+  ...
+)
 }
 \arguments{
 \item{prop.real}{a matrix of real cell type proportions}

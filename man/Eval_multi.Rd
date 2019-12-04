@@ -4,8 +4,14 @@
 \alias{Eval_multi}
 \title{Evaluate estimation methods}
 \usage{
-Eval_multi(prop.real, prop.est, method.name = NULL, by.subject = FALSE,
-  select.ct = NULL, ...)
+Eval_multi(
+  prop.real,
+  prop.est,
+  method.name = NULL,
+  by.subject = FALSE,
+  select.ct = NULL,
+  ...
+)
 }
 \arguments{
 \item{prop.real}{a matrix of real cell type proportions}

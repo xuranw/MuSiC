@@ -4,8 +4,17 @@
 \alias{music_basis}
 \title{Prepare Design matrix and Cross-subject Variance for MuSiC Deconvolution}
 \usage{
-music_basis(x, non.zero = TRUE, markers = NULL, clusters, samples,
-  select.ct = NULL, ct.cov = FALSE, verbose = TRUE)
+music_basis(
+  x,
+  non.zero = TRUE,
+  markers = NULL,
+  clusters,
+  samples,
+  select.ct = NULL,
+  cell_size = NULL,
+  ct.cov = FALSE,
+  verbose = TRUE
+)
 }
 \arguments{
 \item{x}{ExpressionSet, single cell dataset}
@@ -19,6 +28,8 @@ music_basis(x, non.zero = TRUE, markers = NULL, clusters, samples,
 \item{samples}{character,the phenoData used as samples;}
 
 \item{select.ct}{vector of cell types. Default as NULL. If NULL, then use all cell types provided.}
+
+\item{cell_size}{data.frame of cell sizes. 1st column contains the names of cell types, 2nd column has the cell sizes per cell type. Default as NULL. If NULL, then estimate cell size from data.}
 
 \item{ct.cov}{logical. If TRUE, use the covariance across cell types.}
 

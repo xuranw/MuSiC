@@ -4,8 +4,17 @@
 \alias{music.iter.ct}
 \title{Scaling bulk data and signature matrix and estimate cell type proportion}
 \usage{
-music.iter.ct(Y, D, S, Sigma.ct, iter.max = 1000, nu = 1e-04,
-  eps = 0.01, centered = FALSE, normalize = FALSE)
+music.iter.ct(
+  Y,
+  D,
+  S,
+  Sigma.ct,
+  iter.max = 1000,
+  nu = 1e-04,
+  eps = 0.01,
+  centered = FALSE,
+  normalize = FALSE
+)
 }
 \arguments{
 \item{Y}{vector of bulk tissue expression}

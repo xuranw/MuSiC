@@ -4,8 +4,15 @@
 \alias{Relative_gene_boxplot}
 \title{Boxplot of relative abundance}
 \usage{
-Relative_gene_boxplot(sc.eset, gene.name, nu = 10^{     -10 },
-  marker.id = NULL, log.trans = TRUE, select.ct = NULL, ...)
+Relative_gene_boxplot(
+  sc.eset,
+  gene.name,
+  nu = 10^{     -10 },
+  marker.id = NULL,
+  log.trans = TRUE,
+  select.ct = NULL,
+  ...
+)
 }
 \arguments{
 \item{sc.eset}{ExpressionSet for single cell data}

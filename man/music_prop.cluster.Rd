@@ -4,9 +4,22 @@
 \alias{music_prop.cluster}
 \title{MuSiC Deconvolution with Clusters}
 \usage{
-music_prop.cluster(bulk.eset, sc.eset, group.markers, groups, clusters,
-  samples, clusters.type, verbose = TRUE, iter.max = 1000,
-  nu = 1e-04, eps = 0.01, centered = FALSE, normalize = FALSE, ...)
+music_prop.cluster(
+  bulk.eset,
+  sc.eset,
+  group.markers,
+  groups,
+  clusters,
+  samples,
+  clusters.type,
+  verbose = TRUE,
+  iter.max = 1000,
+  nu = 1e-04,
+  eps = 0.01,
+  centered = FALSE,
+  normalize = FALSE,
+  ...
+)
 }
 \arguments{
 \item{bulk.eset}{ExpressionSet for bulk data}

@@ -4,8 +4,14 @@
 \alias{Scatter_multi}
 \title{Plot Scatter plot of real and estimated cell type proportions}
 \usage{
-Scatter_multi(prop.real, prop.est, method.name = NULL, title = NULL,
-  oneline = FALSE, ...)
+Scatter_multi(
+  prop.real,
+  prop.est,
+  method.name = NULL,
+  title = NULL,
+  oneline = FALSE,
+  ...
+)
 }
 \arguments{
 \item{prop.real}{a matrix of real cell type proportions}

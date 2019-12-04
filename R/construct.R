@@ -306,6 +306,7 @@ music_Design.matrix = function(x, non.zero, markers, clusters, samples, select.c
 #' @param clusters character, the phenoData used as clusters;
 #' @param samples character,the phenoData used as samples;
 #' @param select.ct vector of cell types. Default as NULL. If NULL, then use all cell types provided.
+#' @param cell_size data.frame of cell sizes. 1st column contains the names of cell types, 2nd column has the cell sizes per cell type. Default as NULL. If NULL, then estimate cell size from data.
 #' @param ct.cov logical. If TRUE, use the covariance across cell types.
 #' @param verbose logical, default as TRUE.
 #' @return a list of
@@ -316,7 +317,7 @@ music_Design.matrix = function(x, non.zero, markers, clusters, samples, select.c
 #'     * gene by celltype matrix of cross-subject variation
 #'
 #' @export
-music_basis = function(x, non.zero = TRUE, markers = NULL, clusters, samples, select.ct = NULL, ct.cov = FALSE, verbose = TRUE){
+music_basis = function(x, non.zero = TRUE, markers = NULL, clusters, samples, select.ct = NULL, cell_size = NULL, ct.cov = FALSE, verbose = TRUE){
   if(!is.null(select.ct)){
     s.ct = sampleNames(x)[as.character(pVar(x, clusters)) %in% select.ct]
     x <- x[, s.ct, drop = FALSE]
@@ -402,6 +403,21 @@ music_basis = function(x, non.zero = TRUE, markers = NULL, clusters, samples, se
   #S.ra[S.ra == 0] = NA
   #S[S == 0] = NA
   #M.S = mean(S, na.rm = TRUE)*ncol(S)*colMeans(S.ra, na.rm = TRUE)
+  
+  if(!is.null(cell_size)){
+    if(!is.data.frame(cell_size)){
+      stop("cell_size paramter should be a data.frame with 1st column for cell type names and 2nd column for cell sizes")
+    }else if(sum(names(M.S) %in% cell_size[, 1]) != length(names(M.S))){
+      stop("Cell type names in cell_size must match clusters")
+    }else if (any(is.na(as.numeric(cell_size[, 2])))){
+      stop("Cell sizes should all be numeric")
+    }
+    my_ms_names <- names(M.S)
+    cell_size <- cell_size[my_ms_names %in% cell_size[, 1], ]
+    M.S <- cell_size[match(my_ms_names, cell_size[, 1]),]
+    M.S <- M.S[, 2]
+    names(M.S) <- my_ms_names
+  }
 
   D <- t(t(M.theta)*M.S)
 

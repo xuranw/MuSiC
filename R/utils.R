@@ -160,26 +160,34 @@ music_prop = function(bulk.eset, sc.eset, markers = NULL, clusters, samples, sel
   if(ct.cov){
     Sigma.ct = sc.basis$Sigma.ct[, m.sc];
 
-    if(sum(Yjg[, i] == 0) > 0){
-      D1.temp = D1[Yjg[, i]!=0, ];
-      Yjg.temp = Yjg[Yjg[, i]!=0, i];
-      Sigma.ct.temp = Sigma.ct[, Yjg[,i]!=0];
-      if(verbose) message(paste(colnames(Yjg)[i], 'has common genes', sum(Yjg[, i] != 0), '...') )
-    }else{
-      D1.temp = D1;
-      Yjg.temp = Yjg[, i];
-      Sigma.ct.temp = Sigma.ct;
-      if(verbose) message(paste(colnames(Yjg)[i], 'has common genes', sum(Yjg[, i] != 0), '...'))
+    Est.prop.allgene = NULL
+    Est.prop.weighted = NULL
+    Weight.gene = NULL
+    r.squared.full = NULL
+    Var.prop = NULL
+    
+    for(i in 1:N.bulk){
+      if(sum(Yjg[, i] == 0) > 0){
+        D1.temp = D1[Yjg[, i]!=0, ];
+        Yjg.temp = Yjg[Yjg[, i]!=0, i];
+        Sigma.ct.temp = Sigma.ct[, Yjg[,i]!=0];
+        if(verbose) message(paste(colnames(Yjg)[i], 'has common genes', sum(Yjg[, i] != 0), '...') )
+      }else{
+        D1.temp = D1;
+        Yjg.temp = Yjg[, i];
+        Sigma.ct.temp = Sigma.ct;
+        if(verbose) message(paste(colnames(Yjg)[i], 'has common genes', sum(Yjg[, i] != 0), '...'))
+      }
+  
+      lm.D1.weighted = music.iter.ct(Yjg.temp, D1.temp, M.S, Sigma.ct.temp, iter.max = iter.max,
+                                     nu = nu, eps = eps, centered = centered, normalize = normalize)
+      Est.prop.allgene = rbind(Est.prop.allgene, lm.D1.weighted$p.nnls)
+      Est.prop.weighted = rbind(Est.prop.weighted, lm.D1.weighted$p.weight)
+      weight.gene.temp = rep(NA, nrow(Yjg)); weight.gene.temp[Yjg[,i]!=0] = lm.D1.weighted$weight.gene;
+      Weight.gene = cbind(Weight.gene, weight.gene.temp)
+      r.squared.full = c(r.squared.full, lm.D1.weighted$R.squared)
+      Var.prop = rbind(Var.prop, lm.D1.weighted$var.p)
     }
-
-    lm.D1.weighted = music.iter.ct(Yjg.temp, D1.temp, M.S, Sigma.ct.temp, iter.max = iter.max,
-                                   nu = nu, eps = eps, centered = centered, normalize = normalize)
-    Est.prop.allgene = rbind(Est.prop.allgene, lm.D1.weighted$p.nnls)
-    Est.prop.weighted = rbind(Est.prop.weighted, lm.D1.weighted$p.weight)
-    weight.gene.temp = rep(NA, nrow(Yjg)); weight.gene.temp[Yjg[,i]!=0] = lm.D1.weighted$weight.gene;
-    Weight.gene = cbind(Weight.gene, weight.gene.temp)
-    r.squared.full = c(r.squared.full, lm.D1.weighted$R.squared)
-    Var.prop = rbind(Var.prop, lm.D1.weighted$var.p)
   }else{
     Sigma = sc.basis$Sigma[m.sc, ];
 

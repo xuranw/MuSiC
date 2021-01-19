@@ -276,7 +276,7 @@ music.iter.ct = function(Y, D, S, Sigma.ct, iter.max = 1000, nu = 0.0001, eps = 
   }
   Y = Y[match(common.gene, names(Y))];
   D = D[match(common.gene, rownames(D)), ]
-  Sigma.ct = Sigma.ct[, match(common.gene, colnames(Sigma))]
+  Sigma.ct = Sigma.ct[, match(common.gene, colnames(Sigma.ct))]
 
   X = D
   ## First, no intercept and no normalization

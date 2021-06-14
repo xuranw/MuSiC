@@ -107,13 +107,15 @@ Prop_comp_multi = function(prop.real, prop.est, method.name = NULL, title = NULL
   cm.prop.real = prop.real[match(sub, sub.real), match(celltype, ct.real)]
   m.prop.real = data.frame(Prop = c(cm.prop.real), CellType = factor(rep(celltype, each = N), levels = celltype),
                            Sub = factor(rep(sub,K), levels = sub), Method = rep('Real', N*K) )
-  m.prop.est = NULL; ann = '';
+  m.prop.est = NULL;
+  ann = data.frame(metric='',Method='Real')
   for(l in 1:L){
     m.prop.temp = m.prop.real
     cm.prop.est = prop.est[[l]][match(sub, l.sub.est[[l]]), match(celltype, l.ct.est[[l]])]
     m.prop.temp$Prop = c( cm.prop.est )
     m.prop.temp$Method = factor(rep(method.name[l], K*N), levels = method.name);
-    ann = c(ann, paste0('R = ', round(cor(c(cm.prop.real), c(cm.prop.est)), digits = 4)))
+    # ann = c(ann, paste0('R = ', round(cor(c(cm.prop.real), c(cm.prop.est)), digits = 4)))
+    ann <- rbind(ann,data.frame(metric=paste0('R = ', round(cor(c(cm.prop.real), c(cm.prop.est)), digits = 4)),Method=method.name[l]))
     m.prop.est = rbind(m.prop.est, m.prop.temp)
   }
   m.prop = rbind(m.prop.real, m.prop.est);
@@ -123,7 +125,7 @@ Prop_comp_multi = function(prop.real, prop.est, method.name = NULL, title = NULL
   if(eval){
     ggplot(m.prop, aes(CellType, Sub)) + geom_tile(aes(fill = Prop), colour = 'white') + scale_fill_gradient2(
       low = 'steelblue', high = "red", mid = 'white', midpoint = 0.5, limit = c(0, 1), name = 'Est Prop\n')  + facet_wrap(~Method, nrow = 1) + theme(
-        axis.text.x = element_text(angle = -90, size = 10, vjust = 0) ) + ggtitle(title) + annotate("text", label = ann, x = round(4*K/5), y = N, size = 2.5, colour = "black")
+        axis.text.x = element_text(angle = -90, size = 10, vjust = 0) ) + ggtitle(title) + geom_text(data = ann,aes(x = round(4*K/5), y = N,label=metric),  size = 2.5, colour = "black")
   }else{
     ggplot(m.prop, aes(CellType, Sub)) + geom_tile(aes(fill = Prop), colour = 'white') + scale_fill_gradient2(
       low = 'steelblue', high = "red", mid = 'white', midpoint = 0.5, limit = c(0, 1), name = 'Est Prop\n')  + facet_wrap(~Method, nrow = 1) + theme(

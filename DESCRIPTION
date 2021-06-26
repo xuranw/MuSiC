@@ -11,11 +11,11 @@ LazyData: true
 Depends: R (>= 3.3.2), nnls (>= 1.4), ggplot2 (>= 2.2.1)
 Imports: 
         plyr,
-        xbioc, 
         Biobase, 
         MCMCpack
 Suggests:
-    bseqsc
+    bseqsc,
+    xbioc
 URL: https://github.com/xuranw/MuSiC
 BugReports: https://github.com/xuranw/MuSiC/issues
 VignetteBuilder: knitr

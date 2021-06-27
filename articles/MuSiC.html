@@ -342,7 +342,7 @@
   <span class="fu">scale_shape_manual</span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">21</span>, <span class="fl">24</span><span class="op">)</span><span class="op">)</span><span class="op">+</span> <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span>
 
 <span class="fu">plot_grid</span><span class="op">(</span><span class="va">jitter.fig</span>, <span class="va">jitter.new</span>, labels <span class="op">=</span> <span class="st">'auto'</span><span class="op">)</span></code></pre></div>
-<p><img src="../../../../Single%20cell/Rpackage/MuSiC-master_v0.2.0/vignettes/images/GSE50244jitter.jpg"></p>
+<p><img src="./images/GSE50244jitter.jpg"></p>
 <p>It is well known that the beta cell proportions is related to T2D disease status. In the progress of T2D, the number of beta cells decreases. One of the most important test for T2D is HbA1c (hemoglobin A1c) test. When HbA1c level is greater than 6.5%, the patient is diagnosed as T2D. Let’s look at the beta cell proportions with HbA1c level.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Create dataframe for beta cell proportions and HbA1c levels</span>
@@ -528,7 +528,7 @@
 <span class="va">hc2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html">hclust</a></span><span class="op">(</span><span class="va">d</span>, method <span class="op">=</span> <span class="st">"complete"</span><span class="op">)</span>
 <span class="co"># Plot the obtained dendrogram</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">hc2</span>, cex <span class="op">=</span> <span class="fl">0.6</span>, hang <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, main <span class="op">=</span> <span class="st">'Cluster log(Mean of RA)'</span><span class="op">)</span></code></pre></div>
-<p><img src="../../../../Single%20cell/Rpackage/MuSiC-master_v0.2.0/vignettes/images/Cluster.jpg"></p>
+<p><img src="./images/Cluster.jpg"></p>
 <p>The immune cells are clustered together and the kidney specific cells are clustered together. Notice that DCT and PT are within the same high-level grouping. The cut-off is user determined. Here we cut 13 cell types into 4 groups:</p>
 <ul>
 <li>Group 1: Neutro</li>
@@ -685,7 +685,7 @@
                               title <span class="op">=</span> <span class="st">'Abs.Diff between Real and Est. Prop'</span> <span class="op">)</span>
 
 <span class="fu">plot_grid</span><span class="op">(</span><span class="va">prop.comp.fig</span>, <span class="va">abs.diff.fig</span>, labels <span class="op">=</span> <span class="st">"auto"</span>, rel_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p><img src="../../../../Single%20cell/Rpackage/MuSiC-master_v0.2.0/vignettes/images/benchmark.jpg"></p>
+<p><img src="./images/benchmark.jpg"></p>
 <p>In our <a href="https://doi.org/10.1038/s41467-018-08023-x">paper</a>, we also compared our method with existing methods: <a href="https://cibersort.stanford.edu/">CIBERSORT</a> <span class="citation">(see Newman et al. 2015)</span> and <a href="https://github.com/shenorrLab/bseqsc">bseq-sc</a> <span class="citation">(see Baron et al. 2016)</span>.</p>
 </div>
 </div>

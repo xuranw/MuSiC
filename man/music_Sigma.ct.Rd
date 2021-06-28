@@ -2,7 +2,7 @@
 % Please edit documentation in R/construct.R
 \name{music_Sigma.ct}
 \alias{music_Sigma.ct}
-\title{Cross-subject Corvriance of Relative Abudance}
+\title{Cross-subject Corvriance of Relative Abundance}
 \usage{
 music_Sigma.ct(x, non.zero, markers, clusters, samples, select.ct)
 }

@@ -50,7 +50,7 @@ bulk_construct = function(eset, clusters, samples, select.ct = NULL){
 ############ Construct Design Matrix, Library Size, and Subject-level Variation of Relative abundance for MuSiC ############
 ## These functions are for cell type specific mean expression, cross-subject variance and mean library size for MuSiC deconvolution
 
-#' Cross-subject Mean of Relative Abudance
+#' Cross-subject Mean of Relative Abundance
 #'
 #' This function is for calculating the cross-subject mean of relative abundance for selected cell types.
 #'
@@ -95,7 +95,7 @@ music_M.theta = function(x, non.zero, markers, clusters, samples, select.ct){
   return(M.theta)
 }
 
-#' Subject and cell type specific relative abudance
+#' Subject and cell type specific relative abundance
 #'
 #' This function is for calculating the subject and cell type specific relative abundance for selected cell types.
 #'
@@ -137,7 +137,7 @@ music_Theta <- function(x, non.zero = FALSE, clusters, samples, select.ct = NULL
   return(Theta = Theta)
 }
 
-#' Cross-subject Corvriance of Relative Abudance
+#' Cross-subject Corvriance of Relative Abundance
 #'
 #' This function is for calculating the cross-subject covariance of relative abundance for selected cell types.
 #'
@@ -184,7 +184,7 @@ music_Sigma.ct = function(x, non.zero, markers, clusters, samples, select.ct){
   return(Sigma.ct = Sigma.ct)
 }
 
-#' Cross-subject Varirance of Relative Abudance
+#' Cross-subject Varirance of Relative Abundance
 #'
 #' This function is for calculating the cross-subject variance of relative abundance for selected cell types.
 #'
@@ -313,7 +313,7 @@ music_Design.matrix = function(x, non.zero, markers, clusters, samples, select.c
 #'     * gene by cell type matrix of Design matrix
 #'     * subject by celltype matrix of Library size
 #'     * vector of average library size for each cell type
-#'     * gene by celltype matrix of average relative abudance
+#'     * gene by celltype matrix of average relative abundance
 #'     * gene by celltype matrix of cross-subject variation
 #'
 #' @export
@@ -336,7 +336,7 @@ music_basis = function(x, non.zero = TRUE, markers = NULL, clusters, samples, se
       rowSums(y)/sum(y)
     }), na.rm = TRUE)
   })
-  if(verbose){message("Creating Relative Abudance Matrix...")}
+  if(verbose){message("Creating Relative Abundance Matrix...")}
   if(ct.cov){
     nGenes = nrow(x);
     n.ct = length(unique(clusters));

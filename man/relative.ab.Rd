@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{relative.ab}
 \alias{relative.ab}
-\title{Calculate relative abudance}
+\title{Calculate relative abundance}
 \usage{
 relative.ab(X, by.col = TRUE)
 }
@@ -12,5 +12,5 @@ relative.ab(X, by.col = TRUE)
 \item{by.col}{logical, default as TRUE}
 }
 \description{
-Calculate relative abudance
+Calculate relative abundance
 }

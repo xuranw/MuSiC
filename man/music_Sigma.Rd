@@ -2,7 +2,7 @@
 % Please edit documentation in R/construct.R
 \name{music_Sigma}
 \alias{music_Sigma}
-\title{Cross-subject Varirance of Relative Abudance}
+\title{Cross-subject Varirance of Relative Abundance}
 \usage{
 music_Sigma(x, non.zero, markers, clusters, samples, select.ct)
 }

@@ -40,7 +40,7 @@ a list of
     * gene by cell type matrix of Design matrix
     * subject by celltype matrix of Library size
     * vector of average library size for each cell type
-    * gene by celltype matrix of average relative abudance
+    * gene by celltype matrix of average relative abundance
     * gene by celltype matrix of cross-subject variation
 }
 \description{

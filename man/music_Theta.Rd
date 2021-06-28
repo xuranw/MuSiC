@@ -2,7 +2,7 @@
 % Please edit documentation in R/construct.R
 \name{music_Theta}
 \alias{music_Theta}
-\title{Subject and cell type specific relative abudance}
+\title{Subject and cell type specific relative abundance}
 \usage{
 music_Theta(x, non.zero = FALSE, clusters, samples, select.ct = NULL)
 }

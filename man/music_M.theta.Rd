@@ -2,7 +2,7 @@
 % Please edit documentation in R/construct.R
 \name{music_M.theta}
 \alias{music_M.theta}
-\title{Cross-subject Mean of Relative Abudance}
+\title{Cross-subject Mean of Relative Abundance}
 \usage{
 music_M.theta(x, non.zero, markers, clusters, samples, select.ct)
 }

@@ -5,7 +5,7 @@
 ##########################################################################
 
 
-#' Calculate relative abudance
+#' Calculate relative abundance
 #' @param X non-negative matrix for calculate relative abundance
 #' @param by.col logical, default as TRUE
 #' @export

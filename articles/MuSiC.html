@@ -6,6 +6,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MuSiC: Multi-subject Single-cell Deconvolution • MuSiC</title>
+<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
@@ -13,6 +19,7 @@
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="MuSiC: Multi-subject Single-cell Deconvolution">
 <meta property="og:description" content="MuSiC">
+<meta property="og:image" content="http://xuramw.github.io/MuSiC/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -78,6 +85,7 @@
 
     
     
+<p><img src="data:image/png;base64,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" alt="logo" style="position:absolute; top:55px; right:5px; padding:10px;"></p>
 <div id="introduction" class="section level1">
 <h1 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h1>
@@ -112,7 +120,7 @@
 <a href="#music-deconvolution" class="anchor"></a>MuSiC Deconvolution</h1>
 <p>MuSiC utilizes cell-type specific gene expression from single-cell RNA sequencing (RNA-seq) data to characterize cell type compositions from bulk RNA-seq data in complex tissues. By appropriate weighting of genes showing cross-subject and cross-cell consistency, MuSiC enables the transfer of cell type-specific gene expression information from one dataset to another.</p>
 <p>Solid tissues often contain closely related cell types which leads to collinearity. To deal with collinearity, MuSiC employs a tree-guided procedure that recursively zooms in on closely related cell types. Briefly, we first group similar cell types into the same cluster and estimate cluster proportions, then recursively repeat this procedure within each cluster.</p>
-<p><img src="./images/FigureMethod.jpg"></p>
+<p><img src="../../../../Single%20cell/Rpackage/MuSiC-master_v0.2.0/vignettes/images/FigureMethod.jpg"></p>
 </div>
 <div id="sample-analysis" class="section level1">
 <h1 class="hasAnchor">
@@ -342,7 +350,7 @@
   <span class="fu">scale_shape_manual</span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">21</span>, <span class="fl">24</span><span class="op">)</span><span class="op">)</span><span class="op">+</span> <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span>
 
 <span class="fu">plot_grid</span><span class="op">(</span><span class="va">jitter.fig</span>, <span class="va">jitter.new</span>, labels <span class="op">=</span> <span class="st">'auto'</span><span class="op">)</span></code></pre></div>
-<p><img src="./images/GSE50244jitter.jpg"></p>
+<p><img src="../../../../Single%20cell/Rpackage/MuSiC-master_v0.2.0/vignettes/images/GSE50244jitter.jpg"></p>
 <p>It is well known that the beta cell proportions is related to T2D disease status. In the progress of T2D, the number of beta cells decreases. One of the most important test for T2D is HbA1c (hemoglobin A1c) test. When HbA1c level is greater than 6.5%, the patient is diagnosed as T2D. Let’s look at the beta cell proportions with HbA1c level.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Create dataframe for beta cell proportions and HbA1c levels</span>
@@ -362,7 +370,7 @@
   <span class="fu">ggtitle</span><span class="op">(</span><span class="st">'HbA1c vs Beta Cell Type Proportion'</span><span class="op">)</span> <span class="op">+</span> <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">scale_colour_manual</span><span class="op">(</span> values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'white'</span>, <span class="st">"gray20"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">scale_shape_manual</span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">21</span>, <span class="fl">24</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p><img src="./images/GSE50244beta.jpg"></p>
+<p><img src="../../../../Single%20cell/Rpackage/MuSiC-master_v0.2.0/vignettes/images/GSE50244beta.jpg"></p>
 <p>The numerical evaluation can be obtained by linear regression. There is a significant negative correlation between HbA1c levels and beta cell proportions, after adjusted Age, BMI and Gender.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">lm.beta.MuSiC</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">ct.prop</span> <span class="op">~</span> <span class="va">HbA1c</span> <span class="op">+</span> <span class="va">Age</span> <span class="op">+</span> <span class="va">BMI</span> <span class="op">+</span> <span class="va">Gender</span>, data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">m.prop.ana</span>, <span class="va">Method</span> <span class="op">==</span> <span class="st">'MuSiC'</span><span class="op">)</span><span class="op">)</span>
@@ -528,7 +536,7 @@
 <span class="va">hc2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html">hclust</a></span><span class="op">(</span><span class="va">d</span>, method <span class="op">=</span> <span class="st">"complete"</span><span class="op">)</span>
 <span class="co"># Plot the obtained dendrogram</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">hc2</span>, cex <span class="op">=</span> <span class="fl">0.6</span>, hang <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, main <span class="op">=</span> <span class="st">'Cluster log(Mean of RA)'</span><span class="op">)</span></code></pre></div>
-<p><img src="./images/Cluster.jpg"></p>
+<p><img src="../../../../Single%20cell/Rpackage/MuSiC-master_v0.2.0/vignettes/images/Cluster.jpg"></p>
 <p>The immune cells are clustered together and the kidney specific cells are clustered together. Notice that DCT and PT are within the same high-level grouping. The cut-off is user determined. Here we cut 13 cell types into 4 groups:</p>
 <ul>
 <li>Group 1: Neutro</li>
@@ -685,7 +693,7 @@
                               title <span class="op">=</span> <span class="st">'Abs.Diff between Real and Est. Prop'</span> <span class="op">)</span>
 
 <span class="fu">plot_grid</span><span class="op">(</span><span class="va">prop.comp.fig</span>, <span class="va">abs.diff.fig</span>, labels <span class="op">=</span> <span class="st">"auto"</span>, rel_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p><img src="./images/benchmark.jpg"></p>
+<p><img src="../../../../Single%20cell/Rpackage/MuSiC-master_v0.2.0/vignettes/images/benchmark.jpg"></p>
 <p>In our <a href="https://doi.org/10.1038/s41467-018-08023-x">paper</a>, we also compared our method with existing methods: <a href="https://cibersort.stanford.edu/">CIBERSORT</a> <span class="citation">(see Newman et al. 2015)</span> and <a href="https://github.com/shenorrLab/bseqsc">bseq-sc</a> <span class="citation">(see Baron et al. 2016)</span>.</p>
 </div>
 </div>
@@ -718,33 +726,13 @@
 </div>
   </div>
 
-
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-	<div id="tocnav">
-   <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-<li>
-	<a href="#introduction">Introduction</a><ul class = "nav nav-pills nav-stacked">
-	<li><a href="#installation">Installation</a></li>
-	<li><a href="#data">Data</a></li>
-	</ul>
-</li>
-<li><a href="#music-deconvolution"> MuSiC Deconvolution</a></li>
-<li>
-	<a href="#sample-analysis">Sample Analysis</a><ul class = "nav nav-pills nav-stacked">
-	<li><a href="#data-summary">Data Summary</a></li>
-	<li><a href="#estimation-of-cell-type-proportions">Estimation of cell type proportions</a></li>
-	<li><a href="#estimation-of-cell-type-proportions-with-pre-grouping-of-cell-types">Estimation of cell type proportions with pre-grouping cell types</a></li>
-	<li><a href="#benchmark-evaluation">Benchmark Evaluation</a></li>
-</ul>
-</li>
-<li><a href="#reference">Reference</a></li>
-</ul>
-    </div>
+
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
 </div>
 
 </div>
-
 
 
 

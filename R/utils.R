@@ -117,6 +117,8 @@ get_upper_tri = function(cormat){
 #' @seealso
 #' \code{\link{music_basis}}
 #' @export
+#' 
+#' @importFrom Biobase exprs pData
 music_prop = function(bulk.eset, sc.eset, markers = NULL, clusters, samples, select.ct = NULL, cell_size = NULL, ct.cov = FALSE, verbose = TRUE,
                       iter.max = 1000, nu = 0.0001, eps = 0.01, centered = FALSE, normalize = FALSE, ... ){
   bulk.gene = rownames(bulk.eset)[rowMeans(exprs(bulk.eset)) != 0]

@@ -156,7 +156,7 @@ music_prop = function(bulk.eset, sc.eset, markers = NULL, clusters, samples, sel
     names(M.S) <- my_ms_names
   }
   
-  Yjg = relative.ab(exprs(bulk.eset)[m.bulk, ]); N.bulk = ncol(bulk.eset);
+  Yjg = relative.ab(exprs(bulk.eset)[m.bulk, , drop = FALSE]); N.bulk = ncol(bulk.eset);
   if(ct.cov){
     Sigma.ct = sc.basis$Sigma.ct[, m.sc];
     
@@ -299,7 +299,7 @@ music_prop.cluster = function(bulk.eset, sc.eset, group.markers, groups, cluster
   cluster.diff = unique(unlist(group.markers))
   
   D1.cluster = cluster.sc.basis$Disgn.mtx[cluster.select, ]; M.S.cluster = cluster.sc.basis$M.S;
-  Yjg = relative.ab(exprs(bulk.eset)[m.bulk, ]); N.bulk = ncol(bulk.eset);
+  Yjg = relative.ab(exprs(bulk.eset)[m.bulk, , drop = FALSE]); N.bulk = ncol(bulk.eset);
   
   Sigma.cluster = cluster.sc.basis$Sigma[cluster.select, ];
   

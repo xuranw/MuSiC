@@ -24,6 +24,7 @@ Please cite the following publications:
 
 Installation
 ------------
+Both `MuSiC` and `MuSiC2` functions are available in one package.
 ``` r
 # install devtools if necessary
 install.packages('devtools')
@@ -34,16 +35,7 @@ devtools::install_github('xuranw/MuSiC')
 # load
 library(MuSiC)
 ```
-The migration between Github repositories is coming soon!
-``` r
-# install the MuSiC2 package
-if (!"MuSiC2" %in% rownames(installed.packages())) {
-  devtools::install_github('Jiaxin-Fan/MuSiC2')
-}
-# load
-library(MuSiC2)
-```
 
 More Information
 -----------------
-Please see [Tutorial](http://xuranw.github.io/MuSiC/articles/MuSiC.html).
+Please see Tutorials for [MuSiC](http://xuranw.github.io/MuSiC/articles/MuSiC.html) and [MuSiC2](http://xuranw.github.io/MuSiC/articles/pages/MuSiC2.html).

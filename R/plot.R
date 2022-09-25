@@ -550,17 +550,22 @@ Prop_heat_Est = function(prop.est, method.name = NULL, title = NULL, ... ){
 #' Compare cell type specific total expression (library size) between 2 dataset
 #'
 #'
-CellTotal.df = function(eset, cellType, sampleID){
-  df <- pData(eset)
-  df$Total = colSums(exprs(eset))
-  mdf <- ddply(df, cellType, function(x){
-    msample <- unlist(dlply(x, sampleID, function(x) mean(x$Total)))
-    x$avgtot <- mean(msample)
-    x$avgtot.sd <- sd(msample)
-    x$lb <- x$avgtot - x$avgtot.sd
-    x$ub <- x$avgtot + x$avgtot.sd
-    x[1, ]
-  })
+CellTotal.df = function(sce, clusters, samples){
+  df <- colData(sce)
+  df$Total = colSums(counts(sce))
+  mdf <- t(data.matrix(sapply(unique(df[, clusters]), function(cl){
+    msample <- sapply(unique(df[, samples]), function(sid){
+      mean(df$Total[df[, clusters] == cl & df[, samples] == sid])
+    })
+    x = data.frame(avgtot = mean(msample), avgtot.sd = sd(msample))
+    x$lb = x$avgtot - x$avgtot.sd
+    x$ub = x$avgtot + x$avgtot.sd
+    return(x)
+  })))
+  
+  mdf = as.data.frame(mdf)
+  mdf$cellType = unique(df[, clusters])
+  rownames(mdf) = unique(df[, clusters])
   mdf = mdf[rowSums(is.na(mdf)) == 0 ,]
   return(mdf)
 }
@@ -569,11 +574,11 @@ CellTotal.df = function(eset, cellType, sampleID){
 #'
 #' This function is to plot the cell type specific library size of the common cell types of 2 single cell datasets
 #'
-#' @param eset1 ExpressionSet of first single cell dataset
-#' @param eset2 ExpressionSet of second single cell dataset
-plotCellTotal.two = function(eset1, eset2, cellType, sampleID, name1, name2){
-  mdf1 = CellTotal.df(eset1, cellType, sampleID)
-  mdf2 = CellTotal.df(eset2, cellType, sampleID)
+#' @param sce1 SingleCellExpression of the first single cell dataset
+#' @param sce2 SingleCellExpression of the second single cell dataset
+plotCellTotal.two = function(sce1, sce2, clusters = 'cellType', samples = 'sampleID', name1, name2){
+  mdf1 = CellTotal.df(sce1, clusters, samples)
+  mdf2 = CellTotal.df(sce2, clusters, samples)
   
   ids = intersect(mdf1$cellType, mdf2$cellType)
   mdf1 <- mdf1[match(ids, mdf1$cellType), ]
@@ -593,7 +598,7 @@ plotCellTotal.two = function(eset1, eset2, cellType, sampleID, name1, name2){
 #'
 #' Generate boxplot of cell type specific relative abundance for each subjects
 #'
-#' @param sc.eset ExpressionSet for single cell data
+#' @param sc.sce ExpressionSet for single cell data
 #' @param gene.name character, for gene name
 #' @param nu numeric regulator for log transformation
 #' @param marker.id numeric indicator of cell type marker genes. Order in the select cell types.
@@ -607,24 +612,21 @@ plotCellTotal.two = function(eset1, eset2, cellType, sampleID, name1, name2){
 #' @import ggplot2
 #' @export
 #'
-Relative_gene_boxplot = function(sc.eset, gene.name, nu = 10^{-10}, marker.id = NULL, log.trans = TRUE, select.ct = NULL, ... ){
-  exprs(sc.eset)[gene.name, sc.eset$cellType %in% select.ct]
+Relative_gene_boxplot = function(sc.sce, gene.name, nu = 10^{-10}, marker.id = NULL, log.trans = TRUE, select.ct = NULL, ... ){
   ## eliminate non expressed genes
-  nz.gene = rownames(sc.eset)[( rowSums(exprs(sc.eset)) != 0 )]
-  x <- sc.eset[nz.gene, , drop = FALSE]
+  x <- sc.sce[rowSums(counts(sc.sce))>0 , ]
   
   if(sum(rownames(x) %in% gene.name) != 1){
-    message(paste0('No such gene: ', gene.name, '!'))
-    return()
+    stop(paste0('No such gene: ', gene.name, '!'))
   }
   
   if(is.null(select.ct)){
-    sc.ra = relative.ab(exprs(x))[gene.name, ]
-    m.sc.ra = pData(sc.eset)
+    sc.ra = relative.ab(counts(x))[gene.name, ]
+    m.sc.ra = colData(sc.sce)
     m.sc.ra$Relative.Ab = sc.ra
   }else{
-    sc.ra = relative.ab(exprs(x))[gene.name, sc.eset$cellType %in% select.ct]
-    m.sc.ra = pData(sc.eset)[sc.eset$cellType%in% select.ct, ]
+    sc.ra = relative.ab(counts(x))[gene.name, sc.sce$cellType %in% select.ct]
+    m.sc.ra = colData(sc.sce)[sc.sce$cellType%in% select.ct, ]
     m.sc.ra$Relative.Ab = sc.ra
     m.sc.ra$cellType  = factor(m.sc.ra$cellType, levels = select.ct)
   }

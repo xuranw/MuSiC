@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MuSiC</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -88,6 +88,9 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../articles/MuSiC.html">Tutorial</a>
+</li>
+<li>
+  <a href="../articles/pages/MuSiC2.html">MuSiC2</a>
 </li>
 <li>
   <a href="../reference/index.html">Documentation</a>
@@ -142,7 +145,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>ExpressionSet, single cell dataset</p></td>
+      <td><p>SingleCellExperiment, single cell dataset</p></td>
     </tr>
     <tr>
       <th>non.zero</th>
@@ -154,11 +157,11 @@
     </tr>
     <tr>
       <th>clusters</th>
-      <td><p>character, the phenoData used as clusters;</p></td>
+      <td><p>character, the colData used as clusters;</p></td>
     </tr>
     <tr>
       <th>samples</th>
-      <td><p>character,the phenoData used as samples;</p></td>
+      <td><p>character,the colData used as samples;</p></td>
     </tr>
     <tr>
       <th>select.ct</th>
@@ -180,12 +183,14 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a list of
-    * gene by cell type matrix of Design matrix
-    * subject by celltype matrix of Library size
-    * vector of average library size for each cell type
-    * gene by celltype matrix of average relative abudance
-    * gene by celltype matrix of cross-subject variation</p>
+    <p>a list of</p><ul>
+<li><p>gene by cell type matrix of Design matrix;</p></li>
+<li><p>subject by celltype matrix of Library size;</p></li>
+<li><p>vector of average library size for each cell type;</p></li>
+<li><p>gene by celltype matrix of average relative abundance;</p></li>
+<li><p>gene by celltype matrix of cross-subject variation.</p></li>
+</ul>
+
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -198,7 +203,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Xuran Wang.</p>
+  <p>Developed by Xuran Wang, Jiaxin Fan.</p>
 </div>
 
 <div class="pkgdown">

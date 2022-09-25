@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MuSiC</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -88,6 +88,9 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../articles/MuSiC.html">Tutorial</a>
+</li>
+<li>
+  <a href="../articles/pages/MuSiC2.html">MuSiC2</a>
 </li>
 <li>
   <a href="../reference/index.html">Documentation</a>
@@ -125,18 +128,25 @@
     <p>This function is to plot the cell type specific library size of the common cell types of 2 single cell datasets</p>
     </div>
 
-    <pre class="usage"><span class='fu'>plotCellTotal.two</span><span class='op'>(</span><span class='va'>eset1</span>, <span class='va'>eset2</span>, <span class='va'>cellType</span>, <span class='va'>sampleID</span>, <span class='va'>name1</span>, <span class='va'>name2</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>plotCellTotal.two</span><span class='op'>(</span>
+  <span class='va'>sce1</span>,
+  <span class='va'>sce2</span>,
+  clusters <span class='op'>=</span> <span class='st'>"cellType"</span>,
+  samples <span class='op'>=</span> <span class='st'>"sampleID"</span>,
+  <span class='va'>name1</span>,
+  <span class='va'>name2</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>eset1</th>
-      <td><p>ExpressionSet of first single cell dataset</p></td>
+      <th>sce1</th>
+      <td><p>SingleCellExpression of the first single cell dataset</p></td>
     </tr>
     <tr>
-      <th>eset2</th>
-      <td><p>ExpressionSet of second single cell dataset</p></td>
+      <th>sce2</th>
+      <td><p>SingleCellExpression of the second single cell dataset</p></td>
     </tr>
     </table>
 
@@ -152,7 +162,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Xuran Wang.</p>
+  <p>Developed by Xuran Wang, Jiaxin Fan.</p>
 </div>
 
 <div class="pkgdown">

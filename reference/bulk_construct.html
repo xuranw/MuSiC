@@ -81,7 +81,7 @@ same subjects." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MuSiC</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -89,6 +89,9 @@ same subjects." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../articles/MuSiC.html">Tutorial</a>
+</li>
+<li>
+  <a href="../articles/pages/MuSiC2.html">MuSiC2</a>
 </li>
 <li>
   <a href="../reference/index.html">Documentation</a>
@@ -127,22 +130,22 @@ same subjects." />
 same subjects.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>bulk_construct</span><span class='op'>(</span><span class='va'>eset</span>, <span class='va'>clusters</span>, <span class='va'>samples</span>, select.ct <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>bulk_construct</span><span class='op'>(</span><span class='va'>sce</span>, <span class='va'>clusters</span>, <span class='va'>samples</span>, select.ct <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>eset</th>
-      <td><p>ExpressionSet, single cell dataset</p></td>
+      <th>sce</th>
+      <td><p>SingleCellExperiment, single cell dataset</p></td>
     </tr>
     <tr>
       <th>clusters</th>
-      <td><p>character, the phenoData used as clusters</p></td>
+      <td><p>character, the colData used as clusters</p></td>
     </tr>
     <tr>
       <th>samples</th>
-      <td><p>character, the phenoData used as samples</p></td>
+      <td><p>character, the colData used as samples</p></td>
     </tr>
     <tr>
       <th>select.ct</th>
@@ -153,7 +156,7 @@ Otherwise, only cells of selected cell types will be used for construction.</p><
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>ExpressionSet of constructed bulk tissue, matrix of cell number in each cluster by subject</p>
+    <p>Matrix of expression of constructed bulk tissue, matrix of cell number in each cluster by sample</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -166,7 +169,7 @@ Otherwise, only cells of selected cell types will be used for construction.</p><
 
       <footer>
       <div class="copyright">
-  <p>Developed by Xuran Wang.</p>
+  <p>Developed by Xuran Wang, Jiaxin Fan.</p>
 </div>
 
 <div class="pkgdown">

@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MuSiC</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -88,6 +88,9 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../articles/MuSiC.html">Tutorial</a>
+</li>
+<li>
+  <a href="../articles/pages/MuSiC2.html">MuSiC2</a>
 </li>
 <li>
   <a href="../reference/index.html">Documentation</a>
@@ -126,8 +129,8 @@
     </div>
 
     <pre class="usage"><span class='fu'>music_prop.cluster</span><span class='op'>(</span>
-  <span class='va'>bulk.eset</span>,
-  <span class='va'>sc.eset</span>,
+  <span class='va'>bulk.mtx</span>,
+  <span class='va'>sc.sce</span>,
   <span class='va'>group.markers</span>,
   <span class='va'>groups</span>,
   <span class='va'>clusters</span>,
@@ -146,12 +149,12 @@
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>bulk.eset</th>
-      <td><p>ExpressionSet for bulk data</p></td>
+      <th>bulk.mtx</th>
+      <td><p>Matrix of expression for bulk data</p></td>
     </tr>
     <tr>
-      <th>sc.eset</th>
-      <td><p>ExpressionSet for single cell data</p></td>
+      <th>sc.sce</th>
+      <td><p>SingleCellExperiment for single cell data</p></td>
     </tr>
     <tr>
       <th>group.markers</th>
@@ -160,15 +163,15 @@ List name must be the same as `clusters.type`.</p></td>
     </tr>
     <tr>
       <th>groups</th>
-      <td><p>character, the phenoData of single cell data used as groups;</p></td>
+      <td><p>character, the colData of single cell data used as groups;</p></td>
     </tr>
     <tr>
       <th>clusters</th>
-      <td><p>character, the phenoData of single cell dataset used as clusters;</p></td>
+      <td><p>character, the colData of single cell dataset used as clusters;</p></td>
     </tr>
     <tr>
       <th>samples</th>
-      <td><p>character,the phenoData of single cell dataset used as samples;</p></td>
+      <td><p>character,the colData of single cell dataset used as samples;</p></td>
     </tr>
     <tr>
       <th>clusters.type</th>
@@ -184,15 +187,15 @@ List name must be the same as `clusters.type`.</p></td>
     </tr>
     <tr>
       <th>nu</th>
-      <td><p>regulation parameter, take care of weight when taking recipical</p></td>
+      <td><p>regulation parameter, take care of weight when taking reciprocal</p></td>
     </tr>
     <tr>
       <th>eps</th>
-      <td><p>Thredshold of convergence</p></td>
+      <td><p>Threshold of convergence</p></td>
     </tr>
     <tr>
       <th>centered</th>
-      <td><p>logic, substract avg of Y and D</p></td>
+      <td><p>logic, subtract avg of Y and D</p></td>
     </tr>
     <tr>
       <th>normalize</th>
@@ -218,7 +221,7 @@ List name must be the same as `clusters.type`.</p></td>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Xuran Wang.</p>
+  <p>Developed by Xuran Wang, Jiaxin Fan.</p>
 </div>
 
 <div class="pkgdown">

@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MuSiC</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -88,6 +88,9 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../articles/MuSiC.html">Tutorial</a>
+</li>
+<li>
+  <a href="../articles/pages/MuSiC2.html">MuSiC2</a>
 </li>
 <li>
   <a href="../reference/index.html">Documentation</a>
@@ -152,30 +155,32 @@
     </tr>
     <tr>
       <th>nu</th>
-      <td><p>regulation parameter, take care of weight when taking recipical</p></td>
+      <td><p>regulation parameter, take care of weight when taking reciprocal</p></td>
     </tr>
     <tr>
       <th>eps</th>
-      <td><p>Thredshold of convergence</p></td>
+      <td><p>Threshold of convergence</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a list with elements:
-  * p.nnls: vector of cell type proportions estimated by nnls (add up to 1)
-  * q.nnls: vector of original estimation from nnls
-  * fit.nnls: fitted value of Y from nnls
-  * resid.nnls: residual value from nnls
-  * p.weight: vector of cell type proportions estimated by weighted-nnls (add up to 1)
-  * q.weight: vector of original estimation from weight-nnls
-  * fit.weight: fitted value of Y from weighted-nnls
-  * resid.weight: residual value from weighted-nnls
-  * weight.gene: weight calculated from weighted-nnls
-  * converge: 'Reach Maxiter', 'Converge at m'
-  * rsd: residual value from weighted-nnls transfromed by weight
-  * R.squared: R square of weighted-nnls
-  * var.p: variance of weighted-nnls estimated cell type proportions</p>
+    <p>a list with elements:</p><ul>
+<li><p>p.nnls: vector of cell type proportions estimated by nnls (add up to 1);</p></li>
+<li><p>q.nnls: vector of original estimation from nnls;</p></li>
+<li><p>fit.nnls: fitted value of Y from nnls;</p></li>
+<li><p>resid.nnls: residual value from nnls;</p></li>
+<li><p>p.weight: vector of cell type proportions estimated by weighted-nnls (add up to 1);</p></li>
+<li><p>q.weight: vector of original estimation from weight-nnls;</p></li>
+<li><p>fit.weight: fitted value of Y from weighted-nnls;</p></li>
+<li><p>resid.weight: residual value from weighted-nnls;</p></li>
+<li><p>weight.gene: weight calculated from weighted-nnls;</p></li>
+<li><p>converge: 'Reach Maxiter', 'Converge at m';</p></li>
+<li><p>rsd: residual value from weighted-nnls transformed by weight;</p></li>
+<li><p>R.squared: R square of weighted-nnls;</p></li>
+<li><p>var.p: variance of weighted-nnls estimated cell type proportions;</p></li>
+</ul>
+
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -188,7 +193,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Xuran Wang.</p>
+  <p>Developed by Xuran Wang, Jiaxin Fan.</p>
 </div>
 
 <div class="pkgdown">

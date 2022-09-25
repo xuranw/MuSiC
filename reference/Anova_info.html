@@ -8,6 +8,13 @@
 
 <title>ANOVA Test for each gene — Anova_info • MuSiC</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -41,6 +48,7 @@
 
 <meta property="og:title" content="ANOVA Test for each gene — Anova_info" />
 <meta property="og:description" content="This function is to test the two-way significance of cell type specific expression cross samples" />
+<meta property="og:image" content="http://xuramw.github.io/MuSiC/logo.png" />
 
 
 
@@ -72,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MuSiC</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -80,6 +88,9 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../articles/MuSiC.html">Tutorial</a>
+</li>
+<li>
+  <a href="../articles/pages/MuSiC2.html">MuSiC2</a>
 </li>
 <li>
   <a href="../reference/index.html">Documentation</a>
@@ -118,7 +129,7 @@
     </div>
 
     <pre class="usage"><span class='fu'>Anova_info</span><span class='op'>(</span>
-  <span class='va'>eset</span>,
+  <span class='va'>sce</span>,
   non.zero <span class='op'>=</span> <span class='cn'>TRUE</span>,
   markers <span class='op'>=</span> <span class='cn'>NULL</span>,
   <span class='va'>clusters</span>,
@@ -132,8 +143,8 @@
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>eset</th>
-      <td><p>single cell ExpressionSet</p></td>
+      <th>sce</th>
+      <td><p>SingleCellExperiment single cell dataset</p></td>
     </tr>
     <tr>
       <th>non.zero</th>
@@ -141,15 +152,15 @@
     </tr>
     <tr>
       <th>markers</th>
-      <td><p>vector of characters, default as NULL. If NULL, use all genes in <code>eset</code></p></td>
+      <td><p>vector of characters, default as NULL. If NULL, use all genes in <code>sce</code></p></td>
     </tr>
     <tr>
       <th>clusters</th>
-      <td><p>character, the name of phenoData used as clusters</p></td>
+      <td><p>character, the name of colData used as clusters</p></td>
     </tr>
     <tr>
       <th>samples</th>
-      <td><p>character, the name of phenoData used as samples</p></td>
+      <td><p>character, the name of colData used as samples</p></td>
     </tr>
     <tr>
       <th>select.ct</th>
@@ -163,11 +174,13 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a list of
-       * F statistics of <code>samples</code>
-       * F statistics of <code>clusters</code>,
-       * F statistics of two-way anova
-       * selected informative genes: high F statictis for <code>clusters</code> compare to <code>samples</code></p>
+    <p>a list of</p><ul>
+<li><p>F statistics of <code>samples</code>;</p></li>
+<li><p>F statistics of <code>clusters</code>;</p></li>
+<li><p>F statistics of two-way anova;</p></li>
+<li><p>selected informative genes: high F statictis for <code>clusters</code> compare to <code>samples</code>;</p></li>
+</ul>
+
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -180,7 +193,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Xuran Wang.</p>
+  <p>Developed by Xuran Wang, Jiaxin Fan.</p>
 </div>
 
 <div class="pkgdown">

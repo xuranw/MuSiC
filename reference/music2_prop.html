@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MuSiC Deconvolution — music_prop • MuSiC</title>
+<title>MuSiC2_Deconvolution — music2_prop • MuSiC</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="MuSiC Deconvolution — music_prop" />
-<meta property="og:description" content="This function is to calculate the MuSiC deconvolution proportions" />
+<meta property="og:title" content="MuSiC2_Deconvolution — music2_prop" />
+<meta property="og:description" content="This function is used to deconvolve bulk RNA-seq data using single-cell reference generated under a different condition." />
 <meta property="og:image" content="http://xuramw.github.io/MuSiC/logo.png" />
 
 
@@ -119,59 +119,109 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>MuSiC Deconvolution</h1>
-    <small class="dont-index">Source: <a href='https://github.com/xuranw/MuSiC/blob/master/R/utils.R'><code>R/utils.R</code></a></small>
-    <div class="hidden name"><code>music_prop.Rd</code></div>
+    <h1>MuSiC2_Deconvolution</h1>
+    <small class="dont-index">Source: <a href='https://github.com/xuranw/MuSiC/blob/master/R/music2.R'><code>R/music2.R</code></a></small>
+    <div class="hidden name"><code>music2_prop.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function is to calculate the MuSiC deconvolution proportions</p>
+    <p>This function is used to deconvolve bulk RNA-seq data using single-cell reference generated under a different condition.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>music_prop</span><span class='op'>(</span>
-  <span class='va'>bulk.mtx</span>,
+    <pre class="usage"><span class='fu'>music2_prop</span><span class='op'>(</span>
+  <span class='va'>bulk.control.mtx</span>,
+  <span class='va'>bulk.case.mtx</span>,
   <span class='va'>sc.sce</span>,
-  markers <span class='op'>=</span> <span class='cn'>NULL</span>,
   <span class='va'>clusters</span>,
   <span class='va'>samples</span>,
-  select.ct <span class='op'>=</span> <span class='cn'>NULL</span>,
+  <span class='va'>select.ct</span>,
+  expr_low <span class='op'>=</span> <span class='fl'>20</span>,
+  prop_r <span class='op'>=</span> <span class='fl'>0.1</span>,
+  eps_c <span class='op'>=</span> <span class='fl'>0.05</span>,
+  eps_r <span class='op'>=</span> <span class='fl'>0.01</span>,
+  n_resample <span class='op'>=</span> <span class='fl'>20</span>,
+  sample_prop <span class='op'>=</span> <span class='fl'>0.5</span>,
+  cutoff_expr <span class='op'>=</span> <span class='fl'>0.05</span>,
+  cutoff_c <span class='op'>=</span> <span class='fl'>0.05</span>,
+  cutoff_r <span class='op'>=</span> <span class='fl'>0.01</span>,
+  maxiter <span class='op'>=</span> <span class='fl'>200</span>,
+  markers <span class='op'>=</span> <span class='cn'>NULL</span>,
   cell_size <span class='op'>=</span> <span class='cn'>NULL</span>,
   ct.cov <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  verbose <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  iter.max <span class='op'>=</span> <span class='fl'>1000</span>,
-  nu <span class='op'>=</span> <span class='fl'>1e-04</span>,
-  eps <span class='op'>=</span> <span class='fl'>0.01</span>,
   centered <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  normalize <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  <span class='va'>...</span>
+  normalize <span class='op'>=</span> <span class='cn'>FALSE</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>bulk.mtx</th>
-      <td><p>matrix of expression for bulk data</p></td>
+      <th>bulk.control.mtx</th>
+      <td><p>Matrix of expression for bulk data, control group</p></td>
+    </tr>
+    <tr>
+      <th>bulk.case.mtx</th>
+      <td><p>Matrix of expression for bulk data, case group</p></td>
     </tr>
     <tr>
       <th>sc.sce</th>
       <td><p>SingleCellExperiment for single cell data</p></td>
     </tr>
     <tr>
-      <th>markers</th>
-      <td><p>vector or list of gene names, default as NULL. If NULL, use all genes that provided by both bulk and single cell dataset.</p></td>
-    </tr>
-    <tr>
       <th>clusters</th>
-      <td><p>character, the colData of single cell dataset used as clusters;</p></td>
+      <td><p>character, the phenoData of single cell dataset used as clusters;</p></td>
     </tr>
     <tr>
       <th>samples</th>
-      <td><p>character,the colData of single cell dataset used as samples;</p></td>
+      <td><p>character, the phenoData of single cell dataset used as samples;</p></td>
     </tr>
     <tr>
       <th>select.ct</th>
-      <td><p>vector of cell types, default as NULL. If NULL, then use all cell types provided by single cell dataset;</p></td>
+      <td><p>vector of cell types, default as NULL. If NULL, then use all cell types provided by the single cell dataset;</p></td>
+    </tr>
+    <tr>
+      <th>expr_low</th>
+      <td><p>numeric, cutoff for defining lowly expressed genes in bulk data. Genes with mean expression across samples in bulk data &lt; expr_low will be excluded from cell-type-specific DE gene detection. Default is 20;</p></td>
+    </tr>
+    <tr>
+      <th>prop_r</th>
+      <td><p>numeric, cutoff for defining rare cell types. Cell types with mean proportion across samples in bulk data &lt; prop_r will be characterized as rare cell types. Otherwise, will be characterized as common cell types. Default is 0.1;</p></td>
+    </tr>
+    <tr>
+      <th>eps_c</th>
+      <td><p>numeric, convergence cutoff for common cell types. The cell type proportion estimate is converged if absolute relative change of proportion estimates for the current iteration against the previous iteration &lt; eps_c. Default is 0.05;</p></td>
+    </tr>
+    <tr>
+      <th>eps_r</th>
+      <td><p>numeric, convergence cutoff for rare cell types. The cell type proportion estimate is converged if absolute change of proportion estimates for the current iteration against the previous iteration &lt; eps_r. Default is 0.01;</p></td>
+    </tr>
+    <tr>
+      <th>n_resample</th>
+      <td><p>numeric, number of resamples used for detecting cell-type-specific DE genes. Default is 20;</p></td>
+    </tr>
+    <tr>
+      <th>sample_prop</th>
+      <td><p>numeric, proportion of samples to be randomly sampled without replacement under each condition at each resampling. Default is 0.5;</p></td>
+    </tr>
+    <tr>
+      <th>cutoff_expr</th>
+      <td><p>numeric, cutoff for defining lowly expressed genes over resamples. Genes with average cell-type-specific expression calculated over all resamples in the lower cutoff_expr quantile are excluded from cell-type-specific DE gene detection. Default is 0.05;</p></td>
+    </tr>
+    <tr>
+      <th>cutoff_c</th>
+      <td><p>numeric, cutoff for defining cell-type-specific DE genes for common cell types. Genes with the value of statistic, defined as the absolute value of the ratio of the mean and standard deviation of the log fold change over all resamples, in the upper cutoff_c quantile are considered as cell-type-specific DE genes. Default is 0.05;</p></td>
+    </tr>
+    <tr>
+      <th>cutoff_r</th>
+      <td><p>numeric, cutoff for defining cell-type-specific DE genes for rare cell types. Genes with the value of statistic, defined as the absolute value of the ratio of the mean and standard deviation of the log fold change over all resamples, in the upper cutoff_r quantile are considered as cell-type-specific DE genes. Default is 0.01;</p></td>
+    </tr>
+    <tr>
+      <th>maxiter</th>
+      <td><p>numeric, maximum number of iterations. Default is 200;</p></td>
+    </tr>
+    <tr>
+      <th>markers</th>
+      <td><p>vector or list of gene names. Default as NULL, i.e., use all genes that provided by both bulk and single cell datasets;</p></td>
     </tr>
     <tr>
       <th>cell_size</th>
@@ -182,44 +232,31 @@
       <td><p>logical. If TRUE, use the covariance across cell types;</p></td>
     </tr>
     <tr>
-      <th>verbose</th>
-      <td><p>logical, default as TRUE.</p></td>
-    </tr>
-    <tr>
-      <th>iter.max</th>
-      <td><p>numeric, maximum iteration number</p></td>
-    </tr>
-    <tr>
-      <th>nu</th>
-      <td><p>regulation parameter, take care of weight when taking reciprocal</p></td>
-    </tr>
-    <tr>
-      <th>eps</th>
-      <td><p>Threshold of convergence</p></td>
-    </tr>
-    <tr>
       <th>centered</th>
-      <td><p>logic, subtract avg of Y and D</p></td>
+      <td><p>logic, substract avg of Y and D;</p></td>
     </tr>
     <tr>
       <th>normalize</th>
-      <td><p>logic, divide Y and D by their standard deviation</p></td>
+      <td><p>logic, divide Y and D by their standard deviation;</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a list with elements:</p><ul>
-<li><p>Estimates of MuSiC;</p></li>
-<li><p>Estimates of NNLS;</p></li>
-<li><p>Weight of MuSiC;</p></li>
-<li><p>r.squared of MuSiC;</p></li>
-<li><p>Variance of MuSiC estimates.</p></li>
+    <p>If MuSiC2 converges, return:</p><ul>
+<li><p>Est.prop: matrix, cell type proportion estimates.</p></li>
+<li><p>convergence: logical, whether MuSiC2 converged or not.</p></li>
+<li><p>n.iter: numeric, number of iterations.</p></li>
+<li><p>DE.genes: vector, cell-type-specific DE genes being removed.</p></li>
+</ul><p>Or if MuSiC2 does not converge, return:</p><ul>
+<li><p>Est.prop: matrix, cell type proportion estimates.</p></li>
+<li><p>convergence: logical, whether MuSiC2 converged or not.</p></li>
+<li><p>id.not.converge: vector, sample ids that failed to converge.</p></li>
 </ul>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='music_basis.html'>music_basis</a></code></p></div>
+    <div class='dont-index'><p><code><a href='music_prop.html'>music_prop</a></code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

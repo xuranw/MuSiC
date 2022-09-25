@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Cross-subject Corvriance of Relative Abudance — music_Sigma.ct • MuSiC</title>
+<title>Cross-subject Covariance of Relative Abundance — music_Sigma.ct • MuSiC</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,7 @@
 
 
 
-<meta property="og:title" content="Cross-subject Corvriance of Relative Abudance — music_Sigma.ct" />
+<meta property="og:title" content="Cross-subject Covariance of Relative Abundance — music_Sigma.ct" />
 <meta property="og:description" content="This function is for calculating the cross-subject covariance of relative abundance for selected cell types." />
 <meta property="og:image" content="http://xuramw.github.io/MuSiC/logo.png" />
 
@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MuSiC</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -88,6 +88,9 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../articles/MuSiC.html">Tutorial</a>
+</li>
+<li>
+  <a href="../articles/pages/MuSiC2.html">MuSiC2</a>
 </li>
 <li>
   <a href="../reference/index.html">Documentation</a>
@@ -116,7 +119,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Cross-subject Corvriance of Relative Abudance</h1>
+    <h1>Cross-subject Covariance of Relative Abundance</h1>
     <small class="dont-index">Source: <a href='https://github.com/xuranw/MuSiC/blob/master/R/construct.R'><code>R/construct.R</code></a></small>
     <div class="hidden name"><code>music_Sigma.ct.Rd</code></div>
     </div>
@@ -132,7 +135,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>ExpressionSet, single cell dataset</p></td>
+      <td><p>SingleCellExperiment, single cell dataset</p></td>
     </tr>
     <tr>
       <th>non.zero</th>
@@ -144,11 +147,11 @@
     </tr>
     <tr>
       <th>clusters</th>
-      <td><p>character, the phenoData used as clusters</p></td>
+      <td><p>character, the ColData used as clusters</p></td>
     </tr>
     <tr>
       <th>samples</th>
-      <td><p>character,the phenoData used as samples</p></td>
+      <td><p>character,the ColData used as samples</p></td>
     </tr>
     <tr>
       <th>select.ct</th>
@@ -171,7 +174,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Xuran Wang.</p>
+  <p>Developed by Xuran Wang, Jiaxin Fan.</p>
 </div>
 
 <div class="pkgdown">

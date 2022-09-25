@@ -4,8 +4,16 @@
 \alias{Twocelltype.Generator}
 \title{Simulate Single cell read counts}
 \usage{
-Twocelltype.Generator(n.sc = 10, n.bulk = 100, G = 100, mu, sub.var,
-  sort.bulk = FALSE, sigma = NULL, ...)
+Twocelltype.Generator(
+  n.sc = 10,
+  n.bulk = 100,
+  G = 100,
+  mu,
+  sub.var,
+  sort.bulk = FALSE,
+  sigma = NULL,
+  ...
+)
 }
 \arguments{
 \item{n.bulk}{integer, number of bulk subjects.}
@@ -22,10 +30,12 @@ Twocelltype.Generator(n.sc = 10, n.bulk = 100, G = 100, mu, sub.var,
 }
 \value{
 a list with elements
-   * cell type proportions of generated bulk data
-   * cell type proportions of generated single cell data
-   * ExpressionSet of bulk data
-   * ExpressionSet of single cell data
+\itemize{
+   \item {p.bulk: cell type proportions of generated bulk data;}
+   \item {p.sc: cell type proportions of generated single cell data;}
+   \item {bulk.mtx: Expression Matrix of bulk data;}
+   \item {sc.sce: SingleCellExperiment of single cell data;}
+}
 }
 \description{
 Simulate expected library sizes from a log-normal distribution

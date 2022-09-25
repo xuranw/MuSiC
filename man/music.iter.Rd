@@ -4,8 +4,17 @@
 \alias{music.iter}
 \title{Scaling bulk data and signature matrix and estimate cell type proportion}
 \usage{
-music.iter(Y, D, S, Sigma, iter.max = 1000, nu = 1e-04, eps = 0.01,
-  centered = FALSE, normalize = FALSE)
+music.iter(
+  Y,
+  D,
+  S,
+  Sigma,
+  iter.max = 1000,
+  nu = 1e-04,
+  eps = 0.01,
+  centered = FALSE,
+  normalize = FALSE
+)
 }
 \arguments{
 \item{Y}{vector of bulk tissue expression}
@@ -18,11 +27,11 @@ music.iter(Y, D, S, Sigma, iter.max = 1000, nu = 1e-04, eps = 0.01,
 
 \item{iter.max}{numeric, maximum iteration number}
 
-\item{nu}{regulation parameter, when take recipical}
+\item{nu}{regulation parameter, when take reciprocal}
 
-\item{eps}{thredshold of converagence}
+\item{eps}{threshold of convergence}
 
-\item{centered}{logic, substract avg of Y and D}
+\item{centered}{logic, subtract avg of Y and D}
 
 \item{normalize}{logic, divide Y and D by their standard deviation}
 }

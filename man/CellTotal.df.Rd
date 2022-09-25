@@ -4,7 +4,7 @@
 \alias{CellTotal.df}
 \title{Compare cell type specific total expression (library size) between 2 dataset}
 \usage{
-CellTotal.df(eset, cellType, sampleID)
+CellTotal.df(sce, clusters, samples)
 }
 \description{
 Compare cell type specific total expression (library size) between 2 dataset

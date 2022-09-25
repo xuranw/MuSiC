@@ -4,8 +4,14 @@
 \alias{Prop_comp_multi}
 \title{Plot heatmap of real and estimated cell type proportions}
 \usage{
-Prop_comp_multi(prop.real, prop.est, method.name = NULL, title = NULL,
-  eval = TRUE, ...)
+Prop_comp_multi(
+  prop.real,
+  prop.est,
+  method.name = NULL,
+  title = NULL,
+  eval = TRUE,
+  ...
+)
 }
 \arguments{
 \item{prop.real}{a matrix of real cell type proportions}

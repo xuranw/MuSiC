@@ -4,12 +4,19 @@
 \alias{plotCellTotal.two}
 \title{Plot the cell type specific library size of 2 single cell datasets}
 \usage{
-plotCellTotal.two(eset1, eset2, cellType, sampleID, name1, name2)
+plotCellTotal.two(
+  sce1,
+  sce2,
+  clusters = "cellType",
+  samples = "sampleID",
+  name1,
+  name2
+)
 }
 \arguments{
-\item{eset1}{ExpressionSet of first single cell dataset}
+\item{sce1}{SingleCellExpression of the first single cell dataset}
 
-\item{eset2}{ExpressionSet of second single cell dataset}
+\item{sce2}{SingleCellExpression of the second single cell dataset}
 }
 \description{
 This function is to plot the cell type specific library size of the common cell types of 2 single cell datasets

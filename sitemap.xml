@@ -22,6 +22,9 @@
     <loc>http://xuramw.github.io/MuSiC/reference/Eval_multi.html</loc>
   </url>
   <url>
+    <loc>http://xuramw.github.io/MuSiC/reference/Eval_sim_boxplot.html</loc>
+  </url>
+  <url>
     <loc>http://xuramw.github.io/MuSiC/reference/fpkmToTpm.html</loc>
   </url>
   <url>
@@ -41,6 +44,15 @@
   </url>
   <url>
     <loc>http://xuramw.github.io/MuSiC/reference/music.iter.html</loc>
+  </url>
+  <url>
+    <loc>http://xuramw.github.io/MuSiC/reference/music2_prop.html</loc>
+  </url>
+  <url>
+    <loc>http://xuramw.github.io/MuSiC/reference/music2_prop_t_statistics.html</loc>
+  </url>
+  <url>
+    <loc>http://xuramw.github.io/MuSiC/reference/music2_toast.html</loc>
   </url>
   <url>
     <loc>http://xuramw.github.io/MuSiC/reference/music_basis.html</loc>
@@ -113,5 +125,8 @@
   </url>
   <url>
     <loc>http://xuramw.github.io/MuSiC/articles/pages/data.html</loc>
+  </url>
+  <url>
+    <loc>http://xuramw.github.io/MuSiC/articles/pages/MuSiC2.html</loc>
   </url>
 </urlset>

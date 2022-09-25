@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MuSiC</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -88,6 +88,9 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../articles/MuSiC.html">Tutorial</a>
+</li>
+<li>
+  <a href="../articles/pages/MuSiC2.html">MuSiC2</a>
 </li>
 <li>
   <a href="../reference/index.html">Documentation</a>
@@ -167,11 +170,13 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a list with elements
-   * cell type proportions of generated bulk data
-   * cell type proportions of generated single cell data
-   * ExpressionSet of bulk data
-   * ExpressionSet of single cell data</p>
+    <p>a list with elements</p><ul>
+<li><p>p.bulk: cell type proportions of generated bulk data;</p></li>
+<li><p>p.sc: cell type proportions of generated single cell data;</p></li>
+<li><p>bulk.mtx: Expression Matrix of bulk data;</p></li>
+<li><p>sc.sce: SingleCellExperiment of single cell data;</p></li>
+</ul>
+
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Generate simulation datasets. n.sc or n.bulk is zero, then we only generate
@@ -188,7 +193,7 @@ one dataset and cell type proportions.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Xuran Wang.</p>
+  <p>Developed by Xuran Wang, Jiaxin Fan.</p>
 </div>
 
 <div class="pkgdown">

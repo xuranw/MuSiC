@@ -107,13 +107,15 @@ Prop_comp_multi = function(prop.real, prop.est, method.name = NULL, title = NULL
   cm.prop.real = prop.real[match(sub, sub.real), match(celltype, ct.real)]
   m.prop.real = data.frame(Prop = c(cm.prop.real), CellType = factor(rep(celltype, each = N), levels = celltype),
                            Sub = factor(rep(sub,K), levels = sub), Method = rep('Real', N*K) )
-  m.prop.est = NULL; ann = '';
+  m.prop.est = NULL;
+  ann = data.frame(metric='',Method='Real')
   for(l in 1:L){
     m.prop.temp = m.prop.real
     cm.prop.est = prop.est[[l]][match(sub, l.sub.est[[l]]), match(celltype, l.ct.est[[l]])]
     m.prop.temp$Prop = c( cm.prop.est )
     m.prop.temp$Method = factor(rep(method.name[l], K*N), levels = method.name);
-    ann = c(ann, paste0('R = ', round(cor(c(cm.prop.real), c(cm.prop.est)), digits = 4)))
+    # ann = c(ann, paste0('R = ', round(cor(c(cm.prop.real), c(cm.prop.est)), digits = 4)))
+    ann <- rbind(ann,data.frame(metric=paste0('R = ', round(cor(c(cm.prop.real), c(cm.prop.est)), digits = 4)),Method=method.name[l]))
     m.prop.est = rbind(m.prop.est, m.prop.temp)
   }
   m.prop = rbind(m.prop.real, m.prop.est);
@@ -122,12 +124,14 @@ Prop_comp_multi = function(prop.real, prop.est, method.name = NULL, title = NULL
   }
   if(eval){
     ggplot(m.prop, aes(CellType, Sub)) + geom_tile(aes(fill = Prop), colour = 'white') + scale_fill_gradient2(
-      low = 'steelblue', high = "red", mid = 'white', midpoint = 0.5, limit = c(0, 1), name = 'Est Prop\n')  + facet_wrap(~Method, nrow = 1) + theme(
-        axis.text.x = element_text(angle = -90, size = 10, vjust = 0) ) + ggtitle(title) + annotate("text", label = ann, x = round(4*K/5), y = N, size = 2.5, colour = "black")
+      low = 'steelblue', high = "red", mid = 'white', midpoint = 0.5, limit = c(0, 1), name = 'Est Prop\n')  + facet_wrap(~Method, nrow = 1) + 
+      theme_minimal() + theme(axis.text.x = element_text(angle = -90, size = 10, vjust = 0) ) + ggtitle(title) + 
+      geom_text(data = ann,aes(x = round(4*K/5), y = N,label=metric),  size = 2.5, colour = "black")
   }else{
     ggplot(m.prop, aes(CellType, Sub)) + geom_tile(aes(fill = Prop), colour = 'white') + scale_fill_gradient2(
-      low = 'steelblue', high = "red", mid = 'white', midpoint = 0.5, limit = c(0, 1), name = 'Est Prop\n')  + facet_wrap(~Method, nrow = 1) + theme(
-        axis.text.x = element_text(angle = -90, size = 10, vjust = 0) ) + ggtitle(title)
+      low = 'steelblue', high = "red", mid = 'white', midpoint = 0.5, limit = c(0, 1), name = 'Est Prop\n')  + facet_wrap(~Method, nrow = 1) + 
+      theme_minimal() + theme(axis.text.x = element_text(angle = -90, size = 10, vjust = 0) ) + 
+      ggtitle(title)
   }
 }
 
@@ -179,15 +183,16 @@ Abs_diff_multi = function(prop.real, prop.est, method.name = NULL, title = NULL,
     cm.prop.real = prop.real[match(sub, sub.real), match(celltype, ct.real)]
     m.prop.real = data.frame(Prop = c(cm.prop.real), CellType = factor(rep(celltype, each = N), levels = celltype),
                              Sub = factor(rep(sub,K), levels = sub), Method = rep('Real', N*K) )
-
-    abs.diff = NULL; ann = NULL;
+    
+    abs.diff = NULL
+    ann <- data.frame(metric = character(0), Method = character(0))
     for(l in 1:L){
       abs.diff.temp = m.prop.real; colnames(abs.diff.temp)[1] = 'Abs.Diff';
       cm.prop.est = prop.est[[l]][match(sub, l.sub.est[[l]]), match(celltype, l.ct.est[[l]])]
       abs.diff.temp$Abs.Diff = abs( c( cm.prop.est ) - m.prop.real$Prop)
       abs.diff.temp$Method = factor(rep(method.name[l], K*N), levels = method.name);
-      ann = c(ann, paste0('RMSD = ', round( sqrt(mean((cm.prop.real-cm.prop.est)^2)), digits = 5 ),
-                          '\n mAD = ', round( mean( abs.diff.temp$Abs.Diff), digits = 5 )) )
+      ann <- rbind(ann, data.frame(metric = paste0("RMSD = ", round(sqrt(mean((cm.prop.real - cm.prop.est)^2)), digits = 5), "\n mAD = ",
+                                                   round(mean(abs.diff.temp$Abs.Diff), digits = 5)), Method = method.name[l]))
       abs.diff = rbind(abs.diff, abs.diff.temp)
     }
   }else{
@@ -214,13 +219,14 @@ Abs_diff_multi = function(prop.real, prop.est, method.name = NULL, title = NULL,
   }
   if(eval){
     ggplot(abs.diff, aes(CellType, Sub)) + geom_tile(aes(fill = Abs.Diff), colour = 'white')+ scale_fill_gradient(
-      low = 'white', high = 'steelblue', name = 'Abs.Diff\n') + facet_wrap( ~ Method, nrow = 1) + theme(
-        axis.text.x = element_text(angle = -90, size = 10, vjust = 0) ) + #geom_text(aes(label = round(Abs.Diff, 2))) +
-      ggtitle(title) + annotate("text", label = ann, x = round(4*K/5), y = N-0.5, size = 2.5, colour = "black")
+      low = 'white', high = 'steelblue', name = 'Abs.Diff\n') + facet_wrap( ~ Method, nrow = 1) + theme_minimal() + 
+      theme(axis.text.x = element_text(angle = -90, size = 10, vjust = 0) ) + #geom_text(aes(label = round(Abs.Diff, 2))) +
+      ggtitle(title) + 
+      geom_text(data = ann, aes(x = round(4 * K / 5), y = N - 0.5, label = metric), size = 2.5, colour = "black")
   }else{
     ggplot(abs.diff, aes(CellType, Sub)) + geom_tile(aes(fill = Abs.Diff), colour = 'white')+ scale_fill_gradient(
-      low = 'white', high = 'steelblue', name = 'Abs.Diff\n') + facet_wrap( ~ Method, nrow = 1) + theme(
-        axis.text.x = element_text(angle = -90, size = 10, vjust = 0) ) + #geom_text(aes(label = round(Abs.Diff, 2))) +
+      low = 'white', high = 'steelblue', name = 'Abs.Diff\n') + facet_wrap( ~ Method, nrow = 1) + theme_minimal() +
+      theme(axis.text.x = element_text(angle = -90, size = 10, vjust = 0) ) + #geom_text(aes(label = round(Abs.Diff, 2))) +
       ggtitle(title)
   }
 }
@@ -279,7 +285,7 @@ Eval_multi = function(prop.real, prop.est, method.name = NULL, by.subject = FALS
     RMSD = round( sqrt(mean((cm.prop.real - cm.prop.est)^2)), digits = 5);
     mAD = round( mean( abs(cm.prop.real - cm.prop.est) ) , digits = 5);
     Pearson = round(cor(c(cm.prop.real), c(cm.prop.est)), digits = 4);
-
+    
     if(by.subject){
       Pearson.by.subject = round(mean( sapply(1:N, function(i){
         cor(cm.prop.real[i, ], cm.prop.est[i, ])}) ), digits = 4)
@@ -361,9 +367,13 @@ Scatter_multi = function(prop.real, prop.est, method.name = NULL, title = NULL, 
     title = 'Scatter plot of Real and Est. Proportion'
   }
   if(oneline){
-    ggplot(m.prop.est, aes(Real.prop, Est.prop)) + geom_point(aes(color = Method, shape = Method)) + facet_wrap(~CellType, scale = 'free', nrow = 1) + geom_abline(slope = 1, color = 'gray', size = 1) + ggtitle(title)
+    ggplot(m.prop.est, aes(Real.prop, Est.prop)) + geom_point(aes(color = Method, shape = Method)) + 
+      facet_wrap(~CellType, scale = 'free', nrow = 1) + geom_abline(slope = 1, color = 'gray', size = 1) + 
+      theme_minimal() + ggtitle(title)
   }else{
-    ggplot(m.prop.est, aes(Real.prop, Est.prop)) + geom_point(aes(color = Method, shape = Method)) + facet_wrap(~CellType, scale = 'free') + geom_abline(slope = 1, color = 'gray', size = 1) + ggtitle(title)
+    ggplot(m.prop.est, aes(Real.prop, Est.prop)) + geom_point(aes(color = Method, shape = Method)) + 
+      facet_wrap(~CellType, scale = 'free') + geom_abline(slope = 1, color = 'gray', size = 1) + 
+      theme_minimal() + ggtitle(title)
   }
   #return(m.prop.est)
 }
@@ -420,7 +430,8 @@ Boxplot_Est = function(prop.est, method.name = NULL, title = NULL, ... ){
   if(is.null(title)){
     title = 'Boxplot of Estimated Cell Type Proportions'
   }
-  ggplot(m.prop.est, aes(Method, Prop))+ geom_boxplot(aes(color = Method)) + facet_wrap(~ CellType, scales = 'free')+ theme(axis.text.x=element_text(angle=30, size = 10, vjust=0.5)) + ggtitle(title)
+  ggplot(m.prop.est, aes(Method, Prop))+ geom_boxplot(aes(color = Method)) + facet_wrap(~ CellType, scales = 'free') + 
+    theme_minimal() + theme(axis.text.x=element_text(angle=30, size = 10, vjust=0.5)) + ggtitle(title)
 }
 
 #' Jitter plot of estimated cell type proportions
@@ -475,7 +486,8 @@ Jitter_Est = function(prop.est, method.name = NULL, title = NULL, ... ){
   if(is.null(title)){
     title = 'Jitter plot of Estimated Cell Type Proportions'
   }
-  ggplot(m.prop.est, aes(Method, Prop))+ geom_jitter(aes(color = Method), width = 0.2, height = 0) + facet_wrap(~ CellType, scales = 'free')+ theme(axis.text.x=element_text(angle=30, size = 10, vjust=0.5)) + ggtitle(title)
+  ggplot(m.prop.est, aes(Method, Prop))+ geom_jitter(aes(color = Method), width = 0.2, height = 0) + facet_wrap(~ CellType, scales = 'free') + 
+    theme_minimal() + theme(axis.text.x=element_text(angle=30, size = 10, vjust=0.5)) + ggtitle(title)
 }
 
 #' Heatmap of estimated cell type proportions
@@ -531,24 +543,29 @@ Prop_heat_Est = function(prop.est, method.name = NULL, title = NULL, ... ){
     title = 'Heatmap of Estimated Cell Type Proportions'
   }
   ggplot(m.prop.est, aes(CellType, Sub)) + geom_tile(aes(fill = Prop), colour = 'white') + scale_fill_gradient2(
-    low = 'steelblue', high = "red", mid = 'white', midpoint = 0.1, limit = c(0, 1), name = 'Est Prop')  + facet_wrap(~Method, nrow = 1) + theme(
-      axis.text.x = element_text(angle = 50, size = 10, vjust = 0.5) ) + ggtitle(title)
+    low = 'steelblue', high = "red", mid = 'white', midpoint = 0.1, limit = c(0, 1), name = 'Est Prop')  + facet_wrap(~Method, nrow = 1) + 
+    theme_minimal() + theme(axis.text.x = element_text(angle = 50, size = 10, vjust = 0.5) ) + ggtitle(title)
 }
 ############## Compare two datasets #######################
 #' Compare cell type specific total expression (library size) between 2 dataset
 #'
 #'
-CellTotal.df = function(eset, cellType, sampleID){
-  df <- pData(eset)
-  df$Total = colSums(exprs(eset))
-  mdf <- ddply(df, cellType, function(x){
-    msample <- unlist(dlply(x, sampleID, function(x) mean(x$Total)))
-    x$avgtot <- mean(msample)
-    x$avgtot.sd <- sd(msample)
-    x$lb <- x$avgtot - x$avgtot.sd
-    x$ub <- x$avgtot + x$avgtot.sd
-    x[1, ]
-  })
+CellTotal.df = function(sce, clusters, samples){
+  df <- colData(sce)
+  df$Total = colSums(counts(sce))
+  mdf <- t(data.matrix(sapply(unique(df[, clusters]), function(cl){
+    msample <- sapply(unique(df[, samples]), function(sid){
+      mean(df$Total[df[, clusters] == cl & df[, samples] == sid])
+    })
+    x = data.frame(avgtot = mean(msample), avgtot.sd = sd(msample))
+    x$lb = x$avgtot - x$avgtot.sd
+    x$ub = x$avgtot + x$avgtot.sd
+    return(x)
+  })))
+  
+  mdf = as.data.frame(mdf)
+  mdf$cellType = unique(df[, clusters])
+  rownames(mdf) = unique(df[, clusters])
   mdf = mdf[rowSums(is.na(mdf)) == 0 ,]
   return(mdf)
 }
@@ -557,12 +574,12 @@ CellTotal.df = function(eset, cellType, sampleID){
 #'
 #' This function is to plot the cell type specific library size of the common cell types of 2 single cell datasets
 #'
-#' @param eset1 ExpressionSet of first single cell dataset
-#' @param eset2 ExpressionSet of second single cell dataset
-plotCellTotal.two = function(eset1, eset2, cellType, sampleID, name1, name2){
-  mdf1 = CellTotal.df(eset1, cellType, sampleID)
-  mdf2 = CellTotal.df(eset2, cellType, sampleID)
-
+#' @param sce1 SingleCellExpression of the first single cell dataset
+#' @param sce2 SingleCellExpression of the second single cell dataset
+plotCellTotal.two = function(sce1, sce2, clusters = 'cellType', samples = 'sampleID', name1, name2){
+  mdf1 = CellTotal.df(sce1, clusters, samples)
+  mdf2 = CellTotal.df(sce2, clusters, samples)
+  
   ids = intersect(mdf1$cellType, mdf2$cellType)
   mdf1 <- mdf1[match(ids, mdf1$cellType), ]
   mdf2 <- mdf2[match(ids, mdf2$cellType), ]
@@ -573,14 +590,15 @@ plotCellTotal.two = function(eset1, eset2, cellType, sampleID, name1, name2){
   ggplot(mdf, aes(y = avgtot, x = cellType, fill = cellType)) +
     geom_bar(stat = "identity") + guides(fill = guide_legend("")) +
     geom_errorbar(aes_string(ymin = "lb", ymax = "ub"), color = "#555555",
-                  width = 0.25) + facet_wrap( ~Name, scales = 'free') + theme(axis.text.x = element_text(angle = 320, hjust = 0)) + ylab("Average total count") + xlab("")
+                  width = 0.25) + facet_wrap( ~Name, scales = 'free') + theme_minimal() + 
+    theme(axis.text.x = element_text(angle = 320, hjust = 0)) + ylab("Average total count") + xlab("")
 }
 
 #' Boxplot of relative abundance
 #'
 #' Generate boxplot of cell type specific relative abundance for each subjects
 #'
-#' @param sc.eset ExpressionSet for single cell data
+#' @param sc.sce ExpressionSet for single cell data
 #' @param gene.name character, for gene name
 #' @param nu numeric regulator for log transformation
 #' @param marker.id numeric indicator of cell type marker genes. Order in the select cell types.
@@ -594,24 +612,21 @@ plotCellTotal.two = function(eset1, eset2, cellType, sampleID, name1, name2){
 #' @import ggplot2
 #' @export
 #'
-Relative_gene_boxplot = function(sc.eset, gene.name, nu = 10^{-10}, marker.id = NULL, log.trans = TRUE, select.ct = NULL, ... ){
-  exprs(sc.eset)[gene.name, sc.eset$cellType %in% select.ct]
+Relative_gene_boxplot = function(sc.sce, gene.name, nu = 10^{-10}, marker.id = NULL, log.trans = TRUE, select.ct = NULL, ... ){
   ## eliminate non expressed genes
-  nz.gene = rownames(sc.eset)[( rowSums(exprs(sc.eset)) != 0 )]
-  x <- sc.eset[nz.gene, , drop = FALSE]
-
+  x <- sc.sce[rowSums(counts(sc.sce))>0 , ]
+  
   if(sum(rownames(x) %in% gene.name) != 1){
-    message(paste0('No such gene: ', gene.name, '!'))
-    return()
+    stop(paste0('No such gene: ', gene.name, '!'))
   }
-
+  
   if(is.null(select.ct)){
-    sc.ra = relative.ab(exprs(x))[gene.name, ]
-    m.sc.ra = pData(sc.eset)
+    sc.ra = relative.ab(counts(x))[gene.name, ]
+    m.sc.ra = colData(sc.sce)
     m.sc.ra$Relative.Ab = sc.ra
   }else{
-    sc.ra = relative.ab(exprs(x))[gene.name, sc.eset$cellType %in% select.ct]
-    m.sc.ra = pData(sc.eset)[sc.eset$cellType%in% select.ct, ]
+    sc.ra = relative.ab(counts(x))[gene.name, sc.sce$cellType %in% select.ct]
+    m.sc.ra = colData(sc.sce)[sc.sce$cellType%in% select.ct, ]
     m.sc.ra$Relative.Ab = sc.ra
     m.sc.ra$cellType  = factor(m.sc.ra$cellType, levels = select.ct)
   }
@@ -622,8 +637,10 @@ Relative_gene_boxplot = function(sc.eset, gene.name, nu = 10^{-10}, marker.id = 
     title.gg = paste0('Boxplot of relative abundance at ', gene.name, '\n marker for ', cell.type.marker, ' cell' )
   }
   if(log.trans){
-    ggplot(m.sc.ra, aes(SubjectName, log(Relative.Ab + nu), color = cellType)) + theme(axis.text.y=element_text(angle=20, size = 10, vjust=0.5)) + labs(y = paste0('log(Rel.Ab + ', nu, ')')) + geom_boxplot() + facet_wrap( ~ cellType, ncol = 1)+ coord_flip() + ggtitle(title.gg)
+    ggplot(m.sc.ra, aes(SubjectName, log(Relative.Ab + nu), color = cellType)) + theme_minimal() + 
+      theme(axis.text.y=element_text(angle=20, size = 10, vjust=0.5)) + labs(y = paste0('log(Rel.Ab + ', nu, ')')) + geom_boxplot() + facet_wrap( ~ cellType, ncol = 1)+ coord_flip() + ggtitle(title.gg)
   }else{
-    ggplot(m.sc.ra, aes(SubjectName, Relative.Ab, color = cellType)) + theme(axis.text.y=element_text(angle=20, size = 10, vjust=0.5)) + geom_boxplot() + facet_wrap( ~ cellType, ncol = 1)+ coord_flip() + ggtitle(title.gg)
+    ggplot(m.sc.ra, aes(SubjectName, Relative.Ab, color = cellType)) + theme_minimal() +
+      theme(axis.text.y=element_text(angle=20, size = 10, vjust=0.5)) + geom_boxplot() + facet_wrap( ~ cellType, ncol = 1)+ coord_flip() + ggtitle(title.gg)
   }
 }

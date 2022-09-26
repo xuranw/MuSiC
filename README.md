@@ -1,6 +1,13 @@
 MuSiC
 =============================================
 `MuSiC` is an analysis toolkit for single-cell RNA-Seq experiments. To use this package, you will need the R statistical computing environment (version 3.0 or later) and several packages available through Bioconductor and CRAN.
+> ## Update (09/26/2022)
+>  MuSiC (v1.0.0) now support `SingleCellExperiment` class as single cell reference!<br />
+> Please See updated [Tutorial](http://xuranw.github.io/MuSiC/articles/MuSiC.html) for guidance!
+
+> ## Update (09/26/2022)
+> MuSiC2 is available! You can use MuSiC2 for cell type deconvolution for multi-condition bulk RNA-seq data. <br />
+> MuSiC2 functions can be accessed with either latest version of MuSiC(v1.0.0) or installed from [this](https://github.com/Jiaxin-Fan/MuSiC2) github repo of Dr. Jiaxin Fan.
 
 The original release of `MuSiC` is a deconvolution method that utilizes cross-subject scRNA-seq to estimate cell type proportions in bulk RNA-seq data.
 ![MuSiC\_pipeline](FigureMethod.jpg)

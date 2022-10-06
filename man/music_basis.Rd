@@ -17,15 +17,15 @@ music_basis(
 )
 }
 \arguments{
-\item{x}{ExpressionSet, single cell dataset}
+\item{x}{SingleCellExperiment, single cell dataset}
 
 \item{non.zero}{logical, default as TRUE. If true, remove all gene with zero expression.}
 
 \item{markers}{vector or list of gene names. Default as NULL. If NULL, then use all genes provided.}
 
-\item{clusters}{character, the phenoData used as clusters;}
+\item{clusters}{character, the colData used as clusters;}
 
-\item{samples}{character,the phenoData used as samples;}
+\item{samples}{character,the colData used as samples;}
 
 \item{select.ct}{vector of cell types. Default as NULL. If NULL, then use all cell types provided.}
 
@@ -37,11 +37,13 @@ music_basis(
 }
 \value{
 a list of
-    * gene by cell type matrix of Design matrix
-    * subject by celltype matrix of Library size
-    * vector of average library size for each cell type
-    * gene by celltype matrix of average relative abundance
-    * gene by celltype matrix of cross-subject variation
+ \itemize{
+    \item {gene by cell type matrix of Design matrix;}
+    \item {subject by celltype matrix of Library size;}
+    \item {vector of average library size for each cell type;}
+    \item {gene by celltype matrix of average relative abundance;}
+    \item {gene by celltype matrix of cross-subject variation.}
+    }
 }
 \description{
 This function is used for generating cell type specific cross-subject mean and variance for each gene. Cell type specific library size is also calcualted.

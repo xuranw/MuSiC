@@ -5,8 +5,8 @@
 \title{MuSiC Deconvolution}
 \usage{
 music_prop(
-  bulk.eset,
-  sc.eset,
+  bulk.mtx,
+  sc.sce,
   markers = NULL,
   clusters,
   samples,
@@ -23,15 +23,15 @@ music_prop(
 )
 }
 \arguments{
-\item{bulk.eset}{ExpressionSet for bulk data}
+\item{bulk.mtx}{matrix of expression for bulk data}
 
-\item{sc.eset}{ExpressionSet for single cell data}
+\item{sc.sce}{SingleCellExperiment for single cell data}
 
 \item{markers}{vector or list of gene names, default as NULL. If NULL, use all genes that provided by both bulk and single cell dataset.}
 
-\item{clusters}{character, the phenoData of single cell dataset used as clusters;}
+\item{clusters}{character, the colData of single cell dataset used as clusters;}
 
-\item{samples}{character,the phenoData of single cell dataset used as samples;}
+\item{samples}{character,the colData of single cell dataset used as samples;}
 
 \item{select.ct}{vector of cell types, default as NULL. If NULL, then use all cell types provided by single cell dataset;}
 
@@ -43,21 +43,23 @@ music_prop(
 
 \item{iter.max}{numeric, maximum iteration number}
 
-\item{nu}{regulation parameter, take care of weight when taking recipical}
+\item{nu}{regulation parameter, take care of weight when taking reciprocal}
 
-\item{eps}{Thredshold of convergence}
+\item{eps}{Threshold of convergence}
 
-\item{centered}{logic, substract avg of Y and D}
+\item{centered}{logic, subtract avg of Y and D}
 
 \item{normalize}{logic, divide Y and D by their standard deviation}
 }
 \value{
 a list with elements:
-   * Estimates of MuSiC
-   * Estimates of NNLS
-   * Weight of MuSiC
-   * r.squared of MuSiC
-   * Variance of MuSiC estimates
+\itemize{
+   \item {Estimates of MuSiC;}
+   \item {Estimates of NNLS;}
+   \item {Weight of MuSiC;}
+   \item {r.squared of MuSiC;}
+   \item {Variance of MuSiC estimates.}
+   }
 }
 \description{
 This function is to calculate the MuSiC deconvolution proportions

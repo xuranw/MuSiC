@@ -5,7 +5,7 @@
 \title{ANOVA Test for each gene}
 \usage{
 Anova_info(
-  eset,
+  sce,
   non.zero = TRUE,
   markers = NULL,
   clusters,
@@ -16,15 +16,15 @@ Anova_info(
 )
 }
 \arguments{
-\item{eset}{single cell ExpressionSet}
+\item{sce}{SingleCellExperiment single cell dataset}
 
 \item{non.zero}{logical, default as TRUE. If TRUE, we only use gene that have non-zero expression}
 
-\item{markers}{vector of characters, default as NULL. If NULL, use all genes in \code{eset}}
+\item{markers}{vector of characters, default as NULL. If NULL, use all genes in \code{sce}}
 
-\item{clusters}{character, the name of phenoData used as clusters}
+\item{clusters}{character, the name of colData used as clusters}
 
-\item{samples}{character, the name of phenoData used as samples}
+\item{samples}{character, the name of colData used as samples}
 
 \item{select.ct}{vector of cell types included, default as \code{NULL}. If \code{NULL}, include all cell types in \code{x}}
 
@@ -32,10 +32,12 @@ Anova_info(
 }
 \value{
 a list of
-       * F statistics of \code{samples}
-       * F statistics of \code{clusters},
-       * F statistics of two-way anova
-       * selected informative genes: high F statictis for \code{clusters} compare to \code{samples}
+  \itemize{
+       \item {F statistics of \code{samples};}
+       \item {F statistics of \code{clusters};}
+       \item {F statistics of two-way anova;}
+       \item {selected informative genes: high F statictis for \code{clusters} compare to \code{samples};}
+}
 }
 \description{
 This function is to test the two-way significance of cell type specific expression cross samples

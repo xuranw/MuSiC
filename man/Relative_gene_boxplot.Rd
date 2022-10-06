@@ -5,7 +5,7 @@
 \title{Boxplot of relative abundance}
 \usage{
 Relative_gene_boxplot(
-  sc.eset,
+  sc.sce,
   gene.name,
   nu = 10^{     -10 },
   marker.id = NULL,
@@ -15,7 +15,7 @@ Relative_gene_boxplot(
 )
 }
 \arguments{
-\item{sc.eset}{ExpressionSet for single cell data}
+\item{sc.sce}{ExpressionSet for single cell data}
 
 \item{gene.name}{character, for gene name}
 

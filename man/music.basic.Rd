@@ -17,25 +17,27 @@ music.basic(Y, X, S, Sigma, iter.max, nu, eps)
 
 \item{iter.max}{numeric, maximum iteration number}
 
-\item{nu}{regulation parameter, take care of weight when taking recipical}
+\item{nu}{regulation parameter, take care of weight when taking reciprocal}
 
-\item{eps}{Thredshold of convergence}
+\item{eps}{Threshold of convergence}
 }
 \value{
 a list with elements:
-  * p.nnls: vector of cell type proportions estimated by nnls (add up to 1)
-  * q.nnls: vector of original estimation from nnls
-  * fit.nnls: fitted value of Y from nnls
-  * resid.nnls: residual value from nnls
-  * p.weight: vector of cell type proportions estimated by weighted-nnls (add up to 1)
-  * q.weight: vector of original estimation from weight-nnls
-  * fit.weight: fitted value of Y from weighted-nnls
-  * resid.weight: residual value from weighted-nnls
-  * weight.gene: weight calculated from weighted-nnls
-  * converge: 'Reach Maxiter', 'Converge at m'
-  * rsd: residual value from weighted-nnls transfromed by weight
-  * R.squared: R square of weighted-nnls
-  * var.p: variance of weighted-nnls estimated cell type proportions
+\itemize{
+  \item {p.nnls: vector of cell type proportions estimated by nnls (add up to 1);}
+  \item {q.nnls: vector of original estimation from nnls;}
+  \item {fit.nnls: fitted value of Y from nnls;}
+  \item {resid.nnls: residual value from nnls;}
+  \item {p.weight: vector of cell type proportions estimated by weighted-nnls (add up to 1);}
+  \item {q.weight: vector of original estimation from weight-nnls;}
+  \item {fit.weight: fitted value of Y from weighted-nnls;}
+  \item {resid.weight: residual value from weighted-nnls;}
+  \item {weight.gene: weight calculated from weighted-nnls;}
+  \item {converge: 'Reach Maxiter', 'Converge at m';}
+  \item {rsd: residual value from weighted-nnls transformed by weight;}
+  \item {R.squared: R square of weighted-nnls;}
+  \item {var.p: variance of weighted-nnls estimated cell type proportions;}
+}
 }
 \description{
 Estimate cell type proportion with MuSiC and NNLS

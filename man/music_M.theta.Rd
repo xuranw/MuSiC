@@ -2,12 +2,12 @@
 % Please edit documentation in R/construct.R
 \name{music_M.theta}
 \alias{music_M.theta}
-\title{Cross-subject Mean of Relative Abundance}
+\title{Cross-subject Mean of Relative Abudance}
 \usage{
 music_M.theta(x, non.zero, markers, clusters, samples, select.ct)
 }
 \arguments{
-\item{x}{ExpressionSet, single cell dataset}
+\item{x}{SingleCellExperiment, single cell dataset}
 
 \item{non.zero}{logical, if true, remove all gene with zero expression}
 

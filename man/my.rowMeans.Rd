@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{my.rowMeans}
 \alias{my.rowMeans}
-\title{Calcuate Row Means with NA remove}
+\title{Calculate Row Means with NA remove}
 \usage{
 my.rowMeans(x, na.rm = FALSE, dims = 1L)
 }
@@ -12,8 +12,8 @@ my.rowMeans(x, na.rm = FALSE, dims = 1L)
 \item{na.rm}{default FALSE}
 }
 \value{
-vector of rowmeans
+vector of row means
 }
 \description{
-Calcuate Row Means with NA remove
+Calculate Row Means with NA remove
 }

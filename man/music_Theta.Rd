@@ -7,13 +7,13 @@
 music_Theta(x, non.zero = FALSE, clusters, samples, select.ct = NULL)
 }
 \arguments{
-\item{x}{ExpressionSet, single cell dataset}
+\item{x}{SingleCellExperiment, single cell dataset}
 
-\item{non.zero}{logical, defualt as F. If true, remove all gene with zero expression}
+\item{non.zero}{logical, default as F. If true, remove all gene with zero expression}
 
-\item{clusters}{character, the phenoData used as clusters}
+\item{clusters}{character, the colData used as clusters}
 
-\item{samples}{character,the phenoData used as samples}
+\item{samples}{character,the colData used as samples}
 
 \item{select.ct}{vector of cell types included, default as \code{NULL}. If \code{NULL}, include all cell types in \code{x}}
 

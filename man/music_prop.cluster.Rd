@@ -5,8 +5,8 @@
 \title{MuSiC Deconvolution with Clusters}
 \usage{
 music_prop.cluster(
-  bulk.eset,
-  sc.eset,
+  bulk.mtx,
+  sc.sce,
   group.markers,
   groups,
   clusters,
@@ -22,18 +22,18 @@ music_prop.cluster(
 )
 }
 \arguments{
-\item{bulk.eset}{ExpressionSet for bulk data}
+\item{bulk.mtx}{Matrix of expression for bulk data}
 
-\item{sc.eset}{ExpressionSet for single cell data}
+\item{sc.sce}{SingleCellExperiment for single cell data}
 
 \item{group.markers}{list of gene names. The list include differential expressed genes within groups. 
 List name must be the same as `clusters.type`.}
 
-\item{groups}{character, the phenoData of single cell data used as groups;}
+\item{groups}{character, the colData of single cell data used as groups;}
 
-\item{clusters}{character, the phenoData of single cell dataset used as clusters;}
+\item{clusters}{character, the colData of single cell dataset used as clusters;}
 
-\item{samples}{character,the phenoData of single cell dataset used as samples;}
+\item{samples}{character,the colData of single cell dataset used as samples;}
 
 \item{clusters.type}{list of cell types. The list identify groups of similar cell types.}
 
@@ -41,11 +41,11 @@ List name must be the same as `clusters.type`.}
 
 \item{iter.max}{numeric, maximum iteration number}
 
-\item{nu}{regulation parameter, take care of weight when taking recipical}
+\item{nu}{regulation parameter, take care of weight when taking reciprocal}
 
-\item{eps}{Thredshold of convergence}
+\item{eps}{Threshold of convergence}
 
-\item{centered}{logic, substract avg of Y and D}
+\item{centered}{logic, subtract avg of Y and D}
 
 \item{normalize}{logic, divide Y and D by their standard deviation}
 }

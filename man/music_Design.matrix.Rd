@@ -7,15 +7,15 @@
 music_Design.matrix(x, non.zero, markers, clusters, samples, select.ct)
 }
 \arguments{
-\item{x}{ExpressionSet, single cell dataset}
+\item{x}{SingleCellExperiment, single cell dataset}
 
 \item{non.zero}{logical, if true, remove all gene with zero expression}
 
 \item{markers}{vector or list of gene names}
 
-\item{clusters}{character, the phenoData used as clusters}
+\item{clusters}{character, the colData used as clusters}
 
-\item{samples}{character,the phenoData used as samples}
+\item{samples}{character,the colData used as samples}
 
 \item{select.ct}{vector of cell types included, default as \code{NULL}. If \code{NULL}, include all cell types in \code{x}}
 }

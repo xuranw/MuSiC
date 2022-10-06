@@ -27,11 +27,11 @@ music.iter(
 
 \item{iter.max}{numeric, maximum iteration number}
 
-\item{nu}{regulation parameter, when take recipical}
+\item{nu}{regulation parameter, when take reciprocal}
 
-\item{eps}{thredshold of converagence}
+\item{eps}{threshold of convergence}
 
-\item{centered}{logic, substract avg of Y and D}
+\item{centered}{logic, subtract avg of Y and D}
 
 \item{normalize}{logic, divide Y and D by their standard deviation}
 }

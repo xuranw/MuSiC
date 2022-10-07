@@ -33,7 +33,7 @@ bulk_construct = function(sce, clusters, samples, select.ct = NULL){
     if(length(index) == 1){
       return(counts(sce[, index]))
     }else{
-      return(rowSums(counts(sce[, index])))
+      return(Matrix::rowSums(counts(sce[, index])))
     }
   })
   num.real = t(sapply(u.sample, function(x){
@@ -67,7 +67,7 @@ music_M.theta = function(x, non.zero, markers, clusters, samples, select.ct){
     x = x[, x@colData[, clusters] %in% select.ct]
   }
   if(non.zero){  ## eliminate non expressed genes
-    x <- x[rowSums(counts(x))>0, ]
+    x <- x[Matrix::rowSums(counts(x))>0, ]
   }
   
   clusters <- as.character(colData(x)[, clusters])

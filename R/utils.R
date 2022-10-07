@@ -377,6 +377,7 @@ music_prop.cluster = function(bulk.mtx, sc.sce, group.markers, groups, clusters,
 #'        \item {selected informative genes: high F statictis for \code{clusters} compare to \code{samples};}
 #'}
 #' @importFrom stats aov
+#' @importFrom Matrix rowSums
 #' @export
 Anova_info = function(sce, non.zero = TRUE, markers = NULL, clusters, samples, select.ct = NULL, num.info = 25, ... ){
   if(!is.null(select.ct)){
@@ -384,7 +385,7 @@ Anova_info = function(sce, non.zero = TRUE, markers = NULL, clusters, samples, s
     message(paste('Selected', length(select.ct), 'cell type(s) ...' ))
   }
   if(non.zero){  ## eliminate non expressed genes
-    sce <- sce[rowSums(counts(x))>0, ]
+    sce <- sce[rowSums(counts(sce))>0, ]
     message(paste('Eliminating non expressed gene(s) ...' ))
   }
   if(!is.null(markers)){

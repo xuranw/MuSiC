@@ -76,7 +76,6 @@ music.basic = function(Y, X, S, Sigma, iter.max, nu, eps){
 
 #' Scaling bulk data and signature matrix and estimate cell type proportion
 #'
-#' @inheritParams music.basic
 #' @param Y vector of bulk tissue expression
 #' @param D matrix, Signature matrix
 #' @param S vector of Avg. Library size

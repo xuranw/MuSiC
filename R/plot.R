@@ -608,7 +608,7 @@ plotCellTotal.two = function(sce1, sce2, clusters = 'cellType', samples = 'sampl
 #' cell types provided.
 #'
 #' @return a 'ggplot' object with [ggplot2::geom_boxplot]
-#'
+#' @importFrom Matrix rowSums
 #' @import ggplot2
 #' @export
 #'

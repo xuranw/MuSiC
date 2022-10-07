@@ -14,7 +14,8 @@
 #' Otherwise, only cells of selected cell types will be used for construction.
 #'
 #' @return Matrix of expression of constructed bulk tissue, matrix of cell number in each cluster by sample
-#'
+#' @importFrom Matrix rowSums
+#' 
 #' @export
 bulk_construct = function(sce, clusters, samples, select.ct = NULL){
   if(!is.null(select.ct)){
@@ -32,7 +33,7 @@ bulk_construct = function(sce, clusters, samples, select.ct = NULL){
     if(length(index) == 1){
       return(counts(sce[, index]))
     }else{
-      return(Matrix::rowSums(counts(sce[, index])))
+      return(rowSums(counts(sce[, index])))
     }
   })
   num.real = t(sapply(u.sample, function(x){
@@ -58,7 +59,8 @@ bulk_construct = function(sce, clusters, samples, select.ct = NULL){
 #' @param samples character,the phenoData used as samples
 #' @param select.ct vector of cell types included, default as \code{NULL}. If \code{NULL}, include all cell types in \code{x}
 #' @return gene by cell type matrix of average relative abundance
-#'
+#' @importFrom Matrix rowSums
+#' 
 #' @export
 music_M.theta = function(x, non.zero, markers, clusters, samples, select.ct){
   if(!is.null(select.ct)){
@@ -105,6 +107,7 @@ music_M.theta = function(x, non.zero, markers, clusters, samples, select.ct){
 #' @param samples character,the colData used as samples
 #' @param select.ct vector of cell types included, default as \code{NULL}. If \code{NULL}, include all cell types in \code{x}
 #' @return gene*subject by cell type matrix of relative abundance
+#' @importFrom Matrix rowSums
 #'
 #' @export
 music_Theta <- function(x, non.zero = FALSE, clusters, samples, select.ct = NULL){
@@ -149,6 +152,7 @@ music_Theta <- function(x, non.zero = FALSE, clusters, samples, select.ct = NULL
 #' @param samples character,the ColData used as samples
 #' @param select.ct vector of cell types included, default as \code{NULL}. If \code{NULL}, include all cell types in \code{x}
 #' @return celltype^2 by gene matrix of covariance
+#' @importFrom Matrix rowSums
 #'
 #' @export
 music_Sigma.ct = function(x, non.zero, markers, clusters, samples, select.ct){
@@ -198,6 +202,7 @@ music_Sigma.ct = function(x, non.zero, markers, clusters, samples, select.ct){
 #' @param samples character,the colData used as samples
 #' @param select.ct vector of cell types included, default as \code{NULL}. If \code{NULL}, include all cell types in \code{x}
 #' @return gene by cell type matrix of variance
+#' @importFrom Matrix rowSums
 #'
 #' @export
 music_Sigma = function(x, non.zero, markers, clusters, samples, select.ct){
@@ -244,6 +249,7 @@ music_Sigma = function(x, non.zero, markers, clusters, samples, select.ct){
 #' @param samples character,the colData used as samples
 #' @param select.ct vector of cell types included, default as \code{NULL}. If \code{NULL}, include all cell types in \code{x}
 #' @return subject by cell type matrix of library
+#' @importFrom Matrix rowSums
 #'
 #' @export
 music_S = function(x, non.zero, clusters, samples, select.ct){
@@ -324,6 +330,7 @@ music_Design.matrix = function(x, non.zero, markers, clusters, samples, select.c
 #'     \item {gene by celltype matrix of average relative abundance;}
 #'     \item {gene by celltype matrix of cross-subject variation.}
 #'     }
+#' @importFrom Matrix rowSums
 #'
 #' @export
 music_basis = function(x, non.zero = TRUE, markers = NULL, clusters, samples, select.ct = NULL, cell_size = NULL, ct.cov = FALSE, verbose = TRUE){

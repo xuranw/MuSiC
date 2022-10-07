@@ -385,7 +385,7 @@ Anova_info = function(sce, non.zero = TRUE, markers = NULL, clusters, samples, s
     message(paste('Selected', length(select.ct), 'cell type(s) ...' ))
   }
   if(non.zero){  ## eliminate non expressed genes
-    sce <- sce[rowSums(counts(sce))>0, ]
+    sce <- sce[Matrix::rowSums(counts(sce))>0, ]
     message(paste('Eliminating non expressed gene(s) ...' ))
   }
   if(!is.null(markers)){

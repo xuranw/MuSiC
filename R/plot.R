@@ -552,7 +552,7 @@ Prop_heat_Est = function(prop.est, method.name = NULL, title = NULL, ... ){
 #'
 CellTotal.df = function(sce, clusters, samples){
   df <- colData(sce)
-  df$Total = colSums(counts(sce))
+  df$Total = Matrix::colSums(counts(sce))
   mdf <- t(data.matrix(sapply(unique(df[, clusters]), function(cl){
     msample <- sapply(unique(df[, samples]), function(sid){
       mean(df$Total[df[, clusters] == cl & df[, samples] == sid])
@@ -566,7 +566,7 @@ CellTotal.df = function(sce, clusters, samples){
   mdf = as.data.frame(mdf)
   mdf$cellType = unique(df[, clusters])
   rownames(mdf) = unique(df[, clusters])
-  mdf = mdf[rowSums(is.na(mdf)) == 0 ,]
+  mdf = mdf[Matrix::rowSums(is.na(mdf)) == 0 ,]
   return(mdf)
 }
 
@@ -614,7 +614,7 @@ plotCellTotal.two = function(sce1, sce2, clusters = 'cellType', samples = 'sampl
 #'
 Relative_gene_boxplot = function(sc.sce, gene.name, nu = 10^{-10}, marker.id = NULL, log.trans = TRUE, select.ct = NULL, ... ){
   ## eliminate non expressed genes
-  x <- sc.sce[rowSums(counts(sc.sce))>0 , ]
+  x <- sc.sce[Matrix::rowSums(counts(sc.sce))>0 , ]
   
   if(sum(rownames(x) %in% gene.name) != 1){
     stop(paste0('No such gene: ', gene.name, '!'))

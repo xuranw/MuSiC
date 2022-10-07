@@ -67,7 +67,7 @@ music2_prop(
 
 \item{ct.cov}{logical. If TRUE, use the covariance across cell types;}
 
-\item{centered}{logic, substract avg of Y and D;}
+\item{centered}{logic, subtract avg of Y and D;}
 
 \item{normalize}{logic, divide Y and D by their standard deviation;}
 }
@@ -90,5 +90,5 @@ If MuSiC2 converges, return:
 This function is used to deconvolve bulk RNA-seq data using single-cell reference generated under a different condition.
 }
 \seealso{
-\code{\link[MuSiC:music_prop]{music_prop}}
+\code{\link{music_prop}}
 }

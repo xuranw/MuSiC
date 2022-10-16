@@ -25,7 +25,7 @@
 #' @param markers vector or list of gene names. Default as NULL, i.e., use all genes that provided by both bulk and single cell datasets;
 #' @param cell_size data.frame of cell sizes. 1st column contains the names of cell types, 2nd column has the cell sizes per cell type. Default as NULL. If NULL, then estimate cell size from data;
 #' @param ct.cov logical. If TRUE, use the covariance across cell types;
-#' @param centered logic, substract avg of Y and D;
+#' @param centered logic, subtract avg of Y and D;
 #' @param normalize logic, divide Y and D by their standard deviation;
 #' @return If MuSiC2 converges, return:
 #' \itemize{
@@ -41,9 +41,8 @@
 #'    \item {id.not.converge: vector, sample ids that failed to converge.}
 #'    }
 #' @seealso
-#' \code{\link[MuSiC:music_prop]{music_prop}}
+#' \code{\link{music_prop}}
 #' @export
-#' @import MuSiC nnls
 
 music2_prop = function(bulk.control.mtx, bulk.case.mtx, sc.sce, clusters, samples, select.ct, expr_low=20, 
                        prop_r=0.1, eps_c=0.05, eps_r=0.01, n_resample=20, sample_prop=0.5,cutoff_expr=0.05, 
@@ -247,7 +246,7 @@ music2_prop = function(bulk.control.mtx, bulk.case.mtx, sc.sce, clusters, sample
 #' @param markers vector or list of gene names. Default as NULL, i.e., use all genes that provided by both bulk and single cell datasets;
 #' @param cell_size data.frame of cell sizes. 1st column contains the names of cell types, 2nd column has the cell sizes per cell type. Default as NULL. If NULL, then estimate cell size from data;
 #' @param ct.cov logical. If TRUE, use the covariance across cell types;
-#' @param centered logic, substract avg of Y and D;
+#' @param centered logic, subtract avg of Y and D;
 #' @param normalize logic, divide Y and D by their standard deviation;
 #' 
 #' @return If MuSiC2 converges, return:
@@ -268,7 +267,6 @@ music2_prop = function(bulk.control.mtx, bulk.case.mtx, sc.sce, clusters, sample
 #' \code{\link{music_prop}}
 #' 
 #' @export
-#' @import MuSiC nnls
 
 music2_prop_t_statistics = function(bulk.control.mtx, bulk.case.mtx, sc.sce, clusters, samples, select.ct, expr_low=20, 
                                     prop_r=0.1, eps_c=0.05, eps_r=0.01, n_resample=20, sample_prop=0.5,cutoff_expr=0.05, 
@@ -495,9 +493,9 @@ music2_prop_t_statistics = function(bulk.control.mtx, bulk.case.mtx, sc.sce, clu
 #' \code{\link{music_prop}}
 #' 
 #' @export
-#' @import MuSiC TOAST nnls
+#' @import TOAST
 
-music2_toast = function(bulk.control.mtx, bulk.case.mtx, sc.sce, clusters, samples, select.ct, expr_low=20, prop_r=0.1, 
+music2_prop_toast = function(bulk.control.mtx, bulk.case.mtx, sc.sce, clusters, samples, select.ct, expr_low=20, prop_r=0.1, 
                         eps_c=0.05, eps_r=0.01, cutoff_c=10^(-3), cutoff_r=10^(-3), cap=0.3, maxiter = 200){
   gene.bulk = intersect(rownames(bulk.control.mtx), rownames(bulk.case.mtx))
   if(length(gene.bulk) < 0.1*min(nrow(bulk.control.mtx), nrow(bulk.case.mtx))){

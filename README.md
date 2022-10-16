@@ -20,7 +20,7 @@ Please cite the following publications:
 
 > *MuSiC2: cell type deconvolution for multi-condition bulk RNA-seq data*<br />
 > <small>J. Fan, Y. Lyu, Q. Zhang, X. Wang, R. Xiao, M. Li<br /></small>
-> biorXiv. 2022 [https://www.biorxiv.org/content/10.1101/2022.05.08.491077v1](https://doi.org/10.1101/2022.05.08.491077)
+> Briefings in Bioinformatics. 2022 [https://doi.org/10.1093/bib/bbac430](https://doi.org/10.1093/bib/bbac430)
 
 Installation
 ------------

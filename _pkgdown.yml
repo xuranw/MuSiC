@@ -26,6 +26,12 @@ reference:
       - music_Sigma
       - music_S
       - music_Design.matrix
+  - title: MuSiC2
+    desc: Cell type deconvolution for multi-condition bulk RNA-seq data
+    contents:
+      - music2_prop
+      - music2_prop_t_statistics
+      - music2_prop_toast
   - title: Graphics
     desc: Create graphics for visualization and evaluation. The numerical evaluation function is also included.
     contents:
@@ -44,14 +50,14 @@ reference:
     desc: Generate simulations
     contents:
       - Twocelltype.Generator
-      - Est_sim
-      - Eval_sim_boxplot
+      - Eval_sim_boxplot 
   - title: Utilities
     desc: ~
     contents:
       - relative.ab
       - fpkmToTpm
       - my.log
+      - my.sqrt
       - my.rowMeans
       - get_upper_tri
       - Anova_info
@@ -60,6 +66,8 @@ navbar:
   left:
     - text: "Tutorial"
       href: articles/MuSiC.html
+    - text: "MuSiC2"
+      href: articles/pages/MuSiC2.html
     - text: "Documentation"
       href: reference/index.html
     - text: "Data"

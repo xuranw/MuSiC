@@ -7,7 +7,9 @@
 Relative_gene_boxplot(
   sc.sce,
   gene.name,
-  nu = 10^{     -10 },
+  nu = 10^{
+     -10
+ },
   marker.id = NULL,
   log.trans = TRUE,
   select.ct = NULL,

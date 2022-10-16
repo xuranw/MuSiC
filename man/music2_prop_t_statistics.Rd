@@ -70,7 +70,7 @@ music2_prop_t_statistics(
 
 \item{ct.cov}{logical. If TRUE, use the covariance across cell types;}
 
-\item{centered}{logic, substract avg of Y and D;}
+\item{centered}{logic, subtract avg of Y and D;}
 
 \item{normalize}{logic, divide Y and D by their standard deviation;}
 }

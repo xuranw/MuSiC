@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
@@ -38,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">MuSiC</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
@@ -59,7 +61,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/xuranw/MuSiC">
+  <a href="https://github.com/xuranw/MuSiC" class="external-link">
     <span class="fa fa-github"></span>
      
   </a>
@@ -76,88 +78,100 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="music" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#music" class="anchor"></a>MuSiC</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="music">MuSiC<a class="anchor" aria-label="anchor" href="#music"></a>
+</h1></div>
 <p>MuSiC is an analysis toolkit for single-cell RNA-Seq experiments. To use this package, you will need the R statistical computing environment (version 3.0 or later) and one integrated package available through Github.</p>
-<div id="multi-subject-single-cell-deconvolution-music" class="section level2">
-<h2 class="hasAnchor">
-<a href="#multi-subject-single-cell-deconvolution-music" class="anchor"></a>Multi-subject Single Cell deconvolution (MuSiC)</h2>
+<div class="section level2">
+<h2 id="multi-subject-single-cell-deconvolution-music">Multi-subject Single Cell deconvolution (MuSiC)<a class="anchor" aria-label="anchor" href="#multi-subject-single-cell-deconvolution-music"></a>
+</h2>
 <p><code>MuSiC</code> is a deconvolution method that utilizes cross-subject scRNA-seq to estimate cell type proportions in bulk RNA-seq data. <img src="./articles/images/FigureMethod.jpg" alt="MuSiC_pipeline"></p>
 </div>
-<div id="music2" class="section level2">
-<h2 class="hasAnchor">
-<a href="#music2" class="anchor"></a>MuSiC2</h2>
+<div class="section level2">
+<h2 id="music2">MuSiC2<a class="anchor" aria-label="anchor" href="#music2"></a>
+</h2>
 <p><code>MuSiC2</code> is an iterative algorithm aiming to improve cell type deconvolution for bulk RNA-seq data using scRNA-seq data as reference when the bulk data are generated from samples with multiple clinical conditions where at least one condition is different from the scRNA-seq reference. <img src="./articles/images/MuSiC2.jpg" alt="MuSiC2"></p>
 </div>
-<div id="how-to-cite-music" class="section level2">
-<h2 class="hasAnchor">
-<a href="#how-to-cite-music" class="anchor"></a>How to cite <code>MuSiC</code>
+<div class="section level2">
+<h2 id="how-to-cite-music">How to cite <code>MuSiC</code>
+<a class="anchor" aria-label="anchor" href="#how-to-cite-music"></a>
 </h2>
 <p>Please cite the following publications:</p>
 <blockquote>
-<p><em>Bulk tissue cell type deconvolution with multi-subject single-cell expression reference</em><br><small>X. Wang, J. Park, K. Susztak, N.R. Zhang, M. Li<br></small> Nature Communications. 2019 Jan 22 <a href="https://doi.org/10.1038/s41467-018-08023-x">https://doi.org/10.1038/s41467-018-08023-x</a></p>
+<p><em>Bulk tissue cell type deconvolution with multi-subject single-cell expression reference</em><br><small>X. Wang, J. Park, K. Susztak, N.R. Zhang, M. Li<br></small> Nature Communications. 2019 Jan 22 <a href="https://doi.org/10.1038/s41467-018-08023-x" class="external-link">https://doi.org/10.1038/s41467-018-08023-x</a></p>
 </blockquote>
 <blockquote>
-<p><em>MuSiC2: cell type deconvolution for multi-condition bulk RNA-seq data</em><br><small>J. Fan, Y. Lyu, Q. Zhang, X. Wang, R. Xiao, M. Li<br></small> biorXiv. 2022 <a href="https://doi.org/10.1101/2022.05.08.491077">https://www.biorxiv.org/content/10.1101/2022.05.08.491077v1</a></p>
+<p><em>MuSiC2: cell type deconvolution for multi-condition bulk RNA-seq data</em><br><small>J. Fan, Y. Lyu, Q. Zhang, X. Wang, R. Xiao, M. Li<br></small> Briefings in Bioinformatics. 2022 <a href="https://doi.org/10.1093/bib/bbac430" class="external-link">https://doi.org/10.1093/bib/bbac430</a></p>
 </blockquote>
 </div>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <p>Both <code>MuSiC</code> and <code>MuSiC2</code> functions are available in one package.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># install devtools if necessary</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'devtools'</span><span class="op">)</span>
-
-<span class="co"># install the MuSiC package</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">'xuranw/MuSiC'</span><span class="op">)</span>
-
-<span class="co"># load</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/xuranw/MuSiC">MuSiC</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install devtools if necessary</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'devtools'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># install the MuSiC package</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">'xuranw/MuSiC'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># load</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/xuranw/MuSiC" class="external-link">MuSiC</a></span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="more-information" class="section level2">
-<h2 class="hasAnchor">
-<a href="#more-information" class="anchor"></a>More Information</h2>
-<p>Please see Tutorials for <a href="http://xuranw.github.io/MuSiC/articles/MuSiC.html">MuSiC</a> and <a href="http://xuranw.github.io/MuSiC/articles/pages/MuSiC2.html">MuSiC2</a>.</p>
+<div class="section level2">
+<h2 id="more-information">More Information<a class="anchor" aria-label="anchor" href="#more-information"></a>
+</h2>
+<p>Please see Tutorials for <a href="http://xuranw.github.io/MuSiC/articles/MuSiC.html" class="external-link">MuSiC</a> and <a href="http://xuranw.github.io/MuSiC/articles/pages/MuSiC2.html" class="external-link">MuSiC2</a>.</p>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/xuranw/MuSiC/">https://​github.com/​xuranw/​MuSiC/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/xuranw/MuSiC/issues">https://​github.com/​xuranw/​MuSiC/​issues</a>
-</li>
+<li><a href="https://github.com/xuranw/MuSiC/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/xuranw/MuSiC/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li>GPL (&gt;= 3)</li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing MuSiC</a></li>
+</ul>
+</div>
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>Xuran Wang <br><small class="roles"> Author, maintainer </small>  </li>
 <li>Jiaxin Fan <br><small class="roles"> Author </small>  </li>
 </ul>
 </div>
 
+
+
   </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Xuran Wang, Jiaxin Fan.</p>
+  <p></p>
+<p>Developed by Xuran Wang, Jiaxin Fan.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -165,6 +179,8 @@
 
   
 
+
+  
 
   </body>
 </html>

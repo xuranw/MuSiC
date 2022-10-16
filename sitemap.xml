@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://xuramw.github.io/MuSiC/404.html</loc>
+  </url>
+  <url>
+    <loc>http://xuramw.github.io/MuSiC/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>http://xuramw.github.io/MuSiC/articles/MuSiC.html</loc>
+  </url>
+  <url>
+    <loc>http://xuramw.github.io/MuSiC/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>http://xuramw.github.io/MuSiC/articles/pages/MuSiC2.html</loc>
+  </url>
+  <url>
+    <loc>http://xuramw.github.io/MuSiC/articles/pages/data.html</loc>
+  </url>
+  <url>
+    <loc>http://xuramw.github.io/MuSiC/articles/pages/installation.html</loc>
+  </url>
+  <url>
+    <loc>http://xuramw.github.io/MuSiC/authors.html</loc>
+  </url>
+  <url>
     <loc>http://xuramw.github.io/MuSiC/index.html</loc>
   </url>
   <url>
@@ -13,9 +37,6 @@
     <loc>http://xuramw.github.io/MuSiC/reference/Boxplot_Est.html</loc>
   </url>
   <url>
-    <loc>http://xuramw.github.io/MuSiC/reference/bulk_construct.html</loc>
-  </url>
-  <url>
     <loc>http://xuramw.github.io/MuSiC/reference/CellTotal.df.html</loc>
   </url>
   <url>
@@ -25,13 +46,40 @@
     <loc>http://xuramw.github.io/MuSiC/reference/Eval_sim_boxplot.html</loc>
   </url>
   <url>
+    <loc>http://xuramw.github.io/MuSiC/reference/Jitter_Est.html</loc>
+  </url>
+  <url>
+    <loc>http://xuramw.github.io/MuSiC/reference/Prop_comp_multi.html</loc>
+  </url>
+  <url>
+    <loc>http://xuramw.github.io/MuSiC/reference/Prop_convert.html</loc>
+  </url>
+  <url>
+    <loc>http://xuramw.github.io/MuSiC/reference/Prop_heat_Est.html</loc>
+  </url>
+  <url>
+    <loc>http://xuramw.github.io/MuSiC/reference/Relative_gene_boxplot.html</loc>
+  </url>
+  <url>
+    <loc>http://xuramw.github.io/MuSiC/reference/Scatter_multi.html</loc>
+  </url>
+  <url>
+    <loc>http://xuramw.github.io/MuSiC/reference/Twocelltype.Generator.html</loc>
+  </url>
+  <url>
+    <loc>http://xuramw.github.io/MuSiC/reference/Weight_cal.html</loc>
+  </url>
+  <url>
+    <loc>http://xuramw.github.io/MuSiC/reference/bulk_construct.html</loc>
+  </url>
+  <url>
     <loc>http://xuramw.github.io/MuSiC/reference/fpkmToTpm.html</loc>
   </url>
   <url>
     <loc>http://xuramw.github.io/MuSiC/reference/get_upper_tri.html</loc>
   </url>
   <url>
-    <loc>http://xuramw.github.io/MuSiC/reference/Jitter_Est.html</loc>
+    <loc>http://xuramw.github.io/MuSiC/reference/index.html</loc>
   </url>
   <url>
     <loc>http://xuramw.github.io/MuSiC/reference/music.basic.ct.html</loc>
@@ -52,22 +100,16 @@
     <loc>http://xuramw.github.io/MuSiC/reference/music2_prop_t_statistics.html</loc>
   </url>
   <url>
-    <loc>http://xuramw.github.io/MuSiC/reference/music2_toast.html</loc>
+    <loc>http://xuramw.github.io/MuSiC/reference/music2_prop_toast.html</loc>
   </url>
   <url>
-    <loc>http://xuramw.github.io/MuSiC/reference/music_basis.html</loc>
+    <loc>http://xuramw.github.io/MuSiC/reference/music2_toast.html</loc>
   </url>
   <url>
     <loc>http://xuramw.github.io/MuSiC/reference/music_Design.matrix.html</loc>
   </url>
   <url>
     <loc>http://xuramw.github.io/MuSiC/reference/music_M.theta.html</loc>
-  </url>
-  <url>
-    <loc>http://xuramw.github.io/MuSiC/reference/music_prop.cluster.html</loc>
-  </url>
-  <url>
-    <loc>http://xuramw.github.io/MuSiC/reference/music_prop.html</loc>
   </url>
   <url>
     <loc>http://xuramw.github.io/MuSiC/reference/music_S.html</loc>
@@ -82,6 +124,15 @@
     <loc>http://xuramw.github.io/MuSiC/reference/music_Theta.html</loc>
   </url>
   <url>
+    <loc>http://xuramw.github.io/MuSiC/reference/music_basis.html</loc>
+  </url>
+  <url>
+    <loc>http://xuramw.github.io/MuSiC/reference/music_prop.cluster.html</loc>
+  </url>
+  <url>
+    <loc>http://xuramw.github.io/MuSiC/reference/music_prop.html</loc>
+  </url>
+  <url>
     <loc>http://xuramw.github.io/MuSiC/reference/my.log.html</loc>
   </url>
   <url>
@@ -94,39 +145,9 @@
     <loc>http://xuramw.github.io/MuSiC/reference/plotCellTotal.two.html</loc>
   </url>
   <url>
-    <loc>http://xuramw.github.io/MuSiC/reference/Prop_comp_multi.html</loc>
-  </url>
-  <url>
-    <loc>http://xuramw.github.io/MuSiC/reference/Prop_convert.html</loc>
-  </url>
-  <url>
-    <loc>http://xuramw.github.io/MuSiC/reference/Prop_heat_Est.html</loc>
-  </url>
-  <url>
     <loc>http://xuramw.github.io/MuSiC/reference/relative.ab.html</loc>
   </url>
   <url>
-    <loc>http://xuramw.github.io/MuSiC/reference/Relative_gene_boxplot.html</loc>
-  </url>
-  <url>
-    <loc>http://xuramw.github.io/MuSiC/reference/Scatter_multi.html</loc>
-  </url>
-  <url>
-    <loc>http://xuramw.github.io/MuSiC/reference/Twocelltype.Generator.html</loc>
-  </url>
-  <url>
     <loc>http://xuramw.github.io/MuSiC/reference/weight.cal.ct.html</loc>
-  </url>
-  <url>
-    <loc>http://xuramw.github.io/MuSiC/reference/Weight_cal.html</loc>
-  </url>
-  <url>
-    <loc>http://xuramw.github.io/MuSiC/articles/MuSiC.html</loc>
-  </url>
-  <url>
-    <loc>http://xuramw.github.io/MuSiC/articles/pages/data.html</loc>
-  </url>
-  <url>
-    <loc>http://xuramw.github.io/MuSiC/articles/pages/MuSiC2.html</loc>
   </url>
 </urlset>

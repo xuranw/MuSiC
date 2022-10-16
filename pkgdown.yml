@@ -1,11 +1,11 @@
-pandoc: 2.7.2
-pkgdown: 1.6.1
+pandoc: '2.18'
+pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   MuSiC: MuSiC.html
-  pages/data: data.html
-  pages/MuSiC2: MuSiC2.html
-last_built: 2022-09-25T18:08Z
+  MuSiC2: pages/MuSiC2.html
+  data: pages/data.html
+last_built: 2022-10-16T17:42Z
 urls:
   reference: http://xuramw.github.io/MuSiC/reference
   article: http://xuramw.github.io/MuSiC/articles

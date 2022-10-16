@@ -5,19 +5,19 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MuSiC: Multi-subject Single-cell Deconvolution • MuSiC</title>
-<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
-<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
+<title>MuSiC2: cell type deconvolution for multi-condition bulk RNA-seq data • MuSiC</title>
+<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../../apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../../apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../../apple-touch-icon-60x60.png">
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
-<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../../bootstrap-toc.css">
+<script src="../../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="MuSiC: Multi-subject Single-cell Deconvolution">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../../pkgdown.css" rel="stylesheet">
+<script src="../../pkgdown.js"></script><meta property="og:title" content="MuSiC2: cell type deconvolution for multi-condition bulk RNA-seq data">
 <meta property="og:description" content="MuSiC">
 <meta property="og:image" content="http://xuramw.github.io/MuSiC/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
@@ -37,29 +39,29 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">MuSiC</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <a class="navbar-link" href="../../index.html">MuSiC</a>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../articles/MuSiC.html">Tutorial</a>
+  <a href="../../articles/MuSiC.html">Tutorial</a>
 </li>
 <li>
-  <a href="../articles/MuSiC2.html">MuSiC2</a>
+  <a href="../../articles/pages/MuSiC2.html">MuSiC2</a>
 </li>
 <li>
-  <a href="../reference/index.html">Documentation</a>
+  <a href="../../reference/index.html">Documentation</a>
 </li>
 <li>
-  <a href="../articles/pages/data.html">Data</a>
+  <a href="../../articles/pages/data.html">Data</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/xuranw/MuSiC">
+  <a href="https://github.com/xuranw/MuSiC" class="external-link">
     <span class="fa fa-github"></span>
      
   </a>
@@ -77,38 +79,614 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>MuSiC: Multi-subject Single-cell Deconvolution</h1>
-                        <h4 class="author">Xuran Wang</h4>
+      <h1 data-toc-skip>MuSiC2: cell type deconvolution for
+multi-condition bulk RNA-seq data</h1>
+                        <h4 data-toc-skip class="author">Jiaxin Fan</h4>
             <address class="author_afil">
-      SEAVER Autism Center, Icahn Medical School of Mount Sinai, New York, USA<br><small class="dont-index">Source: <a href="https://github.com/xuranw/MuSiC/blob/master/vignettes/MuSiC2.Rmd"><code>vignettes/MuSiC2.Rmd</code></a></small>
+      Food and Drug Adminstration, MD,
+USA<br><h4 data-toc-skip class="author">Xuran
+Wang</h4>
+            <address class="author_afil">
+      SEAVER Autism Center, ISMMS, New York, USA<br><small class="dont-index">Source: <a href="https://github.com/xuranw/MuSiC/blob/HEAD/vignettes/pages/MuSiC2.Rmd" class="external-link"><code>vignettes/pages/MuSiC2.Rmd</code></a></small>
       <div class="hidden name"><code>MuSiC2.Rmd</code></div>
 
     </address>
+</address>
 </div>
 
     
     
-<div id="r-markdown" class="section level2">
-<h2 class="hasAnchor">
-<a href="#r-markdown" class="anchor"></a>R Markdown</h2>
-<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
+<div class="section level2">
+<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
+<p>This vignette provides a walk through tutorial on how to use
+<code>MuSiC2</code> to estimate cell type proportions for bulk RNA-seq
+data using scRNA-seq data as reference when the bulk and scRNA-seq data
+are generated from samples with multiple clinical conditions. The codes
+of MuSiC2 can also be found at this <a href="https://github.com/Jiaxin-Fan/MuSiC2" class="external-link">GitHub Repo</a>.</p>
+<div class="section level3">
+<h3 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h3>
+<p>If you have never used <code>MuSiC</code> before, please install this
+integrated package for both <code>MuSiC</code> and
+<code>MuSiC2</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span></code></pre></div>
-<pre><code>##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00</code></pre>
+<code class="sourceCode R"><span><span class="co"># install devtools if necessary</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'devtools'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># install the MuSiC package</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">'xuranw/MuSiC'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># load</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/xuranw/MuSiC" class="external-link">MuSiC</a></span><span class="op">)</span></span></code></pre></div>
+<p>If you have installed <code>MuSiC</code> version 0.2.0 or lower, a
+separate installation of <code>MuSiC2</code> uses following:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install devtools if necessary</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="st">"devtools"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html" class="external-link">installed.packages</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'devtools'</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="co"># install the MuSiC2 package</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="st">"MuSiC2"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html" class="external-link">installed.packages</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">'Jiaxin-Fan/MuSiC2'</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="co"># load</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">MuSiC2</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="including-plots" class="section level2">
-<h2 class="hasAnchor">
-<a href="#including-plots" class="anchor"></a>Including Plots</h2>
-<p>You can also embed plots, for example:</p>
-<p><img src="MuSiC2_files/figure-html/pressure-1.png" width="700"></p>
-<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
+<div class="section level3">
+<h3 id="data">Data<a class="anchor" aria-label="anchor" href="#data"></a>
+</h3>
+<p>Two types of input data:</p>
+<ul>
+<li><p>Bulk RNA sequencing expression data collected from samples with 2
+different clincial conditions, e.g., healthy and diseased. These are the
+data we want to deconvolve.</p></li>
+<li><p>Single-cell RNA sequencing (scRNA-seq) expression data collected
+from samples with single condition, e.g., healthy. The cell types of
+scRNA-seq are pre-determined. These serve as the reference for
+estimating cell type proportions of the bulk data.</p></li>
+</ul>
+<p><span style="color:gray"> Both datasets should be in the form of
+<code>ExpressionSet</code>. The details of constructing
+<code>ExpressionSet</code> can be found on <a href="https://urldefense.proofpoint.com/v2/url?u=https-3A__www.bioconductor.org_packages_release_bioc_vignettes_Biobase_inst_doc_ExpressionSetIntroduction.pdf&amp;d=DwIGAw&amp;c=shNJtf5dKgNcPZ6Yh64b-ALLUrcfR-4CCQkZVKC8w3o&amp;r=MaqomsZfe9g2L5m-x4MLq3LavQ4CbKBHQVTQc6BzIag&amp;m=211Af93r1vESTP_xQqMKpdP9Da_C_6apfaBMhkLFY6v4fAHoR_bpFDzmB_Sa6lc-&amp;s=FUd2242mcelYcjm3WIoFDADhnbM8aPSIzIqJaRDDqi8&amp;e=" class="external-link">this
+page</a>.</span></p>
+<blockquote>
+<p><strong><em>UPDATE:</em></strong> Per users’ requests, we have
+updated <code>MuSiC2</code> functions (version 1.0.0) and
+<code>SingleCellExperiment</code> objects are used to handle single cell
+references, where sparse matrices are compatible as read counts. The
+details of constructing <code>SingleCellExperiment</code> objects can be
+found on <a href="https://bioconductor.org/packages/devel/bioc/vignettes/SingleCellExperiment/inst/doc/intro.html" class="external-link">this
+page</a>.</p>
+<p>Datasets described in the table above are in
+<code>SingleCellExperiment</code> (single cell references) or
+<code>ExpressionSet</code> (bulk). They are available at the <a href="data.html">data download page</a>.</p>
+</blockquote>
+</div>
+</div>
+<div class="section level2">
+<h2 id="music2-deconvolution">MuSiC2 Deconvolution<a class="anchor" aria-label="anchor" href="#music2-deconvolution"></a>
+</h2>
+<p>MuSiC2 is an iterative algorithm aiming to improve cell type
+deconvolution for bulk RNA-seq data when the bulk data and scRNA-seq
+reference are generated from samples with different clinical conditions.
+The key idea of MuSiC2 is that when the bulk and single-cell samples are
+from different clinical conditions, the majority of genes shall still
+have similar cell-type-specific gene expression patterns between
+conditions. By removing genes with cell-type-specific differential
+expression (DE) between conditions from the single-cell reference,
+MuSiC2 can refine the reference gene list and yield more accurate cell
+type proportion estimates.</p>
+<div class="section level3">
+<h3 id="two-step-iterative-deconvolution">Two-step iterative deconvolution<a class="anchor" aria-label="anchor" href="#two-step-iterative-deconvolution"></a>
+</h3>
+<p>To deconvolve bulk RNA-seq samples from both Healthy and Diseased
+conditions and use scRNA-seq data generated only from the Healthy
+condition as the reference, MuSiC2 iterates over 2 steps:</p>
+<ul>
+<li><p>Step 1: we use MuSiC <span class="citation">Wang et al.
+(2019)</span> to infer the cell type proportions of the bulk samples
+under both conditions by borrowing information from the scRNA-seq
+data;</p></li>
+<li><p>Step 2: for samples within each condition, we deconvolve the
+bulk-level expression over the cell type proportion estimates obtained
+in Step 1 to infer the cell-type-specific mean expression for each gene
+and identify cell-type-specific DE genes between conditions. By removing
+genes with cell-type-specific DE from the scRNA-seq data, we can update
+the cell type proportion estimates in Step 1 for bulk samples generated
+under the Diseased condition.</p></li>
+</ul>
+<p>By alternating between cell type deconvolution (Step 1) and
+cell-type-specific DE gene detection and removal (Step 2),
+<code>MuSiC2</code> gradually refines the list of “stable” genes
+retained in the scRNA-seq reference. As a result, it improves the cell
+type proportion estimation for the diseased samples. An overview of
+<code>MuSiC2</code> is in the Figure below. <img src="../images/MuSiC2.jpg"></p>
+</div>
+<div class="section level3">
+<h3 id="details-of-music2">Details of MuSiC2<a class="anchor" aria-label="anchor" href="#details-of-music2"></a>
+</h3>
+<p>One ad-hoc method to detect the cell-type-specific DE genes is to
+employ a resampling procedure to achieve a reliable estimate.
+Specifically, at each resampling iteration, we generate a subset of
+samples by random sampling without replacement under each clinical
+condition and compute the log fold change of cell-type-specific
+expression between conditions, <span class="math display">\[logFC_g^k=\frac{\mu_{g, diseased}^k}{\mu_{g,
+healthy}^k}.\]</span></p>
+<p>We use a T statistic <span class="math inline">\(T_g^k\)</span> as a
+metric of cell-type-specific DE. <span class="math inline">\(T_g^k\)</span> is the absolute value of the ratio
+of the mean to the standard deviation (SD) of the <span class="math inline">\(logFC_g^k\)</span> over all resamples. Genes with
+<span class="math inline">\(T_g^k\)</span> in the top 5% for common cell
+types, i.e., cell types with average proportion ≥ 10%, or in the top 1%
+for rare cell types, i.e., cell types with average proportion &lt; 10%,
+and with absolute mean log fold change over resamples <span class="math inline">\(\ge\)</span> log(2) are considered as
+cell-type-specific DE genes. Since fold change is sensitive to genes
+with low expression, we suggest that genes with bulk-level average
+sequencing depth &lt; 20 are retained as “stable” genes and excluded
+from the cell-type-specific DE detection. We further filter the genes by
+their expression levels in the random samples. Specifically, we compute
+the mean of <span class="math inline">\(\mu_{g, healthy}^k\)</span> and
+<span class="math inline">\(\mu_{g, diseased}^k\)</span> over the
+resamples and retain genes with cell-type-specific expression in the
+bottom 5% for samples in both conditions as “stable” genes and exclude
+them from the cell-type-specific DE detection.</p>
+<p>Besides the ad hoc method described above, MuSiC2 is a general
+framework that can incorporate other existing methods for
+cell-type-specific DE gene detection as long as the method uses bulk
+RNA-seq data and estimated (or ‘known’) cell-type proportions as inputs.
+For example, TOAST (<span class="citation">Li and Wu (2019)</span>)
+defines cell-type-specific DE genes based on a P-value cutoff.</p>
+<p>For additional details, see the Methods session of the <a href="https://doi.org/10.1093/bib/bbac430" class="external-link">MuSiC2 manuscript</a>.</p>
+</div>
+</div>
+<div class="section level2">
+<h2 id="sample-analysis">Sample Analysis<a class="anchor" aria-label="anchor" href="#sample-analysis"></a>
+</h2>
+<p>For illustration purpose, in this tutorial, we deconvolved the
+benchmark bulk RNA-seq data, which contain raw RNA-seq read counts and
+sample annotation data for 100 healthy and 100 diseased (i.e., Type 2
+diabetes (T2D)) samples simulated based on pancreatic islets scRNA-seq
+RNA-seq data from <span class="citation">Segerstolpe et al.
+(2016)</span>. The procedure for generating the benchmark dataset can be
+found in the Methods session of the <code>MuSiC2</code> manuscript. We
+deconvolved the benchmark bulk RNA-seq data using scRNA-seq data
+generated from 6 healthy subjects by <span class="citation">Segerstolpe
+et al. (2016)</span>. Both datasets can be found on <a href="data.html">this page</a>.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## Bulk RNA-seq data</span></span>
+<span><span class="va">benchmark.eset</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="st">"https://xuranw.github.io/MuSiC/data/bulk-eset.rds"</span><span class="op">)</span></span>
+<span><span class="va">benchmark.eset</span></span>
+<span><span class="co">## ExpressionSet (storageMode: lockedEnvironment)</span></span>
+<span><span class="co">## assayData: 10000 features, 200 samples </span></span>
+<span><span class="co">##   element names: exprs </span></span>
+<span><span class="co">## protocolData: none</span></span>
+<span><span class="co">## phenoData</span></span>
+<span><span class="co">##   sampleNames: 1 10 ... 200 (200 total)</span></span>
+<span><span class="co">##   varLabels: sampleID group</span></span>
+<span><span class="co">##   varMetadata: labelDescription</span></span>
+<span><span class="co">## featureData: none</span></span>
+<span><span class="co">## experimentData: use 'experimentData(object)'</span></span>
+<span><span class="co">## Annotation:</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># clinical conditions</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">benchmark.eset</span><span class="op">$</span><span class="va">group</span><span class="op">)</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## healthy     t2d </span></span>
+<span><span class="co">##     100     100</span></span>
+<span></span>
+<span><span class="va">bulk.control.mtx</span> <span class="op">=</span> <span class="fu">exprs</span><span class="op">(</span><span class="va">benchmark.eset</span><span class="op">)</span><span class="op">[</span>, <span class="va">benchmark.eset</span><span class="op">$</span><span class="va">group</span> <span class="op">==</span> <span class="st">'healthy'</span><span class="op">]</span></span>
+<span><span class="va">bulk.case.mtx</span> <span class="op">=</span> <span class="fu">exprs</span><span class="op">(</span><span class="va">benchmark.eset</span><span class="op">)</span><span class="op">[</span>, <span class="va">benchmark.eset</span><span class="op">$</span><span class="va">group</span> <span class="op">==</span> <span class="st">'t2d'</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## scRNA-seq data</span></span>
+<span><span class="va">seger.sce</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="st">"https://xuranw.github.io/MuSiC/data/EMATBsce_healthy.rds"</span><span class="op">)</span></span>
+<span><span class="va">seger.sce</span></span>
+<span></span>
+<span><span class="co">#class: SingleCellExperiment </span></span>
+<span><span class="co">#dim: 25453 1097 </span></span>
+<span><span class="co">#metadata(0):</span></span>
+<span><span class="co">#assays(1): counts</span></span>
+<span><span class="co">#rownames(25453): SGIP1 AZIN2 ... KIR2DL2 KIR2DS3</span></span>
+<span><span class="co">#rowData names(1): gene.name</span></span>
+<span><span class="co">#colnames(1097): AZ_A10 AZ_A11 ... HP1509101_P8 HP1509101_P9</span></span>
+<span><span class="co">#colData names(4): sampleID SubjectName cellTypeID cellType</span></span>
+<span><span class="co">#reducedDimNames(0):</span></span>
+<span><span class="co">#mainExpName: NULL</span></span>
+<span><span class="co">#altExpNames(0):</span></span></code></pre></div>
+<div class="section level3">
+<h3 id="cell-type-deconvolution">Cell Type Deconvolution<a class="anchor" aria-label="anchor" href="#cell-type-deconvolution"></a>
+</h3>
+<p>We propose 2 functions for MuSiC2 deconvolution. One uses the ad hoc
+method with T statistics introduced in the manuscript for defining
+cell-type-specific DE genes. The other uses TOAST (<span class="citation">Li and Wu (2019)</span>) with P-value cutoffs for
+defining cell-type-specific DE genes. MuSiC2 with TOAST runs faster and
+converges faster than MuSiC2 with T statistics as it does not require
+resamplings. Therefore, based on our simulation and real data studies,
+we recommend using TOAST (<span class="citation">Li and Wu
+(2019)</span>) with P-value cutoffs for deconvolving bulk samples with
+healthy single cell reference, and ad hoc T statistics for deconvolving
+bulk samples with diseased single cell reference. However, when the
+difference between the diseased and healthy bulk samples is small, or
+the sample sizes are small, TOAST (<span class="citation">Li and Wu
+(2019)</span>) may not be able to detect any cell-type-specific DE
+genes, and we recommend using MuSiC2 with T statistics under this
+case.</p>
+<div class="section level4">
+<h4 id="music2-t-statistics">MuSiC2 T statistics<a class="anchor" aria-label="anchor" href="#music2-t-statistics"></a>
+</h4>
+<p>To detect cell-type-specific DE genes using T statistics, the cell
+type proportions are estimated by the function
+<code>music2_prop_t_statistics</code>. The essential inputs are:</p>
+<ul>
+<li>
+<code>bulk.eset</code>: ExpressionSet of bulk data;</li>
+<li>
+<code>sc.sce</code>: SingleCellExperiment of single cell data;</li>
+<li>
+<code>condition</code>: character, the phenoData of bulk dataset
+used for indicating clinical conditions;</li>
+<li>
+<code>control</code>: character, the clinical condition of bulk
+samples that is the same as the clinical condition of the single cell
+samples;</li>
+<li>
+<code>case</code>: character, the clinical condition of bulk samples
+that is different from the clinical condition of the single cell
+samples;</li>
+<li>
+<code>clusters</code>: character, the phenoData from single cell
+dataset used as clusters;</li>
+<li>
+<code>samples</code>: character, the phenoData from single cell
+dataset used as samples;</li>
+<li>
+<code>select.ct</code>: vector of cell types. Default is
+<code>NULL</code>, which uses all cell types provided in the single-cell
+data;</li>
+<li>
+<code>n_resample</code>: numeric, number of resamples used for
+detecting cell-type-specific DE genes. Default is 20;</li>
+<li>
+<code>sample_prop</code>: numeric, proportion of samples to be
+randomly sampled without replacement under each clinical condition for
+each resample. Default is 0.5;</li>
+<li>
+<code>prop_r</code>: numeric, cutoff on cell type proportions for
+defining rare cell types. Cell types with mean proportion across samples
+in bulk data &lt; prop_r will be characterized as rare cell types.
+Otherwise, will be characterized as common cell types. Default is
+0.1;</li>
+<li>
+<code>cutoff_c</code>: numeric, cutoff on the upper quantile of
+<span class="math inline">\(T_g^k\)</span> statistics for detecting
+cell-type-specific DE genes for common cell types (i.e., cell type
+proportion <span class="math inline">\(\ge\)</span> 0.1). Default is
+0.05;</li>
+<li>
+<code>cutoff_r</code>: numeric, cutoff on the upper quantile of
+<span class="math inline">\(T_g^k\)</span> statistics for detecting
+cell-type-specific DE genes for rare cell types (i.e., cell type
+proportion &lt; 0.1). Default is 0.01;</li>
+<li>
+<code>cutoff_fc</code>: numeric, cutoff on log fold change over
+resamples. Genes with absolute value of the mean log fold change
+calculated over all resamples &lt; log(cutoff_fc) are excluded from
+cell-type-specific DE genes. Default is 1.5;</li>
+</ul>
+<p>The output of <code>music2_prop_t_statistics</code> is a list with
+elements:</p>
+<ul>
+<li>
+<code>Est.prop</code>: matrix, cell type proportion estimates;</li>
+<li>
+<code>convergence</code>: logical, whether MuSiC2 converged or
+not;</li>
+<li>
+<code>n.iter</code>: numeric, number of iterations;</li>
+<li>
+<code>DE.genes</code>: vector, cell-type-specific DE genes being
+removed;</li>
+</ul>
+<p>For illustration purpose, we constrained our analysis on 6
+well-studied cell types: acinar, alpha, beta, delta, ductal and gamma.
+Figure 2 below showed the estimated cell type proportion of MuSiC2
+separated by disease status (e.g., healthy and T2D).</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># music2 deconvolution</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span></span>
+<span><span class="va">est</span> <span class="op">=</span> <span class="fu"><a href="../../reference/music2_prop_t_statistics.html">music2_prop_t_statistics</a></span><span class="op">(</span>bulk.control.mtx <span class="op">=</span> <span class="va">bulk.control.mtx</span>, bulk.case.mtx <span class="op">=</span> <span class="va">bulk.case.mtx</span>, sc.sce <span class="op">=</span> <span class="va">seger.sce</span>, clusters <span class="op">=</span> <span class="st">'cellType'</span>, samples <span class="op">=</span> <span class="st">'sampleID'</span>, select.ct <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'acinar'</span>,<span class="st">'alpha'</span>,<span class="st">'beta'</span>,<span class="st">'delta'</span>,<span class="st">'ductal'</span>,<span class="st">'gamma'</span><span class="op">)</span>, n_resample<span class="op">=</span><span class="fl">20</span>, sample_prop<span class="op">=</span><span class="fl">0.5</span>,cutoff_c<span class="op">=</span><span class="fl">0.05</span>,cutoff_r<span class="op">=</span><span class="fl">0.01</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">est.prop</span> <span class="op">=</span> <span class="va">est</span><span class="op">$</span><span class="va">Est.prop</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># plot estimated cell type proportions</span></span>
+<span><span class="va">prop_all</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="st">'proportion'</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">est.prop</span><span class="op">)</span>, <span class="st">'sampleID'</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">est.prop</span><span class="op">)</span>,times<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">est.prop</span><span class="op">)</span><span class="op">)</span>, <span class="st">'celltype'</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">est.prop</span><span class="op">)</span>, each<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">est.prop</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">prop_all</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">prop_all</span><span class="op">)</span></span>
+<span><span class="va">prop_all</span><span class="op">$</span><span class="va">proportion</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="va">prop_all</span><span class="op">$</span><span class="va">proportion</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">prop_all</span><span class="op">$</span><span class="va">group</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">prop_all</span><span class="op">$</span><span class="va">sampleID</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from<span class="op">=</span><span class="fl">1</span>, to<span class="op">=</span><span class="fl">100</span>, by<span class="op">=</span><span class="fl">1</span><span class="op">)</span>, <span class="st">'Healthy'</span>, <span class="st">'T2D'</span><span class="op">)</span></span>
+<span><span class="va">cols</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"alpha"</span> <span class="op">=</span> <span class="st">"cadetblue2"</span>, <span class="st">"beta"</span> <span class="op">=</span> <span class="st">"lightsalmon1"</span>, <span class="st">"delta"</span> <span class="op">=</span> <span class="st">"palegreen2"</span>, <span class="st">"ductal"</span> <span class="op">=</span> <span class="st">"goldenrod1"</span>,</span>
+<span>          <span class="st">"gamma"</span><span class="op">=</span><span class="st">"steelblue3"</span>, <span class="st">"acinar"</span> <span class="op">=</span> <span class="st">"plum2"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">prop_all</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">celltype</span>, y<span class="op">=</span><span class="va">proportion</span>, color<span class="op">=</span><span class="va">celltype</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">xlab</a></span><span class="op">(</span><span class="st">''</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html" class="external-link">geom_jitter</a></span><span class="op">(</span>width<span class="op">=</span><span class="fl">0.25</span>,alpha<span class="op">=</span><span class="fl">0.8</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ylab</a></span><span class="op">(</span><span class="st">'Cell Type Proportions'</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/stat_summary.html" class="external-link">stat_summary</a></span><span class="op">(</span>fun <span class="op">=</span> <span class="va">median</span>,</span>
+<span>               geom <span class="op">=</span> <span class="st">"crossbar"</span>, width <span class="op">=</span> <span class="fl">0.5</span>,size<span class="op">=</span><span class="fl">0.5</span>,color<span class="op">=</span><span class="st">'gray36'</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html" class="external-link">facet_grid</a></span><span class="op">(</span><span class="va">.</span><span class="op">~</span><span class="va">group</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span>, size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span>,angle <span class="op">=</span> <span class="fl">45</span>,hjust<span class="op">=</span><span class="fl">1</span><span class="op">)</span>,</span>
+<span>        axis.text.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.title.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.line <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>        strip.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,</span>
+<span>        panel.grid.major <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        panel.border <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        panel.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        legend.position <span class="op">=</span> <span class="st">'none'</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_color_manual</a></span><span class="op">(</span>values<span class="op">=</span><span class="va">cols</span><span class="op">)</span></span></code></pre></div>
+<p><img src="../images/cell_type_deconvolution_1-1.png"></p>
+<div class="section level5">
+<h5 id="bechmark-evaluation">Bechmark Evaluation<a class="anchor" aria-label="anchor" href="#bechmark-evaluation"></a>
+</h5>
+<p>We also deconvolved the benchmark bulk RNA-seq data using MuSiC <span class="citation">Wang et al. (2019)</span>, and evaluated the accuracy
+of both deconvolution methods by comparing the estimated cell type
+proportions obtained by <code>MuSiC2</code> and by <code>MuSiC</code> to
+the true proportions.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">ALL</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">prop_all</span><span class="op">[</span>,<span class="op">-</span><span class="fl">4</span><span class="op">]</span>,<span class="st">'Method'</span><span class="op">=</span><span class="st">'MuSiC2'</span><span class="op">)</span></span>
+<span><span class="co"># MuSiC</span></span>
+<span><span class="va">bulk.mtx</span> <span class="op">=</span> <span class="fu">exprs</span><span class="op">(</span><span class="va">benchmark.eset</span><span class="op">)</span></span>
+<span><span class="va">prop_music</span><span class="op">=</span><span class="fu"><a href="../../reference/music_prop.html">music_prop</a></span><span class="op">(</span>bulk.mtx <span class="op">=</span> <span class="va">bulk.mtx</span>, sc.sce <span class="op">=</span> <span class="va">seger.sce</span>, </span>
+<span>                      clusters <span class="op">=</span> <span class="st">'cellType'</span>, samples <span class="op">=</span> <span class="st">'sampleID'</span>,</span>
+<span>                      select.ct <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'acinar'</span>,<span class="st">'alpha'</span>, <span class="st">'beta'</span>, <span class="st">'delta'</span>, <span class="st">'ductal'</span>,<span class="st">'gamma'</span><span class="op">)</span>, verbose <span class="op">=</span> <span class="cn">F</span><span class="op">)</span><span class="op">$</span><span class="va">Est.prop.weighted</span></span>
+<span></span>
+<span><span class="va">prop_all</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="st">'proportion'</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">prop_music</span><span class="op">)</span>,<span class="st">'celltype'</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">prop_music</span><span class="op">)</span>, each<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">prop_music</span><span class="op">)</span><span class="op">)</span>, <span class="st">'sampleID'</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">prop_music</span><span class="op">)</span>,times<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">prop_music</span><span class="op">)</span><span class="op">)</span>,<span class="st">'Method'</span><span class="op">=</span><span class="st">'MuSiC'</span><span class="op">)</span></span>
+<span><span class="va">prop_all</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">prop_all</span><span class="op">)</span></span>
+<span><span class="va">prop_all</span><span class="op">$</span><span class="va">proportion</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="va">prop_all</span><span class="op">$</span><span class="va">proportion</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">ALL</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="va">ALL</span>,<span class="va">prop_all</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># true proportion</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/load.html" class="external-link">load</a></span><span class="op">(</span><span class="st">'./data/true_proportion.RData'</span><span class="op">)</span></span>
+<span><span class="va">prop_all</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">prop_all</span>,<span class="st">'Method'</span><span class="op">=</span><span class="st">'Truth'</span><span class="op">)</span></span>
+<span><span class="va">ALL</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="va">ALL</span>,<span class="va">prop_all</span><span class="op">)</span></span>
+<span><span class="va">ALL</span><span class="op">$</span><span class="va">group</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">ALL</span><span class="op">$</span><span class="va">sampleID</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from<span class="op">=</span><span class="fl">1</span>, to<span class="op">=</span><span class="fl">100</span>, by<span class="op">=</span><span class="fl">1</span><span class="op">)</span>, <span class="st">'Healthy'</span>, <span class="st">'T2D'</span><span class="op">)</span></span>
+<span><span class="va">ALL</span><span class="op">$</span><span class="va">Method</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">ALL</span><span class="op">$</span><span class="va">Method</span>, levels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'Truth'</span>,<span class="st">'MuSiC2'</span>,<span class="st">'MuSiC'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>Below we present the individual-level root mean square error (RMSE)
+across cell types for the two deconvolution methods separated by disease
+status (e.g., healthy and T2D) (Figure 3: left). As expected, because
+MuSiC2 only refines the gene list in the single cell reference when
+deconvolving bulk samples generated from clinical condition that differs
+from the single cell data, <code>MuSiC</code> and <code>MuSiC2</code>
+had exactly the same performance for healthy samples with estimation
+bias close to 0. For diseased samples, <code>MuSiC2</code> improved the
+estimation accuracy, highlighting the significance of gene selection for
+deconvolution. Especially for beta cells, MuSiC2 produced much more
+accurate cell type proportion estimates for diseased bulk samples than
+MuSiC, which suffered from severe underestimation (Figure 3: right).</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># root mean square error</span></span>
+<span><span class="va">RMSE</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">proportion.x</span>, <span class="va">proportion.y</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="op">(</span><span class="va">proportion.x</span><span class="op">-</span><span class="va">proportion.y</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">}</span></span>
+<span><span class="va">prop_bias</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html" class="external-link">merge</a></span><span class="op">(</span><span class="va">ALL</span><span class="op">[</span><span class="va">ALL</span><span class="op">$</span><span class="va">Method</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'MuSiC'</span>,<span class="st">'MuSiC2'</span><span class="op">)</span>,<span class="op">]</span>, <span class="va">ALL</span><span class="op">[</span><span class="va">ALL</span><span class="op">$</span><span class="va">Method</span><span class="op">==</span><span class="st">'Truth'</span>,<span class="op">-</span><span class="fl">4</span><span class="op">]</span>, by<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'sampleID'</span>,<span class="st">'celltype'</span>,<span class="st">'group'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">bias</span> <span class="op">=</span> <span class="va">prop_bias</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">Method</span>, <span class="va">sampleID</span>, <span class="va">group</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>rmse<span class="op">=</span><span class="fu">RMSE</span><span class="op">(</span><span class="va">proportion.x</span>, <span class="va">proportion.y</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">p1</span><span class="op">=</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">bias</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">Method</span>, y<span class="op">=</span><span class="va">rmse</span>, fill<span class="op">=</span><span class="va">group</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html" class="external-link">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ylab</a></span><span class="op">(</span><span class="st">'RMSE'</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">xlab</a></span><span class="op">(</span><span class="st">''</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.text.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.title.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.line <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>        strip.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,</span>
+<span>        panel.grid.major <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        panel.border <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        panel.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        legend.position <span class="op">=</span> <span class="st">'none'</span>,</span>
+<span>        legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># beta cell</span></span>
+<span><span class="va">p2</span><span class="op">=</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">ALL</span><span class="op">[</span><span class="va">ALL</span><span class="op">$</span><span class="va">celltype</span><span class="op">==</span><span class="st">'beta'</span>,<span class="op">]</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">Method</span>, y<span class="op">=</span><span class="va">proportion</span>, fill<span class="op">=</span><span class="va">group</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html" class="external-link">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ylab</a></span><span class="op">(</span><span class="st">'Beta Cell Proportions'</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">xlab</a></span><span class="op">(</span><span class="st">''</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.text.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.title.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.line <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>        strip.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,</span>
+<span>        panel.grid.major <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        panel.border <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        panel.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        legend.position <span class="op">=</span> <span class="st">'right'</span>,</span>
+<span>        legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">grid.arrange</span><span class="op">(</span><span class="va">p1</span>,<span class="va">p2</span>,widths<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><img src="../images/compare-1.png"></p>
+</div>
+</div>
+<div class="section level4">
+<h4 id="using-toast">Using TOAST<a class="anchor" aria-label="anchor" href="#using-toast"></a>
+</h4>
+<p>As a general framework, MuSiC2 can incorporate other existing methods
+for cell-type-specific DE gene detection. Detecting cell-type-specific
+DE genes using TOAST (<span class="citation">Li and Wu (2019)</span>)
+with P-value cutoffs, the cell type proportions are estimated by the
+function <code>music2_prop_toast</code>. The essential inputs are:</p>
+<ul>
+<li>
+<code>bulk.eset</code>: ExpressionSet of bulk data;</li>
+<li>
+<code>sc.sce</code>: SingleCellExperiment of single cell data;</li>
+<li>
+<code>condition</code>: character, the phenoData of bulk dataset
+used for indicating clinical conditions;</li>
+<li>
+<code>control</code>: character, the clinical condition of bulk
+samples that is the same as the clinical condition of the single cell
+samples;</li>
+<li>
+<code>case</code>: character, the clinical condition of bulk samples
+that is different from the clinical condition of the single cell
+samples;</li>
+<li>
+<code>clusters</code>: character, the phenoData from single cell
+dataset used as clusters;</li>
+<li>
+<code>samples</code>: character, the phenoData from single cell
+dataset used as samples;</li>
+<li>
+<code>prop_r</code>: numeric, cutoff on cell type proportions for
+defining rare cell types. Cell types with mean proportion across samples
+in bulk data &lt; prop_r will be characterized as rare cell types.
+Otherwise, will be characterized as common cell types. Default is
+0.1;</li>
+<li>
+<code>select.ct</code>: vector of cell types. Default is
+<code>NULL</code>, which uses all cell types provided in the single-cell
+data;</li>
+<li>
+<code>cutoff_c</code>: numeric, cutoff on FDR adjusted p-values for
+defining cell-type-specific DE genes for common cell types. Genes with
+FDR adjusted p-value &lt;= cutoff_c are considered as cell-type-specific
+DE genes. Default is 10^(-3);</li>
+<li>
+<code>cutoff_r</code>: numeric, cutoff on FDR adjusted p-values for
+for defining cell-type-specific DE genes for rare cell types. Genes with
+FDR adjusted p-value &lt;= cutoff_r are considered as cell-type-specific
+DE genes. Default is 10^(-3);</li>
+<li>
+<code>cap</code>: numeric, cutoff on maximum number of genes removed
+for each cell type. For each cell type, at the maximum, genes with FDR
+adjusted p-value within the lower cap quantile are removed. Default is
+0.3;</li>
+</ul>
+<p>The output of <code>music2_prop_toast</code> is a list with
+elements:</p>
+<ul>
+<li>
+<code>Est.prop</code>: matrix, cell type proportion estimates;</li>
+<li>
+<code>convergence</code>: logical, whether MuSiC2 converged or
+not;</li>
+<li>
+<code>n.iter</code>: numeric, number of iterations;</li>
+<li>
+<code>DE.genes</code>: vector, cell-type-specific DE genes being
+removed;</li>
+</ul>
+<p>Again, we constrained our analysis on 6 well-studied cell types:
+acinar, alpha, beta, delta, ductal and gamma. Figure 4 below showed the
+estimated cell type proportion of MuSiC2 separated by disease status
+(e.g., healthy and T2D).</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># music2 deconvolution with TOAST</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span><span class="va">est</span> <span class="op">=</span> <span class="fu"><a href="../../reference/music2_prop_toast.html">music2_prop_toast</a></span><span class="op">(</span>bulk.eset <span class="op">=</span> <span class="va">benchmark.eset</span>, sc.sce <span class="op">=</span> <span class="va">seger.sce</span>, condition<span class="op">=</span><span class="st">'group'</span>, control<span class="op">=</span><span class="st">'healthy'</span>,case<span class="op">=</span><span class="st">'t2d'</span>, clusters <span class="op">=</span> <span class="st">'cellType'</span>, samples <span class="op">=</span> <span class="st">'sampleID'</span>, select.ct <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'acinar'</span>,<span class="st">'alpha'</span>,<span class="st">'beta'</span>,<span class="st">'delta'</span>,<span class="st">'ductal'</span>,<span class="st">'gamma'</span><span class="op">)</span>, prop_r<span class="op">=</span><span class="fl">0.1</span>, cutoff_c<span class="op">=</span><span class="fl">10</span><span class="op">^</span><span class="op">(</span><span class="op">-</span><span class="fl">3</span><span class="op">)</span>, cutoff_r<span class="op">=</span><span class="fl">10</span><span class="op">^</span><span class="op">(</span><span class="op">-</span><span class="fl">3</span><span class="op">)</span>, cap<span class="op">=</span><span class="fl">0.3</span><span class="op">)</span></span>
+<span><span class="va">est.prop</span><span class="op">=</span><span class="va">est</span><span class="op">$</span><span class="va">Est.prop</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># plot estimated cell type proportions</span></span>
+<span><span class="va">prop_all</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="st">'proportion'</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">est.prop</span><span class="op">)</span>, <span class="st">'sampleID'</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">est.prop</span><span class="op">)</span>,times<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">est.prop</span><span class="op">)</span><span class="op">)</span>, <span class="st">'celltype'</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">est.prop</span><span class="op">)</span>, each<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">est.prop</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">prop_all</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">prop_all</span><span class="op">)</span></span>
+<span><span class="va">prop_all</span><span class="op">$</span><span class="va">proportion</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="va">prop_all</span><span class="op">$</span><span class="va">proportion</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">prop_all</span><span class="op">$</span><span class="va">group</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">prop_all</span><span class="op">$</span><span class="va">sampleID</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from<span class="op">=</span><span class="fl">1</span>, to<span class="op">=</span><span class="fl">100</span>, by<span class="op">=</span><span class="fl">1</span><span class="op">)</span>, <span class="st">'Healthy'</span>, <span class="st">'T2D'</span><span class="op">)</span></span>
+<span><span class="va">cols</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"alpha"</span> <span class="op">=</span> <span class="st">"cadetblue2"</span>, <span class="st">"beta"</span> <span class="op">=</span> <span class="st">"lightsalmon1"</span>, <span class="st">"delta"</span> <span class="op">=</span> <span class="st">"palegreen2"</span>, <span class="st">"ductal"</span> <span class="op">=</span> <span class="st">"goldenrod1"</span>,</span>
+<span>          <span class="st">"gamma"</span><span class="op">=</span><span class="st">"steelblue3"</span>, <span class="st">"acinar"</span> <span class="op">=</span> <span class="st">"plum2"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">prop_all</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">celltype</span>, y<span class="op">=</span><span class="va">proportion</span>, color<span class="op">=</span><span class="va">celltype</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">xlab</a></span><span class="op">(</span><span class="st">''</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html" class="external-link">geom_jitter</a></span><span class="op">(</span>width<span class="op">=</span><span class="fl">0.25</span>,alpha<span class="op">=</span><span class="fl">0.8</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ylab</a></span><span class="op">(</span><span class="st">'Cell Type Proportions'</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/stat_summary.html" class="external-link">stat_summary</a></span><span class="op">(</span>fun <span class="op">=</span> <span class="va">median</span>,</span>
+<span>               geom <span class="op">=</span> <span class="st">"crossbar"</span>, width <span class="op">=</span> <span class="fl">0.5</span>,size<span class="op">=</span><span class="fl">0.5</span>,color<span class="op">=</span><span class="st">'gray36'</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html" class="external-link">facet_grid</a></span><span class="op">(</span><span class="va">.</span><span class="op">~</span><span class="va">group</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span>, size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span>,angle <span class="op">=</span> <span class="fl">45</span>,hjust<span class="op">=</span><span class="fl">1</span><span class="op">)</span>,</span>
+<span>        axis.text.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.title.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.line <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>        strip.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,</span>
+<span>        panel.grid.major <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        panel.border <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        panel.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        legend.position <span class="op">=</span> <span class="st">'none'</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_color_manual</a></span><span class="op">(</span>values<span class="op">=</span><span class="va">cols</span><span class="op">)</span></span></code></pre></div>
+<p><img src="../images/toast_deconv.jpeg"></p>
+<p>Similarly, we evaluated the accuracy of both deconvolution methods by
+comparing the estimated cell type proportions obtained by MuSiC2 and by
+MuSiC to the true proportions. Below we present the individual-level
+RMSE across cell types for the two deconvolution methods separated by
+disease status (e.g., healthy and T2D) (Figure 5: left), and estimated
+beta cell type proportions for the two deconvolution methods separated
+by disease status (e.g., healthy and T2D)</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">ALL</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">prop_all</span><span class="op">[</span>,<span class="op">-</span><span class="fl">4</span><span class="op">]</span>,<span class="st">'Method'</span><span class="op">=</span><span class="st">'MuSiC2'</span><span class="op">)</span></span>
+<span><span class="co"># MuSiC</span></span>
+<span><span class="va">ALL</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="va">ALL</span>,<span class="va">prop_all_music</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># true proportion</span></span>
+<span><span class="va">ALL</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="va">ALL</span>,<span class="va">prop_all_truth</span><span class="op">)</span></span>
+<span><span class="va">ALL</span><span class="op">$</span><span class="va">group</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">ALL</span><span class="op">$</span><span class="va">sampleID</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from<span class="op">=</span><span class="fl">1</span>, to<span class="op">=</span><span class="fl">100</span>, by<span class="op">=</span><span class="fl">1</span><span class="op">)</span>, <span class="st">'Healthy'</span>, <span class="st">'T2D'</span><span class="op">)</span></span>
+<span><span class="va">ALL</span><span class="op">$</span><span class="va">Method</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">ALL</span><span class="op">$</span><span class="va">Method</span>, levels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'Truth'</span>,<span class="st">'MuSiC2'</span>,<span class="st">'MuSiC'</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># root mean square error</span></span>
+<span><span class="va">prop_bias</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html" class="external-link">merge</a></span><span class="op">(</span><span class="va">ALL</span><span class="op">[</span><span class="va">ALL</span><span class="op">$</span><span class="va">Method</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'MuSiC'</span>,<span class="st">'MuSiC2'</span><span class="op">)</span>,<span class="op">]</span>, <span class="va">ALL</span><span class="op">[</span><span class="va">ALL</span><span class="op">$</span><span class="va">Method</span><span class="op">==</span><span class="st">'Truth'</span>,<span class="op">-</span><span class="fl">4</span><span class="op">]</span>, by<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'sampleID'</span>,<span class="st">'celltype'</span>,<span class="st">'group'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">bias</span> <span class="op">=</span> <span class="va">prop_bias</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">Method</span>, <span class="va">sampleID</span>, <span class="va">group</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>rmse<span class="op">=</span><span class="fu">RMSE</span><span class="op">(</span><span class="va">proportion.x</span>, <span class="va">proportion.y</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">p1</span><span class="op">=</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">bias</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">Method</span>, y<span class="op">=</span><span class="va">rmse</span>, fill<span class="op">=</span><span class="va">group</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html" class="external-link">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ylab</a></span><span class="op">(</span><span class="st">'RMSE'</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">xlab</a></span><span class="op">(</span><span class="st">''</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.text.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.title.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.line <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>        strip.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,</span>
+<span>        panel.grid.major <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        panel.border <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        panel.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        legend.position <span class="op">=</span> <span class="st">'none'</span>,</span>
+<span>        legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># beta cell</span></span>
+<span><span class="va">p2</span><span class="op">=</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">ALL</span><span class="op">[</span><span class="va">ALL</span><span class="op">$</span><span class="va">celltype</span><span class="op">==</span><span class="st">'beta'</span>,<span class="op">]</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">Method</span>, y<span class="op">=</span><span class="va">proportion</span>, fill<span class="op">=</span><span class="va">group</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html" class="external-link">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ylab</a></span><span class="op">(</span><span class="st">'Beta Cell Proportions'</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">xlab</a></span><span class="op">(</span><span class="st">''</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.text.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.title.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.line <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>        strip.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,</span>
+<span>        panel.grid.major <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        panel.border <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        panel.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        legend.position <span class="op">=</span> <span class="st">'right'</span>,</span>
+<span>        legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">grid.arrange</span><span class="op">(</span><span class="va">p1</span>,<span class="va">p2</span>,widths<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><img src="../images/toast_compare.jpeg"></p>
+</div>
+</div>
+</div>
+<div class="section level2">
+<h2 class="unnumbered" id="reference">Reference<a class="anchor" aria-label="anchor" href="#reference"></a>
+</h2>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-li2019toast" class="csl-entry">
+Li, Ziyi, and Hao Wu. 2019. <span>“TOAST: Improving Reference-Free Cell
+Composition Estimation by Cross-Cell Type Differential Analysis.”</span>
+<em>Genome Biology</em> 20 (1): 1–17.
+</div>
+<div id="ref-segerstolpe2016single" class="csl-entry">
+Segerstolpe, Åsa, Athanasia Palasantza, Pernilla Eliasson, Eva-Marie
+Andersson, Anne-Christine Andréasson, Xiaoyan Sun, Simone Picelli, et
+al. 2016. <span>“Single-Cell Transcriptome Profiling of Human Pancreatic
+Islets in Health and Type 2 Diabetes.”</span> <em>Cell Metabolism</em>
+24 (4): 593–607.
+</div>
+<div id="ref-wang2019bulk" class="csl-entry">
+Wang, Xuran, Jihwan Park, Katalin Susztak, Nancy R Zhang, and Mingyao
+Li. 2019. <span>“Bulk Tissue Cell Type Deconvolution with Multi-Subject
+Single-Cell Expression Reference.”</span> <em>Nature Communications</em>
+10 (1): 1–9.
+</div>
+</div>
 </div>
   </div>
 
@@ -123,11 +701,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Xuran Wang, Jiaxin Fan.</p>
+  <p></p>
+<p>Developed by Xuran Wang, Jiaxin Fan.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -135,6 +715,8 @@
 
   
 
+
+  
 
   </body>
 </html>

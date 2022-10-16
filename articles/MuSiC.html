@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
@@ -38,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MuSiC</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
@@ -59,7 +61,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/xuranw/MuSiC">
+  <a href="https://github.com/xuranw/MuSiC" class="external-link">
     <span class="fa fa-github"></span>
      
   </a>
@@ -77,10 +79,12 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>MuSiC: Multi-subject Single-cell Deconvolution</h1>
-                        <h4 class="author">Xuran Wang</h4>
+      <h1 data-toc-skip>MuSiC: Multi-subject Single-cell
+Deconvolution</h1>
+                        <h4 data-toc-skip class="author">Xuran Wang</h4>
             <address class="author_afil">
-      SEAVER Autism Center, Icahn Medical School of Mount Sinai, New York, USA<br><small class="dont-index">Source: <a href="https://github.com/xuranw/MuSiC/blob/master/../../../Single%20cell/Rpackage/MuSiC-master_v1.0.0/vignettes/MuSiC.Rmd"><code>../../../Single cell/Rpackage/MuSiC-master_v1.0.0/vignettes/MuSiC.Rmd</code></a></small>
+      SEAVER Autism Center, Icahn Medical School of Mount Sinai, New
+York, USA<br><small class="dont-index">Source: <a href="https://github.com/xuranw/MuSiC/blob/HEAD/vignettes/MuSiC.Rmd" class="external-link"><code>vignettes/MuSiC.Rmd</code></a></small>
       <div class="hidden name"><code>MuSiC.Rmd</code></div>
 
     </address>
@@ -88,50 +92,74 @@
 
     
     
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKsAAACVCAIAAACo+p2TAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABAVSURBVHhe7V3fbxXHFea/60MfKlU89CF96EMeeMlDVeWlD4laqWqrKFKbKlGoFCmJlApFIm1RRERQjUDEEEoKwcSY2rGNMTYm2MY2/oHt63722Q7DObO7M7Mzs3vZ+fSB7p07M3f3zLezc+6csz520Crem/jiR1/+ps/8eOpCYYuW0KYCFjdXmDl6yJ+O/AF2KCzSBtpUwK/+/SEzRz/51tg/Cou0gdYUcHN5hhmiz4Q1CrskR2sK+PmlPzEr9JmYDgu7JEc7CsDyh5ngZxf+/OtrZ/pDnC+zwLn5G4V10qIFBazvbmH5w87/t998+dbNS/0hRMAsgEkRlilslBAtKAALH3byr17+gBmoD/zFpZPMDq14hqkVMLm2wE77x+d/9/sbI8w6fSCmPZw7s0Z6zzC1AqQH+NroJ8w0/eGJrz5i1njzxqnCUqmQVAGXl+6wEz4+8jYzSq+Iye8n//ojs0lizzCdArDMkR4gFkTMKH3j619/xmxy4sr7hcmSIJ0CpAf4ysV3mTn6SekZnp69UlgtPhIpAAuc7AGW8Y3rZ5llYKtknmEiBUgPEIsgZog+U3qG7018UdguMlIoQG4BYPnTTw+wjLBGW55hCgVID/CXVz9lJsiUnmGazYLoCjg3f4OdGBY+7OQzia14hnEVYNwCyB5gGY2bBYUpoyGuAqQHiCUPO+1MndIzjL1ZEFEBMggMi53sAVYT9mFGi+0ZRlTAmzdOsZPJHqANX738AbNb1DCyWAoweoDsVDONNHqGk2sLhWVDI5YCTlx5n53D619/xk41s4zwlpn14nmGURRwevYKO4HsAbry+MjbzIaXl+4U9g2K8AoweoBvXD/LzjCzmsnCyMIrQKYBZQ/Qj69cfJdZMoZnGFgBRg8wbwH40egZBt8sCKyAHAQWlnKzILhnGFIBMggse4ANmSCMLKQCchBYDMb2DIMpQG4BZA8wFOVmQcAEozAKMHqAeQsgFKVnGHCzIIwCchpQbMZLMAqggJwGlICYUCOFkQVQQA4CS8NICUZNFSCDwHqeBhScJ8evqdcxPMNGCsBiJHuAkfjO2OjZe3eXtjYGgwFeU6FMMGoeRtZIAdIDzGlAzfnR3W/Glh9u7+0WVj44uLw4oz6VnmHDBCN/BWAZwjzAHATWhOqiL+yrAYWqWvAEI38F5DSgUJQXPYOuADBsgpGnApqkAaE5K+knKy56AjQBZeAFa2gMI/P2DD0VIIPA7D1ANGclfaPNRQ9x0AIQb/W2xNdGP2H2994s8FFAwzQg9MBKekLLix760FuhXH+rKD1DvzAyZwUYtwCcPEB0wkpeejpd9Iz4lJUQjWFk1JsTnBUgPUDXIDB0wkpeVvpd9IyoxkoUpWfosVngpoAgQWDoh5W8fGxy0TOiMitRDJJg5KYAuQXg4QGiH1by0jDIRc+IVqxEZ/MwMgcFhEoDQles5CVg7UW/O9i/+nDO5qJnRFtWotPoGTolGDkoQG4B+KUBoStWMry0v+hR59TUt6y5DdEJK2FsGEZmq4CAaUDojZUMI13v9PEUAB4XCUb2YWRWCjB6gN5pQOiQlQwRve/0URVg9Awtl4RWCpBpQE2CwNAhKxkKul70jFEVAHonGNUrIHgQGPpkJV2m90XPGFsBMowM07bNZkG9AqQH2DANCH2ykm4SY9/komeMrQDQzzOsUUCMNCB0y0o6yyc722QHHZYXPWMCBWBi9ggjq1FAjCAwdMtKOsvxlSWyA8HpomdMoABQeoa1z6muUkCkIDD0zEo6yzOzh7ttfhc9YxoFgK4JRqUKMHqAQYLA0Dkr6SwxZis7W34XPWMyBUjPsHqzoFQB8YLADjsXhd0kxgwjxwr9mEwBoFOCkVkBcgugoQeoE/2zks5ySBVg3Cwo8wzNCoiaBoT+WUlnOaQKAKVnWLZZYFBA7DQgfAUr6SyHVwGgpWfIFYAlQ3APEGdOpCUVvkX/NAGxjIdn77GYb0UBJ8evkbnogL3NZZlgxBXQPAiMiMG+/mh+S/tBbW8wwP+3lhfxP6scm7AmPDrQcgwUUT+ZAvDpwtM1GOfQTEfYHww2dw8NyGra0ybB6AUFhEoDgnjLfkwdHOmA1U9AdUhn791lH1UwmQLGV5YGz4eew2P2ItokGL2ggCDPgsbh0uVeAT0fNhk9RJBGAZNPHtOFUQZUYE3sKZ9TzRKMniugSRqQzrVnht/SGSquhqiECOinfksRJFDA36e/w2xPZikDjpm1sqfRM9TDyJ4roEkakCJMXHs+gM20VlSNBpiefaNkAgU83Czdd1a4v/GEtXJidYJRoYCGaUCKOEnqsBqslZHoKjhPT99e2Tm8C44tP2RfZySaxFaAcftRB64nY0MnSs9QJRgdKsC4BeAXBIZjrZ4DaInAWqUhFh8YBnz7V4uz7KMyJlDA4+3NI8OYgfVBk0WAYkWC0aECwj4LumIdsDfYx/yPF6xJAnosA8EECvh8dqLMC0BpkOEnloWRHQuSBqTznbHRR1tP9bPCK4z99UfzLf4i5DH8YAIFgOfvT2JqZO4A5oay+n4sSzA6JrcAguwBwugwN+ZbLLiY74fT098mIEwJBbgOP5hGASCuDXwKc43MT4UdeJ3GMDKDAmI/DTy9AkCaflyZTAFpaFZA8LuATpL2taX7WHtfXZojJ7AVBfjRWwFoeOHBNM4a9z5yO1tXgPEugNEPvxIkYrDhxaJzHXATsETAC1a5s3RVABQ/vbaME9Rv6jjrrb3d5dD3dVeWrgTxL6A3SMTS5ujcS8Hqd5ZOCoDoseAtztCE09O3WZNkrPEGgYBpgRXujUIr+wIetFfA0fDXnPXI/PesVTLKxMIXfhEiNPkLgbAU1rFEm1+FcYNU9T2W6EGIMcNhV3PkwdTKzhYrBGldqU4B3CzZC9Uxt7Gq6qe8Bqx+FQaa7Aydmb2DQQWn11bqx//gYGL1B6oP6g/MTMnxlSVc39XE8O8O9lkh+LfJwzu6OgWcTnFilZheX1ZNPpzw3PB1pcPOENB8dxjXR9FXJVirzhKng/FmhZKo9mx/rzi3EmAxyFqlYe1fMX5BAUbP0ClCBFNr9SKgYdBLYloqAKSzKwOWCLAMa5KAZb8DFod1hBcUADSPEiuLdyBXEHdQvGZNOkt7BcDvNwqfXMFWhh90jhIDjJ6ha6QozAG/CNze24UJwMfbm2rFh29RNTtOewWAFxdm6Hzpf5wmlhFwjFm1ZKzwAHVwBQChYgVosS0XvfgKVtJZOimAWHbW6ekZLU6QmwU5Y2S4KLcAdA9Qh1kBrlljFx5Mw1KMuOuvP9vZ2d+jGwFWQ7gj/rB9+KuwXg1eGestDZk3iAPb2H2mHe0+3q7uVHmDnaXRA8QynwaXwawAwClzFJMeLhedsC/dCxmoUK/Z1iqJpmvw9PTt749+zJfAknbt2bY6VEW/ncZklJmjFX+AoFQBkIxcElp6hrXhz6x+i8RYYoyNYiVgMmBNOk7XP0JSqgBAeoY2T5C4tbxYPfwwNy4j1qotYkovDqscrEnHKT1AzydIEFxzCHE7KFqWAwuCjigAh1El1f+DteoyAz9FBpBPkqrOI4ZNi5blgAJYq7Z4/dF8cUzl6M7R1hILQEsPUEeNAgCnMLJaBeAGAbuzVm2xVgGDg4FNYklHKD1Amz9KWq8ApydKVt8FMPwBw5+bE+5AxS4GPrq6NMeadJZYpNt7gDrqFQBIz7DiqbLn708al9aYTjto0EO3RYgAxw8X4PPZCVa5y5QeIAWB1cJKAcbNggrPEPcCWHZjdwdtn+xs31tfvbgw01kfGke78HRte28Xo46jnXry+KzvQwPbonELoMID1GGlACBgGFlmcMogsGoPUIetAgDpGfr9hYnMsJQeYNkWgBEOCjCGkbGjyUxM4xZArQeow0EBgPQMXcPIMsNSeoAsCKwWbgowhpFV7BlmRqVNEFgt3BQAxEgwyvSj998V0eGsAKNn2CTBKNOPlkFgtXBWABAqjCyzCSseDOMEHwUAQR47lenN6jQgJ3gqwOgZ5iVhGho9QKe/M6rDUwFAkMdPZnqw9iGRTvBXgAwjgzAtw8gyvRnEA9ThrwCgeYJRpitt0oCc0EgBkJ5rGFlmE1o+MN4JjRQASM8w7J+jyNTpEQRWi6YKAORmQfYMY1BuAXh7gDoCKEB6hnmzIDiNHqBNEFgtAigAcEowyvSgdxBYLcIowLhZkD3DUJRbAA09QB1hFAD4JRg58dOpW8WXiYeyfHz3P8UHR/irS/L2P2fGJ1YfFS0PDmbWV1CiV1g9eiA9yvVC8OKD6cXNdWoFXF2ac/pee7qmATkhmAKA2J6hrgAAo64+wmAUpUewHwnWUAHlqo5UwF/GRvWx14GDVNWC0CMNyAkhFRDjT9XrZArQB0m/iAFLBWAgiwYmVHRSNvwAJid0y+p7EwvAGB6gjpAKAKRnGPA51UoBNAD6RQm7g/QpQIOHCvRWVTs3918qwQu8xWxPb1FTDZsSk8puYHOA6gTl6n6BY6NqgC7NhpQeoE0akBMCK8ApwciVSgEYDBIBDRstAjBySgSuCtBv/GpiQIdUwhSgJMImCbxFzYDDj6U08wCxAAziAeoIrABAhpFVJBg5UVcADQONHN3L8b+6Ci0VgMFWokFz9K9q6mQKoLdKH/EYJAisFuEVEC+MTCng5uMFGnWaqGk+wEzgqgBQ9alA17F+L2cKoGo4BlUhBpukATkhvAKASAlGugJo5sfYq0kbL9SQ2ysARGUMub6MIKgpoRUFNEkDckIUBQDSM2yeYKQUQJc+vabJAFJAiZ8CdOIrlBow8FTIFECfRr0LNEwDckIsBRjDyNh5ulIpAIOEtzT503iQJlwVoHrQ53yQVAXQTw5MAbUrQdabK8MGgdUilgIA6Rk23CxgCsCo01uARhQzM72lsVFv1ZCooaX6qgeMrhpOfAsNOWBUgJIRynVvkPQEkBy9KT1A1zQgJ0RUQPAEI6YA5csBNFRMAWqAqT6aq5s9KQDV6K0RGGDUAZkCQDXYRigxeTB4EFgtIioACBtGphRA40eLQQDjShXUkNMYqAoKTAGguqAl8HVURyoA/ZeJQPXsR7kFEMMD1BFXAUbP0HuzgCkApBFVizI1yaurEPMEjR+AT9V46+OEbtXkQYCSaFIhSgUQ0aHqHGCtPGj0AIveoyGuAoCcYGRPuQXglwbkhOgKAHKCkQ0DpgE5IYUCcoJRLY0eYPAtACNSKADIYWTVDJsG5IRECsgJRhV0fRZ0WCRSAJAgjGxIGTwNyAnpFABRxw4jG0bGSANyQjoFADnBSDJ2EFgtkioAkJsFffYMEwSB1SK1AqKGkQ0XZRAYmMYD1JFaAUD2DInx0oCc0IICjJsFffMM5RZASg9QRwsKAKRnCI8IRukPpQcYKQisFu0oAJCeYZ8ZNg3ICa0pQCYY9ZmJPUAdrSkAkJ5hPxk1CKwWbSpAhpH1kFgApvcAdbSpAEAmGPWNrXiAOlpWQEbLODj4Hy9uEVUZI/x2AAAAAElFTkSuQmCC" alt="logo" style="position:absolute; top:55px; right:5px; padding:10px;"></p>
-<div id="introduction" class="section level1">
-<h1 class="hasAnchor">
-<a href="#introduction" class="anchor"></a>Introduction</h1>
-<p>This vignette provides a walk through tutorial on how to use <code>MuSiC</code> to estimate cell type proportions from bulk sequencing data based on multi-subject single cell data by reproducing the analysis in MuSiC paper, now is published on <a href="https://doi.org/10.1038/s41467-018-08023-x"><em>Nature Communications</em></a>.</p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p>To run the entire deconvolution tutorial, users need to install the <a href="https://www.github.com/xuranw/MuSiC"><code>MuSiC</code></a> package.</p>
+<img src="data:image/png;base64,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" alt="logo" style="position:absolute; top:55px; right:5px; padding:10px;"><div class="section level2">
+<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
+<p>This vignette provides a walk through tutorial on how to use
+<code>MuSiC</code> to estimate cell type proportions from bulk
+sequencing data based on multi-subject single cell data by reproducing
+the analysis in MuSiC paper, now is published on <a href="https://doi.org/10.1038/s41467-018-08023-x" class="external-link"><em>Nature
+Communications</em></a>.</p>
+<div class="section level3">
+<h3 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h3>
+<p>To run the entire deconvolution tutorial, users need to install the
+<a href="https://www.github.com/xuranw/MuSiC" class="external-link"><code>MuSiC</code></a>
+package.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># install devtools if necessary</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'devtools'</span><span class="op">)</span>
-
-<span class="co"># install the MuSiC package</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">'xuranw/MuSiC'</span><span class="op">)</span>
-
-<span class="co"># load</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/xuranw/MuSiC">MuSiC</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install devtools if necessary</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'devtools'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># install the MuSiC package</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">'xuranw/MuSiC'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># load</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/xuranw/MuSiC" class="external-link">MuSiC</a></span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="data" class="section level2">
-<h2 class="hasAnchor">
-<a href="#data" class="anchor"></a>Data</h2>
+<div class="section level3">
+<h3 id="data">Data<a class="anchor" aria-label="anchor" href="#data"></a>
+</h3>
 <p><code>MuSiC</code> uses two types of input data:</p>
 <ul>
-<li><p>Bulk expression obtained from RNA sequencing, which is a mixture expression of various cell types. These are the data we want to deconvolve.</p></li>
-<li><p>Multi-subject single cell expression obtained from single-cell RNA sequencing (scRNA-seq). The cell types of scRNA-seq are pre-determined. These serve as reference for estimating cell type proportions of bulk data.</p></li>
+<li><p>Bulk expression obtained from RNA sequencing, which is a mixture
+expression of various cell types. These are the data we want to
+deconvolve.</p></li>
+<li><p>Multi-subject single cell expression obtained from single-cell
+RNA sequencing (scRNA-seq). The cell types of scRNA-seq are
+pre-determined. These serve as reference for estimating cell type
+proportions of bulk data.</p></li>
 </ul>
-<p><code>MuSiC</code> requires raw read counts for both bulk and single-cell expression. The discussion of the usage of RPKM and TPM can be found in the <strong>Discussion</strong> section of our <a href="https://doi.org/10.1038/s41467-018-08023-x">paper</a>.</p>
+<p><code>MuSiC</code> requires raw read counts for both bulk and
+single-cell expression. The discussion of the usage of RPKM and TPM can
+be found in the <strong>Discussion</strong> section of our <a href="https://doi.org/10.1038/s41467-018-08023-x" class="external-link">paper</a>.</p>
 </div>
 </div>
-<div id="music-deconvolution" class="section level1">
-<h1 class="hasAnchor">
-<a href="#music-deconvolution" class="anchor"></a>MuSiC Deconvolution</h1>
-<p>MuSiC utilizes cell-type specific gene expression from single-cell RNA sequencing (RNA-seq) data to characterize cell type compositions from bulk RNA-seq data in complex tissues. By appropriate weighting of genes showing cross-subject and cross-cell consistency, MuSiC enables the transfer of cell type-specific gene expression information from one dataset to another.</p>
-<p>Solid tissues often contain closely related cell types which leads to collinearity. To deal with collinearity, MuSiC employs a tree-guided procedure that recursively zooms in on closely related cell types. Briefly, we first group similar cell types into the same cluster and estimate cluster proportions, then recursively repeat this procedure within each cluster.</p>
-<p><img src="./images/FigureMethod.jpg"></p>
+<div class="section level2">
+<h2 id="music-deconvolution">MuSiC Deconvolution<a class="anchor" aria-label="anchor" href="#music-deconvolution"></a>
+</h2>
+<p>MuSiC utilizes cell-type specific gene expression from single-cell
+RNA sequencing (RNA-seq) data to characterize cell type compositions
+from bulk RNA-seq data in complex tissues. By appropriate weighting of
+genes showing cross-subject and cross-cell consistency, MuSiC enables
+the transfer of cell type-specific gene expression information from one
+dataset to another.</p>
+<p>Solid tissues often contain closely related cell types which leads to
+collinearity. To deal with collinearity, MuSiC employs a tree-guided
+procedure that recursively zooms in on closely related cell types.
+Briefly, we first group similar cell types into the same cluster and
+estimate cluster proportions, then recursively repeat this procedure
+within each cluster.</p>
+<p><img src="../../../../Single%20cell/Rpackage/MuSiC-master_v1.0.0/articles/images/FigureMethod.jpg"></p>
 </div>
-<div id="sample-analysis" class="section level1">
-<h1 class="hasAnchor">
-<a href="#sample-analysis" class="anchor"></a>Sample Analysis</h1>
-<div id="data-summary" class="section level2">
-<h2 class="hasAnchor">
-<a href="#data-summary" class="anchor"></a>Data Summary</h2>
-<p>This vignette reproduces the <strong>human pancreatic islet</strong> and the <strong>mouse kidney</strong> analysis, which require single cell and bulk RNA-seq datasets from following sources:</p>
+<div class="section level2">
+<h2 id="sample-analysis">Sample Analysis<a class="anchor" aria-label="anchor" href="#sample-analysis"></a>
+</h2>
+<div class="section level3">
+<h3 id="data-summary">Data Summary<a class="anchor" aria-label="anchor" href="#data-summary"></a>
+</h3>
+<p>This vignette reproduces the <strong>human pancreatic islet</strong>
+and the <strong>mouse kidney</strong> analysis, which require single
+cell and bulk RNA-seq datasets from following sources:</p>
 <table class="table">
 <colgroup>
 <col width="13%">
@@ -152,11 +180,11 @@
 <tbody>
 <tr class="odd">
 <td>Session Num.</td>
-<td><a href="https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-5061/">E-MTAB-5061</a></td>
-<td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81608">GSE81608</a></td>
-<td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE50244">GSE50244</a></td>
-<td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE107585">GSE107585</a></td>
-<td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81492">GSE81492</a></td>
+<td><a href="https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-5061/" class="external-link">E-MTAB-5061</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81608" class="external-link">GSE81608</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE50244" class="external-link">GSE50244</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE107585" class="external-link">GSE107585</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81492" class="external-link">GSE81492</a></td>
 </tr>
 <tr class="even">
 <td>Data type</td>
@@ -216,348 +244,464 @@
 </tr>
 </tbody>
 </table>
-<p><span style="color:gray">Bioconductor base package provides <code>ExpressionSet</code> class, which is a convenient data structure to hold expression data along with sample/feature annotation. Here we use two <code>ExpressionSet</code> objects to handle the bulk and single cell data respectively. The details of constructing <code>ExpressionSet</code> can be found on <a href="https://www.rdocumentation.org/packages/Biobase/versions/2.32.0/topics/ExpressionSet">this page</a>. Please see the answer of this <a href="https://github.com/xuranw/MuSiC/issues/2">Issue</a> for a simple guidance.</span></p>
-<p><span style="color:gray">Datasets described in the table above are all in the form of <code>ExpressionSet</code> and available at the <a href="pages/data.html">data download page</a>.</span></p>
+<p><span style="color:gray">Bioconductor base package provides
+<code>ExpressionSet</code> class, which is a convenient data structure
+to hold expression data along with sample/feature annotation. Here we
+use two <code>ExpressionSet</code> objects to handle the bulk and single
+cell data respectively. The details of constructing
+<code>ExpressionSet</code> can be found on <a href="https://www.rdocumentation.org/packages/Biobase/versions/2.32.0/topics/ExpressionSet" class="external-link">this
+page</a>. Please see the answer of this <a href="https://github.com/xuranw/MuSiC/issues/2" class="external-link">Issue</a> for a simple
+guidance.</span></p>
+<p><span style="color:gray">Datasets described in the table above are
+all in the form of <code>ExpressionSet</code> and available at the <a href="pages/data.html">data download page</a>.</span></p>
 <blockquote>
-<p><strong><em>UPDATE:</em></strong> Per users’ requests, we have updated <code>MuSiC</code> functions (version 1.0.0) and <code>SingleCellExperiment</code> objects are used to handle single cell references, where sparse matrices are compatible as read counts. The details of constructing <code>SingleCellExperiment</code> objects can be found on <a href="https://bioconductor.org/packages/devel/bioc/vignettes/SingleCellExperiment/inst/doc/intro.html">this page</a>.</p>
-<p>Datasets described in the table above are in <code>SingleCellExperiment</code> (single cell references) or <code>ExpressionSet</code> (bulk). They are available at the <a href="pages/data.html">data download page</a>.</p>
+<p><strong><em>UPDATE:</em></strong> Per users’ requests, we have
+updated <code>MuSiC</code> functions (version 1.0.0) and
+<code>SingleCellExperiment</code> objects are used to handle single cell
+references, where sparse matrices are compatible as read counts. The
+details of constructing <code>SingleCellExperiment</code> objects can be
+found on <a href="https://bioconductor.org/packages/devel/bioc/vignettes/SingleCellExperiment/inst/doc/intro.html" class="external-link">this
+page</a>.</p>
+<p>Datasets described in the table above are in
+<code>SingleCellExperiment</code> (single cell references) or
+<code>ExpressionSet</code> (bulk). They are available at the <a href="pages/data.html">data download page</a>.</p>
 </blockquote>
 </div>
-<div id="estimation-of-cell-type-proportions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#estimation-of-cell-type-proportions" class="anchor"></a>Estimation of cell type proportions</h2>
-<p>Instead of selecting marker genes, MuSiC gives weights to each gene. The weighting scheme is based on cross-subject variation: up-weigh genes with low variation and down-weigh genes with high variation. Here we demonstrate step by step with the human pancreas datasets.</p>
-<div id="data-preparations" class="section level3">
-<h3 class="hasAnchor">
-<a href="#data-preparations" class="anchor"></a>Data Preparations</h3>
-<div id="bulk-data-of-human-pancreas" class="section level4">
-<h4 class="hasAnchor">
-<a href="#bulk-data-of-human-pancreas" class="anchor"></a>Bulk data of human pancreas</h4>
-<p>The dataset from <span class="citation">Fadista et al. (2014)</span> contains raw read counts data from bulk RNA-seq of human pancreatic islets to study glucose metabolism in healthy and hyper-hypoglycemic conditions. For the purpose of this vignette, the dataset is pre-processed and made available on the <a href="pages/data.html">data download page</a>. In addition to read counts, this dataset also contains HbA1c levels, BMI, gender and age information for each subject.</p>
+<div class="section level3">
+<h3 id="estimation-of-cell-type-proportions">Estimation of cell type proportions<a class="anchor" aria-label="anchor" href="#estimation-of-cell-type-proportions"></a>
+</h3>
+<p>Instead of selecting marker genes, MuSiC gives weights to each gene.
+The weighting scheme is based on cross-subject variation: up-weigh genes
+with low variation and down-weigh genes with high variation. Here we
+demonstrate step by step with the human pancreas datasets.</p>
+<div class="section level4">
+<h4 id="data-preparations">Data Preparations<a class="anchor" aria-label="anchor" href="#data-preparations"></a>
+</h4>
+<div class="section level5">
+<h5 id="bulk-data-of-human-pancreas">Bulk data of human pancreas<a class="anchor" aria-label="anchor" href="#bulk-data-of-human-pancreas"></a>
+</h5>
+<p>The dataset from <span class="citation">Fadista et al. (2014)</span>
+contains raw read counts data from bulk RNA-seq of human pancreatic
+islets to study glucose metabolism in healthy and hyper-hypoglycemic
+conditions. For the purpose of this vignette, the dataset is
+pre-processed and made available on the <a href="pages/data.html">data
+download page</a>. In addition to read counts, this dataset also
+contains HbA1c levels, BMI, gender and age information for each
+subject.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">GSE50244.bulk.eset</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">'https://xuranw.github.io/MuSiC/data/GSE50244bulkeset.rds'</span><span class="op">)</span>
-<span class="va">GSE50244.bulk.eset</span>
-<span class="co">#ExpressionSet (storageMode: lockedEnvironment)</span>
-<span class="co">#assayData: 32581 features, 89 samples </span>
-<span class="co">#  element names: exprs </span>
-<span class="co">#protocolData: none</span>
-<span class="co">#phenoData</span>
-<span class="co">#  sampleNames: Sub1 Sub2 ... Sub89 (89 total)</span>
-<span class="co">#  varLabels: sampleID SubjectName ... tissue (7 total)</span>
-<span class="co">#  varMetadata: labelDescription</span>
-<span class="co">#featureData: none</span>
-<span class="co">#experimentData: use 'experimentData(object)'</span>
-<span class="co">#Annotation:  </span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">GSE50244.bulk.eset</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="st">'https://xuranw.github.io/MuSiC/data/GSE50244bulkeset.rds'</span><span class="op">)</span></span>
+<span><span class="va">GSE50244.bulk.eset</span></span>
+<span><span class="co">#ExpressionSet (storageMode: lockedEnvironment)</span></span>
+<span><span class="co">#assayData: 32581 features, 89 samples </span></span>
+<span><span class="co">#  element names: exprs </span></span>
+<span><span class="co">#protocolData: none</span></span>
+<span><span class="co">#phenoData</span></span>
+<span><span class="co">#  sampleNames: Sub1 Sub2 ... Sub89 (89 total)</span></span>
+<span><span class="co">#  varLabels: sampleID SubjectName ... tissue (7 total)</span></span>
+<span><span class="co">#  varMetadata: labelDescription</span></span>
+<span><span class="co">#featureData: none</span></span>
+<span><span class="co">#experimentData: use 'experimentData(object)'</span></span>
+<span><span class="co">#Annotation:  </span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">bulk.mtx</span> <span class="op">=</span> <span class="fu">exprs</span><span class="op">(</span><span class="va">GSE50244.bulk.eset</span><span class="op">)</span>
-<span class="va">bulk.meta</span> <span class="op">=</span> <span class="fu">exprs</span><span class="op">(</span><span class="va">GSE50244.bulk.eset</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">bulk.mtx</span> <span class="op">=</span> <span class="fu">exprs</span><span class="op">(</span><span class="va">GSE50244.bulk.eset</span><span class="op">)</span></span>
+<span><span class="va">bulk.meta</span> <span class="op">=</span> <span class="fu">exprs</span><span class="op">(</span><span class="va">GSE50244.bulk.eset</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="single-cell-data-of-human-pancreas" class="section level4">
-<h4 class="hasAnchor">
-<a href="#single-cell-data-of-human-pancreas" class="anchor"></a>Single cell data of human pancreas</h4>
-<p>The single cell data are from <span class="citation">Segerstolpe et al. (2016)</span>, which constrains read counts for 25453 genes across 2209 cells. Here we only include the 1097 cells from 6 healthy subjects. The read counts are available on the <a href="pages/data.html">data download page</a>, in the form of an <code>SingleCellExperiment</code>.</p>
+<div class="section level5">
+<h5 id="single-cell-data-of-human-pancreas">Single cell data of human pancreas<a class="anchor" aria-label="anchor" href="#single-cell-data-of-human-pancreas"></a>
+</h5>
+<p>The single cell data are from <span class="citation">Segerstolpe et
+al. (2016)</span>, which constrains read counts for 25453 genes across
+2209 cells. Here we only include the 1097 cells from 6 healthy subjects.
+The read counts are available on the <a href="pages/data.html">data
+download page</a>, in the form of an
+<code>SingleCellExperiment</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Download EMTAB single cell dataset from Github</span>
-<span class="va">EMTAB.sce</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">'https://xuranw.github.io/MuSiC/data/EMTABsce_healthy.rds'</span><span class="op">)</span>
-<span class="va">EMTAB.sce</span>
-<span class="co">#class: SingleCellExperiment </span>
-<span class="co">#dim: 25453 1097 </span>
-<span class="co">#metadata(0):</span>
-<span class="co">#assays(1): counts</span>
-<span class="co">#rownames(25453): SGIP1 AZIN2 ... KIR2DL2 KIR2DS3</span>
-<span class="co">#rowData names(1): gene.name</span>
-<span class="co">#colnames(1097): AZ_A10 AZ_A11 ... HP1509101_P8 HP1509101_P9</span>
-<span class="co">#colData names(4): sampleID SubjectName cellTypeID cellType</span>
-<span class="co">#reducedDimNames(0):</span>
-<span class="co">#mainExpName: NULL</span>
-<span class="co">#altExpNames(0):  </span></code></pre></div>
-<p>Another single cell data is from <span class="citation">Xin et al. (2016)</span>, which have 39849 genes and 1492 cells. The read counts are available on the <a href="pages/data.html">data download page</a>, in the form of an <code>ExpressionSet</code>.</p>
+<code class="sourceCode R"><span><span class="co"># Download EMTAB single cell dataset from Github</span></span>
+<span><span class="va">EMTAB.sce</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="st">'https://xuranw.github.io/MuSiC/data/EMTABsce_healthy.rds'</span><span class="op">)</span></span>
+<span><span class="va">EMTAB.sce</span></span>
+<span><span class="co">#class: SingleCellExperiment </span></span>
+<span><span class="co">#dim: 25453 1097 </span></span>
+<span><span class="co">#metadata(0):</span></span>
+<span><span class="co">#assays(1): counts</span></span>
+<span><span class="co">#rownames(25453): SGIP1 AZIN2 ... KIR2DL2 KIR2DS3</span></span>
+<span><span class="co">#rowData names(1): gene.name</span></span>
+<span><span class="co">#colnames(1097): AZ_A10 AZ_A11 ... HP1509101_P8 HP1509101_P9</span></span>
+<span><span class="co">#colData names(4): sampleID SubjectName cellTypeID cellType</span></span>
+<span><span class="co">#reducedDimNames(0):</span></span>
+<span><span class="co">#mainExpName: NULL</span></span>
+<span><span class="co">#altExpNames(0):  </span></span></code></pre></div>
+<p>Another single cell data is from <span class="citation">Xin et al.
+(2016)</span>, which have 39849 genes and 1492 cells. The read counts
+are available on the <a href="pages/data.html">data download page</a>,
+in the form of an <code>ExpressionSet</code>.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Download Xin et al. single cell dataset from Github</span>
-<span class="va">XinT2D.sce</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">'https://xuranw.github.io/MuSiC/data/XinT2Dsce.rds'</span><span class="op">)</span>
-<span class="va">XinT2D.sce</span>
-<span class="co">#class: SingleCellExperiment </span>
-<span class="co">#dim: 39849 1492 </span>
-<span class="co">#metadata(0):</span>
-<span class="co">#assays(1): counts</span>
-<span class="co">#rownames(39849): A1BG A2M ... LOC102724004 LOC102724238</span>
-<span class="co">#rowData names(1): gene.name</span>
-<span class="co">#colnames(1492): Sample_1 Sample_2 ... Sample_1491 Sample_1492</span>
-<span class="co">#colData names(5): sampleID SubjectName cellTypeID cellType Disease</span>
-<span class="co">#reducedDimNames(0):</span>
-<span class="co">#mainExpName: NULL</span>
-<span class="co">#altExpNames(0):</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Download Xin et al. single cell dataset from Github</span></span>
+<span><span class="va">XinT2D.sce</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="st">'https://xuranw.github.io/MuSiC/data/XinT2Dsce.rds'</span><span class="op">)</span></span>
+<span><span class="va">XinT2D.sce</span></span>
+<span><span class="co">#class: SingleCellExperiment </span></span>
+<span><span class="co">#dim: 39849 1492 </span></span>
+<span><span class="co">#metadata(0):</span></span>
+<span><span class="co">#assays(1): counts</span></span>
+<span><span class="co">#rownames(39849): A1BG A2M ... LOC102724004 LOC102724238</span></span>
+<span><span class="co">#rowData names(1): gene.name</span></span>
+<span><span class="co">#colnames(1492): Sample_1 Sample_2 ... Sample_1491 Sample_1492</span></span>
+<span><span class="co">#colData names(5): sampleID SubjectName cellTypeID cellType Disease</span></span>
+<span><span class="co">#reducedDimNames(0):</span></span>
+<span><span class="co">#mainExpName: NULL</span></span>
+<span><span class="co">#altExpNames(0):</span></span></code></pre></div>
 </div>
 </div>
-<div id="bulk-tissue-cell-type-estimation" class="section level3">
-<h3 class="hasAnchor">
-<a href="#bulk-tissue-cell-type-estimation" class="anchor"></a>Bulk Tissue Cell Type Estimation</h3>
-<p>The deconvolution of 89 subjects from <span class="citation">Fadista et al. (2014)</span> are preformed with bulk data <code>GSE50244.bulk.eset</code> and single cell reference <code>EMTAB.eset</code>. We constrained our estimation on 6 major cell types: alpha, beta, delta, gamma, acinar and ductal, which make up over 90% of the whole islet.</p>
-<p>The cell type proportions are estimated by the function <a href="../reference/music_prop.html"><code>music_prop</code></a>. The essential inputs are</p>
+<div class="section level4">
+<h4 id="bulk-tissue-cell-type-estimation">Bulk Tissue Cell Type Estimation<a class="anchor" aria-label="anchor" href="#bulk-tissue-cell-type-estimation"></a>
+</h4>
+<p>The deconvolution of 89 subjects from <span class="citation">Fadista
+et al. (2014)</span> are preformed with bulk data
+<code>GSE50244.bulk.eset</code> and single cell reference
+<code>EMTAB.eset</code>. We constrained our estimation on 6 major cell
+types: alpha, beta, delta, gamma, acinar and ductal, which make up over
+90% of the whole islet.</p>
+<p>The cell type proportions are estimated by the function <a href="../reference/music_prop.html"><code>music_prop</code></a>. The
+essential inputs are</p>
 <ul>
 <li>
 <code>bulk.eset</code>: ExpressionSet of bulk data;</li>
 <li>
-<code>sc.eset</code>: ExpressionSet of annotated single cell data;</li>
+<code>sc.eset</code>: ExpressionSet of annotated single cell
+data;</li>
 <li>
-<code>markers</code>: vector or list of gene names, default as <code>NULL</code>. If <code>NULL</code>, then use all genes that overlapping in bulk and single-cell dataset;</li>
+<code>markers</code>: vector or list of gene names, default as
+<code>NULL</code>. If <code>NULL</code>, then use all genes that
+overlapping in bulk and single-cell dataset;</li>
 <li>
-<code>clusters</code>: character, must be one of the column names of the phenoData from single cell data, used as clusters;</li>
+<code>clusters</code>: character, must be one of the column names of
+the phenoData from single cell data, used as clusters;</li>
 <li>
-<code>samples</code>: character, must be one of the column names of the phenoData from single cell data, used as samples;</li>
+<code>samples</code>: character, must be one of the column names of
+the phenoData from single cell data, used as samples;</li>
 <li>
-<code>select.ct</code> vector of cell types included for deconvolution, default as <code>NULL</code>. If <code>NULL</code>, then use all cell types that provided by single-cell dataset.</li>
+<code>select.ct</code> vector of cell types included for
+deconvolution, default as <code>NULL</code>. If <code>NULL</code>, then
+use all cell types that provided by single-cell dataset.</li>
 <li>
 <code>verbose</code> logical that toggles log messages.</li>
 </ul>
-<p>The function <a href="../reference/music_prop.html"><code>music_prop</code></a> provides output as a list with elements:</p>
+<p>The function <a href="../reference/music_prop.html"><code>music_prop</code></a> provides
+output as a list with elements:</p>
 <ul>
 <li>
-<code>Est.prop.weighted</code>: data.frame of MuSiC estimated proportions, subjects by cell types;</li>
+<code>Est.prop.weighted</code>: data.frame of MuSiC estimated
+proportions, subjects by cell types;</li>
 <li>
-<code>Est.prop.allgene</code>: data.frame of NNLS estimated proportions, subjects by cell types;</li>
+<code>Est.prop.allgene</code>: data.frame of NNLS estimated
+proportions, subjects by cell types;</li>
 <li>
-<code>Weight.gene</code>: matrix, MuSiC estimated weight for each gene, genes by subjects;</li>
+<code>Weight.gene</code>: matrix, MuSiC estimated weight for each
+gene, genes by subjects;</li>
 <li>
-<code>r.squared.full</code>: vector of R squared from MuSiC estimated proportions for each subject;</li>
+<code>r.squared.full</code>: vector of R squared from MuSiC
+estimated proportions for each subject;</li>
 <li>
 <code>Var.prop</code>: matrix of variance of MuSiC estimates.</li>
 </ul>
-<p>The estimated proportions are normalized to sum to 1 across included cell types. Here we use <code>GSE50244.bulk.eset</code> as the <code>bulk.eset</code> input and <code>EMTAB.eset</code> as <code>sc.eset</code> input. The <code>clusters</code> is specified as <code>cellType</code> while <code>samples</code> is <code>sampleID</code>. As stated before, we only included 6 major cell types as <code>select.ct</code>.</p>
+<p>The estimated proportions are normalized to sum to 1 across included
+cell types. Here we use <code>GSE50244.bulk.eset</code> as the
+<code>bulk.eset</code> input and <code>EMTAB.eset</code> as
+<code>sc.eset</code> input. The <code>clusters</code> is specified as
+<code>cellType</code> while <code>samples</code> is
+<code>sampleID</code>. As stated before, we only included 6 major cell
+types as <code>select.ct</code>.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Bulk expression matrix</span>
-<span class="va">bulk.mtx</span> <span class="op">=</span> <span class="fu">exprs</span><span class="op">(</span><span class="va">GSE50244.bulk.eset</span><span class="op">)</span>
-
-<span class="co"># Estimate cell type proportions</span>
-<span class="va">Est.prop.GSE50244</span> <span class="op">=</span> <span class="fu"><a href="../reference/music_prop.html">music_prop</a></span><span class="op">(</span>bulk.mtx <span class="op">=</span> <span class="va">bulk.mtx</span>, sc.eset <span class="op">=</span> <span class="va">EMTAB.sce</span>, clusters <span class="op">=</span> <span class="st">'cellType'</span>,
-                               samples <span class="op">=</span> <span class="st">'sampleID'</span>, select.ct <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'alpha'</span>, <span class="st">'beta'</span>, <span class="st">'delta'</span>, <span class="st">'gamma'</span>,
-                                                                   <span class="st">'acinar'</span>, <span class="st">'ductal'</span><span class="op">)</span>, verbose <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">Est.prop.GSE50244</span><span class="op">)</span>
-<span class="co">#[1] "Est.prop.weighted" "Est.prop.allgene"  "Weight.gene"       "r.squared.full"    "Var.prop"  </span></code></pre></div>
-<p>Here we use <a href="../reference/Prop_comp_multi.html"><code>Jitter_Est</code></a> to show the difference between different estimation methods.</p>
+<code class="sourceCode R"><span><span class="co"># Bulk expression matrix</span></span>
+<span><span class="va">bulk.mtx</span> <span class="op">=</span> <span class="fu">exprs</span><span class="op">(</span><span class="va">GSE50244.bulk.eset</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Estimate cell type proportions</span></span>
+<span><span class="va">Est.prop.GSE50244</span> <span class="op">=</span> <span class="fu"><a href="../reference/music_prop.html">music_prop</a></span><span class="op">(</span>bulk.mtx <span class="op">=</span> <span class="va">bulk.mtx</span>, sc.eset <span class="op">=</span> <span class="va">EMTAB.sce</span>, clusters <span class="op">=</span> <span class="st">'cellType'</span>,</span>
+<span>                               samples <span class="op">=</span> <span class="st">'sampleID'</span>, select.ct <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'alpha'</span>, <span class="st">'beta'</span>, <span class="st">'delta'</span>, <span class="st">'gamma'</span>,</span>
+<span>                                                                   <span class="st">'acinar'</span>, <span class="st">'ductal'</span><span class="op">)</span>, verbose <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">Est.prop.GSE50244</span><span class="op">)</span></span>
+<span><span class="co">#[1] "Est.prop.weighted" "Est.prop.allgene"  "Weight.gene"       "r.squared.full"    "Var.prop"  </span></span></code></pre></div>
+<p>Here we use <a href="../reference/Prop_comp_multi.html"><code>Jitter_Est</code></a> to
+show the difference between different estimation methods.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Jitter plot of estimated cell type proportions</span>
-<span class="va">jitter.fig</span> <span class="op">=</span> <span class="fu"><a href="../reference/Jitter_Est.html">Jitter_Est</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.matrix.html">data.matrix</a></span><span class="op">(</span><span class="va">Est.prop.GSE50244</span><span class="op">$</span><span class="va">Est.prop.weighted</span><span class="op">)</span>,
-                             <span class="fu"><a href="https://rdrr.io/r/base/data.matrix.html">data.matrix</a></span><span class="op">(</span><span class="va">Est.prop.GSE50244</span><span class="op">$</span><span class="va">Est.prop.allgene</span><span class="op">)</span><span class="op">)</span>,
-                        method.name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span><span class="op">)</span>, title <span class="op">=</span> <span class="st">'Jitter plot of Est Proportions'</span><span class="op">)</span>
-
-<span class="co"># A more sophisticated jitter plot is provided as below. We seperated the T2D subjects and normal </span>
-<span class="co">#subjects by their HbA1c levels.</span>
-
-<span class="va">m.prop.GSE50244</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="fu">melt</span><span class="op">(</span><span class="va">Est.prop.GSE50244</span><span class="op">$</span><span class="va">Est.prop.weighted</span><span class="op">)</span>, 
-                        <span class="fu">melt</span><span class="op">(</span><span class="va">Est.prop.GSE50244</span><span class="op">$</span><span class="va">Est.prop.allgene</span><span class="op">)</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">m.prop.GSE50244</span><span class="op">)</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Sub'</span>, <span class="st">'CellType'</span>, <span class="st">'Prop'</span><span class="op">)</span>
-<span class="va">m.prop.GSE50244</span><span class="op">$</span><span class="va">CellType</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">m.prop.GSE50244</span><span class="op">$</span><span class="va">CellType</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'alpha'</span>, <span class="st">'beta'</span>, <span class="st">'delta'</span>, <span class="st">'gamma'</span>, <span class="st">'acinar'</span>, <span class="st">'ductal'</span><span class="op">)</span><span class="op">)</span>
-<span class="va">m.prop.GSE50244</span><span class="op">$</span><span class="va">Method</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">89</span><span class="op">*</span><span class="fl">6</span><span class="op">)</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span><span class="op">)</span><span class="op">)</span>
-<span class="va">m.prop.GSE50244</span><span class="op">$</span><span class="va">HbA1c</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">GSE50244.bulk.eset</span><span class="op">$</span><span class="va">hba1c</span>, <span class="fl">2</span><span class="op">*</span><span class="fl">6</span><span class="op">)</span>
-<span class="va">m.prop.GSE50244</span> <span class="op">=</span> <span class="va">m.prop.GSE50244</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">m.prop.GSE50244</span><span class="op">$</span><span class="va">HbA1c</span><span class="op">)</span>, <span class="op">]</span>
-<span class="va">m.prop.GSE50244</span><span class="op">$</span><span class="va">Disease</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Normal'</span>, <span class="st">'T2D'</span><span class="op">)</span><span class="op">[</span><span class="op">(</span><span class="va">m.prop.GSE50244</span><span class="op">$</span><span class="va">HbA1c</span> <span class="op">&gt;</span> <span class="fl">6.5</span><span class="op">)</span><span class="op">+</span><span class="fl">1</span><span class="op">]</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Normal'</span>, <span class="st">'T2D'</span><span class="op">)</span><span class="op">)</span>
-<span class="va">m.prop.GSE50244</span><span class="op">$</span><span class="va">D</span> <span class="op">=</span> <span class="op">(</span><span class="va">m.prop.GSE50244</span><span class="op">$</span><span class="va">Disease</span> <span class="op">==</span> <span class="st">'T2D'</span><span class="op">)</span><span class="op">/</span><span class="fl">5</span>
-<span class="va">m.prop.GSE50244</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">m.prop.GSE50244</span>, <span class="va">Disease</span> <span class="op">==</span> <span class="st">'Normal'</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">m.prop.GSE50244</span>, <span class="va">Disease</span> <span class="op">!=</span> <span class="st">'Normal'</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">jitter.new</span> <span class="op">=</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">m.prop.GSE50244</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">Method</span>, <span class="va">Prop</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">Method</span>, color <span class="op">=</span> <span class="va">Disease</span>, stroke <span class="op">=</span> <span class="va">D</span>, shape <span class="op">=</span> <span class="va">Disease</span><span class="op">)</span>, 
-             size <span class="op">=</span> <span class="fl">2</span>, alpha <span class="op">=</span> <span class="fl">0.7</span>, position <span class="op">=</span> <span class="fu">position_jitter</span><span class="op">(</span>width<span class="op">=</span><span class="fl">0.25</span>, height<span class="op">=</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">facet_wrap</span><span class="op">(</span><span class="op">~</span> <span class="va">CellType</span>, scales <span class="op">=</span> <span class="st">'free'</span><span class="op">)</span> <span class="op">+</span> <span class="fu">scale_colour_manual</span><span class="op">(</span> values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'white'</span>, <span class="st">"gray20"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_shape_manual</span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">21</span>, <span class="fl">24</span><span class="op">)</span><span class="op">)</span><span class="op">+</span> <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span>
-
-<span class="fu">plot_grid</span><span class="op">(</span><span class="va">jitter.fig</span>, <span class="va">jitter.new</span>, labels <span class="op">=</span> <span class="st">'auto'</span><span class="op">)</span></code></pre></div>
-<p><img src="./images/GSE50244jitter.jpg"></p>
-<p>It is well known that the beta cell proportions is related to T2D disease status. In the progress of T2D, the number of beta cells decreases. One of the most important test for T2D is HbA1c (hemoglobin A1c) test. When HbA1c level is greater than 6.5%, the patient is diagnosed as T2D. Let’s look at the beta cell proportions with HbA1c level.</p>
+<code class="sourceCode R"><span><span class="co"># Jitter plot of estimated cell type proportions</span></span>
+<span><span class="va">jitter.fig</span> <span class="op">=</span> <span class="fu"><a href="../reference/Jitter_Est.html">Jitter_Est</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.matrix.html" class="external-link">data.matrix</a></span><span class="op">(</span><span class="va">Est.prop.GSE50244</span><span class="op">$</span><span class="va">Est.prop.weighted</span><span class="op">)</span>,</span>
+<span>                             <span class="fu"><a href="https://rdrr.io/r/base/data.matrix.html" class="external-link">data.matrix</a></span><span class="op">(</span><span class="va">Est.prop.GSE50244</span><span class="op">$</span><span class="va">Est.prop.allgene</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>                        method.name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span><span class="op">)</span>, title <span class="op">=</span> <span class="st">'Jitter plot of Est Proportions'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># A more sophisticated jitter plot is provided as below. We seperated the T2D subjects and normal </span></span>
+<span><span class="co">#subjects by their HbA1c levels.</span></span>
+<span></span>
+<span><span class="va">m.prop.GSE50244</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="fu">melt</span><span class="op">(</span><span class="va">Est.prop.GSE50244</span><span class="op">$</span><span class="va">Est.prop.weighted</span><span class="op">)</span>, </span>
+<span>                        <span class="fu">melt</span><span class="op">(</span><span class="va">Est.prop.GSE50244</span><span class="op">$</span><span class="va">Est.prop.allgene</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">m.prop.GSE50244</span><span class="op">)</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'Sub'</span>, <span class="st">'CellType'</span>, <span class="st">'Prop'</span><span class="op">)</span></span>
+<span><span class="va">m.prop.GSE50244</span><span class="op">$</span><span class="va">CellType</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">m.prop.GSE50244</span><span class="op">$</span><span class="va">CellType</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'alpha'</span>, <span class="st">'beta'</span>, <span class="st">'delta'</span>, <span class="st">'gamma'</span>, <span class="st">'acinar'</span>, <span class="st">'ductal'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">m.prop.GSE50244</span><span class="op">$</span><span class="va">Method</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">89</span><span class="op">*</span><span class="fl">6</span><span class="op">)</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">m.prop.GSE50244</span><span class="op">$</span><span class="va">HbA1c</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="va">GSE50244.bulk.eset</span><span class="op">$</span><span class="va">hba1c</span>, <span class="fl">2</span><span class="op">*</span><span class="fl">6</span><span class="op">)</span></span>
+<span><span class="va">m.prop.GSE50244</span> <span class="op">=</span> <span class="va">m.prop.GSE50244</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">m.prop.GSE50244</span><span class="op">$</span><span class="va">HbA1c</span><span class="op">)</span>, <span class="op">]</span></span>
+<span><span class="va">m.prop.GSE50244</span><span class="op">$</span><span class="va">Disease</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'Normal'</span>, <span class="st">'T2D'</span><span class="op">)</span><span class="op">[</span><span class="op">(</span><span class="va">m.prop.GSE50244</span><span class="op">$</span><span class="va">HbA1c</span> <span class="op">&gt;</span> <span class="fl">6.5</span><span class="op">)</span><span class="op">+</span><span class="fl">1</span><span class="op">]</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'Normal'</span>, <span class="st">'T2D'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">m.prop.GSE50244</span><span class="op">$</span><span class="va">D</span> <span class="op">=</span> <span class="op">(</span><span class="va">m.prop.GSE50244</span><span class="op">$</span><span class="va">Disease</span> <span class="op">==</span> <span class="st">'T2D'</span><span class="op">)</span><span class="op">/</span><span class="fl">5</span></span>
+<span><span class="va">m.prop.GSE50244</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">m.prop.GSE50244</span>, <span class="va">Disease</span> <span class="op">==</span> <span class="st">'Normal'</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">m.prop.GSE50244</span>, <span class="va">Disease</span> <span class="op">!=</span> <span class="st">'Normal'</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">jitter.new</span> <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">m.prop.GSE50244</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">Method</span>, <span class="va">Prop</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">Method</span>, color <span class="op">=</span> <span class="va">Disease</span>, stroke <span class="op">=</span> <span class="va">D</span>, shape <span class="op">=</span> <span class="va">Disease</span><span class="op">)</span>, </span>
+<span>             size <span class="op">=</span> <span class="fl">2</span>, alpha <span class="op">=</span> <span class="fl">0.7</span>, position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_jitter.html" class="external-link">position_jitter</a></span><span class="op">(</span>width<span class="op">=</span><span class="fl">0.25</span>, height<span class="op">=</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">CellType</span>, scales <span class="op">=</span> <span class="st">'free'</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_colour_manual</a></span><span class="op">(</span> values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'white'</span>, <span class="st">"gray20"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_shape_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">21</span>, <span class="fl">24</span><span class="op">)</span><span class="op">)</span><span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">plot_grid</span><span class="op">(</span><span class="va">jitter.fig</span>, <span class="va">jitter.new</span>, labels <span class="op">=</span> <span class="st">'auto'</span><span class="op">)</span></span></code></pre></div>
+<p><img src="../../../../Single%20cell/Rpackage/MuSiC-master_v1.0.0/articles/images/GSE50244jitter.jpg"></p>
+<p>It is well known that the beta cell proportions is related to T2D
+disease status. In the progress of T2D, the number of beta cells
+decreases. One of the most important test for T2D is HbA1c (hemoglobin
+A1c) test. When HbA1c level is greater than 6.5%, the patient is
+diagnosed as T2D. Let’s look at the beta cell proportions with HbA1c
+level.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Create dataframe for beta cell proportions and HbA1c levels</span>
-<span class="va">m.prop.ana</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu">pData</span><span class="op">(</span><span class="va">GSE50244.bulk.eset</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">89</span>, <span class="fl">2</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'age'</span>, <span class="st">'bmi'</span>, <span class="st">'hba1c'</span>, <span class="st">'gender'</span><span class="op">)</span><span class="op">]</span>,
-                        ct.prop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Est.prop.GSE50244</span><span class="op">$</span><span class="va">Est.prop.weighted</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span>, 
-                                    <span class="va">Est.prop.GSE50244</span><span class="op">$</span><span class="va">Est.prop.allgene</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span><span class="op">)</span>, 
-                        Method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">89</span><span class="op">)</span>, 
-                        levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">m.prop.ana</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Age'</span>, <span class="st">'BMI'</span>, <span class="st">'HbA1c'</span>, <span class="st">'Gender'</span><span class="op">)</span>
-<span class="va">m.prop.ana</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">m.prop.ana</span>, <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">HbA1c</span><span class="op">)</span><span class="op">)</span>
-<span class="va">m.prop.ana</span><span class="op">$</span><span class="va">Disease</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Normal'</span>, <span class="st">'T2D'</span><span class="op">)</span><span class="op">[</span><span class="op">(</span><span class="va">m.prop.ana</span><span class="op">$</span><span class="va">HbA1c</span> <span class="op">&gt;</span> <span class="fl">6.5</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1</span><span class="op">]</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Normal'</span>, <span class="st">'T2D'</span><span class="op">)</span> <span class="op">)</span>
-<span class="va">m.prop.ana</span><span class="op">$</span><span class="va">D</span> <span class="op">=</span> <span class="op">(</span><span class="va">m.prop.ana</span><span class="op">$</span><span class="va">Disease</span> <span class="op">==</span> <span class="st">'T2D'</span><span class="op">)</span><span class="op">/</span><span class="fl">5</span>
-
-<span class="fu">ggplot</span><span class="op">(</span><span class="va">m.prop.ana</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">HbA1c</span>, <span class="va">ct.prop</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">'lm'</span>,  se <span class="op">=</span> <span class="cn">FALSE</span>, col <span class="op">=</span> <span class="st">'black'</span>, lwd <span class="op">=</span> <span class="fl">0.25</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">Method</span>, color <span class="op">=</span> <span class="va">Disease</span>, stroke <span class="op">=</span> <span class="va">D</span>, shape <span class="op">=</span> <span class="va">Disease</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">2</span>, alpha <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span> <span class="op">+</span>  <span class="fu">facet_wrap</span><span class="op">(</span><span class="op">~</span> <span class="va">Method</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">'HbA1c vs Beta Cell Type Proportion'</span><span class="op">)</span> <span class="op">+</span> <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">scale_colour_manual</span><span class="op">(</span> values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'white'</span>, <span class="st">"gray20"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">scale_shape_manual</span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">21</span>, <span class="fl">24</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p><img src="./images/GSE50244beta.jpg"></p>
-<p>The numerical evaluation can be obtained by linear regression. There is a significant negative correlation between HbA1c levels and beta cell proportions, after adjusted Age, BMI and Gender.</p>
+<code class="sourceCode R"><span><span class="co"># Create dataframe for beta cell proportions and HbA1c levels</span></span>
+<span><span class="va">m.prop.ana</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="fu">pData</span><span class="op">(</span><span class="va">GSE50244.bulk.eset</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">89</span>, <span class="fl">2</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'age'</span>, <span class="st">'bmi'</span>, <span class="st">'hba1c'</span>, <span class="st">'gender'</span><span class="op">)</span><span class="op">]</span>,</span>
+<span>                        ct.prop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">Est.prop.GSE50244</span><span class="op">$</span><span class="va">Est.prop.weighted</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span>, </span>
+<span>                                    <span class="va">Est.prop.GSE50244</span><span class="op">$</span><span class="va">Est.prop.allgene</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span><span class="op">)</span>, </span>
+<span>                        Method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">89</span><span class="op">)</span>, </span>
+<span>                        levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">m.prop.ana</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'Age'</span>, <span class="st">'BMI'</span>, <span class="st">'HbA1c'</span>, <span class="st">'Gender'</span><span class="op">)</span></span>
+<span><span class="va">m.prop.ana</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">m.prop.ana</span>, <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">HbA1c</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">m.prop.ana</span><span class="op">$</span><span class="va">Disease</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'Normal'</span>, <span class="st">'T2D'</span><span class="op">)</span><span class="op">[</span><span class="op">(</span><span class="va">m.prop.ana</span><span class="op">$</span><span class="va">HbA1c</span> <span class="op">&gt;</span> <span class="fl">6.5</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1</span><span class="op">]</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'Normal'</span>, <span class="st">'T2D'</span><span class="op">)</span> <span class="op">)</span></span>
+<span><span class="va">m.prop.ana</span><span class="op">$</span><span class="va">D</span> <span class="op">=</span> <span class="op">(</span><span class="va">m.prop.ana</span><span class="op">$</span><span class="va">Disease</span> <span class="op">==</span> <span class="st">'T2D'</span><span class="op">)</span><span class="op">/</span><span class="fl">5</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">m.prop.ana</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">HbA1c</span>, <span class="va">ct.prop</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html" class="external-link">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">'lm'</span>,  se <span class="op">=</span> <span class="cn">FALSE</span>, col <span class="op">=</span> <span class="st">'black'</span>, lwd <span class="op">=</span> <span class="fl">0.25</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">Method</span>, color <span class="op">=</span> <span class="va">Disease</span>, stroke <span class="op">=</span> <span class="va">D</span>, shape <span class="op">=</span> <span class="va">Disease</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">2</span>, alpha <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span> <span class="op">+</span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">Method</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">'HbA1c vs Beta Cell Type Proportion'</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_colour_manual</a></span><span class="op">(</span> values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'white'</span>, <span class="st">"gray20"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_shape_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">21</span>, <span class="fl">24</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><img src="../../../../Single%20cell/Rpackage/MuSiC-master_v1.0.0/articles/images/GSE50244beta.jpg"></p>
+<p>The numerical evaluation can be obtained by linear regression. There
+is a significant negative correlation between HbA1c levels and beta cell
+proportions, after adjusted Age, BMI and Gender.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">lm.beta.MuSiC</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">ct.prop</span> <span class="op">~</span> <span class="va">HbA1c</span> <span class="op">+</span> <span class="va">Age</span> <span class="op">+</span> <span class="va">BMI</span> <span class="op">+</span> <span class="va">Gender</span>, data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">m.prop.ana</span>, <span class="va">Method</span> <span class="op">==</span> <span class="st">'MuSiC'</span><span class="op">)</span><span class="op">)</span>
-<span class="va">lm.beta.NNLS</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">ct.prop</span> <span class="op">~</span> <span class="va">HbA1c</span> <span class="op">+</span> <span class="va">Age</span> <span class="op">+</span> <span class="va">BMI</span> <span class="op">+</span> <span class="va">Gender</span>, data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">m.prop.ana</span>, <span class="va">Method</span> <span class="op">==</span> <span class="st">'NNLS'</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">lm.beta.MuSiC</span><span class="op">)</span>
-<span class="co">#</span>
-<span class="co">#Call:</span>
-<span class="co">#lm(formula = ct.prop ~ HbA1c + Age + BMI + Gender, data = subset(m.prop.ana, </span>
-<span class="co">#    Method == "MuSiC"))</span>
-<span class="co">#</span>
-<span class="co">#Residuals:</span>
-<span class="co">#     Min       1Q   Median       3Q      Max </span>
-<span class="co">#-0.27768 -0.13186 -0.01096  0.10661  0.35790 </span>
-<span class="co">#</span>
-<span class="co">#Coefficients:</span>
-<span class="co">#              Estimate Std. Error t value Pr(&gt;|t|)    </span>
-<span class="co">#(Intercept)   0.877022   0.190276   4.609 1.71e-05 ***</span>
-<span class="co">#HbA1c        -0.061396   0.025403  -2.417   0.0182 *  </span>
-<span class="co">#Age           0.002639   0.001772   1.489   0.1409    </span>
-<span class="co">#BMI          -0.013620   0.007276  -1.872   0.0653 .  </span>
-<span class="co">#GenderFemale -0.079874   0.039274  -2.034   0.0457 *  </span>
-<span class="co">#---</span>
-<span class="co">#Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
-<span class="co">#</span>
-<span class="co">#Residual standard error: 0.167 on 72 degrees of freedom</span>
-<span class="co">#Multiple R-squared:  0.2439,   Adjusted R-squared:  0.2019 </span>
-<span class="co">#F-statistic: 5.806 on 4 and 72 DF,  p-value: 0.0004166</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">lm.beta.NNLS</span><span class="op">)</span>
-<span class="co">#</span>
-<span class="co">#Call:</span>
-<span class="co">#lm(formula = ct.prop ~ HbA1c + Age + BMI + Gender, data = subset(m.prop.ana, </span>
-<span class="co">#    Method == "NNLS"))</span>
-<span class="co">#</span>
-<span class="co">#Residuals:</span>
-<span class="co">#     Min       1Q   Median       3Q      Max </span>
-<span class="co">#-0.04671 -0.02918 -0.01795  0.01394  0.19362 </span>
-<span class="co">#</span>
-<span class="co">#Coefficients:</span>
-<span class="co">#               Estimate Std. Error t value Pr(&gt;|t|)  </span>
-<span class="co">#(Intercept)   0.0950960  0.0546717   1.739   0.0862 .</span>
-<span class="co">#HbA1c        -0.0093214  0.0072991  -1.277   0.2057  </span>
-<span class="co">#Age           0.0005268  0.0005093   1.035   0.3044  </span>
-<span class="co">#BMI          -0.0015116  0.0020906  -0.723   0.4720  </span>
-<span class="co">#GenderFemale -0.0037650  0.0112844  -0.334   0.7396  </span>
-<span class="co">#---</span>
-<span class="co">#Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
-<span class="co">#</span>
-<span class="co">#Residual standard error: 0.04799 on 72 degrees of freedom</span>
-<span class="co">#Multiple R-squared:  0.0574,   Adjusted R-squared:  0.005028 </span>
-<span class="co">#F-statistic: 1.096 on 4 and 72 DF,  p-value: 0.3651</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">lm.beta.MuSiC</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">ct.prop</span> <span class="op">~</span> <span class="va">HbA1c</span> <span class="op">+</span> <span class="va">Age</span> <span class="op">+</span> <span class="va">BMI</span> <span class="op">+</span> <span class="va">Gender</span>, data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">m.prop.ana</span>, <span class="va">Method</span> <span class="op">==</span> <span class="st">'MuSiC'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">lm.beta.NNLS</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">ct.prop</span> <span class="op">~</span> <span class="va">HbA1c</span> <span class="op">+</span> <span class="va">Age</span> <span class="op">+</span> <span class="va">BMI</span> <span class="op">+</span> <span class="va">Gender</span>, data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">m.prop.ana</span>, <span class="va">Method</span> <span class="op">==</span> <span class="st">'NNLS'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">lm.beta.MuSiC</span><span class="op">)</span></span>
+<span><span class="co">#</span></span>
+<span><span class="co">#Call:</span></span>
+<span><span class="co">#lm(formula = ct.prop ~ HbA1c + Age + BMI + Gender, data = subset(m.prop.ana, </span></span>
+<span><span class="co">#    Method == "MuSiC"))</span></span>
+<span><span class="co">#</span></span>
+<span><span class="co">#Residuals:</span></span>
+<span><span class="co">#     Min       1Q   Median       3Q      Max </span></span>
+<span><span class="co">#-0.27768 -0.13186 -0.01096  0.10661  0.35790 </span></span>
+<span><span class="co">#</span></span>
+<span><span class="co">#Coefficients:</span></span>
+<span><span class="co">#              Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span><span class="co">#(Intercept)   0.877022   0.190276   4.609 1.71e-05 ***</span></span>
+<span><span class="co">#HbA1c        -0.061396   0.025403  -2.417   0.0182 *  </span></span>
+<span><span class="co">#Age           0.002639   0.001772   1.489   0.1409    </span></span>
+<span><span class="co">#BMI          -0.013620   0.007276  -1.872   0.0653 .  </span></span>
+<span><span class="co">#GenderFemale -0.079874   0.039274  -2.034   0.0457 *  </span></span>
+<span><span class="co">#---</span></span>
+<span><span class="co">#Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#</span></span>
+<span><span class="co">#Residual standard error: 0.167 on 72 degrees of freedom</span></span>
+<span><span class="co">#Multiple R-squared:  0.2439,   Adjusted R-squared:  0.2019 </span></span>
+<span><span class="co">#F-statistic: 5.806 on 4 and 72 DF,  p-value: 0.0004166</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">lm.beta.NNLS</span><span class="op">)</span></span>
+<span><span class="co">#</span></span>
+<span><span class="co">#Call:</span></span>
+<span><span class="co">#lm(formula = ct.prop ~ HbA1c + Age + BMI + Gender, data = subset(m.prop.ana, </span></span>
+<span><span class="co">#    Method == "NNLS"))</span></span>
+<span><span class="co">#</span></span>
+<span><span class="co">#Residuals:</span></span>
+<span><span class="co">#     Min       1Q   Median       3Q      Max </span></span>
+<span><span class="co">#-0.04671 -0.02918 -0.01795  0.01394  0.19362 </span></span>
+<span><span class="co">#</span></span>
+<span><span class="co">#Coefficients:</span></span>
+<span><span class="co">#               Estimate Std. Error t value Pr(&gt;|t|)  </span></span>
+<span><span class="co">#(Intercept)   0.0950960  0.0546717   1.739   0.0862 .</span></span>
+<span><span class="co">#HbA1c        -0.0093214  0.0072991  -1.277   0.2057  </span></span>
+<span><span class="co">#Age           0.0005268  0.0005093   1.035   0.3044  </span></span>
+<span><span class="co">#BMI          -0.0015116  0.0020906  -0.723   0.4720  </span></span>
+<span><span class="co">#GenderFemale -0.0037650  0.0112844  -0.334   0.7396  </span></span>
+<span><span class="co">#---</span></span>
+<span><span class="co">#Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#</span></span>
+<span><span class="co">#Residual standard error: 0.04799 on 72 degrees of freedom</span></span>
+<span><span class="co">#Multiple R-squared:  0.0574,   Adjusted R-squared:  0.005028 </span></span>
+<span><span class="co">#F-statistic: 1.096 on 4 and 72 DF,  p-value: 0.3651</span></span></code></pre></div>
 </div>
 </div>
-<div id="estimation-of-cell-type-proportions-with-pre-grouping-of-cell-types" class="section level2">
-<h2 class="hasAnchor">
-<a href="#estimation-of-cell-type-proportions-with-pre-grouping-of-cell-types" class="anchor"></a>Estimation of cell type proportions with pre-grouping of cell types</h2>
-<p>Solid tissues often contain closely related cell types, and correlation of gene expression between these cell types leads to collinearity, making it difficult to resolve their relative proportions in bulk data. To deal with collinearity, MuSiC employs a tree-guided procedure that recursively zooms in on closely related cell types. Briefly, we first group similar cell types into the same cluster and estimate cluster proportions, then recursively repeat this procedure within each cluster. At each recursion stage, we only use genes that have low within-cluster variance, a.k.a. the cross-cell consistent genes. This is critical as the mean expression estimates of genes with high variance are affected by the pervasive bias in cell capture of scRNA-seq experiments, and thus cannot serve as reliable reference.</p>
-<p>We demonstrate this procedure by reproducing the analysis of mouse kidney in MuSiC <a href="https://doi.org/10.1038/s41467-018-08023-x">paper</a>.</p>
-<div id="data-preparation" class="section level3">
-<h3 class="hasAnchor">
-<a href="#data-preparation" class="anchor"></a>Data Preparation</h3>
-<div id="bulk-data" class="section level4">
-<h4 class="hasAnchor">
-<a href="#bulk-data" class="anchor"></a>Bulk data</h4>
-<p>The dataset <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81492">GEO entry (GSE81492)</a> <span class="citation">(see Beckerman et al. 2017)</span> contains raw RNA-seq and sample annotation data. For the purpose of this vignette, we will use the read counts data <code>Mousebulkeset.rds</code> from the <a href="pages/data.html">data download page</a>.</p>
+<div class="section level3">
+<h3 id="estimation-of-cell-type-proportions-with-pre-grouping-of-cell-types">Estimation of cell type proportions with pre-grouping of cell
+types<a class="anchor" aria-label="anchor" href="#estimation-of-cell-type-proportions-with-pre-grouping-of-cell-types"></a>
+</h3>
+<p>Solid tissues often contain closely related cell types, and
+correlation of gene expression between these cell types leads to
+collinearity, making it difficult to resolve their relative proportions
+in bulk data. To deal with collinearity, MuSiC employs a tree-guided
+procedure that recursively zooms in on closely related cell types.
+Briefly, we first group similar cell types into the same cluster and
+estimate cluster proportions, then recursively repeat this procedure
+within each cluster. At each recursion stage, we only use genes that
+have low within-cluster variance, a.k.a. the cross-cell consistent
+genes. This is critical as the mean expression estimates of genes with
+high variance are affected by the pervasive bias in cell capture of
+scRNA-seq experiments, and thus cannot serve as reliable reference.</p>
+<p>We demonstrate this procedure by reproducing the analysis of mouse
+kidney in MuSiC <a href="https://doi.org/10.1038/s41467-018-08023-x" class="external-link">paper</a>.</p>
+<div class="section level4">
+<h4 id="data-preparation">Data Preparation<a class="anchor" aria-label="anchor" href="#data-preparation"></a>
+</h4>
+<div class="section level5">
+<h5 id="bulk-data">Bulk data<a class="anchor" aria-label="anchor" href="#bulk-data"></a>
+</h5>
+<p>The dataset <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81492" class="external-link">GEO
+entry (GSE81492)</a> <span class="citation">(see Beckerman et al.
+2017)</span> contains raw RNA-seq and sample annotation data. For the
+purpose of this vignette, we will use the read counts data
+<code>Mousebulkeset.rds</code> from the <a href="pages/data.html">data
+download page</a>.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Download Mouse bulk dataset from Github</span>
-<span class="va">Mouse.bulk.eset</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">'https://xuranw.github.io/MuSiC/data/Mousebulkeset.rds'</span><span class="op">)</span>
-<span class="va">Mouse.bulk.eset</span>
-
-<span class="co">#ExpressionSet (storageMode: lockedEnvironment)</span>
-<span class="co">#assayData: 19033 features, 10 samples </span>
-<span class="co">#  element names: exprs </span>
-<span class="co">#protocolData: none</span>
-<span class="co">#phenoData</span>
-<span class="co">#  sampleNames: control.NA.27 control.NA.30 ... APOL1.GNA78M (10 total)</span>
-<span class="co">#  varLabels: sampleID SubjectName Control</span>
-<span class="co">#  varMetadata: labelDescription</span>
-<span class="co">#featureData: none</span>
-<span class="co">#experimentData: use 'experimentData(object)'</span>
-<span class="co">#Annotation:  </span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Download Mouse bulk dataset from Github</span></span>
+<span><span class="va">Mouse.bulk.eset</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="st">'https://xuranw.github.io/MuSiC/data/Mousebulkeset.rds'</span><span class="op">)</span></span>
+<span><span class="va">Mouse.bulk.eset</span></span>
+<span></span>
+<span><span class="co">#ExpressionSet (storageMode: lockedEnvironment)</span></span>
+<span><span class="co">#assayData: 19033 features, 10 samples </span></span>
+<span><span class="co">#  element names: exprs </span></span>
+<span><span class="co">#protocolData: none</span></span>
+<span><span class="co">#phenoData</span></span>
+<span><span class="co">#  sampleNames: control.NA.27 control.NA.30 ... APOL1.GNA78M (10 total)</span></span>
+<span><span class="co">#  varLabels: sampleID SubjectName Control</span></span>
+<span><span class="co">#  varMetadata: labelDescription</span></span>
+<span><span class="co">#featureData: none</span></span>
+<span><span class="co">#experimentData: use 'experimentData(object)'</span></span>
+<span><span class="co">#Annotation:  </span></span></code></pre></div>
 </div>
-<div id="single-cell-data" class="section level4">
-<h4 class="hasAnchor">
-<a href="#single-cell-data" class="anchor"></a>Single cell data</h4>
-<p>The single cell data are from <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE107585">GEO entry (GSE107585)</a> <span class="citation">(see Park et al. 2018)</span>, which constrains read counts for 16273 genes across 43745 cells. Due to the space limitation of Github, only a subset of the read counts <code>Mousesubeset.rds</code> are available on the <a href="page/data.html">data download page</a>, in the form of an <code>ExpressionSet</code>. This subset contains 16273 genes across 10000 cells.</p>
+<div class="section level5">
+<h5 id="single-cell-data">Single cell data<a class="anchor" aria-label="anchor" href="#single-cell-data"></a>
+</h5>
+<p>The single cell data are from <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE107585" class="external-link">GEO
+entry (GSE107585)</a> <span class="citation">(see Park et al.
+2018)</span>, which constrains read counts for 16273 genes across 43745
+cells. Due to the space limitation of Github, only a subset of the read
+counts <code>Mousesubeset.rds</code> are available on the <a href="page/data.html">data download page</a>, in the form of an
+<code>ExpressionSet</code>. This subset contains 16273 genes across
+10000 cells.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Download Mouse single cell dataset from Github</span>
-<span class="va">Mousesub.sce</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">'https://xuranw.github.io/MuSiC/data/Mousesub_sce.rds'</span><span class="op">)</span>
-<span class="va">Mousesub.sce</span>
-
-<span class="co">#class: SingleCellExperiment </span>
-<span class="co">#dim: 16273 10000 </span>
-<span class="co">#metadata(0):</span>
-<span class="co">#assays(1): counts</span>
-<span class="co">#rownames(16273): Rp1 Sox17 ... DHRSX CAAA01147332.1</span>
-<span class="co">#rowData names(0):</span>
-<span class="co">#colnames(10000): TGGTTCCGTCGGCTCA-2 CGAGCCAAGCGTCAAG-4 ... GTATTCTGTAGCTAAA-2 GAGCAGAGTCAACATC-1</span>
-<span class="co">#colData names(4): sampleID SubjectName cellTypeID cellType</span>
-<span class="co">#reducedDimNames(0):</span>
-<span class="co">#mainExpName: NULL</span>
-<span class="co">#altExpNames(0):</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">Mousesub.sce</span><span class="op">$</span><span class="va">cellType</span><span class="op">)</span>
-<span class="co"># [1] "Endo"     "Podo"     "PT"       "LOH"      "DCT"      "CD-PC"    "CD-IC"    "CD-Trans" "Novel1"  </span>
-<span class="co">#[10] "Fib"      "Macro"    "Neutro"   "B lymph"  "T lymph"  "NK"       "Novel2"  </span></code></pre></div>
-<p>Notice that the single cell dataset has 16 cell types, including 2 novel cell types and a transition cell type (CD-Trans). We exclude those 3 cell types in our analysis.</p>
+<code class="sourceCode R"><span><span class="co"># Download Mouse single cell dataset from Github</span></span>
+<span><span class="va">Mousesub.sce</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="st">'https://xuranw.github.io/MuSiC/data/Mousesub_sce.rds'</span><span class="op">)</span></span>
+<span><span class="va">Mousesub.sce</span></span>
+<span></span>
+<span><span class="co">#class: SingleCellExperiment </span></span>
+<span><span class="co">#dim: 16273 10000 </span></span>
+<span><span class="co">#metadata(0):</span></span>
+<span><span class="co">#assays(1): counts</span></span>
+<span><span class="co">#rownames(16273): Rp1 Sox17 ... DHRSX CAAA01147332.1</span></span>
+<span><span class="co">#rowData names(0):</span></span>
+<span><span class="co">#colnames(10000): TGGTTCCGTCGGCTCA-2 CGAGCCAAGCGTCAAG-4 ... GTATTCTGTAGCTAAA-2 GAGCAGAGTCAACATC-1</span></span>
+<span><span class="co">#colData names(4): sampleID SubjectName cellTypeID cellType</span></span>
+<span><span class="co">#reducedDimNames(0):</span></span>
+<span><span class="co">#mainExpName: NULL</span></span>
+<span><span class="co">#altExpNames(0):</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/levels.html" class="external-link">levels</a></span><span class="op">(</span><span class="va">Mousesub.sce</span><span class="op">$</span><span class="va">cellType</span><span class="op">)</span></span>
+<span><span class="co"># [1] "Endo"     "Podo"     "PT"       "LOH"      "DCT"      "CD-PC"    "CD-IC"    "CD-Trans" "Novel1"  </span></span>
+<span><span class="co">#[10] "Fib"      "Macro"    "Neutro"   "B lymph"  "T lymph"  "NK"       "Novel2"  </span></span></code></pre></div>
+<p>Notice that the single cell dataset has 16 cell types, including 2
+novel cell types and a transition cell type (CD-Trans). We exclude those
+3 cell types in our analysis.</p>
 </div>
 </div>
-<div id="estimation-of-cell-type-proportions-1" class="section level3">
-<h3 class="hasAnchor">
-<a href="#estimation-of-cell-type-proportions-1" class="anchor"></a>Estimation of cell type proportions</h3>
-<div id="clustering-single-cell-data" class="section level4">
-<h4 class="hasAnchor">
-<a href="#clustering-single-cell-data" class="anchor"></a>Clustering single cell data</h4>
-<p>In <a href="MuSiC.html#estimation-of-cell-type-proportions">previous</a> MuSiC estimation procedure, the first step is to produce design matrix, cross-subject mean of relative abundance, cross-subject variance of relative abundance and average library size from single cell reference. These are taken care of by the function <a href="../reference/music_basis.html"><code>music_basis</code></a>. The essential inputs of <a href="../reference/music_basis.html"><code>music_basis</code></a> are:</p>
+<div class="section level4">
+<h4 id="estimation-of-cell-type-proportions-1">Estimation of cell type proportions<a class="anchor" aria-label="anchor" href="#estimation-of-cell-type-proportions-1"></a>
+</h4>
+<div class="section level5">
+<h5 id="clustering-single-cell-data">Clustering single cell data<a class="anchor" aria-label="anchor" href="#clustering-single-cell-data"></a>
+</h5>
+<p>In <a href="MuSiC.html#estimation-of-cell-type-proportions">previous</a> MuSiC
+estimation procedure, the first step is to produce design matrix,
+cross-subject mean of relative abundance, cross-subject variance of
+relative abundance and average library size from single cell reference.
+These are taken care of by the function <a href="../reference/music_basis.html"><code>music_basis</code></a>. The
+essential inputs of <a href="../reference/music_basis.html"><code>music_basis</code></a>
+are:</p>
 <ul>
 <li>
 <code>x</code>: ExpressionSet of single cell dataset;</li>
 <li>
-<code>non.zero</code>: logical, default as <code>TRUE</code>. If true, remove all genes with zero expression;</li>
+<code>non.zero</code>: logical, default as <code>TRUE</code>. If
+true, remove all genes with zero expression;</li>
 <li>
-<code>markers</code>: vector or list of gene names. Default as <code>NULL</code>. If <code>NULL</code>, then use all genes provided by <code>x</code>;</li>
+<code>markers</code>: vector or list of gene names. Default as
+<code>NULL</code>. If <code>NULL</code>, then use all genes provided by
+<code>x</code>;</li>
 <li>
-<code>clusters</code>: character, must be one of the column names of the phenoData from single cell data, used as clusters;</li>
+<code>clusters</code>: character, must be one of the column names of
+the phenoData from single cell data, used as clusters;</li>
 <li>
-<code>samples</code>: character, must be one of the column names of the phenoData from single cell data, used as samples;</li>
+<code>samples</code>: character, must be one of the column names of
+the phenoData from single cell data, used as samples;</li>
 <li>
-<code>select.ct</code> vector of cell types included for deconvolution, default as <code>NULL</code>. If <code>NULL</code>, then use all cell types that provided by single-cell dataset.</li>
+<code>select.ct</code> vector of cell types included for
+deconvolution, default as <code>NULL</code>. If <code>NULL</code>, then
+use all cell types that provided by single-cell dataset.</li>
 <li>
 <code>verbose</code> logical that toggles log messages.</li>
 </ul>
-<p>The outputs of <a href="../reference/music_basis.html"><code>music_basis</code></a> is a list of elements:</p>
+<p>The outputs of <a href="../reference/music_basis.html"><code>music_basis</code></a> is a
+list of elements:</p>
 <ul>
 <li>
-<code>Disgn.mtx</code>: gene by cell type matrix of design matrix;</li>
+<code>Disgn.mtx</code>: gene by cell type matrix of design
+matrix;</li>
 <li>
 <code>S</code>: subject by cell type matrix of library size;</li>
 <li>
-<code>M.S</code>: vector of average library size for each cell type;</li>
+<code>M.S</code>: vector of average library size for each cell
+type;</li>
 <li>
-<code>M.theta</code>: gene by cell type matrix of average relative abundance;</li>
+<code>M.theta</code>: gene by cell type matrix of average relative
+abundance;</li>
 <li>
-<code>Sigma</code>: gene by cell type matrix of cross-subject variation.</li>
+<code>Sigma</code>: gene by cell type matrix of cross-subject
+variation.</li>
 </ul>
-<p>We next use the <code>hclust</code> function to get a tree0based clustering of the cell types using the cross-subject mean matrix and the design matrix.</p>
+<p>We next use the <code>hclust</code> function to get a tree0based
+clustering of the cell types using the cross-subject mean matrix and the
+design matrix.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Produce the first step information</span>
-<span class="va">Mousesub.basis</span> <span class="op">=</span> <span class="fu"><a href="../reference/music_basis.html">music_basis</a></span><span class="op">(</span><span class="va">Mousesub.sce</span>, clusters <span class="op">=</span> <span class="st">'cellType'</span>, samples <span class="op">=</span> <span class="st">'sampleID'</span>, 
-                             select.ct <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Endo'</span>, <span class="st">'Podo'</span>, <span class="st">'PT'</span>, <span class="st">'LOH'</span>, <span class="st">'DCT'</span>, <span class="st">'CD-PC'</span>, <span class="st">'CD-IC'</span>, <span class="st">'Fib'</span>,
-                                           <span class="st">'Macro'</span>, <span class="st">'Neutro'</span>,<span class="st">'B lymph'</span>, <span class="st">'T lymph'</span>, <span class="st">'NK'</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co"># Plot the dendrogram of design matrix and cross-subject mean of realtive abundance</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
-<span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/dist.html">dist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Mousesub.basis</span><span class="op">$</span><span class="va">Disgn.mtx</span> <span class="op">+</span> <span class="fl">1e-6</span><span class="op">)</span><span class="op">)</span>, method <span class="op">=</span> <span class="st">"euclidean"</span><span class="op">)</span>
-<span class="co"># Hierarchical clustering using Complete Linkage</span>
-<span class="va">hc1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html">hclust</a></span><span class="op">(</span><span class="va">d</span>, method <span class="op">=</span> <span class="st">"complete"</span> <span class="op">)</span>
-<span class="co"># Plot the obtained dendrogram</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">hc1</span>, cex <span class="op">=</span> <span class="fl">0.6</span>, hang <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, main <span class="op">=</span> <span class="st">'Cluster log(Design Matrix)'</span><span class="op">)</span>
-<span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/dist.html">dist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Mousesub.basis</span><span class="op">$</span><span class="va">M.theta</span> <span class="op">+</span> <span class="fl">1e-8</span><span class="op">)</span><span class="op">)</span>, method <span class="op">=</span> <span class="st">"euclidean"</span><span class="op">)</span>
-<span class="co"># Hierarchical clustering using Complete Linkage</span>
-<span class="co"># hc2 &lt;- hclust(d, method = "complete" )</span>
-<span class="va">hc2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html">hclust</a></span><span class="op">(</span><span class="va">d</span>, method <span class="op">=</span> <span class="st">"complete"</span><span class="op">)</span>
-<span class="co"># Plot the obtained dendrogram</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">hc2</span>, cex <span class="op">=</span> <span class="fl">0.6</span>, hang <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, main <span class="op">=</span> <span class="st">'Cluster log(Mean of RA)'</span><span class="op">)</span></code></pre></div>
-<p><img src="./images/Cluster.jpg"></p>
-<p>The immune cells are clustered together and the kidney specific cells are clustered together. Notice that DCT and PT are within the same high-level grouping. The cut-off is user determined. Here we cut 13 cell types into 4 groups:</p>
+<code class="sourceCode R"><span><span class="co"># Produce the first step information</span></span>
+<span><span class="va">Mousesub.basis</span> <span class="op">=</span> <span class="fu"><a href="../reference/music_basis.html">music_basis</a></span><span class="op">(</span><span class="va">Mousesub.sce</span>, clusters <span class="op">=</span> <span class="st">'cellType'</span>, samples <span class="op">=</span> <span class="st">'sampleID'</span>, </span>
+<span>                             select.ct <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'Endo'</span>, <span class="st">'Podo'</span>, <span class="st">'PT'</span>, <span class="st">'LOH'</span>, <span class="st">'DCT'</span>, <span class="st">'CD-PC'</span>, <span class="st">'CD-IC'</span>, <span class="st">'Fib'</span>,</span>
+<span>                                           <span class="st">'Macro'</span>, <span class="st">'Neutro'</span>,<span class="st">'B lymph'</span>, <span class="st">'T lymph'</span>, <span class="st">'NK'</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Plot the dendrogram of design matrix and cross-subject mean of realtive abundance</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/dist.html" class="external-link">dist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html" class="external-link">t</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">Mousesub.basis</span><span class="op">$</span><span class="va">Disgn.mtx</span> <span class="op">+</span> <span class="fl">1e-6</span><span class="op">)</span><span class="op">)</span>, method <span class="op">=</span> <span class="st">"euclidean"</span><span class="op">)</span></span>
+<span><span class="co"># Hierarchical clustering using Complete Linkage</span></span>
+<span><span class="va">hc1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">hclust</a></span><span class="op">(</span><span class="va">d</span>, method <span class="op">=</span> <span class="st">"complete"</span> <span class="op">)</span></span>
+<span><span class="co"># Plot the obtained dendrogram</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">hc1</span>, cex <span class="op">=</span> <span class="fl">0.6</span>, hang <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, main <span class="op">=</span> <span class="st">'Cluster log(Design Matrix)'</span><span class="op">)</span></span>
+<span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/dist.html" class="external-link">dist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html" class="external-link">t</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">Mousesub.basis</span><span class="op">$</span><span class="va">M.theta</span> <span class="op">+</span> <span class="fl">1e-8</span><span class="op">)</span><span class="op">)</span>, method <span class="op">=</span> <span class="st">"euclidean"</span><span class="op">)</span></span>
+<span><span class="co"># Hierarchical clustering using Complete Linkage</span></span>
+<span><span class="co"># hc2 &lt;- hclust(d, method = "complete" )</span></span>
+<span><span class="va">hc2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">hclust</a></span><span class="op">(</span><span class="va">d</span>, method <span class="op">=</span> <span class="st">"complete"</span><span class="op">)</span></span>
+<span><span class="co"># Plot the obtained dendrogram</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">hc2</span>, cex <span class="op">=</span> <span class="fl">0.6</span>, hang <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, main <span class="op">=</span> <span class="st">'Cluster log(Mean of RA)'</span><span class="op">)</span></span></code></pre></div>
+<p><img src="../../../../Single%20cell/Rpackage/MuSiC-master_v1.0.0/articles/images/Cluster.jpg"></p>
+<p>The immune cells are clustered together and the kidney specific cells
+are clustered together. Notice that DCT and PT are within the same
+high-level grouping. The cut-off is user determined. Here we cut 13 cell
+types into 4 groups:</p>
 <ul>
 <li>Group 1: Neutro</li>
 <li>Group 2: Podo</li>
 <li>Group 3: Endo, CD-PC, CD-IC, LOH, DCT, PT</li>
 <li>Group 4: Fib, Macro, NK, B lymph, T lymph</li>
 </ul>
-<p>The tree-guided recursive estimation for mouse kidney analysis includes 2 steps:</p>
+<p>The tree-guided recursive estimation for mouse kidney analysis
+includes 2 steps:</p>
 <ul>
 <li>Step 1. Estimate proportions of each high level cluster; <span class="math inline">\((p_1,p_2,p_3,p_4)\)</span>
 </li>
@@ -565,173 +709,227 @@
 </li>
 </ul>
 </div>
-<div id="bulk-tissue-cell-type-estimation-with-pre-grouping-of-cell-types" class="section level4">
-<h4 class="hasAnchor">
-<a href="#bulk-tissue-cell-type-estimation-with-pre-grouping-of-cell-types" class="anchor"></a>Bulk Tissue Cell Type Estimation with Pre-grouping of Cell Types</h4>
-<p>We manually specify the cluster and annotated single cell data with cluster information.</p>
+<div class="section level5">
+<h5 id="bulk-tissue-cell-type-estimation-with-pre-grouping-of-cell-types">Bulk Tissue Cell Type Estimation with Pre-grouping of Cell
+Types<a class="anchor" aria-label="anchor" href="#bulk-tissue-cell-type-estimation-with-pre-grouping-of-cell-types"></a>
+</h5>
+<p>We manually specify the cluster and annotated single cell data with
+cluster information.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">clusters.type</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>C1 <span class="op">=</span> <span class="st">'Neutro'</span>, C2 <span class="op">=</span> <span class="st">'Podo'</span>, C3 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Endo'</span>, <span class="st">'CD-PC'</span>, <span class="st">'LOH'</span>, <span class="st">'CD-IC'</span>, <span class="st">'DCT'</span>, <span class="st">'PT'</span><span class="op">)</span>, C4 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Macro'</span>, <span class="st">'Fib'</span>, <span class="st">'B lymph'</span>, <span class="st">'NK'</span>, <span class="st">'T lymph'</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">cl.type</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">Mousesub.sce</span><span class="op">$</span><span class="va">cellType</span><span class="op">)</span>
-
-<span class="kw">for</span><span class="op">(</span><span class="va">cl</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">clusters.type</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
-  <span class="va">cl.type</span><span class="op">[</span><span class="va">cl.type</span> <span class="op">%in%</span> <span class="va">clusters.type</span><span class="op">[[</span><span class="va">cl</span><span class="op">]</span><span class="op">]</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">clusters.type</span><span class="op">)</span><span class="op">[</span><span class="va">cl</span><span class="op">]</span>
-<span class="op">}</span>
-<span class="va">Mousesub.sce</span><span class="op">$</span><span class="va">clusterType</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">cl.type</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">clusters.type</span><span class="op">)</span>, <span class="st">'CD-Trans'</span>, <span class="st">'Novel1'</span>, <span class="st">'Novel2'</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co"># 13 selected cell types</span>
-<span class="va">s.mouse</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">clusters.type</span><span class="op">)</span>
-<span class="va">s.mouse</span>
-<span class="co">#       C1        C2       C31       C32       C33       C34       C35       C36       C41       C42 </span>
-<span class="co"># "Neutro"    "Podo"    "Endo"   "CD-PC"     "LOH"   "CD-IC"     "DCT"      "PT"   "Macro"     "Fib" </span>
-<span class="co">#      C43       C44       C45 </span>
-<span class="co">#"B lymph"      "NK" "T lymph" </span></code></pre></div>
-<p>We then select genes that are differentially expressed within cluster <code>C3</code> (Epithelial cells) and <code>C4</code> (Immune cells), available on <a href="pages/data.html">data download page</a>. Function <a href="../reference/music_prop.cluster.html"><code>music_prop.cluster</code></a> is used for estimation with pre-clustering of cell types. The essential inputs are the same as <code>music_prop</code> except two unique inputs: <code>groups</code> and <code>group.markers</code>. <code>groups</code> passes the column name of higher-cluster in phenoData. The intra-cluster differentially expressed genes are passed by <code>group.marker</code>.</p>
+<code class="sourceCode R"><span><span class="va">clusters.type</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>C1 <span class="op">=</span> <span class="st">'Neutro'</span>, C2 <span class="op">=</span> <span class="st">'Podo'</span>, C3 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'Endo'</span>, <span class="st">'CD-PC'</span>, <span class="st">'LOH'</span>, <span class="st">'CD-IC'</span>, <span class="st">'DCT'</span>, <span class="st">'PT'</span><span class="op">)</span>, C4 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'Macro'</span>, <span class="st">'Fib'</span>, <span class="st">'B lymph'</span>, <span class="st">'NK'</span>, <span class="st">'T lymph'</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">cl.type</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="va">Mousesub.sce</span><span class="op">$</span><span class="va">cellType</span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw">for</span><span class="op">(</span><span class="va">cl</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">clusters.type</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="va">cl.type</span><span class="op">[</span><span class="va">cl.type</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">clusters.type</span><span class="op">[[</span><span class="va">cl</span><span class="op">]</span><span class="op">]</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">clusters.type</span><span class="op">)</span><span class="op">[</span><span class="va">cl</span><span class="op">]</span></span>
+<span><span class="op">}</span></span>
+<span><span class="va">Mousesub.sce</span><span class="op">$</span><span class="va">clusterType</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">cl.type</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">clusters.type</span><span class="op">)</span>, <span class="st">'CD-Trans'</span>, <span class="st">'Novel1'</span>, <span class="st">'Novel2'</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 13 selected cell types</span></span>
+<span><span class="va">s.mouse</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">clusters.type</span><span class="op">)</span></span>
+<span><span class="va">s.mouse</span></span>
+<span><span class="co">#       C1        C2       C31       C32       C33       C34       C35       C36       C41       C42 </span></span>
+<span><span class="co"># "Neutro"    "Podo"    "Endo"   "CD-PC"     "LOH"   "CD-IC"     "DCT"      "PT"   "Macro"     "Fib" </span></span>
+<span><span class="co">#      C43       C44       C45 </span></span>
+<span><span class="co">#"B lymph"      "NK" "T lymph" </span></span></code></pre></div>
+<p>We then select genes that are differentially expressed within cluster
+<code>C3</code> (Epithelial cells) and <code>C4</code> (Immune cells),
+available on <a href="pages/data.html">data download page</a>. Function
+<a href="../reference/music_prop.cluster.html"><code>music_prop.cluster</code></a>
+is used for estimation with pre-clustering of cell types. The essential
+inputs are the same as <code>music_prop</code> except two unique inputs:
+<code>groups</code> and <code>group.markers</code>. <code>groups</code>
+passes the column name of higher-cluster in phenoData. The intra-cluster
+differentially expressed genes are passed by
+<code>group.marker</code>.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">'https://xuranw.github.io/MuSiC/data/IEmarkers.RData'</span><span class="op">)</span>
-<span class="co"># This RData file provides two vectors of gene names Epith.marker and Immune.marker</span>
-
-<span class="co"># We now construct the list of group marker</span>
-<span class="va">IEmarkers</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="cn">NULL</span>, <span class="cn">NULL</span>, <span class="va">Epith.marker</span>, <span class="va">Immune.marker</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">IEmarkers</span><span class="op">)</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'C1'</span>, <span class="st">'C2'</span>, <span class="st">'C3'</span>, <span class="st">'C4'</span><span class="op">)</span>
-<span class="co"># The name of group markers should be the same as the cluster names</span>
-
-<span class="va">Est.mouse.bulk</span> <span class="op">=</span> <span class="fu"><a href="../reference/music_prop.cluster.html">music_prop.cluster</a></span><span class="op">(</span>bulk.mtx <span class="op">=</span> <span class="fu">exprs</span><span class="op">(</span><span class="va">Mouse.bulk.eset</span><span class="op">)</span>, sc.sce <span class="op">=</span> <span class="va">Mousesub.sce</span>, group.markers <span class="op">=</span> <span class="va">IEmarkers</span>, clusters <span class="op">=</span> <span class="st">'cellType'</span>, groups <span class="op">=</span> <span class="st">'clusterType'</span>, samples <span class="op">=</span> <span class="st">'sampleID'</span>, clusters.type <span class="op">=</span> <span class="va">clusters.type</span><span class="op">)</span></code></pre></div>
-<p>Due to the limited space of Github, we can only demo <code>music_prop.cluster</code> with a subset of mouse kidney single cell dataset. Therefore, the results might be different from the one presented in the paper due to incomplete reference single cell dataset.</p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/load.html" class="external-link">load</a></span><span class="op">(</span><span class="st">'https://xuranw.github.io/MuSiC/data/IEmarkers.RData'</span><span class="op">)</span></span>
+<span><span class="co"># This RData file provides two vectors of gene names Epith.marker and Immune.marker</span></span>
+<span></span>
+<span><span class="co"># We now construct the list of group marker</span></span>
+<span><span class="va">IEmarkers</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="cn">NULL</span>, <span class="cn">NULL</span>, <span class="va">Epith.marker</span>, <span class="va">Immune.marker</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">IEmarkers</span><span class="op">)</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'C1'</span>, <span class="st">'C2'</span>, <span class="st">'C3'</span>, <span class="st">'C4'</span><span class="op">)</span></span>
+<span><span class="co"># The name of group markers should be the same as the cluster names</span></span>
+<span></span>
+<span><span class="va">Est.mouse.bulk</span> <span class="op">=</span> <span class="fu"><a href="../reference/music_prop.cluster.html">music_prop.cluster</a></span><span class="op">(</span>bulk.mtx <span class="op">=</span> <span class="fu">exprs</span><span class="op">(</span><span class="va">Mouse.bulk.eset</span><span class="op">)</span>, sc.sce <span class="op">=</span> <span class="va">Mousesub.sce</span>, group.markers <span class="op">=</span> <span class="va">IEmarkers</span>, clusters <span class="op">=</span> <span class="st">'cellType'</span>, groups <span class="op">=</span> <span class="st">'clusterType'</span>, samples <span class="op">=</span> <span class="st">'sampleID'</span>, clusters.type <span class="op">=</span> <span class="va">clusters.type</span><span class="op">)</span></span></code></pre></div>
+<p>Due to the limited space of Github, we can only demo
+<code>music_prop.cluster</code> with a subset of mouse kidney single
+cell dataset. Therefore, the results might be different from the one
+presented in the paper due to incomplete reference single cell
+dataset.</p>
 </div>
 </div>
 </div>
-<div id="benchmark-evaluation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#benchmark-evaluation" class="anchor"></a>Benchmark Evaluation</h2>
-<p>Benchmark dataset is constructed by summing up single cell data from <code>XinT2D.eset</code>. The artificial bulk data is constructed through function <a href="../reference/bulk_construct.html"><code>bulk_construct</code></a>. The inputs are single cell dataset, cluster name (<code>clusters</code>), sample name (<code>samples</code>) and selected cell type (<code>select.ct</code>). <a href="../reference/bulk_construct.html"><code>bulk_construct</code></a> returns a ExpressionSet of artificial bulk dataset <code>Bulk.counts</code> and a matrix of real cell type counts <code>num.real</code>.</p>
+<div class="section level3">
+<h3 id="benchmark-evaluation">Benchmark Evaluation<a class="anchor" aria-label="anchor" href="#benchmark-evaluation"></a>
+</h3>
+<p>Benchmark dataset is constructed by summing up single cell data from
+<code>XinT2D.eset</code>. The artificial bulk data is constructed
+through function <a href="../reference/bulk_construct.html"><code>bulk_construct</code></a>.
+The inputs are single cell dataset, cluster name
+(<code>clusters</code>), sample name (<code>samples</code>) and selected
+cell type (<code>select.ct</code>). <a href="../reference/bulk_construct.html"><code>bulk_construct</code></a>
+returns a ExpressionSet of artificial bulk dataset
+<code>Bulk.counts</code> and a matrix of real cell type counts
+<code>num.real</code>.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Construct artificial bulk dataset. Use all 4 cell types: alpha, beta, gamma, delta</span>
-<span class="va">XinT2D.construct.full</span> <span class="op">=</span> <span class="fu"><a href="../reference/bulk_construct.html">bulk_construct</a></span><span class="op">(</span><span class="va">XinT2D.sce</span>, clusters <span class="op">=</span> <span class="st">'cellType'</span>, samples <span class="op">=</span> <span class="st">'SubjectName'</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">XinT2D.construct.full</span><span class="op">)</span>
-<span class="co"># [1] "bulk.counts" "num.real" </span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">XinT2D.construct.full</span><span class="op">$</span><span class="va">bulk.counts</span><span class="op">)</span>
-<span class="co">#[1] 39849    18</span>
-<span class="co"># 39849 genes * 18 samples</span>
-<span class="va">XinT2D.construct.full</span><span class="op">$</span><span class="va">bulk.counts</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>
-<span class="co">#      Non T2D 1 Non T2D 2 Non T2D 3 Non T2D 5 Non T2D 6</span>
-<span class="co">#A1BG        297       269       127      1042       262</span>
-<span class="co">#A2M           1         1        19        21         2</span>
-<span class="co">#A2MP1       493         0         0         0         0</span>
-<span class="co">#NAT1       1856        36       278       559      1231</span>
-<span class="co">#NAT2          1         0         0         0         0  </span>
-
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">XinT2D.construct.full</span><span class="op">$</span><span class="va">num.real</span><span class="op">)</span>
-<span class="co">#          alpha beta delta gamma</span>
-<span class="co">#Non T2D 1    53   13     5     3</span>
-<span class="co">#Non T2D 2     4   13     2     5</span>
-<span class="co">#Non T2D 3    27   10     3     2</span>
-<span class="co">#Non T2D 4    14   10     0     3</span>
-<span class="co">#Non T2D 5    23   22     5     2</span>
-<span class="co">#Non T2D 6    36    7     4     1</span>
-
-<span class="co"># calculate cell type proportions</span>
-<span class="va">XinT2D.construct.full</span><span class="op">$</span><span class="va">prop.real</span> <span class="op">=</span> <span class="fu"><a href="../reference/relative.ab.html">relative.ab</a></span><span class="op">(</span><span class="va">XinT2D.construct.full</span><span class="op">$</span><span class="va">num.real</span>, by.col <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">XinT2D.construct.full</span><span class="op">$</span><span class="va">prop.real</span><span class="op">)</span>
-<span class="co">#              alpha      beta      delta      gamma</span>
-<span class="co">#Non T2D 1 0.7162162 0.1756757 0.06756757 0.04054054</span>
-<span class="co">#Non T2D 2 0.1666667 0.5416667 0.08333333 0.20833333</span>
-<span class="co">#Non T2D 3 0.6428571 0.2380952 0.07142857 0.04761905</span>
-<span class="co">#Non T2D 4 0.5185185 0.3703704 0.00000000 0.11111111</span>
-<span class="co">#Non T2D 5 0.4423077 0.4230769 0.09615385 0.03846154</span>
-<span class="co">#Non T2D 6 0.7500000 0.1458333 0.08333333 0.02083333</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Construct artificial bulk dataset. Use all 4 cell types: alpha, beta, gamma, delta</span></span>
+<span><span class="va">XinT2D.construct.full</span> <span class="op">=</span> <span class="fu"><a href="../reference/bulk_construct.html">bulk_construct</a></span><span class="op">(</span><span class="va">XinT2D.sce</span>, clusters <span class="op">=</span> <span class="st">'cellType'</span>, samples <span class="op">=</span> <span class="st">'SubjectName'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">XinT2D.construct.full</span><span class="op">)</span></span>
+<span><span class="co"># [1] "bulk.counts" "num.real" </span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">XinT2D.construct.full</span><span class="op">$</span><span class="va">bulk.counts</span><span class="op">)</span></span>
+<span><span class="co">#[1] 39849    18</span></span>
+<span><span class="co"># 39849 genes * 18 samples</span></span>
+<span><span class="va">XinT2D.construct.full</span><span class="op">$</span><span class="va">bulk.counts</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
+<span><span class="co">#      Non T2D 1 Non T2D 2 Non T2D 3 Non T2D 5 Non T2D 6</span></span>
+<span><span class="co">#A1BG        297       269       127      1042       262</span></span>
+<span><span class="co">#A2M           1         1        19        21         2</span></span>
+<span><span class="co">#A2MP1       493         0         0         0         0</span></span>
+<span><span class="co">#NAT1       1856        36       278       559      1231</span></span>
+<span><span class="co">#NAT2          1         0         0         0         0  </span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">XinT2D.construct.full</span><span class="op">$</span><span class="va">num.real</span><span class="op">)</span></span>
+<span><span class="co">#          alpha beta delta gamma</span></span>
+<span><span class="co">#Non T2D 1    53   13     5     3</span></span>
+<span><span class="co">#Non T2D 2     4   13     2     5</span></span>
+<span><span class="co">#Non T2D 3    27   10     3     2</span></span>
+<span><span class="co">#Non T2D 4    14   10     0     3</span></span>
+<span><span class="co">#Non T2D 5    23   22     5     2</span></span>
+<span><span class="co">#Non T2D 6    36    7     4     1</span></span>
+<span></span>
+<span><span class="co"># calculate cell type proportions</span></span>
+<span><span class="va">XinT2D.construct.full</span><span class="op">$</span><span class="va">prop.real</span> <span class="op">=</span> <span class="fu"><a href="../reference/relative.ab.html">relative.ab</a></span><span class="op">(</span><span class="va">XinT2D.construct.full</span><span class="op">$</span><span class="va">num.real</span>, by.col <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">XinT2D.construct.full</span><span class="op">$</span><span class="va">prop.real</span><span class="op">)</span></span>
+<span><span class="co">#              alpha      beta      delta      gamma</span></span>
+<span><span class="co">#Non T2D 1 0.7162162 0.1756757 0.06756757 0.04054054</span></span>
+<span><span class="co">#Non T2D 2 0.1666667 0.5416667 0.08333333 0.20833333</span></span>
+<span><span class="co">#Non T2D 3 0.6428571 0.2380952 0.07142857 0.04761905</span></span>
+<span><span class="co">#Non T2D 4 0.5185185 0.3703704 0.00000000 0.11111111</span></span>
+<span><span class="co">#Non T2D 5 0.4423077 0.4230769 0.09615385 0.03846154</span></span>
+<span><span class="co">#Non T2D 6 0.7500000 0.1458333 0.08333333 0.02083333</span></span></code></pre></div>
 <p>The estimation of cell type proportions:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Estimate cell type proportions of artificial bulk data</span>
-<span class="va">Est.prop.Xin</span> <span class="op">=</span> <span class="fu"><a href="../reference/music_prop.html">music_prop</a></span><span class="op">(</span>bulk.mtx <span class="op">=</span> <span class="va">XinT2D.construct.full</span><span class="op">$</span><span class="va">bulk.counts</span>, sc.sce <span class="op">=</span> <span class="va">EMTAB.sce</span>,
-                          clusters <span class="op">=</span> <span class="st">'cellType'</span>, samples <span class="op">=</span> <span class="st">'sampleID'</span>, 
-                          select.ct <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'alpha'</span>, <span class="st">'beta'</span>, <span class="st">'delta'</span>, <span class="st">'gamma'</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#Creating Relative Abudance Matrix...</span>
-<span class="co">#Creating Variance Matrix...</span>
-<span class="co">#Creating Library Size Matrix...</span>
-<span class="co">#Used 17884 common genes...</span>
-<span class="co">#Used 4 cell types in deconvolution...</span>
-<span class="co">#Non T2D 1 has common genes 15115 ...</span>
-<span class="co">#Non T2D 2 has common genes 12826 ...</span>
-<span class="co">#Non T2D 3 has common genes 13553 ...</span>
-<span class="co">#Non T2D 4 has common genes 13491 ...</span>
-<span class="co">#Non T2D 5 has common genes 14585 ...</span>
-<span class="co">#Non T2D 6 has common genes 13984 ...</span>
-<span class="co">#Non T2D 7 has common genes 13065 ...</span>
-<span class="co">#Non T2D 8 has common genes 13756 ...</span>
-<span class="co">#Non T2D 9 has common genes 13813 ...</span>
-<span class="co">#Non T2D 10 has common genes 14566 ...</span>
-<span class="co">#Non T2D 11 has common genes 14197 ...</span>
-<span class="co">#Non T2D 12 has common genes 15507 ...</span>
-<span class="co">#T2D 1 has common genes 14936 ...</span>
-<span class="co">#T2D 2 has common genes 15084 ...</span>
-<span class="co">#T2D 3 has common genes 14175 ...</span>
-<span class="co">#T2D 4 has common genes 16163 ...</span>
-<span class="co">#T2D 5 has common genes 15866 ...</span>
-<span class="co">#T2D 6 has common genes 15673 ...</span></code></pre></div>
-<p>The numeric evaluation is conducted by <a href="../reference/Eval_multi.html"><code>Eval_multi</code></a>, which compares the real and estimated cell type proportions by</p>
+<code class="sourceCode R"><span><span class="co"># Estimate cell type proportions of artificial bulk data</span></span>
+<span><span class="va">Est.prop.Xin</span> <span class="op">=</span> <span class="fu"><a href="../reference/music_prop.html">music_prop</a></span><span class="op">(</span>bulk.mtx <span class="op">=</span> <span class="va">XinT2D.construct.full</span><span class="op">$</span><span class="va">bulk.counts</span>, sc.sce <span class="op">=</span> <span class="va">EMTAB.sce</span>,</span>
+<span>                          clusters <span class="op">=</span> <span class="st">'cellType'</span>, samples <span class="op">=</span> <span class="st">'sampleID'</span>, </span>
+<span>                          select.ct <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'alpha'</span>, <span class="st">'beta'</span>, <span class="st">'delta'</span>, <span class="st">'gamma'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#Creating Relative Abudance Matrix...</span></span>
+<span><span class="co">#Creating Variance Matrix...</span></span>
+<span><span class="co">#Creating Library Size Matrix...</span></span>
+<span><span class="co">#Used 17884 common genes...</span></span>
+<span><span class="co">#Used 4 cell types in deconvolution...</span></span>
+<span><span class="co">#Non T2D 1 has common genes 15115 ...</span></span>
+<span><span class="co">#Non T2D 2 has common genes 12826 ...</span></span>
+<span><span class="co">#Non T2D 3 has common genes 13553 ...</span></span>
+<span><span class="co">#Non T2D 4 has common genes 13491 ...</span></span>
+<span><span class="co">#Non T2D 5 has common genes 14585 ...</span></span>
+<span><span class="co">#Non T2D 6 has common genes 13984 ...</span></span>
+<span><span class="co">#Non T2D 7 has common genes 13065 ...</span></span>
+<span><span class="co">#Non T2D 8 has common genes 13756 ...</span></span>
+<span><span class="co">#Non T2D 9 has common genes 13813 ...</span></span>
+<span><span class="co">#Non T2D 10 has common genes 14566 ...</span></span>
+<span><span class="co">#Non T2D 11 has common genes 14197 ...</span></span>
+<span><span class="co">#Non T2D 12 has common genes 15507 ...</span></span>
+<span><span class="co">#T2D 1 has common genes 14936 ...</span></span>
+<span><span class="co">#T2D 2 has common genes 15084 ...</span></span>
+<span><span class="co">#T2D 3 has common genes 14175 ...</span></span>
+<span><span class="co">#T2D 4 has common genes 16163 ...</span></span>
+<span><span class="co">#T2D 5 has common genes 15866 ...</span></span>
+<span><span class="co">#T2D 6 has common genes 15673 ...</span></span></code></pre></div>
+<p>The numeric evaluation is conducted by <a href="../reference/Eval_multi.html"><code>Eval_multi</code></a>, which
+compares the real and estimated cell type proportions by</p>
 <ol style="list-style-type: decimal">
 <li>root-mean-squared deviation (RMSD);</li>
 <li>mean absolute difference (mAD);</li>
 <li>Pearson’s correlation (R).</li>
 </ol>
-<p>The visualization of cell type proportions are provided by <a href="../reference/Prop_comp_multi.html"><code>Prop_comp_multi</code></a>, <a href="../reference/Abs_diff_multi.html"><code>Abs_diff_multi</code></a> and <a href="../reference/Scatter_multi.html"><code>Scatter_multi</code></a>.</p>
+<p>The visualization of cell type proportions are provided by <a href="../reference/Prop_comp_multi.html"><code>Prop_comp_multi</code></a>,
+<a href="../reference/Abs_diff_multi.html"><code>Abs_diff_multi</code></a>
+and <a href="../reference/Scatter_multi.html"><code>Scatter_multi</code></a>.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Estimation evaluation</span>
-
-<span class="fu"><a href="../reference/Eval_multi.html">Eval_multi</a></span><span class="op">(</span>prop.real <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.matrix.html">data.matrix</a></span><span class="op">(</span><span class="va">XinT2D.construct.full</span><span class="op">$</span><span class="va">prop.real</span><span class="op">)</span>, 
-           prop.est <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.matrix.html">data.matrix</a></span><span class="op">(</span><span class="va">Est.prop.Xin</span><span class="op">$</span><span class="va">Est.prop.weighted</span><span class="op">)</span>, 
-                           <span class="fu"><a href="https://rdrr.io/r/base/data.matrix.html">data.matrix</a></span><span class="op">(</span><span class="va">Est.prop.Xin</span><span class="op">$</span><span class="va">Est.prop.allgene</span><span class="op">)</span><span class="op">)</span>, 
-           method.name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co">#           RMSD     mAD      R</span>
-<span class="co">#MuSiC   0.09881 0.06357 0.9378</span>
-<span class="co">#NNLS    0.17161 0.11749 0.8159</span>
-
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/cowplot/">cowplot</a></span><span class="op">)</span>
-<span class="va">prop.comp.fig</span> <span class="op">=</span> <span class="fu"><a href="../reference/Prop_comp_multi.html">Prop_comp_multi</a></span><span class="op">(</span>prop.real <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.matrix.html">data.matrix</a></span><span class="op">(</span><span class="va">XinT2D.construct.full</span><span class="op">$</span><span class="va">prop.real</span><span class="op">)</span>,
-                                prop.est <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.matrix.html">data.matrix</a></span><span class="op">(</span><span class="va">Est.prop.Xin</span><span class="op">$</span><span class="va">Est.prop.weighted</span><span class="op">)</span>,
-                                                <span class="fu"><a href="https://rdrr.io/r/base/data.matrix.html">data.matrix</a></span><span class="op">(</span><span class="va">Est.prop.Xin</span><span class="op">$</span><span class="va">Est.prop.allgene</span><span class="op">)</span><span class="op">)</span>,
-                                method.name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span><span class="op">)</span>, 
-                                title <span class="op">=</span> <span class="st">'Heatmap of Real and Est. Prop'</span> <span class="op">)</span>
-
-<span class="va">abs.diff.fig</span> <span class="op">=</span> <span class="fu"><a href="../reference/Abs_diff_multi.html">Abs_diff_multi</a></span><span class="op">(</span>prop.real <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.matrix.html">data.matrix</a></span><span class="op">(</span><span class="va">XinT2D.construct.full</span><span class="op">$</span><span class="va">prop.real</span><span class="op">)</span>,
-                              prop.est <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.matrix.html">data.matrix</a></span><span class="op">(</span><span class="va">Est.prop.Xin</span><span class="op">$</span><span class="va">Est.prop.weighted</span><span class="op">)</span>,
-                                              <span class="fu"><a href="https://rdrr.io/r/base/data.matrix.html">data.matrix</a></span><span class="op">(</span><span class="va">Est.prop.Xin</span><span class="op">$</span><span class="va">Est.prop.allgene</span><span class="op">)</span><span class="op">)</span>,
-                              method.name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span><span class="op">)</span>, 
-                              title <span class="op">=</span> <span class="st">'Abs.Diff between Real and Est. Prop'</span> <span class="op">)</span>
-
-<span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">prop.comp.fig</span>, <span class="va">abs.diff.fig</span>, labels <span class="op">=</span> <span class="st">"auto"</span>, rel_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p><img src="./images/benchmark.jpg"></p>
-<p>In our <a href="https://doi.org/10.1038/s41467-018-08023-x">paper</a>, we also compared our method with existing methods: <a href="https://cibersort.stanford.edu/">CIBERSORT</a> <span class="citation">(see Newman et al. 2015)</span> and <a href="https://github.com/shenorrLab/bseqsc">bseq-sc</a> <span class="citation">(see Baron et al. 2016)</span>.</p>
+<code class="sourceCode R"><span><span class="co"># Estimation evaluation</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/Eval_multi.html">Eval_multi</a></span><span class="op">(</span>prop.real <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.matrix.html" class="external-link">data.matrix</a></span><span class="op">(</span><span class="va">XinT2D.construct.full</span><span class="op">$</span><span class="va">prop.real</span><span class="op">)</span>, </span>
+<span>           prop.est <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.matrix.html" class="external-link">data.matrix</a></span><span class="op">(</span><span class="va">Est.prop.Xin</span><span class="op">$</span><span class="va">Est.prop.weighted</span><span class="op">)</span>, </span>
+<span>                           <span class="fu"><a href="https://rdrr.io/r/base/data.matrix.html" class="external-link">data.matrix</a></span><span class="op">(</span><span class="va">Est.prop.Xin</span><span class="op">$</span><span class="va">Est.prop.allgene</span><span class="op">)</span><span class="op">)</span>, </span>
+<span>           method.name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#           RMSD     mAD      R</span></span>
+<span><span class="co">#MuSiC   0.09881 0.06357 0.9378</span></span>
+<span><span class="co">#NNLS    0.17161 0.11749 0.8159</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/cowplot/" class="external-link">cowplot</a></span><span class="op">)</span></span>
+<span><span class="va">prop.comp.fig</span> <span class="op">=</span> <span class="fu"><a href="../reference/Prop_comp_multi.html">Prop_comp_multi</a></span><span class="op">(</span>prop.real <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.matrix.html" class="external-link">data.matrix</a></span><span class="op">(</span><span class="va">XinT2D.construct.full</span><span class="op">$</span><span class="va">prop.real</span><span class="op">)</span>,</span>
+<span>                                prop.est <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.matrix.html" class="external-link">data.matrix</a></span><span class="op">(</span><span class="va">Est.prop.Xin</span><span class="op">$</span><span class="va">Est.prop.weighted</span><span class="op">)</span>,</span>
+<span>                                                <span class="fu"><a href="https://rdrr.io/r/base/data.matrix.html" class="external-link">data.matrix</a></span><span class="op">(</span><span class="va">Est.prop.Xin</span><span class="op">$</span><span class="va">Est.prop.allgene</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>                                method.name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span><span class="op">)</span>, </span>
+<span>                                title <span class="op">=</span> <span class="st">'Heatmap of Real and Est. Prop'</span> <span class="op">)</span></span>
+<span></span>
+<span><span class="va">abs.diff.fig</span> <span class="op">=</span> <span class="fu"><a href="../reference/Abs_diff_multi.html">Abs_diff_multi</a></span><span class="op">(</span>prop.real <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.matrix.html" class="external-link">data.matrix</a></span><span class="op">(</span><span class="va">XinT2D.construct.full</span><span class="op">$</span><span class="va">prop.real</span><span class="op">)</span>,</span>
+<span>                              prop.est <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.matrix.html" class="external-link">data.matrix</a></span><span class="op">(</span><span class="va">Est.prop.Xin</span><span class="op">$</span><span class="va">Est.prop.weighted</span><span class="op">)</span>,</span>
+<span>                                              <span class="fu"><a href="https://rdrr.io/r/base/data.matrix.html" class="external-link">data.matrix</a></span><span class="op">(</span><span class="va">Est.prop.Xin</span><span class="op">$</span><span class="va">Est.prop.allgene</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>                              method.name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'MuSiC'</span>, <span class="st">'NNLS'</span><span class="op">)</span>, </span>
+<span>                              title <span class="op">=</span> <span class="st">'Abs.Diff between Real and Est. Prop'</span> <span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html" class="external-link">plot_grid</a></span><span class="op">(</span><span class="va">prop.comp.fig</span>, <span class="va">abs.diff.fig</span>, labels <span class="op">=</span> <span class="st">"auto"</span>, rel_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><img src="../../../../Single%20cell/Rpackage/MuSiC-master_v1.0.0/articles/images/benchmark.jpg"></p>
+<p>In our <a href="https://doi.org/10.1038/s41467-018-08023-x" class="external-link">paper</a>, we also
+compared our method with existing methods: <a href="https://cibersort.stanford.edu/" class="external-link">CIBERSORT</a> <span class="citation">(see Newman et al. 2015)</span> and <a href="https://github.com/shenorrLab/bseqsc" class="external-link">bseq-sc</a> <span class="citation">(see Baron et al. 2016)</span>.</p>
 </div>
 </div>
-<div id="reference" class="section level1 unnumbered">
-<h1 class="hasAnchor">
-<a href="#reference" class="anchor"></a>Reference</h1>
-<div id="refs" class="references">
-<div id="ref-baron2016single">
-<p>Baron, Maayan, Adrian Veres, Samuel L Wolock, Aubrey L Faust, Renaud Gaujoux, Amedeo Vetere, Jennifer Hyoje Ryu, et al. 2016. “A Single-Cell Transcriptomic Map of the Human and Mouse Pancreas Reveals Inter-and Intra-Cell Population Structure.” <em>Cell Systems</em> 3 (4): 346–60.</p>
+<div class="section level2">
+<h2 class="unnumbered" id="reference">Reference<a class="anchor" aria-label="anchor" href="#reference"></a>
+</h2>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-baron2016single" class="csl-entry">
+Baron, Maayan, Adrian Veres, Samuel L Wolock, Aubrey L Faust, Renaud
+Gaujoux, Amedeo Vetere, Jennifer Hyoje Ryu, et al. 2016. <span>“A
+Single-Cell Transcriptomic Map of the Human and Mouse Pancreas Reveals
+Inter-and Intra-Cell Population Structure.”</span> <em>Cell Systems</em>
+3 (4): 346–60.
 </div>
-<div id="ref-beckerman2017transgenic">
-<p>Beckerman, Pazit, Jing Bi-Karchin, Ae Seo Deok Park, Chengxiang Qiu, Patrick D Dummer, Irfana Soomro, Carine M Boustany-Kari, et al. 2017. “Transgenic Expression of Human Apol1 Risk Variants in Podocytes Induces Kidney Disease in Mice.” <em>Nature Medicine</em> 23 (4): 429.</p>
+<div id="ref-beckerman2017transgenic" class="csl-entry">
+Beckerman, Pazit, Jing Bi-Karchin, Ae Seo Deok Park, Chengxiang Qiu,
+Patrick D Dummer, Irfana Soomro, Carine M Boustany-Kari, et al. 2017.
+<span>“Transgenic Expression of Human Apol1 Risk Variants in Podocytes
+Induces Kidney Disease in Mice.”</span> <em>Nature Medicine</em> 23 (4):
+429.
 </div>
-<div id="ref-fadista2014global">
-<p>Fadista, João, Petter Vikman, Emilia Ottosson Laakso, Inês Guerra Mollet, Jonathan Lou Esguerra, Jalal Taneera, Petter Storm, et al. 2014. “Global Genomic and Transcriptomic Analysis of Human Pancreatic Islets Reveals Novel Genes Influencing Glucose Metabolism.” <em>Proceedings of the National Academy of Sciences</em> 111 (38): 13924–9.</p>
+<div id="ref-fadista2014global" class="csl-entry">
+Fadista, João, Petter Vikman, Emilia Ottosson Laakso, Inês Guerra
+Mollet, Jonathan Lou Esguerra, Jalal Taneera, Petter Storm, et al. 2014.
+<span>“Global Genomic and Transcriptomic Analysis of Human Pancreatic
+Islets Reveals Novel Genes Influencing Glucose Metabolism.”</span>
+<em>Proceedings of the National Academy of Sciences</em> 111 (38):
+13924–29.
 </div>
-<div id="ref-newman2015robust">
-<p>Newman, Aaron M, Chih Long Liu, Michael R Green, Andrew J Gentles, Weiguo Feng, Yue Xu, Chuong D Hoang, Maximilian Diehn, and Ash A Alizadeh. 2015. “Robust Enumeration of Cell Subsets from Tissue Expression Profiles.” <em>Nature Methods</em> 12 (5): 453.</p>
+<div id="ref-newman2015robust" class="csl-entry">
+Newman, Aaron M, Chih Long Liu, Michael R Green, Andrew J Gentles,
+Weiguo Feng, Yue Xu, Chuong D Hoang, Maximilian Diehn, and Ash A
+Alizadeh. 2015. <span>“Robust Enumeration of Cell Subsets from Tissue
+Expression Profiles.”</span> <em>Nature Methods</em> 12 (5): 453.
 </div>
-<div id="ref-park2018single">
-<p>Park, Jihwan, Rojesh Shrestha, Chengxiang Qiu, Ayano Kondo, Shizheng Huang, Max Werth, Mingyao Li, Jonathan Barasch, and Katalin Suszták. 2018. “Single-Cell Transcriptomics of the Mouse Kidney Reveals Potential Cellular Targets of Kidney Disease.” <em>Science</em>, eaar2131.</p>
+<div id="ref-park2018single" class="csl-entry">
+Park, Jihwan, Rojesh Shrestha, Chengxiang Qiu, Ayano Kondo, Shizheng
+Huang, Max Werth, Mingyao Li, Jonathan Barasch, and Katalin Suszták.
+2018. <span>“Single-Cell Transcriptomics of the Mouse Kidney Reveals
+Potential Cellular Targets of Kidney Disease.”</span> <em>Science</em>,
+eaar2131.
 </div>
-<div id="ref-segerstolpe2016single">
-<p>Segerstolpe, Åsa, Athanasia Palasantza, Pernilla Eliasson, Eva-Marie Andersson, Anne-Christine Andréasson, Xiaoyan Sun, Simone Picelli, et al. 2016. “Single-Cell Transcriptome Profiling of Human Pancreatic Islets in Health and Type 2 Diabetes.” <em>Cell Metabolism</em> 24 (4): 593–607.</p>
+<div id="ref-segerstolpe2016single" class="csl-entry">
+Segerstolpe, Åsa, Athanasia Palasantza, Pernilla Eliasson, Eva-Marie
+Andersson, Anne-Christine Andréasson, Xiaoyan Sun, Simone Picelli, et
+al. 2016. <span>“Single-Cell Transcriptome Profiling of Human Pancreatic
+Islets in Health and Type 2 Diabetes.”</span> <em>Cell Metabolism</em>
+24 (4): 593–607.
 </div>
-<div id="ref-xin2016rna">
-<p>Xin, Yurong, Jinrang Kim, Haruka Okamoto, Min Ni, Yi Wei, Christina Adler, Andrew J Murphy, George D Yancopoulos, Calvin Lin, and Jesper Gromada. 2016. “RNA Sequencing of Single Human Islet Cells Reveals Type 2 Diabetes Genes.” <em>Cell Metabolism</em> 24 (4): 608–15.</p>
+<div id="ref-xin2016rna" class="csl-entry">
+Xin, Yurong, Jinrang Kim, Haruka Okamoto, Min Ni, Yi Wei, Christina
+Adler, Andrew J Murphy, George D Yancopoulos, Calvin Lin, and Jesper
+Gromada. 2016. <span>“RNA Sequencing of Single Human Islet Cells Reveals
+Type 2 Diabetes Genes.”</span> <em>Cell Metabolism</em> 24 (4): 608–15.
 </div>
 </div>
 </div>
@@ -748,11 +946,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Xuran Wang, Jiaxin Fan.</p>
+  <p></p>
+<p>Developed by Xuran Wang, Jiaxin Fan.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -760,6 +960,8 @@
 
   
 
+
+  
 
   </body>
 </html>

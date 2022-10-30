@@ -78,11 +78,31 @@ music2_prop = function(bulk.control.mtx, bulk.case.mtx, sc.sce, clusters, sample
                             clusters = clusters, samples = samples, select.ct = select.ct,
                             markers = markers, cell_size = cell_size, ct.cov = ct.cov, iter.max = 1000,
                             nu = 0.0001, eps = 0.01, centered = centered, normalize = normalize, verbose = F)$Est.prop.weighted
-  prop_case_fix = NULL
+missing_control <- unique(sc.iter.sce[[clusters]])[!unique(sc.iter.sce[[clusters]]) %in% colnames(prop_control)]
+if (length(missing_control) > 0) {
+  prop_control <- cbind(
+    prop_control,
+    matrix(
+      rep(x=0, times = length(missing_control)*nrow(prop_control)), 
+      nrow=nrow(prop_control), 
+      dimnames = list(rep(NA, nrow(prop_control)), 
+                      missing_control)))
+}
+prop_case_fix = NULL
   prop_case_ini = music_prop(bulk.mtx = bulk.case.mtx, sc.sce = sc.sce,
                              clusters = clusters, samples = samples, select.ct = select.ct,
                              markers = markers, cell_size = cell_size, ct.cov = ct.cov, iter.max = 1000,
                              nu = 0.0001, eps = 0.01, centered = centered, normalize = normalize, verbose = F)$Est.prop.weighted
+  missing_case_ini <- unique(sc.iter.sce[[clusters]])[!unique(sc.iter.sce[[clusters]]) %in% colnames(prop_case_ini)]
+  if (length(missing_case_ini) > 0) {
+    prop_case_ini <- cbind(
+      prop_case_ini,
+      matrix(
+        rep(x=0, times = length(missing_case_ini)*nrow(prop_case_ini)), 
+        nrow=nrow(prop_case_ini), 
+        dimnames = list(rep(NA, nrow(prop_case_ini)), 
+                        missing_case_ini)))
+  }
   prop_CASE = prop_case_ini
   prop_all = rbind(prop_control,prop_CASE)
   
@@ -175,7 +195,17 @@ music2_prop = function(bulk.control.mtx, bulk.case.mtx, sc.sce, clusters, sample
                            clusters=clusters, samples=samples, select.ct=select.ct,
                            markers = markers, cell_size = cell_size, ct.cov = ct.cov, iter.max = 1000,
                            nu = 0.0001, eps = 0.01, centered = centered, normalize = normalize,verbose = F)$Est.prop.weighted
-    
+    missing_case <- unique(sc.iter.sce[[clusters]])[!unique(sc.iter.sce[[clusters]]) %in% colnames(prop_case)]
+    if (length(missing_case)>0){
+      prop_case <- cbind(
+        prop_case,
+        matrix(
+          rep(x=0, times = length(missing_case)*nrow(prop_case)), 
+          nrow=nrow(prop_case), 
+          dimnames = list(rep(NA, nrow(prop_case)), 
+                          missing_case)))
+    }
+
     prop_CASE = rbind(prop_case,prop_case_fix)
     
     if(length(id_conv)==1){

@@ -450,7 +450,7 @@ show the difference between different estimation methods.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_shape_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">21</span>, <span class="fl">24</span><span class="op">)</span><span class="op">)</span><span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">plot_grid</span><span class="op">(</span><span class="va">jitter.fig</span>, <span class="va">jitter.new</span>, labels <span class="op">=</span> <span class="st">'auto'</span><span class="op">)</span></span></code></pre></div>
-<p><img src="../../../../Single%20cell/Rpackage/MuSiC-master_v1.0.0/articles/images/GSE50244jitter.jpg"></p>
+<p><img src="../articles/images/GSE50244jitter.jpg"></p>
 <p>It is well known that the beta cell proportions is related to T2D
 disease status. In the progress of T2D, the number of beta cells
 decreases. One of the most important test for T2D is HbA1c (hemoglobin
@@ -475,7 +475,7 @@ level.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">'HbA1c vs Beta Cell Type Proportion'</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_colour_manual</a></span><span class="op">(</span> values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'white'</span>, <span class="st">"gray20"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_shape_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">21</span>, <span class="fl">24</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="../../../../Single%20cell/Rpackage/MuSiC-master_v1.0.0/articles/images/GSE50244beta.jpg"></p>
+<p><img src="../articles/images/GSE50244beta.jpg"></p>
 <p>The numerical evaluation can be obtained by linear regression. There
 is a significant negative correlation between HbA1c levels and beta cell
 proportions, after adjusted Age, BMI and Gender.</p>
@@ -689,7 +689,7 @@ design matrix.</p>
 <span><span class="va">hc2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">hclust</a></span><span class="op">(</span><span class="va">d</span>, method <span class="op">=</span> <span class="st">"complete"</span><span class="op">)</span></span>
 <span><span class="co"># Plot the obtained dendrogram</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">hc2</span>, cex <span class="op">=</span> <span class="fl">0.6</span>, hang <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, main <span class="op">=</span> <span class="st">'Cluster log(Mean of RA)'</span><span class="op">)</span></span></code></pre></div>
-<p><img src="../../../../Single%20cell/Rpackage/MuSiC-master_v1.0.0/articles/images/Cluster.jpg"></p>
+<p><img src="../articles/images/Cluster.jpg"></p>
 <p>The immune cells are clustered together and the kidney specific cells
 are clustered together. Notice that DCT and PT are within the same
 high-level grouping. The cut-off is user determined. Here we cut 13 cell
@@ -874,7 +874,7 @@ and <a href="../reference/Scatter_multi.html"><code>Scatter_multi</code></a>.</p
 <span>                              title <span class="op">=</span> <span class="st">'Abs.Diff between Real and Est. Prop'</span> <span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html" class="external-link">plot_grid</a></span><span class="op">(</span><span class="va">prop.comp.fig</span>, <span class="va">abs.diff.fig</span>, labels <span class="op">=</span> <span class="st">"auto"</span>, rel_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="../../../../Single%20cell/Rpackage/MuSiC-master_v1.0.0/articles/images/benchmark.jpg"></p>
+<p><img src="../articles/images/benchmark.jpg"></p>
 <p>In our <a href="https://doi.org/10.1038/s41467-018-08023-x" class="external-link">paper</a>, we also
 compared our method with existing methods: <a href="https://cibersort.stanford.edu/" class="external-link">CIBERSORT</a> <span class="citation">(see Newman et al. 2015)</span> and <a href="https://github.com/shenorrLab/bseqsc" class="external-link">bseq-sc</a> <span class="citation">(see Baron et al. 2016)</span>.</p>
 </div>

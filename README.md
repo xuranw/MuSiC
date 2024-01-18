@@ -64,7 +64,7 @@ Codespaces is a feature provided by GitHub offering a cloud-based, integrated de
 
 #### 1. Fork the Repository
 - Click on the “Fork” button in the upper right corner of the repository page to create a copy of the repository in your GitHub account.
-![Codespace1](images/1.png)
+![Codespace1](images/Codespace/1.png)
 
 #### 2. Create a new Codespace
 - Navigate to the repository (either the original one or your fork). Look for the "Code" dropdown button near the top of the page and click on it to see various options for working with the repository.
@@ -80,13 +80,21 @@ Codespaces is a feature provided by GitHub offering a cloud-based, integrated de
 
 #### 4. Open RStudio
 - To open RStudio Server, click the Forwarded Ports "Radio" icon at the bottom of the VS Code Online window.
+![Codespace5](images/Codespace/5.png)
 - In the Ports tab, hover over the "Local Address" column for the RStudio row and click the Open in Browser "World" icon.
+![Codespace6](images/Codespace/6.png)
 - This will launch RStudio Server in a new window. Log in with the username and password `rstudio/rstudio`.
   - **NOTE:** Sometimes, the RStudio window may fail to open with a timeout error. If this happens, try again, or restart the Codespace.
+![Codespace7](images/Codespace/7.png)
 - In RStudio, use the File menu to open the `/music` folder and then browse to open the file `test.R`.
+![Codespace8](images/Codespace/8.png)
+![Codespace9](images/Codespace/9.png)
 
 #### 5. Test with the `test.R` File
 - Now, play around with the `test.R` file. Click on "Run" several times until you see the plot.
+![Codespace10](images/Codespace/10.png)
+![Codespace11](images/Codespace/11.png)
+![Codespace12](images/Codespace/12.png)
 
 More Information
 -----------------

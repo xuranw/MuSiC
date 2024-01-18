@@ -64,7 +64,7 @@ Codespaces is a feature provided by GitHub offering a cloud-based, integrated de
 
 #### 1. Fork the Repository
 - Click on the “Fork” button in the upper right corner of the repository page to create a copy of the repository in your GitHub account.
-![Codespace1](images/Codespace/1.png)
+![Codespace1](images/1.png)
 
 #### 2. Create a new Codespace
 - Navigate to the repository (either the original one or your fork). Look for the "Code" dropdown button near the top of the page and click on it to see various options for working with the repository.

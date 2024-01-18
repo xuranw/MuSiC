@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>readme</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="README_files/libs/clipboard/clipboard.min.js"></script>
+<script src="README_files/libs/quarto-html/quarto.js"></script>
+<script src="README_files/libs/quarto-html/popper.min.js"></script>
+<script src="README_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="README_files/libs/quarto-html/anchor.min.js"></script>
+<link href="README_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="README_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="README_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="README_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="README_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="music" class="level1">
+<h1>MuSiC</h1>
+<p><code>MuSiC</code> is an analysis toolkit for single-cell RNA-Seq experiments. To use this package, you will need the R statistical computing environment (version 3.0 or later) and several packages available through Bioconductor and CRAN.</p>
+<blockquote class="blockquote">
+<h2 id="update-01152024" class="anchored" data-anchor-id="music">Update (01/15/2024)</h2>
+<p>We’re excited to announce two significant enhancements to the MuSiC toolkit:</p>
+</blockquote>
+<blockquote class="blockquote">
+<h3 id="integration-with-r-devcontainer-and-docker-for-codespace-environments" class="anchored">1. Integration with R Devcontainer and Docker for Codespace Environments:</h3>
+<ul>
+<li>We have now enabled the setup of an R development container, specifically tailored for <code>MuSiC</code>, in a Docker environment. This allows users to seamlessly edit and run <code>MuSiC</code> in a cloud-based development environment such as GitHub Codespaces.</li>
+<li>With this update, users can easily access a pre-configured R environment with all necessary dependencies and settings, ensuring a consistent and reproducible coding experience regardless of the local machine setup.</li>
+</ul>
+</blockquote>
+<blockquote class="blockquote">
+<h3 id="enhanced-code-documentation" class="anchored">2. Enhanced Code Documentation:</h3>
+<ul>
+<li>To improve user experience and code readability, we have added comprehensive comments and annotations throughout the <code>MuSiC</code> codebase.</li>
+<li>These annotations provide clear explanations for each line of code and function, assisting users in understanding the underlying logic and facilitating easier modifications or customizations to the toolkit.</li>
+</ul>
+</blockquote>
+<blockquote class="blockquote">
+<p>These updates are part of our ongoing efforts to make <code>MuSiC</code> more accessible and user-friendly for researchers and developers in the RNA-Seq community. We believe that these enhancements will significantly streamline the workflow for both new and experienced users of <code>MuSiC</code>.</p>
+</blockquote>
+<blockquote class="blockquote">
+<h2 id="update-09262022" class="anchored">Update (09/26/2022)</h2>
+<p>MuSiC (v1.0.0) now support <code>SingleCellExperiment</code> class as single cell reference!<br> Please See updated <a href="http://xuranw.github.io/MuSiC/articles/MuSiC.html">Tutorial</a> for guidance!</p>
+</blockquote>
+<blockquote class="blockquote">
+<h2 id="update-09262022-1" class="anchored">Update (09/26/2022)</h2>
+<p>MuSiC2 is available! You can use MuSiC2 for cell type deconvolution for multi-condition bulk RNA-seq data. <br> MuSiC2 functions can be accessed with either latest version of MuSiC(v1.0.0) or installed from <a href="https://github.com/Jiaxin-Fan/MuSiC2">this</a> github repo of Dr.&nbsp;Jiaxin Fan.</p>
+</blockquote>
+<p>The original release of <code>MuSiC</code> is a deconvolution method that utilizes cross-subject scRNA-seq to estimate cell type proportions in bulk RNA-seq data. <img src="images/FigureMethod.jpg" class="img-fluid" alt="MuSiC_pipeline"></p>
+<p><code>MuSiC2</code> is an iterative algorithm aiming to improve cell type deconvolution for bulk RNA-seq data using scRNA-seq data as reference when the bulk data are generated from samples with multiple clinical conditions where at least one condition is different from the scRNA-seq reference. <img src="images/MuSiC2.jpg" class="img-fluid" alt="MuSiC_music2"></p>
+<section id="how-to-cite-music" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-cite-music">How to cite <code>MuSiC</code></h2>
+<p>Please cite the following publications:</p>
+<blockquote class="blockquote">
+<p><em>Bulk tissue cell type deconvolution with multi-subject single-cell expression reference</em><br> <small>X. Wang, J. Park, K. Susztak, N.R. Zhang, M. Li<br></small> Nature Communications. 2019 Jan 22 <a href="https://doi.org/10.1038/s41467-018-08023-x">https://doi.org/10.1038/s41467-018-08023-x</a></p>
+</blockquote>
+<blockquote class="blockquote">
+<p><em>MuSiC2: cell type deconvolution for multi-condition bulk RNA-seq data</em><br> <small>J. Fan, Y. Lyu, Q. Zhang, X. Wang, R. Xiao, M. Li<br></small> Briefings in Bioinformatics. 2022 <a href="https://doi.org/10.1093/bib/bbac430">https://doi.org/10.1093/bib/bbac430</a></p>
+</blockquote>
+</section>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>Both <code>MuSiC</code> and <code>MuSiC2</code> functions are available in one package.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install devtools if necessary</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'devtools'</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># install the MuSiC package</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'xuranw/MuSiC'</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># load</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MuSiC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="special-steps-for-github-codespaces" class="level2">
+<h2 class="anchored" data-anchor-id="special-steps-for-github-codespaces">Special Steps for GitHub Codespaces</h2>
+<section id="what-is-codespaces" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-codespaces">What is Codespaces?</h3>
+<p>Codespaces is a feature provided by GitHub offering a cloud-based, integrated development environment (IDE). This IDE allows developers to write, run, and debug code directly within GitHub. Essentially, Codespaces delivers a complete, configurable development environment accessible anywhere via a web browser or supported code editors like Visual Studio Code.</p>
+</section>
+<section id="how-to-use-codespaces" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-use-codespaces">How to Use Codespaces</h3>
+<section id="fork-the-repository" class="level4">
+<h4 class="anchored" data-anchor-id="fork-the-repository">1. Fork the Repository</h4>
+<ul>
+<li>Click on the “Fork” button in the upper right corner of the repository page to create a copy of the repository in your GitHub account. <img src="images/Codespace/1.png" class="img-fluid" alt="Codespace1"></li>
+</ul>
+</section>
+<section id="create-a-new-codespace" class="level4">
+<h4 class="anchored" data-anchor-id="create-a-new-codespace">2. Create a new Codespace</h4>
+<ul>
+<li>Navigate to the repository (either the original one or your fork). Look for the “Code” dropdown button near the top of the page and click on it to see various options for working with the repository. <img src="images/Codespace/2.png" class="img-fluid" alt="Codespace2"></li>
+<li>Click on Codespaces, then click on the PLUS (+) sign to create a new codespace. <img src="images/Codespace/3.png" class="img-fluid" alt="Codespace3"></li>
+<li>If this is your first time creating a codespace for this repository, initial setup might take a while.</li>
+</ul>
+</section>
+<section id="using-the-codespace" class="level4">
+<h4 class="anchored" data-anchor-id="using-the-codespace">3. Using the Codespace</h4>
+<ul>
+<li>Once the Codespace is created, it will open a VS Code-like editor in your browser, complete with a terminal, code editor, and debugger.</li>
+<li>You can now write, edit, run, and debug code directly in your browser. <img src="images/Codespace/4.png" class="img-fluid" alt="Codespace4"></li>
+</ul>
+</section>
+<section id="open-rstudio" class="level4">
+<h4 class="anchored" data-anchor-id="open-rstudio">4. Open RStudio</h4>
+<ul>
+<li>To open RStudio Server, click the Forwarded Ports “Radio” icon at the bottom of the VS Code Online window.</li>
+<li>In the Ports tab, hover over the “Local Address” column for the RStudio row and click the Open in Browser “World” icon.</li>
+<li>This will launch RStudio Server in a new window. Log in with the username and password <code>rstudio/rstudio</code>.
+<ul>
+<li><strong>NOTE:</strong> Sometimes, the RStudio window may fail to open with a timeout error. If this happens, try again, or restart the Codespace.</li>
+</ul></li>
+<li>In RStudio, use the File menu to open the <code>/music</code> folder and then browse to open the file <code>test.R</code>.</li>
+</ul>
+</section>
+<section id="test-with-the-test.r-file" class="level4">
+<h4 class="anchored" data-anchor-id="test-with-the-test.r-file">5. Test with the <code>test.R</code> File</h4>
+<ul>
+<li>Now, play around with the <code>test.R</code> file. Click on “Run” several times until you see the plot.</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="more-information" class="level2">
+<h2 class="anchored" data-anchor-id="more-information">More Information</h2>
+<p>Please see Tutorials for <a href="http://xuranw.github.io/MuSiC/articles/MuSiC.html">MuSiC</a> and <a href="http://xuranw.github.io/MuSiC/articles/pages/MuSiC2.html">MuSiC2</a>.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

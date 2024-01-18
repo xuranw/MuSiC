@@ -89,10 +89,10 @@ Codespaces is a feature provided by GitHub offering a cloud-based, integrated de
 - In RStudio, use the File menu to open the `/music` folder and then browse to open the file `test.R`.
 ![Codespace8](images/Codespace/8.png)
 ![Codespace9](images/Codespace/9.png)
+![Codespace10](images/Codespace/10.png)
 
 #### 5. Test with the `test.R` File
 - Now, play around with the `test.R` file. Click on "Run" several times until you see the plot.
-![Codespace10](images/Codespace/10.png)
 ![Codespace11](images/Codespace/11.png)
 ![Codespace12](images/Codespace/12.png)
 

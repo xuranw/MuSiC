@@ -1,0 +1,14 @@
+pybryt
+pylint
+datascience
+otter-grader
+numpy
+pandas
+scipy
+folium>=0.9.1
+matplotlib
+ipywidgets>=7.0.0
+bqplot
+nbinteract>=0.0.12
+okpy
+scikit-learn

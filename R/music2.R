@@ -337,7 +337,7 @@ music2_prop_t_statistics = function(bulk.control.mtx, bulk.case.mtx, sc.sce, clu
       MOD0=MOD0+mod0
       
       id_d = sample(colnames(bulk.case),round(ncol(bulk.case)*sample_prop))
-      case_s = exprs(bulk.case[exp_genel, colnames(bulk.case) %in% id_d])
+      case_s = bulk.case[exp_genel, colnames(bulk.case) %in% id_d]
       prop_d = prop_CASE[colnames(case_s),]
       
       mod1 = apply(case_s, 1, function(x){

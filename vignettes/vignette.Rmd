@@ -7,14 +7,14 @@ output: html_document
 Installation
 ------------
 ```{r}
-# install devtools if necessary
-if (!"devtools" %in% rownames(installed.packages())) {
-  install.packages('devtools')
+# install pak if necessary
+if (!"pak" %in% rownames(installed.packages())) {
+  install.packages("pak")
 }
 
 # install the MuSiC package
 if (!"MuSiC" %in% rownames(installed.packages())) {
-  devtools::install_github('xuranw/MuSiC')
+  pak::pak("xuranw/MuSiC")
 }
 
 

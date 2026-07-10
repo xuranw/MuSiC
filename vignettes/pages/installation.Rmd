@@ -10,11 +10,11 @@ R package, `r BiocStyle::Githubpkg('xuranw', 'MuSiC')`, which can be
 installed from GitHub by:
   
 ```{r, eval = FALSE}
-# install devtools if necessary
-install.packages('devtools')
+# install pak if necessary
+install.packages("pak")
 
 # install bseqsc
-devtools::install_github('xuranw/MuSiC')
+pak::pak("xuranw/MuSiC")
 
 # load
 library(MuSiC)
